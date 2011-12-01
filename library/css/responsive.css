@@ -1,0 +1,1867 @@
+/******************************************************************
+Theme Name: Bones Child Theme
+Theme URI: http://www.themble.com/genesis/bones
+Description: Helpful for building Genesis Child Themes, Bones for Genesis is a child development theme for the Genesis Framework.
+Author: Eddie Machado
+Author URI: http://www.themble.com/
+Version: 1.01
+Tags: html5, css3, fixed, hb5
+Template: genesis
+Template Version: 1.7.1
+******************************************************************/
+
+/******************************************************************
+TABLE OF CONTENTS
+
+To skip to a certain section, search for "=01" where the number is
+the section you're looking for.
+
+01 - Normalize.css
+	1a - Clearing Floats
+02 - Commonly Used Elements (buttons, alerts, ect.)
+	2a - Buttons
+	2b - CSS3 Rounded Corners
+	2c - CSS3 Transitions
+	2d - CSS3 Gradients
+	2e - Font Face Example
+	2f - Search Inputs
+
+03 - Base Mobile Styles
+	3a - Wordpress Body Classes
+	3b - Grid & Layout
+		3b1 - Wraps & Inner
+	3c - Links & Text Selection
+		3c1 - Text Selection
+	3d - Title & Headlines
+	3e - Header
+		3e1 - Image Header (PARTIAL)
+		3e2 - Image Header (FULL)
+		3e3 - Header Right Nav
+		3e4 - Header Search
+	3f - Navigation
+		3f1 - Nav Extras
+		3f2 - SubNav
+		3f3 - Nav Search
+	3g - Posts & Content
+		3g1 - Breadcrumbs
+		3g2 - Descriptions
+		3g3 - Post Classes
+		3g4 - Post Info
+		3g5 - Entry Content
+		3g6 - Lists
+		3g7 - Blockquotes
+		3g8 - Datalists
+		3g9 - Post Images
+		3g10 - Post Videos
+		3g11 - Wp-Caption
+		3g12 - Post Galleries
+		3g13 - Post Meta
+		3g14 - Author Box
+		3g15 - Featured Posts
+	3h - Post Navigation
+	3i - Sidebars & Asides
+		3i1 - Sidebar 1
+		3i2 - Sidebar 2
+		3i3 - Widgets
+	3j - Comments
+		3j1 - Ping List
+	3k - Comment Form
+		3k1 - Form Validation
+		3k2 - No Comments
+	3l - Footer
+		3l1 - Footer Widgets
+
+04 - Just Larger Than Mobile (min-481px)
+
+05 - Desktop & Just Bigger than an iPad (min-768px)
+	5a - Wordpress Body Classes
+	5b - Grid & Layout
+		5b1 - Wraps & Inner
+	5c - Links & Text Selection
+		5c1 - Text Selection
+	5d - Title & Headlines
+	5e - Header
+		5e1 - Image Header (PARTIAL)
+		5e2 - Image Header (FULL)
+		5e3 - Header Right Nav
+		5e4 - Header Search
+	5f - Navigation
+		5f1 - Nav Extras
+		5f2 - SubNav
+		5f3 - Nav Search
+	5g - Posts & Content
+		5g1 - Breadcrumbs
+		5g2 - Descriptions
+		5g3 - Post Classes
+		5g4 - Post Info
+		5g5 - Entry Content
+		5g6 - Lists
+		5g7 - Blockquotes
+		5g8 - Datalists
+		5g9 - Post Images
+		5g10 - Post Videos
+		5g11 - Wp-Caption
+		5g12 - Post Galleries
+		5g13 - Post Meta
+		5g14 - Author Box
+		5g15 - Featured Posts
+	5h - Post Navigation
+	5i - Sidebars & Asides
+		5i1 - Sidebar 1
+		5i2 - Sidebar 2
+		5i3 - Widgets
+	5j - Comments
+		5j1 - Ping List
+	5k - Comment Form
+		5k1 - Form Validation
+		5k2 - No Comments
+	5l - Footer
+		5l1 - Footer Widgets
+
+06 - Average Viewing Size (min-992px)
+
+07 - Super Large Monitors (min-1382px)
+
+08 - Retina Screen (min-device-pixel-ratio: 2)
+		
+09 - IE Fixes
+10 - Print Stylesheet
+
+******************************************************************/
+
+/******************************************************************
+=01 GENERAL NORMALIZE (http://necolas.github.com/normalize.css/)
+******************************************************************/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]), [hidden] { display: none; }
+/** Base Styles **/
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body, button, input, select, textarea { font-family: sans-serif; color: #333; }
+/* margins */
+body,ul,ol,figure,h1,h2,h3,h4,h5 { margin: 0; }
+/* padding */
+ul, ol { padding: 0; }
+/** IE Fixes **/
+img { border: 0; -ms-interpolation-mode: bicubic; }
+svg:not(:root) { overflow: hidden; }
+/** Links **/
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+/** Typography **/
+p { -webkit-hyphens: auto; -moz-hyphens: auto; -epub-hyphens: auto; hyphens: auto; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong, .strong { font-weight: bold; }
+dfn, em, .em { font-style: italic; }
+small, .small, sub, sup { font-size: 85%; }
+ins, .ins { background: #ff9; color: #000; text-decoration: none; }
+mark, .mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+blockquote { margin: 1em 40px; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+dd { margin: 0; }
+nav ul, nav ol, .widget ol, .widget ul, .comment-list { list-style: none; margin: 0; }
+/* Position subscript and superscript content without affecting line-height: gist.github.com/413930 */
+sub, sup { line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+/** Forms **/
+form, fieldset, form ul, form ol, fieldset ol, fieldset ul { margin: 0; border: 0; }
+legend { border: 0; *margin-left: -7px; padding: 0; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal; *overflow: visible; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
+/* Colors for form validity */
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+/** Tables **/
+table { border-collapse: collapse; border-spacing: 0; }
+/** Hidden & Invisiblity **/
+.hidden { display: none; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+/* wordpress junk */
+.wp-smiley, .wp-wink { margin: 0 !important; max-height: 1em; }
+
+/* =1a clearing genesis elements */
+#nav .nav:before, #nav .nav:after, .wrap:before, .wrap:after { content: ""; display: table; }
+#nav .nav:after, .wrap:after { clear: both; }
+#nav .nav, .wrap { zoom: 1; }
+				
+/******************************************************************
+=02 COMMONLY USED ELEMENTS
+******************************************************************/
+
+/*********************
+=2a BUTTONS
+*********************/
+input[type="button"], input[type="submit"], .button {
+	background-color: #333;
+	border: 1px solid #666;
+	color: #fff;
+	font-size: 0.9em
+	font-weight: 700;
+	padding: 7px 13px;
+	text-decoration: none;
+	-webkit-border-radius: 3px;
+	 -khtml-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	     -o-border-radius: 3px;
+			border-radius: 3px;
+}
+
+	input[type="button"]:hover, input[type="submit"]:hover, .button:hover {
+		cursor: pointer;
+		background-color: #000;
+		border-color: #666;
+		color: #fff;
+	}
+	
+/*********************
+=2b CSS3 ROUNDED CORNERS
+*********************/
+.rounded-corners {
+	-webkit-border-radius: 3px;
+	 -khtml-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	     -o-border-radius: 3px;
+			border-radius: 3px;
+}
+
+/*********************
+=2c CSS3 TRANSITIONS
+*********************/
+.transition {
+	 -webkit-transition: all 0.2s ease-out; 
+	 	-moz-transition: all 0.2s ease-out; 
+	 	 -ms-transition: all 0.2s ease-out; 
+	 	  -o-transition: all 0.2s ease-out; 
+	 		 transition: all 0.2s ease-out;
+}
+
+/*********************
+=2d CSS3 GRADIENTS
+*********************/
+.gradient {
+	background-color: #414141;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(65, 65, 65)), to(rgb(51, 51, 51)));
+	background-image: -webkit-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: -moz-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: -o-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: -ms-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#414141', EndColorStr='#333333');
+}
+
+/*********************
+=2e FONT FACT EXAMPLE
+*********************/
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('library/fonts/font-name.eot');
+    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
+/*********************
+=2f SEARCH INPUTS
+*********************/
+.s {
+	margin: 5px 2px 0 0;
+	padding: 5px;
+	width: 190px;
+}
+
+/******************************************************************
+=03 BASE MOBILE STYLES
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. Don't use px, you'll want to use %.
+******************************************************************/
+
+body {}
+
+/*********************
+=3a BODY CLASSES
+*********************/
+.rtl {}
+.home {} /* home page */
+.blog {} 
+.archive {} /* archive page */
+.date {} /* date archive page */
+	.date-paged-1 {} /* replace the number to the corresponding page number */
+.search {} /* search page */
+	.search-results {} /* search result page */
+	.search-no-results {} /* no results search page */
+	.search-paged-1 {} /* individual paged search (i.e. body.search-paged-3) */
+.error404 {} /* 404 page */
+.single {} /* single post page */
+	.postid-1 {} /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
+.attachment {} /* attatchment page */
+	.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {} /* style mime type pages */
+.author {} /* author page */
+	.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {} /* category page */
+	.category-1 {} /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {} /* replace the number to the corresponding page number */
+.tag {} /* tag page */
+	.tag-slug {} /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {} /* replace the number to the corresponding page number */
+.page-template {} /* custom page template page */
+	.page-template-page-php {} /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {} /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {} /* replace the number to the corresponding page number */
+.logged-in {} /* if user is logged in */
+.paged {} /* paged items like search results or archives */
+	.paged-1 {} /* individual paged (i.e. body.paged-3) */
+
+/*********************
+=3b GRID & LAYOUT
+*********************/
+.five-sixths, .four-fifths, .four-sixths, .one-fifth, .one-fourth, .one-half, .one-sixth, .one-third, .three-fifths, .three-fourths, .three-sixths, .two-fifths, .two-fourths, .two-sixths, .two-thirds {}
+
+.one-sixth 							 {}
+.one-fifth 							 {}
+.one-fourth 						 {}
+.one-third,.two-sixths 				 {}
+.two-fifths 						 {}
+.one-half,.three-sixths,.two-fourths {}
+.three-fifths 						 {}
+.four-sixths,.two-thirds 			 {}
+.three-fourths 						 {}
+.four-fifths 						 {}
+.five-sixths 						 {}
+
+.first {}
+
+/*********************
+=3b1 WRAPS & INNER
+*********************/
+#wrap {}
+
+#content-sidebar-wrap {}
+
+.content-sidebar #content-sidebar-wrap, .full-width-content #content-sidebar-wrap, .sidebar-content #content-sidebar-wrap {}
+
+.sidebar-content-sidebar #content-sidebar-wrap, .sidebar-sidebar-content #content-sidebar-wrap {}
+
+#inner {}
+
+/*********************
+=3c LINKS & TEXT SELECTION
+*********************/
+a, a:visited {}
+a:hover, a:focus {}
+a:active {} /* on click */
+a:link {}
+
+/*********************
+=3c1 TEXT SELECTION
+*********************/
+::selection {}
+::-moz-selection {}
+
+/*********************
+=3d TITLES & HEADLINES
+*********************/
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5 {}
+h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {}
+
+h1, .h1 {}
+h2, .h2 {}
+h3, .h3 {}
+h4, .h4 {}
+h5, .h5 {}
+
+/*********************
+=3e HEADER
+*********************/
+#header {}
+
+	#title-area {}
+		#title {}
+			#title a {}
+		#description {}
+
+	#header .widget-area {}
+
+/*********************
+=3e1 IMAGE HEADER
+*********************/
+.header-image #title-area {}
+
+.header-image #description {}
+
+/*********************
+=3e2 IMAGE HEADER (FULL)
+*********************/
+.header-full-width #title-area {}
+
+li:hover ul ul,
+li.sfHover ul ul {}
+
+li:hover,
+li.sfHover {}
+
+#header ul.nav li a.sf-with-ul,
+#header ul.menu li a.sf-with-ul,
+#nav li a.sf-with-ul,
+#subnav li a.sf-with-ul {}
+
+li a .sf-sub-indicator {}
+
+li li a .sf-sub-indicator {}
+
+/*********************
+=3e3 HEADER RIGHT NAV
+*********************/
+#header .nav,
+#header .menu {}
+
+	#header .nav ul,
+	#header .menu ul {}
+
+		#header .nav li,
+		#header .menu li {}
+
+			#header .nav li a,
+			#header .menu li a {}
+
+				#header .nav li a:hover,
+				#header .nav li a:active,
+				#header .nav li:hover a,
+				#header .nav .current_page_item a,
+				#header .nav .current-cat a,
+				#header .nav .current-menu-item a,
+				#header .menu li a:hover,
+				#header .menu li a:active,
+				#header .menu li:hover a,
+				#header .menu .current_page_item a,
+				#header .menu .current-cat a,
+				#header .menu .current-menu-item a {}
+
+					#header .nav li li a,
+					#header .nav li li a:link,
+					#header .nav li li a:visited,
+					#header .menu li li a,
+					#header .menu li li a:link,
+					#header .menu li li a:visited {}
+
+						#header .nav li li a:hover,
+						#header .nav li li a:active,
+						#header .menu li li a:hover,
+						#header .menu li li a:active {}
+
+						#header .nav li ul,
+						#header .menu li ul {}
+						
+						#header .nav li ul a,
+						#header .menu li ul a {}
+						
+						#header .nav li ul ul,
+						#header .menu li ul ul {}
+						
+						#header .nav li:hover>ul,
+						#header .nav li.sfHover ul,
+						#header .menu li:hover>ul,
+						#header .menu li.sfHover ul {}
+						
+	/*********************
+	=3e4 HEADER SEARCH
+	*********************/
+	#header .searchform {}
+
+/*********************
+=3f NAVIGATION
+*********************/
+#nav, 
+#subnav {}
+
+	#nav .nav, #subnav .nav {}
+
+		#nav li, 
+		#subnav li {}
+
+		#nav li a, 
+		#subnav li a {}
+
+		#nav li a:hover, 
+		#nav li a:active, 
+		#nav li:hover a, 
+		#nav .current_page_item a, 
+		#nav .current-cat a, 
+		#nav .current-menu-item a,
+		#subnav li a:hover,
+		#subnav li a:active,
+		#subnav li:hover a,
+		#subnav .current_page_item a,
+		#subnav .current-cat a,
+		#subnav .current-menu-item a {}
+		
+		/* drop down menu */
+		#nav li ul, #subnav li ul {}
+		
+			#nav li li a, 
+			#nav li li a:link,
+			#subnav li li a, 
+			#subnav li li a:link {}
+
+				#nav li li a:hover, 
+				#nav li li a:focus,
+				#subnav li li a:hover, 
+				#subnav li li a:focus {}
+				
+				#nav li li a:active {}
+				
+				#nav li .sub-menu ul, 
+				#subnav li .sub-menu ul {}
+				
+					#nav li ul a, 
+					#subnav li ul a {}
+				
+						#nav li .sub-menu li li:first-child a {}
+
+					#nav li:hover>ul, 
+					#nav li.sfHover ul, 
+					#subnav li:hover>ul, 
+					#subnav li.sfHover ul {}
+
+
+			/*********************
+			=3f1 NAV EXTRAS
+			*********************/
+			#nav li.right {}
+				#nav li.right a {}
+					#nav li.right a:hover {}
+
+			#nav li.rss a {}
+			#nav li.twitter a {}
+
+		/*********************
+		=3f2 SUBNAV
+		*********************/
+		#subnav {}
+		
+		#subnav li a:hover,
+		#subnav li a:active,
+		#subnav li:hover a,
+		#subnav .current_page_item a,
+		#subnav .current-cat a,
+		#subnav .current-menu-item a {}
+		
+			#subnav li li a,
+			#subnav li li a:link,
+			#subnav li li a:visited {}
+		
+				#subnav li li a:hover,
+				#subnav li li a:active {}
+		
+					#subnav li ul {}
+						#subnav li ul a {}
+							#subnav li ul ul {}
+							
+	/*********************
+	=3f3 NAV SEARCH
+	*********************/
+	#nav li.search {}
+
+	#nav .searchform {}
+	
+	#nav .s {}
+
+/*********************
+=3g POSTS & CONTENT
+*********************/
+#content {}
+
+/* layout options */
+.content-sidebar #content, .sidebar-content #content {}
+
+.sidebar-content #content, .sidebar-sidebar-content #content {}
+
+.full-width-content #content {}
+
+
+/*********************
+=3g1 BREADCRUMBS
+*********************/
+.breadcrumb {}
+
+/*********************
+=3g2 DESCRIPTIONS
+*********************/
+.taxonomy-description {}
+
+.archive-page {}	
+	
+    /*********************
+    =3g3 POST CLASSES
+    *********************/
+    .hentry {}
+    .post-id {} /* post by id (i.e. post-3) */
+    .post {} /* general post style */
+    .page {} /* general article on a page style */
+    .attachment {} /* general style on an attatchment */
+    .sticky {} /* sticky post style */
+    .category-slug {} /* style by category (i.e. category-videos) */
+    .tag-slug {} /* style by tag (i.e. tag-news) */
+
+    /*********************
+    =3g4 POST INFO
+    *********************/
+    .post-info {}
+    	.post-info .time {}
+    	.post-info .vcard {}
+    	.post-info .post-comments {}
+    	.post-edit-link {}
+    	
+    /*********************
+    =3g5 ENTRY CONTENT
+    *********************/
+    .entry-content {}
+    	
+    	.entry-content p {}
+    	
+    	/*********************
+    	=3g6 LISTS
+    	*********************/
+    	.entry-content ul, 
+    	.entry-content ol, 
+    	.entry-content table, 
+    	.entry-content dl {}
+    	.entry-content ul, 
+    	.entry-content ol {}
+    	.entry-content li {}
+    	.entry-content ul li {}
+    	.entry-content ol li {}
+    	
+    	/*********************
+    	=3g7 BLOCKQUOTES
+    	*********************/
+    	.entry-content blockquote {} 
+    				
+    	/*********************
+    	=3g8 DATALISTS
+    	*********************/
+    	.entry-content dl {}
+    	.entry-content dt {}
+    	.entry-content dd {}
+    	
+    	/*********************
+    	=3g9 POST IMAGES
+    	*********************/
+    	.entry-content img {}
+    	.post-image {}
+    	.alignnone, 
+    	img.alignnone {}
+    	.alignleft, 
+    	img.alignleft {}
+    	.alignright, 
+    	img.alignright {}
+    	.aligncenter, 
+    	img.aligncenter, 
+    	.entry_content .centered {}
+    	
+    	/*********************
+    	=3g10 POST VIDEOS
+    	*********************/
+    	.entry-content video {}
+    	.entry-content object {}
+    	.entry-content pre, 
+    	.entry-content code {}
+    	
+    	/*********************
+    	=3g11 WP-CAPTION
+    	*********************/
+    	.wp-caption {}
+    	.wp-caption img {}
+    	.wp-caption .wp-caption-text {}
+    				
+    	/*********************
+    	=3g12 POST GALLERIES
+    	*********************/
+    	.gallery dl {}
+    	.gallery dt {}
+    	.gallery dd {}
+    	.gallery dl a {}
+    	.gallery dl img {}
+    	.gallery-caption {}
+    	
+    	.size-full {}
+    	.size-large {}
+    	.size-medium {}
+    	.size-thumbnail {}
+    
+    /*********************
+    =3g13 POST META
+    *********************/
+    .post-meta {}
+    	.post-meta .categories {}
+    	.post-meta .tags {}
+
+/*********************
+=3g14 AUTHOR BOX
+*********************/
+.author-box {}
+    .author-box .avatar { }
+
+
+/*********************
+=3g15 FEATURED POSTS
+*********************/
+.genesis-grid-even, 
+.genesis-grid-odd {}
+
+.genesis-grid-even {}
+
+.genesis-grid-odd {}
+
+
+.featuredpage,
+.featuredpost {}
+
+.featuredpage img,
+.featuredpost img {}
+
+.featuredpage .page,
+.featuredpost .post {}
+
+/* overrides for the footer */
+#footer-widgets .featuredpage .page,
+#footer-widgets .featuredpost .post {}
+
+.more-from-category {}
+
+/*********************
+=3h POST NAVIGATION
+*********************/
+
+.navigation {}
+
+	.navigation li {}
+
+		.navigation li a,
+		.navigation li.disabled,
+		.navigation li a:hover,
+		.navigation li.active a {}
+
+			.navigation li a:hover,
+			.navigation li.active a {}
+
+/*********************
+=3i SIDEBARS & ASIDES
+*********************/
+
+/*********************
+=3i1 SIDEBAR 1
+*********************/
+#sidebar {}
+
+/*********************
+=3i2 SIDEBAR 2
+*********************/
+#sidebar-alt {}
+
+	/* sidebar 1 alternate layouts */
+	.sidebar-content #sidebar, 
+	.sidebar-sidebar-content #sidebar {}
+	/* sidebar 2 alt layouts */
+	.content-sidebar-sidebar #sidebar-alt {}
+	
+	/* sidebar search */
+	.sidebar .searchform {}
+
+	.widget {}
+		.widget li {}
+		.widget li ul {}
+		
+		.widgettitle {}
+	
+	/*********************
+	=3i3 WIDGET STYLES
+	*********************/
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+	
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+	
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+	
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+	
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {} 
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+	
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+	
+	/* eNews and Update Widget */
+	.enews p {}
+	.enews #subscribe {}
+	.enews #subbox {}
+
+	/* User Profile Widget */
+	.user-profile {}
+	.user-profile p {}
+	.user-profile .posts_link {}
+
+/*********************
+=3j COMMENT STYLES
+**********************/
+#comments {}
+	
+	#comments .navigation {}
+
+	.subscribe-to-comments {}
+		
+.comment-list {}
+	.comment-list li {}
+		.comment-list li[class*=depth-] {}
+			.comment-list li.depth-1 {}
+				.comment-list li:not(.depth-1) {}
+			.comment-list li.depth-2 {}
+			.comment-list li.depth-3 {}
+			.comment-list li.depth-4 {}
+			.comment-list li.depth-5 {}
+			.comment-list li:last-child { }
+				.comment-list li ul.children li {}
+				.comment-list li ul.children li.alt {}
+				.comment-list li ul.children li.byuser {}
+				.comment-list li ul.children li.comment {}
+				.comment-list li ul.children li.depth-1 {} /* change number for different depth */
+				.comment-list li ul.children li.bypostauthor {}
+				.comment-list li ul.children li.comment-author-admin {}
+				.comment-list li ul.children .alt {}
+				.comment-list li ul.children .odd {}
+				.comment-list li ul.children .even {}
+			.comment-list .alt {}
+			.comment-list .odd {}
+			.comment-list .even {}
+			.comment-list .parent {}
+			.comment-list .comment {}
+			.comment-list .children {}
+			.comment-list .pingback {}
+			.comment-list .bypostauthor {}
+			.comment-list .comment-author {}
+			.comment-list .comment-author-admin {}
+			.comment-list .thread-alt {}
+			.comment-list .thread-odd {}
+			.comment-list .thread-even {}	
+			
+			.comment-list .vcard {}
+				.comment-list .vcard cite.fn {}
+					.comment-list .vcard cite.fn a.url {}
+				.comment-list .vcard .says {}
+				.comment-list .vcard img.avatar {}
+					
+				.comment-list .comment-meta {} 
+					.comment-list .comment-meta a {}
+				
+			.comment-list li .comment_content {}
+				.comment-list li .comment_content p {}
+				.comment-list li ul {}		
+				.comment-list .comment-reply-link {}
+					.comment-list a.comment-reply-link:hover {}
+					
+/*********************
+=3j1 PING LIST
+*********************/
+.ping-list {}
+	.ping-list ol {}
+		.ping-list li {}
+			.ping-list cite {}
+
+/**********************
+=3k COMMENT FORM STYLES
+*********************/
+#reply-title { }
+	
+	#cancel-comment-reply {}
+			#cancel-comment-reply a {}
+			
+	#commentform {}
+		
+		.comments-logged-in-as {}
+		
+			#commentform label {}
+			#commentform .required {}
+			
+			#author, 
+			#email, 
+			#url, 
+			#comment {}
+			
+			#author:focus, 
+			#email:focus, 
+			#url:focus, 
+			#comment:focus { }
+			
+			#comment {}
+			
+			#submit {}
+		
+	/*********************
+	=3k1 FORM VALIDATION
+	*********************/
+	#author:invalid, 
+	#email:invalid, 
+	#url:invalid {}		
+	
+	/*********************
+	=3k2 NO COMMENTS
+	*********************/
+	.nocomments {}					
+					
+/*********************
+=3l FOOTER STYLES
+*********************/
+
+#footer {}
+
+	#footer a, 
+	#footer a:visited {}
+		#footer a:hover {}
+
+	.gototop {}
+		.gototop a {}
+
+	.creds {}
+
+/*********************
+=3l1 FOOTER WIDGETS 
+*********************/
+#footer-widgets {}
+
+	.footer-widgets-1, 
+	.footer-widgets-2, 
+	.footer-widgets-3 {}
+		.footer-widgets-1 {}
+		.footer-widgets-2 {}
+		.footer-widgets-3 {}
+
+
+
+/******************************************************************
+=04 JUST LARGER THAN MOBILE
+This is just larget than a mobile device. This is used for tablets 
+or if someone resizes their browser from the smallest size to the 
+next break point.
+******************************************************************/
+@media only screen and (min-width: 481px) {
+
+/*
+This is for tablets so if you set great styles for mobile, than
+they should expand pretty well here. You can setup a few styles
+here as overrides if you want to spruce it up more.
+*/
+
+} /* end of media query */
+
+/******************************************************************
+=05 DESKTOP & JUST BIGGER THAN AN iPAD
+This is your standard iPad size or average tablet size. It's also
+a decent size for 
+******************************************************************/
+@media only screen and (min-width: 768px) {
+
+
+body {}
+
+/*********************
+=5a BODY CLASSES
+*********************/
+.rtl {}
+.home {} /* home page */
+.blog {} 
+.archive {} /* archive page */
+.date {} /* date archive page */
+	.date-paged-1 {} /* replace the number to the corresponding page number */
+.search {} /* search page */
+	.search-results {} /* search result page */
+	.search-no-results {} /* no results search page */
+	.search-paged-1 {} /* individual paged search (i.e. body.search-paged-3) */
+.error404 {} /* 404 page */
+.single {} /* single post page */
+	.postid-1 {} /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
+.attachment {} /* attatchment page */
+	.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {} /* style mime type pages */
+.author {} /* author page */
+	.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {} /* category page */
+	.category-1 {} /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {} /* replace the number to the corresponding page number */
+.tag {} /* tag page */
+	.tag-slug {} /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {} /* replace the number to the corresponding page number */
+.page-template {} /* custom page template page */
+	.page-template-page-php {} /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {} /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {} /* replace the number to the corresponding page number */
+.logged-in {} /* if user is logged in */
+.paged {} /* paged items like search results or archives */
+	.paged-1 {} /* individual paged (i.e. body.paged-3) */
+
+/*********************
+=5b GRID & LAYOUT
+*********************/
+.five-sixths, .four-fifths, .four-sixths, .one-fifth, .one-fourth, .one-half, .one-sixth, .one-third, .three-fifths, .three-fourths, .three-sixths, .two-fifths, .two-fourths, .two-sixths, .two-thirds {}
+
+.one-sixth 							 {}
+.one-fifth 							 {}
+.one-fourth 						 {}
+.one-third,.two-sixths 				 {}
+.two-fifths 						 {}
+.one-half,.three-sixths,.two-fourths {}
+.three-fifths 						 {}
+.four-sixths,.two-thirds 			 {}
+.three-fourths 						 {}
+.four-fifths 						 {}
+.five-sixths 						 {}
+
+.first {}
+
+/*********************
+=5b1 WRAPS & INNER
+*********************/
+#wrap {}
+
+#content-sidebar-wrap {}
+
+.content-sidebar #content-sidebar-wrap, .full-width-content #content-sidebar-wrap, .sidebar-content #content-sidebar-wrap {}
+
+.sidebar-content-sidebar #content-sidebar-wrap, .sidebar-sidebar-content #content-sidebar-wrap {}
+
+#inner {}
+
+/*********************
+=5c LINKS & TEXT SELECTION
+*********************/
+a, a:visited {}
+a:hover, a:focus {}
+a:active {} /* on click */
+a:link {}
+
+/*********************
+=5c1 TEXT SELECTION
+*********************/
+::selection {}
+::-moz-selection {}
+
+/*********************
+=5d TITLES & HEADLINES
+*********************/
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5 {}
+h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {}
+
+h1, .h1 {}
+h2, .h2 {}
+h3, .h3 {}
+h4, .h4 {}
+h5, .h5 {}
+
+/*********************
+=5e HEADER
+*********************/
+#header {}
+
+	#title-area {}
+		#title {}
+			#title a {}
+		#description {}
+
+	#header .widget-area {}
+
+/*********************
+=5e1 IMAGE HEADER
+*********************/
+.header-image #title-area {}
+
+.header-image #description {}
+
+/*********************
+=5e2 IMAGE HEADER (FULL)
+*********************/
+.header-full-width #title-area {}
+
+li:hover ul ul,
+li.sfHover ul ul {}
+
+li:hover,
+li.sfHover {}
+
+#header ul.nav li a.sf-with-ul,
+#header ul.menu li a.sf-with-ul,
+#nav li a.sf-with-ul,
+#subnav li a.sf-with-ul {}
+
+li a .sf-sub-indicator {}
+
+li li a .sf-sub-indicator {}
+
+/*********************
+=5e3 HEADER RIGHT NAV
+*********************/
+#header .nav,
+#header .menu {}
+
+	#header .nav ul,
+	#header .menu ul {}
+
+		#header .nav li,
+		#header .menu li {}
+
+			#header .nav li a,
+			#header .menu li a {}
+
+				#header .nav li a:hover,
+				#header .nav li a:active,
+				#header .nav li:hover a,
+				#header .nav .current_page_item a,
+				#header .nav .current-cat a,
+				#header .nav .current-menu-item a,
+				#header .menu li a:hover,
+				#header .menu li a:active,
+				#header .menu li:hover a,
+				#header .menu .current_page_item a,
+				#header .menu .current-cat a,
+				#header .menu .current-menu-item a {}
+
+					#header .nav li li a,
+					#header .nav li li a:link,
+					#header .nav li li a:visited,
+					#header .menu li li a,
+					#header .menu li li a:link,
+					#header .menu li li a:visited {}
+
+						#header .nav li li a:hover,
+						#header .nav li li a:active,
+						#header .menu li li a:hover,
+						#header .menu li li a:active {}
+
+						#header .nav li ul,
+						#header .menu li ul {}
+						
+						#header .nav li ul a,
+						#header .menu li ul a {}
+						
+						#header .nav li ul ul,
+						#header .menu li ul ul {}
+						
+						#header .nav li:hover>ul,
+						#header .nav li.sfHover ul,
+						#header .menu li:hover>ul,
+						#header .menu li.sfHover ul {}
+						
+	/*********************
+	=5e4 HEADER SEARCH
+	*********************/
+	#header .searchform {}
+
+/*********************
+=5f NAVIGATION
+*********************/
+#nav, 
+#subnav {}
+
+	#nav .nav, #subnav .nav {}
+
+		#nav li, 
+		#subnav li {}
+
+		#nav li a, 
+		#subnav li a {}
+
+		#nav li a:hover, 
+		#nav li a:active, 
+		#nav li:hover a, 
+		#nav .current_page_item a, 
+		#nav .current-cat a, 
+		#nav .current-menu-item a,
+		#subnav li a:hover,
+		#subnav li a:active,
+		#subnav li:hover a,
+		#subnav .current_page_item a,
+		#subnav .current-cat a,
+		#subnav .current-menu-item a {}
+		
+		/* drop down menu */
+		#nav li ul, #subnav li ul {}
+		
+			#nav li li a, 
+			#nav li li a:link,
+			#subnav li li a, 
+			#subnav li li a:link {}
+
+				#nav li li a:hover, 
+				#nav li li a:focus,
+				#subnav li li a:hover, 
+				#subnav li li a:focus {}
+				
+				#nav li li a:active {}
+				
+				#nav li .sub-menu ul, 
+				#subnav li .sub-menu ul {}
+				
+					#nav li ul a, 
+					#subnav li ul a {}
+				
+						#nav li .sub-menu li li:first-child a {}
+
+					#nav li:hover>ul, 
+					#nav li.sfHover ul, 
+					#subnav li:hover>ul, 
+					#subnav li.sfHover ul {}
+
+
+			/*********************
+			=5f1 NAV EXTRAS
+			*********************/
+			#nav li.right {}
+				#nav li.right a {}
+					#nav li.right a:hover {}
+
+			#nav li.rss a {}
+			#nav li.twitter a {}
+
+		/*********************
+		=5f2 SUBNAV
+		*********************/
+		#subnav {}
+		
+		#subnav li a:hover,
+		#subnav li a:active,
+		#subnav li:hover a,
+		#subnav .current_page_item a,
+		#subnav .current-cat a,
+		#subnav .current-menu-item a {}
+		
+			#subnav li li a,
+			#subnav li li a:link,
+			#subnav li li a:visited {}
+		
+				#subnav li li a:hover,
+				#subnav li li a:active {}
+		
+					#subnav li ul {}
+						#subnav li ul a {}
+							#subnav li ul ul {}
+							
+	/*********************
+	=5f3 NAV SEARCH
+	*********************/
+	#nav li.search {}
+
+	#nav .searchform {}
+	
+	#nav .s {}
+
+/*********************
+=5g POSTS & CONTENT
+*********************/
+#content {}
+
+/* layout options */
+.content-sidebar #content, .sidebar-content #content {}
+
+.sidebar-content #content, .sidebar-sidebar-content #content {}
+
+.full-width-content #content {}
+
+
+/*********************
+=5g1 BREADCRUMBS
+*********************/
+.breadcrumb {}
+
+/*********************
+=5g2 DESCRIPTIONS
+*********************/
+.taxonomy-description {}
+
+.archive-page {}	
+	
+    /*********************
+    =5g3 POST CLASSES
+    *********************/
+    .hentry {}
+    .post-id {} /* post by id (i.e. post-3) */
+    .post {} /* general post style */
+    .page {} /* general article on a page style */
+    .attachment {} /* general style on an attatchment */
+    .sticky {} /* sticky post style */
+    .category-slug {} /* style by category (i.e. category-videos) */
+    .tag-slug {} /* style by tag (i.e. tag-news) */
+
+    /*********************
+    =5g4 POST INFO
+    *********************/
+    .post-info {}
+    	.post-info .time {}
+    	.post-info .vcard {}
+    	.post-info .post-comments {}
+    	.post-edit-link {}
+    	
+    /*********************
+    =5g5 ENTRY CONTENT
+    *********************/
+    .entry-content {}
+    	
+    	.entry-content p {}
+    	
+    	/*********************
+    	=5g6 LISTS
+    	*********************/
+    	.entry-content ul, 
+    	.entry-content ol, 
+    	.entry-content table, 
+    	.entry-content dl {}
+    	.entry-content ul, 
+    	.entry-content ol {}
+    	.entry-content li {}
+    	.entry-content ul li {}
+    	.entry-content ol li {}
+    	
+    	/*********************
+    	=5g7 BLOCKQUOTES
+    	*********************/
+    	.entry-content blockquote {} 
+    				
+    	/*********************
+    	=5g8 DATALISTS
+    	*********************/
+    	.entry-content dl {}
+    	.entry-content dt {}
+    	.entry-content dd {}
+    	
+    	/*********************
+    	=5g9 POST IMAGES
+    	*********************/
+    	.entry-content img {}
+    	.post-image {}
+    	.alignnone, 
+    	img.alignnone {}
+    	.alignleft, 
+    	img.alignleft {}
+    	.alignright, 
+    	img.alignright {}
+    	.aligncenter, 
+    	img.aligncenter, 
+    	.entry_content .centered {}
+    	
+    	/*********************
+    	=5g10 POST VIDEOS
+    	*********************/
+    	.entry-content video {}
+    	.entry-content object {}
+    	.entry-content pre, 
+    	.entry-content code {}
+    	
+    	/*********************
+    	=5g11 WP-CAPTION
+    	*********************/
+    	.wp-caption {}
+    	.wp-caption img {}
+    	.wp-caption .wp-caption-text {}
+    				
+    	/*********************
+    	=5g12 POST GALLERIES
+    	*********************/
+    	.gallery dl {}
+    	.gallery dt {}
+    	.gallery dd {}
+    	.gallery dl a {}
+    	.gallery dl img {}
+    	.gallery-caption {}
+    	
+    	.size-full {}
+    	.size-large {}
+    	.size-medium {}
+    	.size-thumbnail {}
+    
+    /*********************
+    =5g13 POST META
+    *********************/
+    .post-meta {}
+    	.post-meta .categories {}
+    	.post-meta .tags {}
+
+/*********************
+=5g14 AUTHOR BOX
+*********************/
+.author-box {}
+    .author-box .avatar { }
+
+
+/*********************
+=5g15 FEATURED POSTS
+*********************/
+.genesis-grid-even, 
+.genesis-grid-odd {}
+
+.genesis-grid-even {}
+
+.genesis-grid-odd {}
+
+
+.featuredpage,
+.featuredpost {}
+
+.featuredpage img,
+.featuredpost img {}
+
+.featuredpage .page,
+.featuredpost .post {}
+
+/* overrides for the footer */
+#footer-widgets .featuredpage .page,
+#footer-widgets .featuredpost .post {}
+
+.more-from-category {}
+
+/*********************
+=5h POST NAVIGATION
+*********************/
+
+.navigation {}
+
+	.navigation li {}
+
+		.navigation li a,
+		.navigation li.disabled,
+		.navigation li a:hover,
+		.navigation li.active a {}
+
+			.navigation li a:hover,
+			.navigation li.active a {}
+
+/*********************
+=5i SIDEBARS & ASIDES
+*********************/
+
+/*********************
+=5i1 SIDEBAR 1
+*********************/
+#sidebar {}
+
+/*********************
+=5i2 SIDEBAR 2
+*********************/
+#sidebar-alt {}
+
+	/* sidebar 1 alternate layouts */
+	.sidebar-content #sidebar, 
+	.sidebar-sidebar-content #sidebar {}
+	/* sidebar 2 alt layouts */
+	.content-sidebar-sidebar #sidebar-alt {}
+	
+	/* sidebar search */
+	.sidebar .searchform {}
+
+	.widget {}
+		.widget li {}
+		.widget li ul {}
+		
+		.widgettitle {}
+	
+	/*********************
+	=5i3 WIDGET STYLES
+	*********************/
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+	
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+	
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+	
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+	
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {} 
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+	
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+	
+	/* eNews and Update Widget */
+	.enews p {}
+	.enews #subscribe {}
+	.enews #subbox {}
+
+	/* User Profile Widget */
+	.user-profile {}
+	.user-profile p {}
+	.user-profile .posts_link {}
+
+/*********************
+=5j COMMENT STYLES
+**********************/
+#comments {}
+	
+	#comments .navigation {}
+
+	.subscribe-to-comments {}
+		
+.comment-list {}
+	.comment-list li {}
+		.comment-list li[class*=depth-] {}
+			.comment-list li.depth-1 {}
+				.comment-list li:not(.depth-1) {}
+			.comment-list li.depth-2 {}
+			.comment-list li.depth-3 {}
+			.comment-list li.depth-4 {}
+			.comment-list li.depth-5 {}
+			.comment-list li:last-child { }
+				.comment-list li ul.children li {}
+				.comment-list li ul.children li.alt {}
+				.comment-list li ul.children li.byuser {}
+				.comment-list li ul.children li.comment {}
+				.comment-list li ul.children li.depth-1 {} /* change number for different depth */
+				.comment-list li ul.children li.bypostauthor {}
+				.comment-list li ul.children li.comment-author-admin {}
+				.comment-list li ul.children .alt {}
+				.comment-list li ul.children .odd {}
+				.comment-list li ul.children .even {}
+			.comment-list .alt {}
+			.comment-list .odd {}
+			.comment-list .even {}
+			.comment-list .parent {}
+			.comment-list .comment {}
+			.comment-list .children {}
+			.comment-list .pingback {}
+			.comment-list .bypostauthor {}
+			.comment-list .comment-author {}
+			.comment-list .comment-author-admin {}
+			.comment-list .thread-alt {}
+			.comment-list .thread-odd {}
+			.comment-list .thread-even {}	
+			
+			.comment-list .vcard {}
+				.comment-list .vcard cite.fn {}
+					.comment-list .vcard cite.fn a.url {}
+				.comment-list .vcard .says {}
+				.comment-list .vcard img.avatar {}
+					
+				.comment-list .comment-meta {} 
+					.comment-list .comment-meta a {}
+				
+			.comment-list li .comment_content {}
+				.comment-list li .comment_content p {}
+				.comment-list li ul {}		
+				.comment-list .comment-reply-link {}
+					.comment-list a.comment-reply-link:hover {}
+					
+/*********************
+=5j1 PING LIST
+*********************/
+.ping-list {}
+	.ping-list ol {}
+		.ping-list li {}
+			.ping-list cite {}
+
+/**********************
+=5k COMMENT FORM STYLES
+*********************/
+#reply-title { }
+	
+	#cancel-comment-reply {}
+			#cancel-comment-reply a {}
+			
+	#commentform {}
+		
+		.comments-logged-in-as {}
+		
+			#commentform label {}
+			#commentform .required {}
+			
+			#author, 
+			#email, 
+			#url, 
+			#comment {}
+			
+			#author:focus, 
+			#email:focus, 
+			#url:focus, 
+			#comment:focus { }
+			
+			#comment {}
+			
+			#submit {}
+		
+	/*********************
+	=5k1 FORM VALIDATION
+	*********************/
+	#author:invalid, 
+	#email:invalid, 
+	#url:invalid {}		
+	
+	/*********************
+	=5k2 NO COMMENTS
+	*********************/
+	.nocomments {}					
+					
+/*********************
+=5l FOOTER STYLES
+*********************/
+
+#footer {}
+
+	#footer a, 
+	#footer a:visited {}
+		#footer a:hover {}
+
+	.gototop {}
+		.gototop a {}
+
+	.creds {}
+
+/*********************
+=5l1 FOOTER WIDGETS 
+*********************/
+#footer-widgets {}
+
+	.footer-widgets-1, 
+	.footer-widgets-2, 
+	.footer-widgets-3 {}
+		.footer-widgets-1 {}
+		.footer-widgets-2 {}
+		.footer-widgets-3 {}
+
+
+} /* end of media query */
+
+/******************************************************************
+=06 AVERAGE VIEWING SIZE 
+This is the average viewing window. So Desktops, Laptops, and 
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+******************************************************************/
+@media only screen and (min-width: 992px) {
+
+/*
+In here, you can do simple overrides and expand upon a few things.
+No need to really redo everything.
+*/
+
+} /* end of media query */
+
+/******************************************************************
+=07 SUPER LARGE MONITORS STYLES 
+This is for super wide monitors for the l33t people. If you 
+worked in a good base in the previous styles, this should work
+pretty seamlessly.
+******************************************************************/
+@media only screen and (min-width: 1382px) {
+
+/*
+In here, you can do simple overrides and expand upon a few things.
+No need to really redo everything.
+*/
+
+} /* end of media query */
+
+/******************************************************************
+=08 RETINA (iPhone 4 & 5) OR SUPER HIGH RES SCREENS STYLES 
+This is for the high res phones or devices.
+******************************************************************/
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+/*
+This is for iPhone 4 & 4s with Retina displays.
+Just in case you want to do something special.
+*/
+
+} /* end of media query */
+
+/******************************************************************
+=09 IE FIXES
+******************************************************************/
+
+/*
+These fixes are outside of any media query so IE will be able to
+apply them just fine. You can use modernizr classes to style them.
+For examples on how to do this, check out this link:
+http://www.modernizr.com/docs/
+
+You can use something like:
+
+.no-textshadow .class { ... }
+
+*/
+
+/******************************************************************
+=10 PRINT STYLESHEET
+******************************************************************/
+@media print { * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } a, a:visited { color: #444 !important; text-decoration: underline; } a[href]:after { content: " (" attr(href) ")"; } abbr[title]:after { content: " (" attr(title) ")"; } .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } pre, blockquote { border: 1px solid #999; page-break-inside: avoid; } thead { display: table-header-group; } tr, img { page-break-inside: avoid; } img { max-width: 100% !important; }
+    @page { margin: 0.5cm; } p, h2, h3 { orphans: 3; widows: 3; } h2, h3{ page-break-after: avoid; }
+}
