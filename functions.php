@@ -39,6 +39,20 @@ function bfg_scripts() {
 add_action('wp_enqueue_scripts', 'bfg_scripts');
 
 
+/************* CUSTOM POST TYPE EXAMPLE *****************/
+/*
+Adding custom post types can be a bit confusing, but I've
+supplied an easy to follow example which walks you
+through the process. You can also check out a video 
+tutorial here:
+http://themble.com/support/custom-post-type-video-walkthrough/
+
+If you don't want to use the custom post type, just
+comment it out or delete it.
+*/
+require_once('library/custom-post-type.php');
+
+
 /************* CHILD THEME IMAGE SIZES ******************/
 add_image_size( 'bfg_large_img', 620, 240, TRUE );
 add_image_size( 'bfg_medium_img', 225, 225, TRUE );
@@ -404,3 +418,6 @@ http://dev.studiopress.com/filter-reference
 // genesis_footer_scripts /* drop footer scripts here */
 
 
+/************* ADMIN & DASHBOARD CUSTOMIZATION **********/
+
+require_once('library/admin.php'); // admin customization
