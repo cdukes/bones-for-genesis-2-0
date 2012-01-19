@@ -1,0 +1,57 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use LESS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+
+/*
+Base.css contains the main mobile styles and is called in the 
+header. This way mobile devices get ONLY the styles that apply
+to them. No muss, no fuss.
+
+normalize.css and the mixins are also called within that base file 
+
+let's now call the FUNCTIONS for these different stylesets. This
+doesn't load the CSS, the CSS is loaded directly below.
+*/
+
+@import "600up";
+@import "960up";
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+
+/*
+Now we call the functions that contain all the CSS. This means
+you don't have to maintain an IE stylesheet AND a standard 
+responsive stylesheet.
+*/
+
+.600up();
+.960up();
+
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using something like:
+
+.ie7 .class { ... }
+
+*/

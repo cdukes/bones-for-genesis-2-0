@@ -1,0 +1,908 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Standard Desktop
+
+This is your standard view. It's what most of your visitors will
+see and it will be on a good connection so we can really add some
+hefty styles here.
+
+******************************************************************/
+
+/* 
+wrapping styles in a function so we can call it
+inside of media queries. We also do this so we can
+call this function in the ie.less file. Which means
+IE will get all the styles without any hefty work.
+*/
+
+.960up() { /* DO NOT DELETE */
+
+/******************************************************************
+DESKTOP STYLES
+******************************************************************/
+
+body {}
+
+/*********************
+=5a BODY CLASSES
+*********************/
+.rtl {}
+.home {} /* home page */
+.blog {} 
+.archive {} /* archive page */
+.date {} /* date archive page */
+	.date-paged-1 {} /* replace the number to the corresponding page number */
+.search {} /* search page */
+	.search-results {} /* search result page */
+	.search-no-results {} /* no results search page */
+	.search-paged-1 {} /* individual paged search (i.e. body.search-paged-3) */
+.error404 {} /* 404 page */
+.single {} /* single post page */
+	.postid-1 {} /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
+.attachment {} /* attatchment page */
+	.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {} /* style mime type pages */
+.author {} /* author page */
+	.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {} /* category page */
+	.category-1 {} /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {} /* replace the number to the corresponding page number */
+.tag {} /* tag page */
+	.tag-slug {} /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {} /* replace the number to the corresponding page number */
+.page-template {} /* custom page template page */
+	.page-template-page-php {} /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {} /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {} /* replace the number to the corresponding page number */
+.logged-in {} /* if user is logged in */
+.paged {} /* paged items like search results or archives */
+	.paged-1 {} /* individual paged (i.e. body.paged-3) */
+
+/*********************
+=5b GRID & LAYOUT
+We have room now so start working in our grid and lay things out
+a bit more. Things should still be light, but you can customize it
+a bit for a unique tablet experience.
+*********************/
+.five-sixths, .four-fifths, .four-sixths, .one-fifth, .one-fourth, .one-half, .one-sixth, .one-third, .three-fifths, .three-fourths, .three-sixths, .two-fifths, .two-fourths, .two-sixths, .two-thirds {
+	float: left;
+	margin: 0 0 20px;
+	padding-left: 3%;
+}
+
+.one-sixth 							 { width: 14%; }
+.one-fifth 							 { width: 17.4%; }
+.one-fourth 						 { width: 22.5%; }
+.one-third,.two-sixths 				 { width: 31%; }
+.two-fifths 						 { width: 37.8% }
+.one-half,.three-sixths,.two-fourths { width: 48%; }
+.three-fifths 						 { width: 58.2% }
+.four-sixths,.two-thirds 			 { width: 65%; }
+.three-fourths 						 { width: 73.5%; }
+.four-fifths 						 { width: 78.6%; }
+.five-sixths 						 { width: 82%; }
+
+.first {
+	clear: both;
+	padding-left: 0;
+}
+
+	/*********************
+	=5b1 WRAPS & INNER
+	*********************/
+	#wrap {
+		margin: 15px auto;
+		width: 960px;
+		-webkit-box-shadow: 0 0 5px #999;
+		   -moz-box-shadow: 0 0 5px #999;
+				box-shadow: 0 0 5px #999;
+	}
+	
+	#content-sidebar-wrap {
+		width: 750px;
+		float: left;
+	}
+	
+	.content-sidebar #content-sidebar-wrap, .full-width-content #content-sidebar-wrap, .sidebar-content #content-sidebar-wrap {
+		width: 100%;
+	}
+	
+	.sidebar-content-sidebar #content-sidebar-wrap, .sidebar-sidebar-content #content-sidebar-wrap {
+		float: right;
+	}
+	
+	#inner {
+		padding: 20px;
+	}
+
+/*********************
+=5c HEADER
+*********************/
+#header {}
+
+	#title-area {
+		width: 400px;
+		float: left;
+		text-align: left;
+		padding: 20px 0 0 20px;
+	}
+		#title {
+			text-align: left;
+		}
+			#title a {}
+			
+		#description {
+			text-align: left;
+		}
+
+	#header .widget-area {
+		float: right;
+		padding: 25px 20px 0 0;
+		width: 510px;
+	}
+
+	/*********************
+	=5c1 IMAGE HEADER
+	*********************/
+	.header-image #title-area {
+		float: left;
+		width: 400px;
+	}
+	
+	.header-image #description {}
+	
+	/*********************
+	=5c2 IMAGE HEADER (FULL)
+	*********************/
+	.header-full-width #title-area {}
+	
+	li:hover ul ul {}
+	
+	li:hover {}
+	
+	#header ul.nav li a.sf-with-ul,
+	#header ul.menu li a.sf-with-ul,
+	#nav li a.sf-with-ul,
+	#subnav li a.sf-with-ul {}
+	
+	li a .sf-sub-indicator {}
+	
+	li li a .sf-sub-indicator {}
+	
+	/*********************
+	=5c3 HEADER RIGHT NAV
+	*********************/
+	#header .menu {}
+	
+		#header .menu ul {}
+	
+			#header .menu li {}
+	
+				#header .menu li a {}
+	
+					#header .menu li a:hover,
+					#header .menu li a:active,
+					#header .menu li:hover a,
+					#header .menu .current_page_item a,
+					#header .menu .current-cat a,
+					#header .menu .current-menu-item a {}
+	
+						#header .menu li li a,
+						#header .menu li li a:link,
+						#header .menu li li a:visited {}
+	
+							#header .menu li li a:hover,
+							#header .menu li li a:active {}
+	
+							#header .menu li ul {}
+							
+							#header .menu li ul a {}
+							
+							#header .menu li ul ul {}
+							
+							#header .menu li:hover>ul {}
+						
+	/*********************
+	=5c4 HEADER SEARCH
+	*********************/
+	#header .searchform {
+		float: right;
+		padding: 12px 0 0;
+	}
+	
+	#header .s {
+		margin: 10px -7px 0 0;
+	}
+
+/*********************
+=5d NAVIGATION
+*********************/
+.menu {
+	clear: both;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+}
+
+		.menu-primary {
+			border-top: 1px solid #ddd;
+		}
+		
+		.menu-secondary {
+			border-top: 0;
+		}
+
+		.menu ul {}
+
+			.menu li {
+				float: left;
+			}
+			
+			.menu li a {
+				border-right: 1px solid #ddd;
+				display: block;
+				padding: 5px 15px 4px;
+				border-bottom: 0;
+			}
+			
+			/* hover & current page highlight */
+			.menu li a:hover,
+			.menu li a:active,
+			.menu .current_page_item a,
+			.menu .current-cat a,
+			.menu .current-menu-item a {}
+			
+		/* drop downs & sub menus */
+		.menu li ul {
+			display: block;
+			position: absolute;
+			height: auto;
+			left: -9999em;
+			margin: 0 0 0 -1px;
+			width: 160px;
+			z-index: 8999;
+		}
+		
+			/* show sub-menu on hover */
+			.menu li:hover > ul {
+				left: auto;
+			}
+		
+			.menu li li a, 
+			.menu li li a:link,
+			.menu li li a:visited {
+				background-color: #fff;
+				color: #333;
+				border: 1px solid #ddd;
+				border-top: 0;
+				font-size: 0.75em;
+				padding: 5px 10px;
+				width: 138px;
+				text-transform: none;
+			}
+			
+					.menu li ul li:first-child a {
+						border-top: 1px solid #ddd;
+					}
+			
+				.menu li ul a {
+					width: 140px;
+				}
+
+				.menu li li a:hover, 
+				.menu li li a:focus,
+				.menu li li a:focus {
+					background-color: #f5f5f5;
+				}
+				
+				.menu li li a:active {}
+				
+				/*
+				if you change the font, size, or text-transform of the
+				menu than you'll need to adjust the top margin so things
+				line up neatly.
+				*/
+				.menu li ul ul {
+					margin: -30px 0 0 159px;
+				}
+				
+				
+			
+	/*********************
+	=3d1 NAV EXTRAS
+	*********************/
+	.menu li.right {
+	    display: inherit;
+	    float: right;
+	    font-size: 0.875em;
+	    padding: 5px 15px 4px;
+	}
+	    .menu li.right a {
+	    	background: none;
+	    	border: 0;
+	    	display: inline;
+	    	font-size: inherit;
+	    }
+	    	.menu li.right a:hover {
+	    		color: #0d72c7;
+	    	}
+
+	.menu li.rss a {}
+	.menu li.twitter a {}
+			
+	/*********************
+	=3d2 SUBNAV
+	*********************/
+	#subnav {}
+	
+	#subnav li a:hover,
+	#subnav li a:active,
+	#subnav li:hover a,
+	#subnav .current_page_item a,
+	#subnav .current-cat a,
+	#subnav .current-menu-item a {}
+	
+	    #subnav li li a,
+	    #subnav li li a:link,
+	    #subnav li li a:visited {}
+	
+	    	#subnav li li a:hover,
+	    	#subnav li li a:active {}
+	
+	    		#subnav li ul {}
+	    			#subnav li ul a {}
+	    				#subnav li ul ul {}
+							
+	/*********************
+	=3d3 NAV SEARCH
+	*********************/
+	#nav li.search {}
+
+	#nav .searchform {}
+	
+	#nav .s {
+		background-color: #fff;
+		margin: 2px 2px 0 0;
+	}
+			
+/*********************
+=5e POSTS & CONTENT
+*********************/
+#content {
+	float: left;
+	padding: 10px 20px;
+	width: 410px;
+}
+
+/* layout options */
+.content-sidebar #content, .sidebar-content #content {
+	width: 580px;
+}
+
+.sidebar-content #content, .sidebar-sidebar-content #content {
+	float: right;
+}
+
+.full-width-content #content {
+	width: 880px;
+}
+
+
+	/*********************
+	=5e1 BREADCRUMBS
+	*********************/
+	.breadcrumb {
+		margin: -10px 0 30px;
+	}
+	
+	/*********************
+	=5e2 DESCRIPTIONS
+	*********************/
+	.taxonomy-description {
+		margin: -10px 0 30px;
+	}
+	
+	.archive-page {
+		float: left;
+		width: 45%;
+	}	
+	
+    /*********************
+    =5e3 POST CLASSES
+    *********************/
+    .hentry {}
+    .post-id {} /* post by id (i.e. post-3) */
+    .post {
+    	padding: 0;
+    } /* general post style */
+    
+    .page {
+    	padding: 0;
+    } /* general article on a page style */
+    
+    .attachment {} /* general style on an attatchment */
+    .sticky {} /* sticky post style */
+    .category-slug {} /* style by category (i.e. category-videos) */
+    .tag-slug {} /* style by tag (i.e. tag-news) */
+
+    /*********************
+    =5e4 POST INFO
+    *********************/
+    .post-info {}
+    	.post-info .time {}
+    	.post-info .vcard {}
+    	.post-info .post-comments {}
+    	.post-edit-link {}
+    	
+    /*********************
+    =5e5 ENTRY CONTENT
+    *********************/
+    .entry-content {}
+    	
+    	.entry-content p {}
+    	
+    /*********************
+    =5e6 LISTS
+    *********************/
+    .entry-content ul, 
+    .entry-content ol, 
+    .entry-content table, 
+    .entry-content dl {}
+    .entry-content ul, 
+    .entry-content ol {}
+    .entry-content li {}
+    .entry-content ul li {}
+    .entry-content ol li {}
+    
+    /*********************
+    =5e7 BLOCKQUOTES
+    *********************/
+    .entry-content blockquote {
+        background: url(images/blockquote.png) no-repeat;
+        padding-left: 70px;
+    } 
+    
+    blockquote p {}
+        		
+    /*********************
+    =5e8 DATALISTS
+    *********************/
+    .entry-content dl {}
+    .entry-content dt {}
+    .entry-content dd {}
+    
+    /*********************
+    =5e9 POST IMAGES
+    *********************/
+    .entry-content img {}
+    .post-image {}
+    .alignnone, 
+    img.alignnone {}
+    .alignleft, 
+    img.alignleft {}
+    .alignright, 
+    img.alignright {}
+    .aligncenter, 
+    img.aligncenter, 
+    .entry_content .centered {}
+    
+    /*********************
+    =5e10 POST VIDEOS
+    *********************/
+    .entry-content video {}
+    .entry-content object {}
+    .entry-content pre, 
+    .entry-content code {}
+    
+    /*********************
+    =5e11 WP-CAPTION
+    *********************/
+    .wp-caption {}
+    .wp-caption img {}
+    .wp-caption .wp-caption-text {}
+        		
+    /*********************
+    =5e12 POST GALLERIES
+    *********************/
+    .gallery dl {}
+    .gallery dt {}
+    .gallery dd {}
+    .gallery dl a {}
+    .gallery dl img {}
+    .gallery-caption {}
+    
+    .size-full {}
+    .size-large {}
+    .size-medium {}
+    .size-thumbnail {}
+    
+    /*********************
+    =5e13 POST META
+    *********************/
+    .post-meta {
+    	border-top: 1px solid #ddd;
+    	clear: both;
+    	font-size: 0.875em;
+    	padding: 5px 0 0;
+    }
+    
+    	.post-meta .categories {}
+    	.post-meta .tags {}
+
+	/*********************
+	=5e14 AUTHOR BOX
+	*********************/
+	.author-box {
+		margin: 0 0 40px;
+	}
+	
+	    .author-box .avatar { }
+	
+	/*********************
+	=5e15 FEATURED POSTS
+	*********************/
+	.genesis-grid-even, 
+	.genesis-grid-odd {}
+	
+	.genesis-grid-even {}
+	
+	.genesis-grid-odd {}
+	
+	
+	.featuredpage,
+	.featuredpost {}
+	
+	.featuredpage img,
+	.featuredpost img {}
+	
+	.featuredpage .page,
+	.featuredpost .post {}
+	
+	.more-from-category {}
+
+/*********************
+=5f POST NAVIGATION
+*********************/
+
+.navigation {
+	margin: 0;
+}
+
+	.navigation li {}
+
+		.navigation li a,
+		.navigation li.disabled,
+		.navigation li a:hover,
+		.navigation li.active a {}
+
+			.navigation li a:hover,
+			.navigation li.active a {}
+
+/*********************
+=5g SIDEBARS & ASIDES
+*********************/
+
+	/*********************
+	=5g1 SIDEBAR 1
+	*********************/
+	#sidebar {
+		float: right;
+		display: inline;
+		width: 280px;
+	}
+	
+		/* sidebar 1 alternate layouts */
+		.sidebar-content #sidebar, 
+		.sidebar-sidebar-content #sidebar {
+			float: left;
+		}
+	
+	/*********************
+	=5g2 SIDEBAR 2
+	*********************/
+	#sidebar-alt {
+		float: left;
+		width: 150px;
+	}
+		
+		/* sidebar 2 alt layouts */
+		.content-sidebar-sidebar #sidebar-alt {
+			float: right;
+		}
+		
+		/* sidebar search */
+		.sidebar .searchform {}
+	
+	/*********************
+	=5g3 WIDGET STYLES
+	*********************/
+	.widget {
+	    margin: 0 0 15px;
+	}
+	    .widget li {}
+	    .widget li ul {}
+	    
+	    .widgettitle {}
+	
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+	
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+	
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+	
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+	
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {} 
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+	
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+	
+	/* eNews and Update Widget */
+	.enews p {}
+	.enews #subscribe {}
+	.enews #subbox {}
+
+	/* User Profile Widget */
+	.user-profile {}
+	.user-profile p {}
+	.user-profile .posts_link {}
+
+/*********************
+=5h COMMENT STYLES
+**********************/
+#comments {
+	padding: 0;
+}
+	
+	#comments .navigation {}
+
+	.subscribe-to-comments {}
+		
+.comment-list {}
+	.comment-list li {}
+		.comment-list li[class*=depth-] {}
+			.comment-list li.depth-1 {}
+				.comment-list li:not(.depth-1) {}
+			.comment-list li.depth-2 {}
+			.comment-list li.depth-3 {}
+			.comment-list li.depth-4 {}
+			.comment-list li.depth-5 {}
+			.comment-list li:last-child { }
+				.comment-list li ul.children li {}
+				.comment-list li ul.children li.alt {}
+				.comment-list li ul.children li.byuser {}
+				.comment-list li ul.children li.comment {}
+				.comment-list li ul.children li.depth-1 {} /* change number for different depth */
+				.comment-list li ul.children li.bypostauthor {}
+				.comment-list li ul.children li.comment-author-admin {}
+				.comment-list li ul.children .alt {}
+				.comment-list li ul.children .odd {}
+				.comment-list li ul.children .even {}
+			.comment-list .alt {}
+			.comment-list .odd {}
+			.comment-list .even {}
+			.comment-list .parent {}
+			.comment-list .comment {}
+			.comment-list .children {}
+			.comment-list .pingback {}
+			.comment-list .bypostauthor {}
+			.comment-list .comment-author {}
+			.comment-list .comment-author-admin {}
+			.comment-list .thread-alt {}
+			.comment-list .thread-odd {}
+			.comment-list .thread-even {}	
+			
+			.comment-list .vcard {}
+				.comment-list .vcard cite.fn {}
+					.comment-list .vcard cite.fn a.url {}
+				.comment-list .vcard .says {}
+				.comment-list .vcard img.avatar {}
+					
+				.comment-list .comment-meta {} 
+					.comment-list .comment-meta a {}
+				
+			.comment-list li .comment_content {}
+				.comment-list li .comment_content p {}
+				.comment-list li ul {}		
+				.comment-list .comment-reply-link {}
+					.comment-list a.comment-reply-link:hover {}
+					
+	/*********************
+	=5h1 PING LIST
+	*********************/
+	.ping-list {}
+		.ping-list ol {}
+			.ping-list li {}
+				.ping-list cite {}
+
+/**********************
+=5i COMMENT FORM STYLES
+*********************/
+#respond {
+	padding: 0;
+}
+
+#reply-title { }
+	
+	#cancel-comment-reply {}
+			#cancel-comment-reply a {}
+			
+	#commentform {}
+		
+		.comments-logged-in-as {}
+		
+			#commentform label {}
+			#commentform .required {}
+			
+			#author, 
+			#email, 
+			#url, 
+			#comment {}
+			
+			#author:focus, 
+			#email:focus, 
+			#url:focus, 
+			#comment:focus { }
+			
+			#comment {}
+			
+			#submit {}
+		
+	/*********************
+	=5i1 FORM VALIDATION
+	*********************/
+	#author:invalid, 
+	#email:invalid, 
+	#url:invalid {}		
+	
+	/*********************
+	=5i2 NO COMMENTS
+	*********************/
+	.nocomments {}					
+					
+/*********************
+=5j FOOTER STYLES
+*********************/
+
+#footer {}
+
+	.gototop {
+		float: left;
+		text-align: left;
+		width: 200px;
+	}
+
+	.creds {
+		float: right;
+		text-align: right;
+		width: 65%;
+	}
+
+	/*********************
+	=5j1 FOOTER WIDGETS 
+	*********************/
+	#footer-widgets {}
+	
+		#footer-widgets .wrap {
+			padding: 20px 30px 10px;
+		}
+	
+		#footer-widgets .widget {
+			padding: 0;
+		}
+	
+		.footer-widgets-1, 
+		.footer-widgets-2, 
+		.footer-widgets-3 {
+			width: 280px;
+		}
+			.footer-widgets-1 {
+				float: left;
+				margin: 0 30px 0 0;
+			}
+			.footer-widgets-2 {
+				float: left;
+			}
+			.footer-widgets-3 {
+				float: right;
+			}
+
+/*********************
+=6k GRAVITY FORM STYLES 
+*********************/
+
+div.gform_wrapper input,
+div.gform_wrapper select,
+div.gform_wrapper textarea {}
+
+div.gform_footer input.button {}
+
+div.gform_wrapper .ginput_complex label {}
+
+div.gform_wrapper li,
+div.gform_wrapper form li {}
+
+div.gform_wrapper .gform_footer {}
+
+
+} /* end of the function (DO NOT DELETE) */
