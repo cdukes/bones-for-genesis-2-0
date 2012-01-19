@@ -107,37 +107,87 @@ genesis_register_sidebar(array(
 /************* ADDING LESS SUPPORT **********************/
 /*
 LESS is an AMAZING stylesheet language that takes CSS
-to the next level. If you're not familiar with it, you
-can view more info here:
-http://lesscss.org/
+to the next level. Take a few minutes to peek inside
+the library/less folder to see a plethora of new files.
+LESS, you say, but isn't that complicated? Nope. It does take
+a few minutes to wrap your head around, but it will all
+be worth it. Need a quick intro? Here are a few quick reads:
 
-There are many tools to convert LESS stylesheets into 
-valid CSS, for example: 
-http://incident57.com/less/ (OSX)
-http://winless.org/ (Windows)
+http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
 
-By using the applications above, you can create your 
-LESS stylesheet and then use CSS on your site.
+I would HIGHLY RECOMMEND, if you are going to be working with
+LESS, that you DO NOT parse it using the javascript file. It can
+be a HUGE performance hit and it kind of defeats the whole reasoning
+behind using LESS.
 
-If you prefer to use LESS stylsheets on your site, you
-will need an extra javascript library. Luckily, I've done
-all the work for you. Simply use the function below.
+That being said, here are a few MUST HAVE TOOLS if you're planning
+on going the LESS route: (You really only need one of them)
+
+CodeKit: (Highly Recommended)
+http://incident57.com/codekit/
+
+LESS App:
+http://incident57.com/less/
+
+LESS Coda Plugin: 
+http://incident57.com/coda/
+
+SimpLESS: (Windows Users)
+http://wearekiss.com/simpless
+
+These applications compile LESS into minified, valid CSS. This
+way you can keep your production LESS file easy to read and your
+CSS minified and speedy. Simply set the output to the
+library/css folder and you are all set. It's a thing of beauty.
+
+Remember, once you download Bones for Genesis, it's up to you how 
+to use it, so go nuts. Set things up and develop in a way that's 
+easiest for you. If LESS is still a bit confusing for you, then 
+you can simply use the default stylesheet.
+
+If you're ready to dive into the world of LESS, than remove the
+comment brackets from the function below and take a gander at the
+new setup.
+
 */
 
-/*
+/* (remove this line to activate the LESS setup)
 
-function bfg_less_support() {
-	echo '<link rel="stylesheet/less" type="text/css" href="'. CHILD_URL . '/library/css/style.less">';
-	wp_enqueue_script('bfg_less_script', CHILD_URL . '/library/js/libs/less-1.1.3.min.js', array('jquery'), TRUE);
+function bfg_less_styles() {
+	echo '<link rel="stylesheet" type="text/css" href="'. CHILD_URL . '/library/css/base.css">';
+	echo '<link rel="stylesheet" type="text/css" href="'. CHILD_URL . '/library/css/style.css" media="(min-width:600px)">';
+	echo '<!--[if (lt IE 9) & (!IEMobile)]>';
+	echo '<link rel="stylesheet" href="'. CHILD_URL . '/library/css/ie.css">';
+	echo '<![endif]-->';
 }
 
 // remove the default stylesheet
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-// add the new stylesheet
-add_action( 'genesis_meta', 'bfg_less_support' );
+// add the new stylesheets
+add_action( 'genesis_meta', 'bfg_less_styles' );
+
+** (remove this line to activate the LESS setup) */
+
+/*
+
+So let me take a few minutes to explain what's going on up there.
+First you call the base mobile stylesheet for every device, THEN
+if a device is LARGER than 600 (you can change that, if you like),
+the second stylesheet gets called in.
+
+IE won't understand media="" though, so we need to add the
+seperate IE stylesheet below that.
+
+Yes, I hear you saying that an extra request affects load times,
+but this is only for larger devices. The benefit here is that
+mobile devices get ONLY what they need and are MUCH faster.
+Instead of downloading loads of CSS for the larger devices they
+won't even use, they only download what they need. Nice, huh?
+
+To edit the styles, just edit the appropriately named file. It may
+take some time to get used to, but it will all be worth it.
 
 */
-
 
 /************* CHILD THEME FUNCTIONS ********************/
 
@@ -153,6 +203,7 @@ function bfg_tweet_button() {
 		echo '<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>';
 	}
 }
+
 function bfg_tweet_script() {
 	if ( ! is_page() ) {
 		/* 
@@ -162,8 +213,10 @@ function bfg_tweet_script() {
 		wp_enqueue_script( 'tweet-button', 'http://platform.twitter.com/widgets.js', array(), '', true );
 	}
 }
-add_action('genesis_before_post_content', 'bfg_tweet_button');
-add_action('wp_enqueue_scripts', 'bfg_tweet_script');
+
+/* remove the two lines in front of the lines below to activate it */
+// add_action('genesis_before_post_content', 'bfg_tweet_button');
+// add_action('wp_enqueue_scripts', 'bfg_tweet_script');
 
 
 // move your scripts & stylesheets to CDN (Content Devlivery Network)
@@ -173,7 +226,7 @@ just your stylesheet. You can do the same for jQuery and any other
 scripts you'd like. 
 
 function bfg_scripts_cdn() {
-	wp_enqueue_style('bfg_scripts_cdn', 'http://cdn.url.com/wp-content/themes/child-theme-name/style.css', array(), 'screen');
+	wp_enqueue_style('bfg_scripts_cdn', 'http://cdn.url.com/style.css', array(), 'screen');
 }
 /* now remove the default stylesheet and replace it with the cdn one */
 /*
