@@ -33,11 +33,18 @@ add_theme_support( 'genesis-post-format-images' );
 
 /* adding modernizr & selectevizr & custom scripts */
 function bfg_scripts() { 
-	wp_enqueue_script('bfg_modernizr', CHILD_URL.'/library/js/libs/modernizr.complete.min.js', array('jquery'), TRUE);
+	wp_enqueue_script('bfg_modernizr', CHILD_URL.'/library/js/libs/modernizr.custom.min.js', array('jquery'), TRUE);
 	wp_enqueue_script('bfg_custom_scripts', CHILD_URL.'/library/js/scripts.js', array('jquery'), '0', TRUE);
 }
-add_action('wp_enqueue_scripts', 'bfg_scripts');
 
+/* loading in respond.js to add media query support to IE */
+function bfg_respond() {
+	wp_enqueue_script('bfg_respond', CHILD_URL.'/library/js/libs/respond.min.js', array('jquery'), TRUE);
+}
+
+// adding it to the header
+add_action('wp_enqueue_scripts', 'bfg_scripts');
+add_action('wp_enqueue_scripts', 'bfg_respond');
 
 /************* CUSTOM POST TYPE EXAMPLE *****************/
 /*
@@ -163,6 +170,8 @@ function bfg_less_styles() {
 
 // remove the default stylesheet
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+// remove respond.js since we don't need it anymore
+remove_action('wp_enqueue_scripts', 'bfg_respond');
 // add the new stylesheets
 add_action( 'genesis_meta', 'bfg_less_styles' );
 
