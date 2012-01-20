@@ -940,6 +940,8 @@ h6, .h6 {
     .entry-content blockquote {
         margin: 5px 5px 20px;
         padding: 25px 30px 5px;
+        border-top: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
     } 
     
     blockquote p {
@@ -2118,10 +2120,7 @@ a bit for a unique tablet experience.
     /*********************
     =5e7 BLOCKQUOTES
     *********************/
-    .entry-content blockquote {
-        background: url(images/blockquote.png) no-repeat;
-        padding-left: 70px;
-    } 
+    .entry-content blockquote {} 
     
     blockquote p {}
         		
