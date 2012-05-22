@@ -1,0 +1,1353 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. If you set good, clean defaults you will only need
+small touch ups on larger stylesheets.
+
+******************************************************************/
+
+
+body {
+	background-color: #f9f9f9;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+/*********************
+LINKS
+*********************/
+a, a:visited {
+	color: $bones-pink;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: lighten($bones-pink, 9%);
+	text-decoration: underline;
+}
+
+/*********************
+SELECTION TEXT
+*********************/
+::-moz-selection {
+	background-color: $bones-pink;
+	color: $white;
+}
+
+::selection {
+	background-color: $bones-pink;
+	color: $white;
+}
+
+
+/*********************
+BODY CLASSES
+Remember, you want to keep mobile as light as possible so don't
+overload it with background images. Save those for larger screens
+and better connections.
+*********************/
+
+.rtl {}
+.home {}                            /* home page */
+.blog {}                            /* blog page */
+.archive {}                         /* archive page */
+.date {}                            /* date archive page */
+	.date-paged-1 {}                /* replace the number to the corresponding page number */
+.search {}                          /* search page */
+	.search-results {}              /* search result page */
+	.search-no-results {}           /* no results search page */
+	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
+.error404 {}                        /* 404 page */
+.single {}                          /* single post page */
+	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
+.attachment {}                      /* attatchment page */
+	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {}        /* style mime type pages */
+.author {}                          /* author page */
+	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {}                        /* category page */
+	.category-1 {}                  /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {}            /* replace the number to the corresponding page number */
+.tag {}                             /* tag page */
+	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
+.page-template {}                   /* custom page template page */
+	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {}                /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
+.logged-in {}                       /* if user is logged in */
+.paged {}                           /* paged items like search results or archives */
+	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
+
+/*********************
+GRID & LAYOUT
+no need to put anything here since there's no room for a grid
+on mobile layouts. So, we save even more bytes here. :)
+*********************/
+
+#wrap {
+	background-color: $white;
+}
+	
+/*
+there are others you probably won't use at this size, so I 
+removed them. Remember, keep things light.
+*/
+	
+#inner {
+	padding: 20px 0 0;
+	margin: 0 auto;
+}
+
+/*********************
+TITLES & HEADLINES
+What's with the classes? It's a great way to keep
+your CSS slim. Instead of adding another selector to
+make a title look like an H1, you simply add the .h1
+class to it. ( i.e. <h5 class="h1"> ). So easy.
+*********************/
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5,.h5 {
+	font-family: sans-serif;
+	line-height: 1.25em;
+	margin: 0 0 10px;
+
+	a {}
+}
+
+
+h1, .h1 {
+	font-size: 1.875em;
+}
+
+h2, .h2 {
+	font-size: 1.75em;
+}
+
+h3, .h3 {
+	font-size: 1.5em;
+}
+
+h4, .h4 {
+	font-size: 1.25em;
+}
+
+h5, .h5 {
+	font-size: 1.125em;
+}
+
+
+/*********************
+HEADER
+*********************/
+#header {
+	width: 100%;
+	min-height: 100px; 
+
+	/*********************
+	HEADER WIDGET AREA
+	*********************/
+	.widget-area {
+		padding: 0 0 10px;
+	}
+	
+	/*********************
+	HEADER SEARCH
+	*********************/
+	.searchform {
+		text-align: center;
+	}
+	
+	.s {
+		margin: 0 -7px 0 0;
+	}
+	
+	/*********************
+	HEADER MENU
+	*********************/
+	.menu {
+		border: 1px solid #ddd;
+		box-sizing: border-box;
+	
+		ul {}
+		
+		li {
+			
+			a {
+			
+				&:hover,
+				&:focus {}
+			
+			}
+			
+			ul {}
+			
+			li {}
+		}
+		
+		li.current_page_item a,
+		li.current-cat a,
+		li.current-menu-item a {}
+	
+	} /* end .menu */
+
+} /* end header */
+
+#title-area {
+	text-align: center;
+}
+	
+#title {
+	font-size: 2.25em;
+	line-height: 1.125;
+	text-transform: uppercase;
+	text-align: center;
+		
+	a,
+	a:visited {
+		color: #333;
+		text-decoration: none;
+	}
+}
+			
+#description {
+	font-size: 0.875em;
+	text-align: center;
+}
+	
+
+/*********************
+IMAGE HEADER (PARTIAL)
+*********************/
+
+.header-image {
+	
+	#title-area {
+		height: 100px;
+		overflow: hidden;
+		text-indent: -9999;
+		width: 100%;
+		padding: 0;
+	}
+	
+	#title {
+		a {}
+	}
+		
+	#description {}
+}
+	
+/*********************
+IMAGE HEADER (FULL)
+*********************/
+
+.header-full-width {
+		
+	#title-area {
+		width: 100%;
+	}
+}
+	
+
+/*********************
+NAVIGATION
+*********************/
+.menu {
+	clear: both;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+	
+	ul {
+		list-style: none;
+	}
+	
+	li {
+	
+		a {
+			color: #333;
+			display: block;
+			font-size: 0.87em; 
+			position: relative;
+			text-decoration: none;
+			padding: 10px 3%;
+			border-bottom: 1px solid #ddd;
+			
+			/* hover & current page highlight */
+			&:hover,
+			&:focus {
+				background-color: $white;
+				color: #333;
+			}
+		}
+	
+		/* 
+		drop downs & sub menus 
+		So I'm hiding these. Why? Because on mobile,
+		every bit of space counts. Do you really want
+		your users to have to scroll down for 2 min. just
+		to read the article? This is why you'll want to
+		really plan out your menu. You obviously don't
+		have to do it this way, but it's an option. :) 
+		*/
+		ul {
+			display: none;
+			background: #333;
+			position: inherit;
+		}
+			
+		li li a, 
+		li li a:link,
+		li li a:visited {
+			color: $white;
+			
+			&:hover,
+			&:focus {}
+		}
+	
+	}
+	
+	
+	li.current_page_item,
+	li.current-cat,
+	li.current-menu-item {
+		a {
+			background-color: $white;
+			color: #333;
+		}
+	}
+	
+} /* end .menu */
+
+.menu-primary {
+	border-top: 1px solid #ddd;
+}
+		
+.menu-secondary {
+	border-top: 0;
+}
+
+/*********************
+NAV EXTRAS
+*********************/
+
+#nav {
+	
+	li.right {
+    	/* hiding this for mobile */
+    	display: none;
+
+		a {}
+	}
+
+	/*********************
+	NAV SEARCH
+	*********************/
+	
+	li.search {}
+	
+	.searchform {}
+		
+	.s {
+		background-color: $white;
+		margin: 2px 2px 0 0;
+	}
+
+}
+
+/*********************
+SUBNAV
+*********************/
+
+#subnav {
+
+	li {
+	
+		a {}
+	
+	
+	}
+
+}
+	
+	#subnav li a:hover,
+	#subnav li a:active,
+	#subnav li:hover a,
+	#subnav .current_page_item a,
+	#subnav .current-cat a,
+	#subnav .current-menu-item a {}
+	
+	    #subnav li li a,
+	    #subnav li li a:link,
+	    #subnav li li a:visited {}
+	
+	    	#subnav li li a:hover,
+	    	#subnav li li a:active {}
+	
+	    		#subnav li ul {}
+	    			#subnav li ul a {}
+	    				#subnav li ul ul {}
+							
+	
+
+/*********************
+POSTS & CONTENT
+*********************/
+#content {}
+
+/* layout options */
+.content-sidebar,
+.sidebar-content,
+.sidebar-sidebar-content,
+.full-width-content {
+	#content {}
+}
+
+.content-sidebar {}
+.sidebar-content {}
+.sidebar-sidebar-content {}
+.full-width-content {}
+
+/*********************
+BREADCRUMBS
+*********************/
+
+.breadcrumb {
+	font-size: 0.875em;
+	padding: 5px 10px;
+	margin: 0 20px 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+}
+	
+/*********************
+DESCRIPTIONS
+*********************/
+
+.taxonomy-description {
+	background-color: $white;
+	margin: 0 20px 20px;
+	
+	h1 { 
+		font-size: 0.875em;
+		margin: 0; 
+		padding: 9px 10px 8px;
+		background-color: #f5f5f5;
+		border-bottom: 1px solid #ddd;
+	}
+	
+	p {
+		font-size: 0.875em;
+		padding: 15px;
+	}
+}
+	
+		
+.archive-page {
+	padding: 20px 0 0;	
+	
+	ul,
+	ol {
+		padding-bottom: 25px;
+		
+		ul {
+			padding-bottom: 0;
+		}
+	}
+		
+} /* archive page */
+	
+/*********************
+POST CLASSES
+*********************/
+
+.hentry {}
+.post-id {}
+.post {
+    padding: 0 20px;
+   	margin: 0 0 40px;
+} 
+.page {
+    padding: 0 20px;
+} 
+.attachment {} 
+.sticky {
+    background-color: #f5f5f5;
+    margin: -10px 0 40px;
+    padding: 20px;
+}     
+.category-slug {} 
+.tag-slug {} 
+
+/*********************
+POST INFO
+*********************/
+
+.post-info {
+	font-size: 0.875em;
+  	margin: -5px 0 15px;
+    	
+    .time {}
+    .vcard {}
+    .post-comments {}
+    	
+}
+    
+.post-edit-link {}
+    	
+/*********************
+ENTRY CONTENT
+*********************/
+
+.entry-content {
+    	
+	p {
+    	padding: 0 0 25px;
+    	color: #565656;
+    }
+    	
+	/* lists */
+	ul, 
+    ol, 
+    table, 
+    dl {}
+    
+    ul, 
+    ol {
+        padding-bottom: 25px;
+        
+        li {}
+        
+        ul,
+        ol {
+            padding-bottom: 0;
+        }
+    }
+    
+    ul {
+        list-style: square;
+    }
+    
+    ol {
+        list-style: decimal;
+    }
+    
+    li {
+        margin-left: 30px;
+    }
+
+
+    /*********************
+    BLOCKQUOTES
+    *********************/
+    .entry-content blockquote {
+        margin: 5px 5px 20px;
+        padding: 25px 30px 5px;
+    
+    	p {
+        	color: #999;
+        	font-style: italic;
+    	}
+    }
+        		
+    /*********************
+    DATALISTS
+    *********************/
+    dl {}
+    dt {}
+    dd {}
+    
+    /*********************
+    POST IMAGES
+    *********************/
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+    
+    .post-image {
+        margin: 0 10px 10px 0;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        padding: 4px;
+    }
+    
+    .alignnone, 
+    img.alignnone {
+        display: inline;
+        margin: 0 0 10px;
+    }
+    
+    .alignleft, 
+    img.alignleft {
+        display: inline;
+        float: left;
+        margin: 0 15px 10px 0;
+    }
+    
+    .alignright, 
+    img.alignright {
+        display: inline;
+        float: right;
+        margin: 0 0 10px 15px;
+    }
+    
+    .aligncenter, 
+    img.aligncenter, 
+    .entry_content .centered {
+        display: block;
+        margin: 0 auto 10px;
+    }
+    
+    /*********************
+    POST VIDEOS
+    *********************/
+    video {}
+    object {}
+    pre {
+        font-size: 0.875em;
+        padding: 10px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+    }
+    
+} /* end entry-content */
+    
+/*********************
+WP-CAPTION
+*********************/
+
+.wp-caption {
+	padding: 5px;
+    text-align: center;
+    
+    img {}
+    	
+    .wp-caption-text {
+       	font-size: 0.875em;
+       	padding: 5px 0;
+    }
+}
+        		
+/*********************
+POST GALLERIES
+*********************/
+
+.gallery {
+	dl {
+		a {}
+		img {}
+	}
+    dt {}
+    dd {}
+    
+} /* end gallery */
+    
+.gallery-caption {}
+    
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+    
+/*********************
+POST META
+*********************/
+
+.post-meta {
+    .categories {}
+    .tags {}
+}
+	
+/*********************
+AUTHOR BOX
+*********************/
+
+.author-box {
+	background-color: #f5f5f5;
+	margin: 0 20px 40px;
+	padding: 10px;
+
+	p {
+		font-size: 0.875em;
+	}
+		
+	.avatar { 
+	    background-color: $white;
+	   	float: left;
+	   	margin: 0 10px 0 0;
+	}
+	
+} /* end author-box */
+
+/*********************
+FEATURED POSTS
+*********************/
+
+.genesis-grid-even, 
+.genesis-grid-odd {
+	margin: 0 0 20px;
+	padding: 0 0 15px;
+	width: 48%;
+}
+	
+.genesis-grid-even {
+	float: left;
+}
+	
+.genesis-grid-odd {
+	float: right;
+	clear: both;
+}
+	
+.featuredpage,
+.featuredpost {
+	clear: both;
+	margin: 0 0 15px;
+
+	img {
+		background: #f5f5f5;
+		border: 1px solid #ddd;
+		padding: 4px;
+	}
+	
+	.page,
+	.post {
+		border-bottom: 1px solid #ddd;
+		margin: 0 0 5px;
+		padding: 5px 15px 10px;
+	}
+
+}
+	
+.more-from-category {
+	padding: 5px 15px 0;
+}
+
+/*********************
+=3h POST NAVIGATION
+*********************/
+
+.navigation {
+	font-size: 0.875em;
+	padding: 20px 0;
+	margin: 0 20px 20px;
+	
+	li {
+		display: inline;
+		
+		a {	
+			border: 1px solid #ddd;
+			padding: 5px 8px;
+			
+			&:hover {
+				background-color: #f5f5f5;
+			}
+		}
+	}
+	
+	li.disabled {}
+	
+	li.active {
+		a {
+			background-color: #f5f5f5;
+		}
+	}
+}
+		
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+
+	p {
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	/* sidebar search */
+	.searchform {
+		padding: 5px 0 0 15px;
+	}
+
+} /* end sidebar */
+	
+/*********************
+SIDEBAR ALTERATIONS
+*********************/
+
+#sidebar {}
+
+#sidebar-alt {}
+
+.sidebar-content, 
+.sidebar-sidebar-content {
+
+	#sidebar {}
+	
+	#sidebar-alt {}
+}
+
+/*********************
+WIDGET STYLES
+*********************/
+
+.widget {
+	font-size: 0.875em;
+    background: $white;
+    border: 1px solid #ddd;
+    padding: 0 0 15px;
+    margin: 0 20px 20px;
+
+	h4 {
+		margin: 0 0 5px;
+		background-color: #f5f5f5;
+		border-bottom: 1px solid #ddd;
+		font-size: 0.875em;
+		padding: 9px 10px 8px;
+	}
+	
+	ul,
+	ol {
+		padding: 5px 15px 0;
+	}
+	
+	li {
+		border-bottom: 1px solid #ddd;
+		margin: 0 0 7px;
+		padding: 0 0 5px;
+		word-wrap: break-word;
+		
+		/* remove the border for the last item in a list */
+		&:last-child {
+			border-bottom: 0;
+		}
+		
+		ul {}
+	}
+
+
+} /* end widget */
+	    
+	    
+/* links widget */
+.widget_links {
+
+	ul {}
+	
+	li {}
+
+} /* end links widget */
+
+	
+/* meta widget */
+.widget_meta {
+
+	ul {}
+	
+	li {}
+
+} /* end meta widget */
+
+	
+/* pages widget */
+.widget_pages {
+
+	ul {}
+	
+	li {}
+	
+} /* end pages widget */
+
+	
+/* recent-posts widget */
+.widget_recent_entries {
+	
+	ul {}
+	
+	li {}
+	
+} /* end recent post widget */
+
+	
+/* archives widget */
+.widget_archive {
+
+	ul {}
+	
+	li {}
+	
+	select {}
+	
+	option {}
+
+} /* end archives widget */
+
+	
+/* tag-cloud widget */
+.widget_links {}
+.widget_links li:after {}
+.widget_links li:before {}
+.widget_tag_cloud {}
+.widget_tag_cloud a {}
+.widget_tag_cloud a:after {}
+.widget_tag_cloud a:before {}
+.widget_tag_cloud div div {
+    padding: 5px 15px 0;
+}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar {
+	    width: 100%;
+	}
+	
+	#wp-calendar thead {
+	    background-color: #f5f5f5;
+	    font-weight: 700;
+	    margin: 10px 0 0;
+	}
+	
+	#wp-calendar td {
+	    background-color: #f5f5f5;
+	    padding: 2px;
+	    text-align: center;
+	}
+	
+	#wp-calendar caption {
+	    font-size: 0.75em;
+	    font-style: italic;
+	    padding: 2px 5px 0 0;
+	    text-align: right;
+	}
+	
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {
+	    padding: 5px 15px 0;
+	}
+	
+	.widget_text {}
+	.textwidget p {}
+	
+	/* eNews and Update Widget */
+	.enews p {
+	    padding: 5px 15px;
+	}
+	
+	.enews #subscribe {
+	    padding: 0 0 0 15px;
+	}
+	
+	.enews #subbox {
+	    margin: 5px -7px 0 0;
+	    padding: 6px 5px;
+	    width: 75%;
+	}
+	
+	/* User Profile Widget */
+	.user-profile {}
+	.user-profile p {
+	    padding: 10px 15px 0;
+	}
+	
+	.user-profile .posts_link {
+	    padding: 0 15px;
+	}
+
+/*********************
+COMMENT STYLES
+**********************/
+
+#comments {
+	margin: 0 0 15px;
+	padding: 0 20px;
+	
+	.navigation {}
+
+} /* end comments */
+	
+.subscribe-to-comments {
+	padding: 20px 0 10px;
+}
+	
+		
+.comment-list {
+
+	li {
+		font-weight: 700;
+		margin: 15px 0 5px;
+		padding: 10px 5px 10px 10px;
+		
+		&:last-child {}
+		
+		ul.children {
+		
+			li {
+				margin-left: 10px;
+				margin-right: -6px;
+			}
+			
+			/* variations */
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {} /* change number for different depth */
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+		}
+	}
+	
+	li[class*=depth-] {}
+	li.depth-1 {
+		border: 1px solid #ddd;
+	}
+			
+	li:not(.depth-1) {}
+	li.depth-2 {}
+	li.depth-3 {}
+	li.depth-4 {}
+	li.depth-5 {}
+
+	.alt {
+		border: 1px solid #ddd;
+	}
+	.odd {}
+	.even {
+		border: 1px solid #ddd;
+	}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {
+		background-color: #f5f5f5;
+	}
+	.thread-odd {}
+	.thread-even {
+		background-color: #f5f5f5;
+	}	
+	
+	/* vcard */
+	.vcard { 
+		
+		cite.fn {
+			font-style: normal;
+			
+			a.url {}
+			
+			.says {}
+			
+		}
+		
+		.commentmetadata {
+			margin: 0 0 5px;
+			font-size: 0.75em;
+		
+			a {}
+		}
+			
+		img.avatar {
+			background: $white;
+			float: right;
+			margin: 0 5px 0 10px;		
+		}
+				
+	} /* end .commentlist .vcard */		
+			
+				
+	.comment-content {
+	
+		p {
+			font-size: 0.875em;
+			padding: 0 0 20px;
+		}		
+		
+		.reply {
+			font-weight: 300;
+			font-weight: 0.875em;
+		}
+	}
+
+} /* end comment-list */
+					
+/*********************
+PING LIST
+*********************/
+
+.ping-list {
+	margin: 0 0 40px;
+
+	ol {}
+	
+	li {
+		font-weight: 700;
+		margin: 15px 0 5px;
+		padding: 10px 5px 10px 10px;
+	}
+	
+	cite {
+		font-style: normal;
+	}
+
+} /* end ping list */
+	
+
+/**********************
+COMMENT FORM STYLES
+*********************/
+
+#respond {
+	margin: 0 0 15px;
+	padding: 0 20px;
+}
+
+#reply-title {}
+	
+#cancel-comment-reply {
+	
+	a {}
+}
+
+#commentform {
+
+	label {}
+	.required {}
+}
+		
+.comments-logged-in-as {}
+			
+#author, 
+#email, 
+#url, 
+#comment {
+	margin: 10px 5px 0 0;
+	padding: 5px;
+	width: 250px;
+}
+			
+#author:focus, 
+#email:focus, 
+#url:focus, 
+#comment:focus {}
+			
+#comment {
+	height: 150px;
+	margin: 10px 0;
+	width: 98%;
+}
+			
+#submit {}
+		
+/*********************
+FORM VALIDATION
+*********************/
+
+#author:invalid, 
+#email:invalid, 
+#url:invalid {}		
+	
+/*********************
+NO COMMENTS
+*********************/
+
+.nocomments {
+	text-align: center;
+}					
+					
+/*********************
+FOOTER STYLES
+*********************/
+
+#footer {
+	background-color: #232323;
+	border-top: 1px solid #121212;
+	clear: both;
+	color: #999;
+	font-size: 0.875em;
+
+	.wrap {
+		padding: 10px 15px;
+	}
+	
+	a, 
+	a:visited {
+		color: #f5f5f5;
+		
+		a:hover,
+		a:focus {
+			color: $white;
+			text-decoration: none;
+		}
+		
+	}
+
+} /* end footer */
+
+	
+.gototop, 
+.creds {
+	text-align: center;
+}
+	
+.gototop {}
+.creds {}
+
+/*********************
+FOOTER WIDGETS 
+*********************/
+	
+#footer-widgets {
+	background-color: #f5f5f5;
+	border-top: 1px solid #ddd;
+	clear: both;
+	
+	.wrap {}
+	
+	h4 {
+		background: none;
+		border: none;
+		margin: 0 0 5px;
+		padding: 0;
+	}
+	
+	p {
+		font-size: inherit;
+		line-height: inherit;
+		padding: 0 0 10px;
+	}
+	
+	.widget {
+		background: none;
+		border: 0;
+		margin: 0 0 15px;
+		padding: 20px 20px 0;
+		
+		ul,
+		ol {
+			padding: 0;
+		}
+	}
+	
+	/* overrides for the featured posts */
+	.featuredpage .page,
+	.featuredpost .post {
+		margin: 0 0 10px;
+		padding: 0;
+	}
+	
+	/* override for tag cloud */
+	.widget_tag_cloud div div {
+		padding: 0;
+	}
+	
+	/* override for the text widgets */
+	.textwidget {
+		padding: 0;
+	}
+	
+	/* override for the calendar widget */
+	#wp-calendar thead,
+	#wp-calendar td {
+		background: none;
+	}
+
+} /* end footer widgets */
+	
+		
+
+/*********************
+GRAVITY FORM STYLES 
+*********************/
+
+div.gform_wrapper {
+	
+	.ginput_complex {
+		label {
+			font-size: 0.875em;
+		}
+	}
+	
+	input,
+	select,
+	textarea {
+		box-sizing: border-box;
+		color: #333;
+		font-family: sans-serif;
+		font-size: 0.875em !important;
+		padding: 4px 5px !important;
+	}
+	
+	li,
+	form li {
+		margin: 0 0 10px;
+	}
+	
+	.gform_footer {
+		border: none;
+		margin: 0;
+		padding: 0;
+	
+		input.button {
+			color: #333;
+		}
+	}
+	
+} /* end gform_wrapper */
+

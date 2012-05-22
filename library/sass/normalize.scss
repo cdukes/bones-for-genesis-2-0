@@ -1,0 +1,62 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Normalize Stylesheet
+
+Normalize works a lot like a classic CSS Reset only instead of 
+reseting EVERYTHING, it only changes what's inconsistent across
+the different browsers. It's much slimmer and compact than resets.
+
+For more info, view the github repo:
+http://necolas.github.com/normalize.css/
+
+******************************************************************/
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section { display: block; }
+audio,canvas,video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+/* base styles */
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body,button,input,select,textarea { font-family: sans-serif; color: #333; }
+/* margins, padding, & borders */
+body,figure,form,blockquote,button,input,select,textarea,dd,h1,h2,h3,h4,h5,h6,ol,ul,fieldset { margin: 0; }
+ul,ol,button::-moz-focus-inner,input::-moz-focus-inner,fieldset,input[type="checkbox"],input[type="radio"] { padding: 0; }
+img,legend,button::-moz-focus-inner,input::-moz-focus-inner,fieldset { border: 0; }
+/* images */
+img { -ms-interpolation-mode: bicubic; }
+svg:not(:root) { overflow: hidden; }
+/* links & typography */
+a:focus { outline: thin dotted; }
+a:hover,a:active { outline: 0; }
+h1 { font-size: 2em; }
+p { -webkit-hyphens: auto; -moz-hyphens: auto; -epub-hyphens: auto; hyphens: auto; margin: 0; }
+ol,ul { list-style-type: none; } 
+abbr[title] { border-bottom: 1px dotted; }
+b,strong, { font-weight: bold; }
+dfn,em { font-style: italic; }
+small,sub,sup { font-size: 75%; }
+sub,sup { line-height: 0; position: relative; vertical-align: baseline; }
+q { quotes: none; }
+q:before,q:after { content: ''; content: none; }
+mark { background: #ff0; color: #000; }
+pre,code,kbd,samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+nav ul,nav ol,.widget ol,.widget ul,.comment-list { list-style: none; list-style-image: none; }
+/* forms */
+legend { *margin-left: -7px; }
+button,input,select,textarea { font-size: 100%; vertical-align: baseline; *vertical-align: middle; }
+button,input { line-height: normal; }
+button,input[type="button"],input[type="reset"],input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+input[type="checkbox"],input[type="radio"] { box-sizing: border-box;}
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+tarea,textarea { overflow: auto; vertical-align: top; }
+/* tables */
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* wordpress junk */
+.wp-smiley, .wp-wink { margin: 0 !important; max-height: 1em; }

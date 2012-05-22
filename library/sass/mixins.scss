@@ -1,0 +1,380 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of LESS' great features: 
+Mixins & Constants. I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques like box shadow and
+border-radius.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember LESS is more. See what I did there? Nice.
+
+******************************************************************/
+
+/*********************
+=1a CLEARFIXING GENESIS
+What's this? Fixing floats is one
+of the oldest headaches in web design.
+Instead of using overflow:hidden, we
+are going to clear them using a cool
+trick used in the HTML5 Boilerplate:
+http://nicolasgallagher.com/micro-clearfix-hack/
+To do this though, we have to manually add
+the items we want to clearfix here.
+Kind of a pain, yes, but it's a much more
+natural solution.
+*********************/
+#inner:before,
+#inner:after,
+#title-area:before, /* you've got to be kidding */
+#title-area:after,
+.entry-content:before, 
+.entry-content:after,
+.author-box:before,
+.author-box:after,
+.navigation:before,
+.navigation:after, /* is all this really efficient? */
+.user-profile:before,
+.user-profile:after,
+.featuredpage:before,
+.featuredpost:before,
+.featuredpage:after,
+.featuredpost:after,
+.featuredpage .page:before,
+.featuredpost .post:before,
+.featuredpage .page:after,
+.featuredpost .post:after,
+#footer:before, /* nope. probably not */
+#footer:after,
+#footer-widgets:before,
+#footer-widgets:after,
+.wrap:before,
+.wrap:after,
+#comments:before,
+#respond:before,
+#comments:after, /* but it's easier than dealing with overflow: hidden */
+#respond:after,
+.menu:before,
+.menu:after,
+.breadcrumb:before,
+.breadcrumb:after { content: ""; display: table; }
+#inner:after,
+#title-area:after,
+.entry-content:after,
+.author-box:after,
+.navigation:after, /* i tried a ton of solutions */
+.user-profile:after,
+.featuredpage:after,
+.featuredpost:after,
+.featuredpage .page:after,
+.featuredpost .post:after,
+#footer:after, /* but until Genesis adds a clearfix */
+.wrap:after,
+#comments:after,
+#respond:after,
+#footer-widgets:after,
+.menu:after,
+.breadcrumb:after { clear: both; }
+#inner,
+#title-area,
+.entry-content, /* this is what I'm going with */
+.author-box,
+.navigation,
+.user-profile,
+.featuredpage,
+.featuredpost, /* suggestions? hit me on twitter: @eddiemachado */
+.featuredpage .page,
+.featuredpost .post,
+#footer,
+.wrap,
+#comments, /* I'd love to hear your thoughts */
+#respond,
+#footer-widgets,
+.menu,
+.breadcrumb { zoom: 1; }
+
+
+/*********************
+HIDING ELEMENTS
+*********************/
+.hidden { display: none; visibility: hidden; }
+
+/*********************
+CLEARFIXIN'
+*********************/
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix { 
+	&:before,
+	&:after {
+		content: "";
+    	display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	/* for IE */
+	zoom: 1; 
+}
+
+/*********************
+TOOLS
+*********************/
+
+/* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+
+$yellow:            #ebe16f;
+$red:               #fbe3e4;
+$green:             #e6efc2;
+$blue:              #d5edf8;
+
+$black:             #000;
+$white:             #fff;
+
+$bones-pink:        #f01d4f;
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+$sans-serif:         "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
+
+
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the 
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	http://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('../fonts/font-name.eot');
+    	src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/font-name.woff') format('woff'),
+             url('../fonts/font-name.ttf') format('truetype'),
+             url('../fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
+/* 
+use the best ampersand 
+http://simplebits.com/notebook/2008/08/14/ampersands-2/
+*/
+span.amp {
+  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif;
+  font-style: italic;
+}
+
+
+/* alerts & notices */
+.alert { 
+	margin: 10px; 
+	padding: 5px 18px; 
+	border: 1px solid; 
+}
+
+.help { 
+	border-color: darken($yellow, 5%); 
+	background: $yellow; 
+}
+
+.info { 
+	border-color: darken($blue, 5%); 
+	background: $blue; 
+}
+
+.error { 
+	border-color: darken($red, 5%); 
+	background: $red; 
+}
+
+.success { 
+	border-color: darken($green, 5%); 
+	background: $green; 
+} 
+
+/*********************
+BORDER RADIUS
+*********************/
+
+/* @include borderRadius(4px); */
+@mixin borderRadius($radius: 4px) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+	    -ms-border-radius: $radius;
+   	     -o-border-radius: $radius;
+	        border-radius: $radius;
+}
+
+/* @include borderTopRadius(4px); */
+@mixin borderTopRadius($radius: 4px) {
+	-webkit-border-top-right-radius: $radius;
+	-webkit-border-top-left-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	-moz-border-radius-topleft: $radius;
+	border-top-right-radius: $radius;
+	border-top-left-radius: $radius;
+}
+
+/* @include borderRightRadius(4px); */
+@mixin borderRightRadius($radius: 4px) {
+	-webkit-border-top-right-radius: $radius;
+	-webkit-border-bottom-right-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	-moz-border-radius-bottomright: $radius;
+	border-top-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+}
+
+/* @include borderBottomRadius(4px); */
+@mixin borderBottomRadius($radius: 4px) {
+	-webkit-border-bottom-right-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+/* @include borderLeftRadius(4px); */
+@mixin borderLeftRadius($radius: 4px) {
+	-webkit-border-top-left-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-radius-topleft: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	border-top-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+/*********************
+TRANISTION
+*********************/
+
+/* @include transition(all,2s,ease-out); */
+@mixin transition($what: all, $time: 0.2s, $how: ease-out) {
+	-webkit-transition: $what $time $how;
+	   -moz-transition: $what $time $how;
+ 	    -ms-transition: $what $time $how;
+	     -o-transition: $what $time $how;
+	        transition: $what $time $how;
+}
+
+/*********************
+BOX SHADOWS
+*********************/
+
+/* @include box-shadow(5px, 5px, 10px, #000); */
+@mixin box-shadow($shadow-1,
+  $shadow-2: false, $shadow-3: false,
+  $shadow-4: false, $shadow-5: false,
+  $shadow-6: false, $shadow-7: false,
+  $shadow-8: false, $shadow-9: false)
+  {
+    $full: compact($shadow-1, $shadow-2, $shadow-3, $shadow-4,
+                   $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9);
+
+  -webkit-box-shadow: $full;
+     -moz-box-shadow: $full;
+      -ms-box-shadow: $full;
+       -o-box-shadow: $full;
+          box-shadow: $full;
+}
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can 
+really slow down your CSS. Don't overdue it.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: -ms-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(top, $from, $to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include boxSizing(border-box); */
+@mixin boxSizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	   -moz-box-sizing: $type;
+		-ms-box-sizing: $type;
+	     -o-box-sizing: $type; 
+			box-sizing: $type; 
+}
+
+/*********************
+BOX SHADOW
+*********************/
+
+/* @include boxShadow(0 0 4px #444); */
+@mixin boxShadow($x: 0, $y: 0, $radius: 4px, $spread: 0, $color: rgba(0,0,0,0.5)) {
+	-webkit-box-shadow: $x $y $radius $spread $color;
+	   -moz-box-shadow: $x $y $radius $spread $color;
+		-ms-box-shadow: $x $y $radius $spread $color;
+	     -o-box-shadow: $x $y $radius $spread $color; 
+			box-shadow: $x $y $radius $spread $color; 
+}
+
+/*********************
+BUTTONS
+*********************/
+
+.button, .button:visited {
+	border: 1px solid darken($bones-pink, 13%);
+	border-top-color: darken($bones-pink, 7%);
+	border-left-color: darken($bones-pink, 7%);
+	padding: 4px 12px;
+	color: $white;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(0,0,0, .75);
+	cursor: pointer;
+	margin-bottom: 20px;
+	line-height: 21px;
+	@include borderRadius(4px);
+	@include css-gradient($bones-pink, darken($bones-pink, 5%));
+
+
+	&:hover, &:focus {
+		color: $white;
+	  	border: 1px solid darken($bones-pink, 13%);
+	  	border-top-color: darken($bones-pink, 20%);
+	 	border-left-color: darken($bones-pink, 20%);
+		@include css-gradient(darken($bones-pink, 5%), darken($bones-pink, 10%));
+	}
+	
+	&:active {
+		@include css-gradient(darken($bones-pink, 5%), $bones-pink);
+	}	
+}

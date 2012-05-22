@@ -1,0 +1,460 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Standard Desktop
+
+This is your standard view. It's what most of your visitors will
+see and it will be on a good connection so we can really add some
+hefty styles here.
+
+******************************************************************/
+
+
+
+body {}
+
+
+/*********************
+GRID & LAYOUT
+We have room now so start working in our grid and lay things out
+a bit more. Things should still be light, but you can customize it
+a bit for a unique tablet experience.
+*********************/
+.five-sixths, 
+.four-fifths, 
+.four-sixths, 
+.one-fifth, 
+.one-fourth, 
+.one-half, 
+.one-sixth, 
+.one-third, 
+.three-fifths, 
+.three-fourths, 
+.three-sixths, 
+.two-fifths, 
+.two-fourths, 
+.two-sixths, 
+.two-thirds {
+	float: left;
+	margin: 0 0 20px;
+	padding-left: 3%;
+}
+
+.one-sixth 							 { width: 14%; }
+.one-fifth 							 { width: 17.4%; }
+.one-fourth 						 { width: 22.5%; }
+.one-third,.two-sixths 				 { width: 31%; }
+.two-fifths 						 { width: 37.8% }
+.one-half,.three-sixths,.two-fourths { width: 48%; }
+.three-fifths 						 { width: 58.2% }
+.four-sixths,.two-thirds 			 { width: 65%; }
+.three-fourths 						 { width: 73.5%; }
+.four-fifths 						 { width: 78.6%; }
+.five-sixths 						 { width: 82%; }
+
+.first {
+	clear: both;
+	padding-left: 0;
+}
+
+/*********************
+WRAPS & INNER
+*********************/
+
+#wrap {
+	margin: 15px auto;
+	width: 960px;
+	border: 1px solid #dfdfdf;
+}
+	
+#content-sidebar-wrap {
+	width: 750px;
+	float: left;
+}
+	
+.content-sidebar,
+.full-width-content, 
+.sidebar-content {
+	#content-sidebar-wrap {
+		width: 100%;
+	}
+}
+
+.sidebar-content-sidebar,
+.sidebar-sidebar-content {
+	#content-sidebar-wrap {
+		float: right;
+	}
+}
+
+#inner {
+	padding: 20px;
+}
+
+/*********************
+HEADER
+*********************/
+
+#header {
+
+	/*********************
+	HEADER WIDGET AREA
+	*********************/
+	.widget-area {
+		float: right;
+		padding: 25px 20px 0 0;
+		width: 510px;
+	}
+	
+	/*********************
+	HEADER SEARCH
+	*********************/
+	.searchform {
+		float: right;
+		padding: 12px 0 0;
+	}
+	
+	.s {
+		margin: 10px -7px 0 0;
+	}
+	
+} /* end header */
+
+
+#title-area {
+	width: 400px;
+	float: left;
+	text-align: left;
+	padding: 20px 0 0 20px;
+}
+
+#title {
+	text-align: left;
+}
+		
+#description {
+	text-align: left;
+}
+
+
+
+/*********************
+IMAGE HEADER (PARTIAL)
+*********************/
+
+.header-image {
+
+	#title-area {
+		float: left;
+		width: 400px;
+	}
+	
+}
+	
+
+/*********************
+NAVIGATION
+*********************/
+
+.menu {
+	clear: both;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+	
+	ul {}
+	
+	li {
+		float: left;
+	
+		a {
+			border-right: 1px solid #ddd;
+			display: block;
+			padding: 5px 15px 4px;
+			border-bottom: 0;
+			
+			/* hover & current page highlight */
+			&:hover,
+			&:focus {
+			}
+		}
+	
+		/* 
+		drop downs & sub menus 
+		So I'm hiding these. Why? Because on mobile,
+		every bit of space counts. Do you really want
+		your users to have to scroll down for 2 min. just
+		to read the article? This is why you'll want to
+		really plan out your menu. You obviously don't
+		have to do it this way, but it's an option. :) 
+		*/
+		ul {
+			display: block;
+			position: absolute;
+			height: auto;
+			left: -9999em;
+			margin: 0 0 0 -1px;
+			width: 160px;
+			z-index: 8999;
+			
+			a {
+				width: 140px;
+			}
+			
+			li:first-child a {
+				border-top: 1px solid #ddd;
+			}
+			
+			ul {
+				margin: -30px 0 0 159px;
+			}
+		}
+		
+		/* show sub-menu on hover */
+		&:hover > ul {
+			left: auto;
+		}
+			
+		li li a, 
+		li li a:link,
+		li li a:visited {
+			background-color: $white;
+			color: #333;
+			border: 1px solid #ddd;
+			border-top: 0;
+			font-size: 0.75em;
+			padding: 5px 10px;
+			width: 138px;
+			text-transform: none;
+			
+			&:hover,
+			&:focus {
+				background-color: #f5f5f5;
+			}
+		}
+	
+	}
+	
+	
+	/*********************
+	NAV EXTRAS
+	*********************/
+	li.right {
+	    display: inherit;
+	    float: right;
+	    font-size: 0.875em;
+	    padding: 5px 15px 4px;
+	    
+	    a {
+	    	background: none;
+	    	border: 0;
+	    	display: inline;
+	    	font-size: inherit;
+	    
+	    	&:hover {
+	    		color: #0d72c7;
+	    	}
+	    }
+	}
+	
+} /* end .menu */
+
+
+.menu-primary {
+	border-top: 1px solid #ddd;
+}
+
+.menu-secondary {
+	border-top: 0;
+}
+
+							
+/*********************
+NAV SEARCH
+*********************/
+	
+#nav {
+	.s {
+		background-color: $white;
+		margin: 2px 2px 0 0;
+	}
+}
+			
+/*********************
+POSTS & CONTENT
+*********************/
+
+#content {
+	float: left;
+	padding: 10px 20px;
+	width: 410px;
+}
+
+/* layout options */
+.content-sidebar #content, .sidebar-content #content {
+	width: 580px;
+}
+
+.sidebar-content #content, .sidebar-sidebar-content #content {
+	float: right;
+}
+
+.full-width-content #content {
+	width: 880px;
+}
+
+
+/*********************
+BREADCRUMBS
+*********************/
+
+.breadcrumb {
+	margin: -10px 0 30px;
+}
+	
+/*********************
+DESCRIPTIONS
+*********************/
+
+.taxonomy-description {
+	margin: -10px 0 30px;
+}
+	
+.archive-page {
+	float: left;
+	width: 45%;
+}	
+	
+/*********************
+POST CLASSES
+*********************/
+
+.post,
+.page {
+    padding: 0;
+} 
+
+    	
+/*********************
+ENTRY CONTENT
+*********************/
+
+.entry-content {
+    
+    blockquote {
+        padding-left: 70px;
+    } 
+    
+} /* end entry-content */
+    	
+	
+.post-meta {
+    border-top: 1px solid #ddd;
+    clear: both;
+    font-size: 0.875em;
+    padding: 5px 0 0;
+}
+    
+  
+/*********************
+AUTHOR BOX
+*********************/
+
+.author-box {
+	margin: 0 0 40px;
+}
+	
+
+/*********************
+POST NAVIGATION
+*********************/
+
+.navigation {
+	margin: 0;
+}
+
+
+/*********************
+SIDEBAR ALTERATIONS
+*********************/
+
+#sidebar {
+	float: right;
+	display: inline;
+	width: 280px;
+}
+	
+#sidebar-alt {
+	float: left;
+	width: 150px;
+}
+
+
+.sidebar-content, 
+.sidebar-sidebar-content {
+	#sidebar {
+		float: left;
+	}
+}
+
+.content-sidebar-sidebar {
+	#sidebar-alt {
+		float: right;
+	}
+}	
+	
+	
+/*********************
+WIDGET STYLES
+*********************/
+
+.widget {
+    margin: 0 0 15px;
+}
+
+
+/*********************
+COMMENT STYLES
+**********************/
+#comments,
+#respond {
+	padding: 0;
+}
+
+			
+/*********************
+FOOTER STYLES
+*********************/
+
+.gototop {
+	float: left;
+	text-align: left;
+	width: 30%;
+}
+
+.creds {
+	float: right;
+	text-align: right;
+	width: 65%;
+}
+
+
+/*********************
+FOOTER WIDGETS 
+*********************/
+	
+#footer-widgets {
+	
+	.wrap {
+		padding: 20px 30px 10px;
+	}
+	
+	
+	.widget {
+		padding: 0;
+	}
+	
+} /* end footer widgets */
+
+

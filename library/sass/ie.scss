@@ -1,0 +1,48 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use Sass to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+
+/*
+All we have to do here is call in our stylesheets and that's it.
+No need to worry about how IE will react with media queries 
+because this page is media query free! Pretty awesome.
+*/
+
+/*********************
+IMPORTING STYLES
+*********************/
+
+@import "normalize";
+@import "mixins";
+@import "base";
+@import "600up";
+@import "960up";
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+
+
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+
+*/

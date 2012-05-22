@@ -1,0 +1,82 @@
+/******************************************************************
+Theme Name: Bones Child Theme
+Theme URI: http://www.themble.com/genesis/bones
+Description: Helpful for building Genesis Child Themes, Bones for Genesis is a child development theme for the Genesis Framework.
+Author: Eddie Machado
+Author URI: http://www.themble.com/
+Version: 1.02
+Tags: html5, css3, fixed, hb5
+Template: genesis
+Template Version: 1.8
+******************************************************************/
+
+/*
+Stylesheet: Main Stylesheet
+
+This file is slim and doesn't contain any styles for a reason.
+We're importing all our other files so we can keep each
+breakpoint organized and well documented. 
+*/
+
+/*********************
+IMPORTING STYLES
+*********************/
+
+@import "normalize";
+@import "mixins";
+
+/******************************************************************
+BASE (MOBILE) SIZE 
+This is the average viewing window. So Desktops, Laptops, and 
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+******************************************************************/
+
+/* styles in base.scss */
+@import "base";
+
+/******************************************************************
+TABLET & MID-RANGE STYLES
+This is used for tablets like iPads and Android tablets or if 
+someone resizes their browser to a medium size. Here, we'll add
+to our already simple base styles.
+******************************************************************/
+@media only screen and (min-width: 600px) {
+	
+	/* styles in 600up.scss */
+	@import "600up";
+
+} /* end of media query */
+
+/******************************************************************
+DESKTOP STYLES
+This is your standard view. It's what most of your visitors will
+see and it will be on a good connection so we can really add some
+hefty styles here without worrying it will overload mobile.
+******************************************************************/
+@media only screen and (min-width: 960px) {
+	
+	/* styles in 960up.scss */
+	@import "960up";
+
+} /* end of media query */
+
+/******************************************************************
+SUPER LARGE MONITORS STYLES 
+This is for super wide monitors for the l33t people. If you 
+worked in a good base in the previous styles, this should work
+pretty seamlessly.
+******************************************************************/
+@media only screen and (min-width: 1382px) {
+	
+	/* styles in 1382up.scss */
+	@import "1382up";
+
+} /* end of media query */
+
+/******************************************************************
+PRINT STYLESHEET
+******************************************************************/
+@media print { * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } a, a:visited { color: #444 !important; text-decoration: underline; } a[href]:after { content: " (" attr(href) ")"; } abbr[title]:after { content: " (" attr(title) ")"; } .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } pre, blockquote { border: 1px solid #999; page-break-inside: avoid; } thead { display: table-header-group; } tr, img { page-break-inside: avoid; } img { max-width: 100% !important; }
+    @page { margin: 0.5cm; } p, h2, h3 { orphans: 3; widows: 3; } h2, h3{ page-break-after: avoid; }
+} /* end of print stylesheet (DO NOT DELETE) */
