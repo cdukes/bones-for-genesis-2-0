@@ -4,79 +4,175 @@ Child Theme Name: Bones for Genesis
 Author: Eddie Machado
 URL: htp://themble.com/genesis/bones/
 
-Change the above info to reflect the
-name, author, and url of your child
-theme.
+For more information, check the log.txt file.
 */
-
-/************* BEGIN GENESIS (DO NOT DELETE) *************/
-require_once( get_template_directory() . '/lib/init.php' );
-
-/************* REGISTER CHILD THEME (DO NOT DELETE) ******/
+	
+/************* REGISTER CHILD THEME (You can Change This) ******/
 define( 'CHILD_THEME_NAME', 'Bones for Genesis' );
 define( 'CHILD_THEME_URL', 'http://www.themble.com/genesis/bones' );
 
-/************* ADDING FEATURE SUPPORT ********************/
 
-/* adding custom background support */
-add_custom_background();
+// THEME SETUP TIME **************************************
 
-/* adding custom header support (change width if you change the width of the container) */
-add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 90 ) );
+// we're going to fire this off when we activate the child theme
+add_action('genesis_setup','bfg_theme_setup', 15);
 
-/* adding 3-column footer widget support (change the number if you want more columns) */
-add_theme_support( 'genesis-footer-widgets', 3 );
-
-/* adding post format support */
-add_theme_support( 'post-formats', array( 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video', 'audio' ));
-add_theme_support( 'genesis-post-format-images' );
-
-/* adding modernizr & selectevizr & custom scripts */
-function bfg_scripts() { 
-	wp_enqueue_script('bfg_modernizr', CHILD_URL.'/library/js/libs/modernizr.custom.min.js', array('jquery'), TRUE);
-	wp_enqueue_script('bfg_custom_scripts', CHILD_URL.'/library/js/scripts.js', array('jquery'), '0', TRUE);
-}
-
-/* loading in respond.js to add media query support to IE */
-function bfg_respond() {
-	wp_enqueue_script('bfg_respond', CHILD_URL.'/library/js/libs/respond.min.js', array('jquery'), TRUE);
-}
-
-// adding it to the header
-add_action('wp_enqueue_scripts', 'bfg_scripts');
-add_action('wp_enqueue_scripts', 'bfg_respond');
-
-/************* CUSTOM POST TYPE EXAMPLE *****************/
 /*
-Adding custom post types can be a bit confusing, but I've
-supplied an easy to follow example which walks you
-through the process. You can also check out a video 
-tutorial here:
-http://themble.com/support/custom-post-type-video-walkthrough/
-
-If you don't want to use the custom post type, just
-comment it out or delete it.
+we're putting all our core stuff in this function so
+things are neater and WordPress runs quicker. I just
+made that last part up, but it sounded good huh?
 */
-require_once('library/custom-post-type.php');
+function bfg_theme_setup() {
+	
+	/*
+	this is where we clean up wordpress and genesis and
+	remove things we don't really need and add things
+	like our stylesheets and javascript libraries.
+	be very careful when editing this file
+	*/
+	include_once( CHILD_DIR . '/library/bones.php');
+	
+	/* 
+	bones for genesis uses some custom comment markup
+	and in order to keep this file minimal, we're moving
+	it to another file. to edit comments, check out this file:
+	*/
+	include_once( CHILD_DIR . '/library/comments.php');
+	
+	/*
+	if you're using custom post types, you can use this example
+	to create your own. You can also use the example templates
+	if you want to customize the look of your custom post type
+	pages
+	*/
+	include_once( CHILD_DIR . '/library/custom-post-types.php');
+	
+	/*
+	if you want to customize the backend for your clients, use this
+	admin file to keep your functions neat and clean.
+	*/
+	include_once( CHILD_DIR . '/library/admin.php'); 
+	
+	// don't update theme (it's custom right? so you don't need updates)
+	add_filter( 'http_request_args', 'bfg_dont_update', 5, 2 );
+	
+	// THEME SUPPORT *************************************
+	// adding custom background support
+	add_custom_background();
+	// adding post format support 
+	add_theme_support( 'post-formats', array( 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video', 'audio' ));
+	// adding support for post format images
+	add_theme_support( 'genesis-post-format-images' );
+	
+	// adding custom header support (change width if you change the width of the container)
+	// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 90 ) );
+	
+	// if you want widgets in the footer, you can use this 
+	// add_theme_support( 'genesis-footer-widgets', 3 );
+	
+	// CUSTOMIZING GENESIS *******************************
+	// adding the mobile friendly meta
+	add_action( 'genesis_meta', 'bfg_viewport_meta' );
+	
+	/*
+	you can unregister layouts if your child theme will mantain
+	the same layout on every page and you don't want to offer
+	your clients the option to change.
+	*/
+	// genesis_unregister_layout( 'content-sidebar' );
+	// genesis_unregister_layout( 'sidebar-content' );
+	// genesis_unregister_layout( 'content-sidebar-sidebar' );
+	// genesis_unregister_layout( 'sidebar-sidebar-content' );
+	// genesis_unregister_layout( 'sidebar-content-sidebar' );
+	// genesis_unregister_layout( 'full-width-content' );
+	
+	/*
+	if you want to remove some of the default widgets that come
+	with genesis, you can use this function.
+	*/
+	// add_action( 'widgets_init', 'remove_genesis_widgets', 20 );
+	
+	// SCRIPTS, STYLES, & WP_HEAD ************************
+	// remove default stylesheet
+	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+	// enqueue base scripts and styles
+	add_action('wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
+	// who uses the rsd link anyway? axe it
+	remove_action( 'wp_head', 'rsd_link' );                    
+	// remove Windows Live Writer
+	remove_action( 'wp_head', 'wlwmanifest_link' );                       
+	// index link
+	remove_action( 'wp_head', 'index_rel_link' );                         
+	// previous link
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            
+	// start link
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             
+	// Links for Adjacent Posts
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); 
+	// remove WP version
+	remove_action( 'wp_head', 'wp_generator' );  
+	
+	// cleaning up wordpress (it's pretty messy)
+	// remove p around images
+	add_filter('the_content', 'bfg_filter_ptags_on_images');
+	// remove pesky injected css for recent comments widget
+	add_filter( 'wp_head', 'bfg_remove_wp_widget_recent_comments_style', 1 );
+	// clean up comment styles in the head
+	add_action('wp_head', 'bfg_remove_recent_comments_style', 1);
+	// clean up gallery output in wp
+	add_filter('gallery_style', 'bfg_gallery_style');
+	
+	
+	// CHILD THEME IMAGE SIZES ***************************
+	add_image_size( 'bfg_large_img', 620, 240, TRUE );
+	add_image_size( 'bfg_medium_img', 225, 225, TRUE );
+	add_image_size( 'bfg_small_img', 45, 45, TRUE );
+	/* 
+	to add more sizes, simply copy a line from above 
+	and change the dimensions & name. As long as you
+	upload a "featured image" as large as the biggest
+	set width or height, all the other sizes will be
+	auto-cropped.
+	
+	To call a different size, simply change the text
+	inside the thumbnail function.
+	
+	For example, to call the 225 x 225 sized image, 
+	we would use the function:
+	<?php the_post_thumbnail( 'bfg_medium_img' ); ?>
+	
+	You can change the names and dimensions to whatever
+	you like.
+	*/
+	
+	// CONTENT AREA **************************************
+	
+	
+	// COMMENTS & PINKBACKS ******************************
+	// custom comment layout
+	add_filter( 'genesis_comment_form_args','bfg_custom_comment_form' );
+	// trackback argument & layout
+	add_filter( 'genesis_ping_list_args', 'bfg_ping_list_args' );
+	// comments & trackbacks
+	add_filter( 'genesis_comment_list_args', 'bfg_comment_list_args' );
+	
+
+	// FOOTER AREA ***************************************
+	// custom back to top text
+	add_filter( 'genesis_footer_backtotop_text', 'bfg_backtotop_text' );
+	// footer credit & attribution text
+	add_filter('genesis_footer_creds_text', 'bfg_footer_cred');
+	
+
+} /* DO NOT DELETE (YOUR CHILD THEME WILL IMPLODE!) */
 
 
-/************* CHILD THEME IMAGE SIZES ******************/
-add_image_size( 'bfg_large_img', 620, 240, TRUE );
-add_image_size( 'bfg_medium_img', 225, 225, TRUE );
-add_image_size( 'bfg_tiny_img', 45, 45, TRUE );
 
-
-/************* UNREGISTER SITE LAYOUTS ******************/
-// genesis_unregister_layout( 'content-sidebar' );
-// genesis_unregister_layout( 'sidebar-content' );
-// genesis_unregister_layout( 'content-sidebar-sidebar' );
-// genesis_unregister_layout( 'sidebar-sidebar-content' );
-// genesis_unregister_layout( 'sidebar-content-sidebar' );
-// genesis_unregister_layout( 'full-width-content' );
-
-
-/************* UNREGISTER GENESIS WIDGETS ***************/
+// UNREGISTER GENESIS WIDGETS ****************************
 /*
+to use this function, make sure to uncomment it out in 
+the theme setup function above.
+*/
 function remove_genesis_widgets() {
     unregister_widget( 'Genesis_eNews_Updates' );
     unregister_widget( 'Genesis_Featured_Page' );
@@ -86,9 +182,8 @@ function remove_genesis_widgets() {
     unregister_widget( 'Genesis_Featured_Post' );
     unregister_widget( 'Genesis_Latest_Tweets_Widget' );
 }
-*/
 
-// add_action( 'widgets_init', 'remove_genesis_widgets', 20 );
+
 
 
 /************* ADD ANOTHER SIDEBAR **********************/
@@ -111,375 +206,110 @@ genesis_register_sidebar(array(
 */
 
 
-/************* ADDING LESS SUPPORT **********************/
-/*
-LESS is an AMAZING stylesheet language that takes CSS
-to the next level. Take a few minutes to peek inside
-the library/less folder to see a plethora of new files.
-LESS, you say, but isn't that complicated? Nope. It does take
-a few minutes to wrap your head around, but it will all
-be worth it. Need a quick intro? Here are a few quick reads:
-
-http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
-
-I would HIGHLY RECOMMEND, if you are going to be working with
-LESS, that you DO NOT parse it using the javascript file. It can
-be a HUGE performance hit and it kind of defeats the whole reasoning
-behind using LESS.
-
-That being said, here are a few MUST HAVE TOOLS if you're planning
-on going the LESS route: (You really only need one of them)
-
-CodeKit: (Highly Recommended)
-http://incident57.com/codekit/
-
-LESS App:
-http://incident57.com/less/
-
-LESS Coda Plugin: 
-http://incident57.com/coda/
-
-SimpLESS: (Windows Users)
-http://wearekiss.com/simpless
-
-These applications compile LESS into minified, valid CSS. This
-way you can keep your production LESS file easy to read and your
-CSS minified and speedy. Simply set the output to the
-library/css folder and you are all set. It's a thing of beauty.
-
-Remember, once you download Bones for Genesis, it's up to you how 
-to use it, so go nuts. Set things up and develop in a way that's 
-easiest for you. If LESS is still a bit confusing for you, then 
-you can simply use the default stylesheet.
-
-If you're ready to dive into the world of LESS, than remove the
-comment brackets from the function below and take a gander at the
-new setup.
-
-*/
-
-/* (remove this line to activate the LESS setup)
-
-function bfg_less_styles() {
-	echo '<link rel="stylesheet" type="text/css" href="'. CHILD_URL . '/library/css/base.css">';
-	echo '<link rel="stylesheet" type="text/css" href="'. CHILD_URL . '/library/css/style.css" media="(min-width:600px)">';
-	echo '<!--[if (lt IE 9) & (!IEMobile)]>';
-	echo '<link rel="stylesheet" href="'. CHILD_URL . '/library/css/ie.css">';
-	echo '<![endif]-->';
-}
-
-// remove the default stylesheet
-remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-// remove respond.js since we don't need it anymore
-remove_action('wp_enqueue_scripts', 'bfg_respond');
-// add the new stylesheets
-add_action( 'genesis_meta', 'bfg_less_styles' );
-
-** (remove this line to activate the LESS setup) */
 
 /*
 
-So let me take a few minutes to explain what's going on up there.
-First you call the base mobile stylesheet for every device, THEN
-if a device is LARGER than 600 (you can change that, if you like),
-the second stylesheet gets called in.
 
-IE won't understand media="" though, so we need to add the
-seperate IE stylesheet below that.
+// USING GENESIS HOOKS /**********************************
 
-Yes, I hear you saying that an extra request affects load times,
-but this is only for larger devices. The benefit here is that
-mobile devices get ONLY what they need and are MUCH faster.
-Instead of downloading loads of CSS for the larger devices they
-won't even use, they only download what they need. Nice, huh?
+The Genesis Framework uses hooks to move content around.
+Instead of listing them all out, I'll show you a quick example
+so you can get a quick idea of how they work.
 
-To edit the styles, just edit the appropriately named file. It may
-take some time to get used to, but it will all be worth it.
+In this example, we're going to move the nav from underneath the
+header to above the header. A very common practice. 
 
-*/
-
-/************* CHILD THEME FUNCTIONS ********************/
-
-/*
-Here are a few example functions for you to start with.
-They are a great reference point for you to create 
-your own functions and expiriments. Have Fun!
-*/
-
-// adding tweet button to single post pages only
-function bfg_tweet_button() {
-	if ( ! is_page() ) {
-		echo '<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>';
-	}
-}
-
-function bfg_tweet_script() {
-	if ( ! is_page() ) {
-		/* 
-		I could also add this above in the bfg_scripts function, to keep things organized,
-		but I thought it would work better here to serve as an example of how to add scripts.
-		*/
-		wp_enqueue_script( 'tweet-button', 'http://platform.twitter.com/widgets.js', array(), '', true );
-	}
-}
-
-/* remove the two lines in front of the lines below to activate it */
-// add_action('genesis_before_post_content', 'bfg_tweet_button');
-// add_action('wp_enqueue_scripts', 'bfg_tweet_script');
-
-
-// move your scripts & stylesheets to CDN (Content Devlivery Network)
-/*
-This one is commented out as it requires some setup. Here is how to move
-just your stylesheet. You can do the same for jQuery and any other
-scripts you'd like. 
-
-function bfg_scripts_cdn() {
-	wp_enqueue_style('bfg_scripts_cdn', 'http://cdn.url.com/style.css', array(), 'screen');
-}
-/* now remove the default stylesheet and replace it with the cdn one */
-/*
-remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-add_action( 'genesis_meta', 'bfg_scripts_cdn' );
-*/
-
-
-// 
-
-// an example function (you can use this to view hook locations)
-function genesis_do_example() {
-	// enter your function here
-?>	<div class="help">
-		<p>This is an example function. Please replace this with your own custom function.</p>
-	</div>
-<?php } /* end of function
-
-/************* MOVING ELEMENTS USING HOOKS **************/
-
-/* 
-to move an element, you need the function name and the 
-location of the hook. Here's an example:
-
-/* remove it from it's current spot */
-// remove_action( 'genesis_after_header', 'genesis_do_nav' ); 
-/* put it where you want it */
-// add_action('genesis_before_header', 'genesis_do_nav'); 
-
-/*
-Here are a list of the hooks for easy reference. To use one,
-simple change "genesis_do_example" with the function and
-remove the "//" from in front.
-
-For a visual layout, check out this page:
-http://www.nothingcliche.com/genesis-theme-framework-visual-hook-reference/
-
-Also, for more on hooks, visit the official Genesis page:
+First we identify the element or function we want to move. We can
+view a list of all the hooks here:
 http://dev.studiopress.com/hook-reference
 
-Use the "do_example" function above to see where each 
-hook is. simply remove the two "//" in front of any
-add_action below and save. There will be an alert
-on your site in the appropriate spot.
+Once we identify the one we want to target, we remove the action:
+
+remove_action( 'genesis_after_header', 'genesis_do_nav' ); 
+
+Great, now it's gone. But we want it to display somewhere else. So
+let's add it back in before the header:
+
+add_action('genesis_before_header', 'genesis_do_nav'); 
+
+That's it. reload your page and you should see it in it's new 
+position. For an easier visual look of all the hooks in action,
+check out this page:
+http://www.nothingcliche.com/genesis-theme-framework-visual-hook-reference/
+
+Here's an example function with an alert. Try to add this
+example function in different spots to see where they land
+in your child theme. It can help you visualize better.
+
 */
 
-/* the first hook genesis executes */
-// add_action('genesis_pre', 'genesis_do_example');
-
-/* executed after the constants have been defined */
-// add_action('genesis_pre_framework', 'genesis_do_example');
-
-/* runs before any of the child theme functions */
-// add_action('genesis_init', 'genesis_do_example');
-
-/* outputs the doctitle (executes between tags */
-// add_action('genesis_title', 'genesis_do_example');
-
-/* fired inside the <head> and used for meta info */
-// add_action('genesis_meta', 'genesis_do_example');
-
-/* executes immediately after the opening <body> tag */
-// add_action('genesis_before', 'genesis_do_example');
-
-/* executed right before the #header div */
-// add_action('genesis_before_header', 'genesis_do_example');
-
-/* executed inside the #header div */
-// add_action('genesis_header', 'genesis_do_example');
-
-/* the site title in the header */
-// add_action('genesis_site_title', 'genesis_do_example');
-
-/* the site description */
-// add_action('genesis_site_description', 'genesis_do_example');
-
-/* executed after the header after the #header div */
-// add_action('genesis_after_header', 'genesis_do_example');
-
-/* executed before the #content-sidebar-wrap div -->
-// add_action('genesis_before_content_sidebar_wrap', 'genesis_do_example');
-
-/* executed before #content div */
-// add_action('genesis_before_content', 'genesis_do_example');
-
-/* executes before the loop (outside of the loop) */
-// add_action('genesis_before_loop', 'genesis_do_example');
-
-/* the actual loop */
-// add_action('genesis_loop', 'genesis_do_example');
-
-/* executes before the post_class() div */
-// add_action('genesis_before_post', 'genesis_do_example');
-
-/* executes before the post title */
-// add_action('genesis_before_post_title', 'genesis_do_example');
-
-/* outputs the post title */
-// add_action('genesis_post_title', 'genesis_do_example');
-
-/* executes after the post title */
-// add_action('genesis_after_post_title', 'genesis_do_example');
-
-/* executes before the .entry_content div */
-// add_action('genesis_before_post_content', 'genesis_do_example');
-
-/* outputs the post content */
-// add_action('genesis_post_content', 'genesis_do_example');
-
-/* executes after the .entry_content div */
-// add_action('genesis_after_post_content', 'genesis_do_example');
-
-/* executes after the post_class() div */
-// add_action('genesis_after_post', 'genesis_do_example');
-
-/* after the endwhile in the loop */
-// add_action('genesis_after_endwhile', 'genesis_do_example');
-
-/* after the else in the loop */
-// add_action('genesis_after_else', 'genesis_do_example');
-
-/* executes after the loop (outside the loop) */
-// add_action('genesis_after_loop', 'genesis_do_example');
-
-/* executes before the #comments div */
-// add_action('genesis_before_comments', 'genesis_do_example');
-
-/* outputs the entire comment block */
-// add_action('genesis_comments', 'genesis_do_example');
-
-/* executes inside the .comment-list ol */
-// add_action('genesis_list_comments', 'genesis_do_example');
-
-/* executes before an individual comment */
-// add_action('genesis_before_comment', 'genesis_do_example');
-
-/* executes after an individual comment */
-// add_action('genesis_after_comment', 'genesis_do_example');
-
-/* executes after the #comments div */
-// add_action('genesis_after_comments', 'genesis_do_example');
-
-/* executes before the #pings div */
-// add_action('genesis_before_pings', 'genesis_do_example');
-
-/* outputs the pings */
-// add_action('genesis_pings', 'genesis_do_example');
-
-/* executes inside the .ping-list ol */
-// add_action('genesis_list_pings', 'genesis_do_example');
-
-/* executes after the #pings div */
-// add_action('genesis_after_pings', 'genesis_do_example');
-
-/* executes before the comment form */
-// add_action('genesis_before_comment_form', 'genesis_do_example');
-
-/* outputs the comment form */
-// add_action('genesis_comment_form', 'genesis_do_example');
-
-/* executes after the comment form */
-// add_action('genesis_after_comment_form', 'genesis_do_example');
-
-/* executed after the #content div */
-// add_action('genesis_after_content', 'genesis_do_example');
-
-/* outputs the sidebar */
-// add_action('genesis_sidebar', 'genesis_do_example');
-
-/* inside the sidebar before the first widget */
-// add_action('genesis_before_sidebar_widget_area', 'genesis_do_example');
-
-/* inside the sidebar after the last widget */
-// add_action('genesis_after_sidebar_widget_area', 'genesis_do_example');
-
-/* outputs the alt sidebar */
-// add_action('genesis_sidebar_alt', 'genesis_do_example');
-
-/* inside the alt sidebar before the first widget */
-// add_action('genesis_before_sidebar_alt_widget_area', 'genesis_do_example');
-
-/* inside the alt sidebar after the last widget */
-// add_action('genesis_after_sidebar_alt_widget_area', 'genesis_do_example');
-
-/* executed after the #content-sidebar-wrap div */
-// add_action('genesis_after_content_sidebar_wrap', 'genesis_do_example');
-
-/* before the #footer div */
-// add_action('genesis_before_footer', 'genesis_do_example');
-
-/* inside the #footer div */
-// add_action('genesis_footer', 'genesis_do_example');
-
-/* after the #footer div */
-// add_action('genesis_after_footer', 'genesis_do_example');
-
-/* executes immediately before the closing </body> tag */
-// add_action('genesis_after', 'genesis_do_example');
-
-
-/************* GENESIS FILTERS ************************/
+function genesis_do_example() {
+	// enter your function here
+?>	<div class="alert help">
+		<p>This is an example function. Please replace this with your own custom function.</p>
+	</div>
+<?php } 
 
 /*
-These are examples of commonly used filters.
-Using filters are a way to change some of the
-things (like text) in the Genesis framework.
-Here are a few examples.
+To add it, just use the above example and replace the last function
+with "genesis_do_example". So to add this example above the header,
+you would use:
+
+add_action('genesis_before_header', 'genesis_do_example'); 
+
+
+// USING GENESIS FILTERS /******************************
+
+Aside from hooks, Genesis uses filters to replace the 
+content contained inside functions. While not as
+flexible as hooks, filters can add an extra layer of
+detail to your child themes.
+
+You can find a list of all the filters here:
+http://dev.studiopress.com/filter-reference
+
+Let's use a live example to show how filters work. We're
+going to change the attribution text as well as the 
+"Back to Top" link located in the footer.
 */
 
-// Customizes Footer text
+// changing the footer attribution
 function bfg_footer_cred($bfg_ft) {
     $bfg_ft = '&copy; ' . date("Y") . ' ' . get_bloginfo("name") .' &middot; Built Using <a href="http://themble.com/genesis/bones">Bones for Genesis</a>.';
     return $bfg_ft;
 }
 
-// apply it to genesis
-add_filter('genesis_footer_creds_text', 'bfg_footer_cred');
-
+// customizing text from back to top link
+function bfg_backtotop_text($backtotop) {
+	// simply replace what's inside the "..."
+    $backtotop = '[footer_backtotop text="Back To Top"]';
+    return $backtotop;
+}
 
 /*
-Here are a few common filters if you're interested
-in adding any custom changes. There are a LOT more
-that I didn't list here, these are just a few of
-the common ones.
+We added the add_filter function to the after theme setup 
+function up top. 
 
-You can find a list of all the filters here:
-http://dev.studiopress.com/filter-reference
+That's it. It's way more complex than using hooks and sometimes
+it can be pretty darn confusing to be quite honest. Luckily,
+you can get by using mostly hooks.
+
+
+// CUSTOM CHILD THEME FUNCTIONS /***********************
+/*
+Here's where you can add your functions for you 
+child theme. remember to add / remove your actions
+up top in the theme setup function so we can keep 
+things organized.
 */
 
-// genesis_header_scripts /* outputs header scripts */
-
-// genesis_author_box_gravatar_size /* change size of author box gravatar */
-// genesis_author_box_title /* change author box title */
-
-// genesis_title_comments /* comments title */
-// genesis_comments_closed_text /* displays when comments are closed */
-// genesis_no_comments_text /* displays when there are no comments */
-// genesis_title_pings /* pings title */
-
-// genesis_footer_backtotop_text /* back to top text */
-// genesis_footer_creds_text /* credit text (used in example) */
-// genesis_footer_scripts /* drop footer scripts here */
 
 
-/************* ADMIN & DASHBOARD CUSTOMIZATION **********/
 
-require_once('library/admin.php'); // admin customization
+
+
+
+
+
+
+?>
