@@ -1,0 +1,2603 @@
+/******************************************************************
+Theme Name: Bones Child Theme
+Theme URI: http://www.themble.com/genesis/bones
+Description: Helpful for building Genesis Child Themes, Bones for Genesis is a child development theme for the Genesis Framework.
+Author: Eddie Machado
+Author URI: http://www.themble.com/
+Version: 1.03
+Tags: html5, css3, fixed, hb5
+Template: genesis
+Template Version: 1.8
+******************************************************************/
+
+/******************************************************************
+TABLE OF CONTENTS
+
+To skip to a certain section, search for "=01" where the number is
+the section you're looking for.
+
+01 - Normalize.css
+	1a - Clearing Floats
+	
+02 - Commonly Used Elements (buttons, alerts, ect.)
+	2a - Links
+	2b - Selection Text
+	2c - Buttons
+	2d - CSS3 Rounded Corners
+	2e - CSS3 Transitions
+	2f - CSS3 Gradients
+	2g - Font Face Example
+	2h - Search Inputs
+
+03 - Base Mobile Styles
+	3a - Wordpress Body Classes
+	3b - Grid & Layout
+		3b1 - Wraps & Inner
+	3c - Links & Text Selection
+		3c1 - Text Selection
+	3d - Title & Headlines
+	3e - Header
+		3e1 - Image Header (PARTIAL)
+		3e2 - Image Header (FULL)
+		3e3 - Header Right Nav
+		3e4 - Header Search
+	3f - Navigation
+		3f1 - Nav Extras
+		3f2 - SubNav
+		3f3 - Nav Search
+	3g - Posts & Content
+		3g1 - Breadcrumbs
+		3g2 - Descriptions
+		3g3 - Post Classes
+		3g4 - Post Info
+		3g5 - Entry Content
+		3g6 - Lists
+		3g7 - Blockquotes
+		3g8 - Datalists
+		3g9 - Post Images
+		3g10 - Post Videos
+		3g11 - Wp-Caption
+		3g12 - Post Galleries
+		3g13 - Post Meta
+		3g14 - Author Box
+		3g15 - Featured Posts
+	3h - Post Navigation
+	3i - Sidebars & Asides
+		3i1 - Sidebar 1
+		3i2 - Sidebar 2
+		3i3 - Widgets
+	3j - Comments
+		3j1 - Ping List
+	3k - Comment Form
+		3k1 - Form Validation
+		3k2 - No Comments
+	3l - Footer
+		3l1 - Footer Widgets
+	3m - Gravity Form Styles
+
+04 - Tablets & Mid Range (min-600px)
+
+05 - Desktop & Laptops (min-960px)
+	5a - Wordpress Body Classes
+	5b - Grid & Layout
+		5b1 - Wraps & Inner
+	5c - Header
+		5c1 - Image Header (PARTIAL)
+		5c2 - Image Header (FULL)
+		5c3 - Header Right Nav
+		5c4 - Header Search
+	5d - Navigation
+		5d1 - Nav Extras
+		5d2 - SubNav
+		5d3 - Nav Search
+	5e - Posts & Content
+		5e1 - Breadcrumbs
+		5e2 - Descriptions
+		5e3 - Post Classes
+		5e4 - Post Info
+		5e5 - Entry Content
+		5e6 - Lists
+		5e7 - Blockquotes
+		5e8 - Datalists
+		5e9 - Post Images
+		5e10 - Post Videos
+		5e11 - Wp-Caption
+		5e12 - Post Galleries
+		5e13 - Post Meta
+		5e14 - Author Box
+		5e15 - Featured Posts
+	5f - Post Navigation
+	5g - Sidebars & Asides
+		5g1 - Sidebar 1
+		5g2 - Sidebar 2
+		5g3 - Widgets
+	5h - Comments
+		5h1 - Ping List
+	5i - Comment Form
+		5i1 - Form Validation
+		5i2 - No Comments
+	5j - Footer
+		5j1 - Footer Widgets
+	6k - Gravity Form Styles
+
+06 - Large Monitors (min-1382px)
+		
+07 - IE Fixes
+
+08 - Print Stylesheet
+
+
+NOTES & TIPS
+_______________
+
+Remember, the whole idea behind Mobile First is keeping
+things light for smaller devices. This requires maintaining
+a very organized and eficient stylesheet. Here are a few tips
+to maintaining a responsive stylesheet:
+
+1. Plan Ahead
+	Responsive design is hard work. You'll need to plan out
+	your navigation and what will and wont be visible for
+	people on different devices and screen sizes.
+	
+2. Manage scripts and styles
+	Loading tons of scripts and stylesheets can really affect
+	your page speed and on mobile devices it can make your site
+	unusable. Keep tabs on them and be sure you are loading them
+	appropriately.
+
+3. Don't use background images for Mobile Styles 
+	fancy background images are great, but on a 3G connection,
+	they can really lag. Save those bg images for the larger
+	screens.
+
+4. Consider using advanced techniques
+	Read up on Responsive best practices and consider using them
+	on your project. Things like moving your navigation to the 
+	footer on mobile devices or managing advertising across all
+	devices. Like I said, it's a lot of work and requires research
+	to pull off correctly.
+
+
+IMPORTANT TO REMEMBER
+______________________
+
+This stylesheet is HUGE! It's this big because it's made to help
+you speed up your development. You should ALWAYS CLEAN IT UP BEFORE
+DEPLOYING TO A LIVE SITE. What do you mean clean up? Aside from the
+tips up top, here are a few recommendations.
+
+1. Delete empty or unused styles
+	Every byte counts so if you have selectors that are empty,
+	remove them so your stylesheet is more efficient.
+
+2. Double-Check for Duplicate Declarations
+	Fire up your Developer Tools and check to see if you are declaring
+	something twice. On larger screens, you'll be overriding things you
+	declared on mobile, but check to make sure you're not overriding 
+	the same thing. Remember, if you declare it for mobile, it will
+	still be there on every larger media query.
+	
+3. Minify & Cache
+	Use a plugin like W3TotalCache to minify your css. This way it remains
+	easily readable for you, but is compressed and loads faster
+	on your site. The bigger your site becomes, the more important this
+	step is.
+
+4. Stay Organized!
+	Maintaining a Responsive Stylesheet can be quite the task. Things can
+	get very messy, very quickly. Make sure you've got a gameplan and
+	stick to it. DO NOT just throw things in at the top or bottom
+	and expect them to be ok. This is a recipe for disaster.
+
+******************************************************************/
+
+/******************************************************************
+=01 GENERAL NORMALIZE (http://necolas.github.com/normalize.css/)
+Normalize works a lot like a classic CSS Reset only instead of 
+reseting EVERYTHING, it only changes what's inconsistent across
+the different browsers. It's much slimmer and compact than resets.
+******************************************************************/
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section { display: block; }
+audio,canvas,video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+/* base styles */
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body,button,input,select,textarea { font-family: sans-serif; color: #333; }
+/* margins, padding, & borders */
+body,figure,form,blockquote,button,input,select,textarea,dd,h1,h2,h3,h4,h5,h6,ol,ul,fieldset { margin: 0; }
+ul,ol,button::-moz-focus-inner,input::-moz-focus-inner,fieldset,input[type="checkbox"],input[type="radio"] { padding: 0; }
+img,legend,button::-moz-focus-inner,input::-moz-focus-inner,fieldset { border: 0; }
+/* images */
+img { -ms-interpolation-mode: bicubic; }
+svg:not(:root) { overflow: hidden; }
+/* links & typography */
+a:focus { outline: thin dotted; }
+a:hover,a:active { outline: 0; }
+h1 { font-size: 2em; }
+p { -webkit-hyphens: auto; -moz-hyphens: auto; -epub-hyphens: auto; hyphens: auto; margin: 0; }
+ol,ul { list-style-type: none; } 
+abbr[title] { border-bottom: 1px dotted; }
+b,strong, { font-weight: bold; }
+dfn,em { font-style: italic; }
+small,sub,sup { font-size: 75%; }
+sub,sup { line-height: 0; position: relative; vertical-align: baseline; }
+q { quotes: none; }
+q:before,q:after { content: ''; content: none; }
+mark { background: #ff0; color: #000; }
+pre,code,kbd,samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+nav ul,nav ol,.widget ol,.widget ul,.comment-list { list-style: none; list-style-image: none; }
+/* forms */
+legend { *margin-left: -7px; }
+button,input,select,textarea { font-size: 100%; vertical-align: baseline; *vertical-align: middle; }
+button,input { line-height: normal; }
+button,input[type="button"],input[type="reset"],input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+input[type="checkbox"],input[type="radio"] { box-sizing: border-box;}
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+tarea,textarea { overflow: auto; vertical-align: top; }
+/* tables */
+table { border-collapse: collapse; border-spacing: 0; }
+/* hidden elements */
+.hidden { display: none; visibility: hidden; }
+
+/* clearing floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* wordpress junk */
+.wp-smiley, .wp-wink { margin: 0 !important; max-height: 1em; }
+
+/*********************
+=1a CLEARFIXING GENESIS
+What's this? Fixing floats is one
+of the oldest headaches in web design.
+Instead of using overflow:hidden, we
+are going to clear them using a cool
+trick used in the HTML5 Boilerplate:
+http://nicolasgallagher.com/micro-clearfix-hack/
+To do this though, we have to manually add
+the items we want to clearfix here.
+Kind of a pain, yes, but it's a much more
+natural solution.
+*********************/
+#inner:before,
+#inner:after,
+#title-area:before, /* you've got to be kidding */
+#title-area:after,
+.entry-content:before, 
+.entry-content:after,
+.author-box:before,
+.author-box:after,
+.navigation:before,
+.navigation:after, /* is all this really efficient? */
+.user-profile:before,
+.user-profile:after,
+.featuredpage:before,
+.featuredpost:before,
+.featuredpage:after,
+.featuredpost:after,
+.featuredpage .page:before,
+.featuredpost .post:before,
+.featuredpage .page:after,
+.featuredpost .post:after,
+#footer:before, /* nope. probably not */
+#footer:after,
+#footer-widgets:before,
+#footer-widgets:after,
+.wrap:before,
+.wrap:after,
+#comments:before,
+#respond:before,
+#comments:after, /* but it's easier than dealing with overflow: hidden */
+#respond:after,
+.menu:before,
+.menu:after,
+.breadcrumb:before,
+.breadcrumb:after { content: ""; display: table; }
+#inner:after,
+#title-area:after,
+.entry-content:after,
+.author-box:after,
+.navigation:after, /* i tried a ton of solutions */
+.user-profile:after,
+.featuredpage:after,
+.featuredpost:after,
+.featuredpage .page:after,
+.featuredpost .post:after,
+#footer:after, /* but until Genesis adds a clearfix */
+.wrap:after,
+#comments:after,
+#respond:after,
+#footer-widgets:after,
+.menu:after,
+.breadcrumb:after { clear: both; }
+#inner,
+#title-area,
+.entry-content, /* this is what I'm going with */
+.author-box,
+.navigation,
+.user-profile,
+.featuredpage,
+.featuredpost, /* suggestions? hit me on twitter: @eddiemachado */
+.featuredpage .page,
+.featuredpost .post,
+#footer,
+.wrap,
+#comments, /* I'd love to hear your thoughts */
+#respond,
+#footer-widgets,
+.menu,
+.breadcrumb { zoom: 1; }
+				
+/******************************************************************
+=02 COMMONLY USED ELEMENTS
+******************************************************************/
+
+/*********************
+=2a LINKS
+*********************/
+a, a:visited {
+	color: #0d72c7;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	text-decoration: underline;
+}
+
+/*********************
+=2b SELECTION TEXT
+*********************/
+::-moz-selection {
+	background-color: #0d72c7;
+	color: #fff;
+}
+
+::selection {
+	background-color: #0d72c7;
+	color: #fff;
+}
+
+/*********************
+=2c BUTTONS
+*********************/
+input[type="button"], input[type="submit"], .button {
+	background: #333;
+	border: 1px solid #ccc;
+	color: #fff;
+	font-size: 0.875em;
+	font-weight: 700;
+	padding: 5px 7px;
+	text-decoration: none;
+	-webkit-border-radius: 3px;
+	 -khtml-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	     -o-border-radius: 3px;
+			border-radius: 3px;
+}
+
+	input[type="button"]:hover, input[type="submit"]:hover, .button:hover {
+		background-color: #000;
+		border-color: #ccc;
+		color: #fff;
+	}
+
+/* making sure buttons on the sidebar aren't tiny */
+.sidebar input[type=button], .sidebar input[type=submit], .button{
+	font-size: inherit;
+}
+
+	
+/*********************
+=2d CSS3 ROUNDED CORNERS
+*********************/
+.rounded-corners {
+	-webkit-border-radius: 3px;
+	 -khtml-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	     -o-border-radius: 3px;
+			border-radius: 3px;
+}
+
+/*********************
+=2e CSS3 TRANSITIONS
+*********************/
+.transition {
+	 -webkit-transition: all 0.2s ease-out; 
+	 	-moz-transition: all 0.2s ease-out; 
+	 	 -ms-transition: all 0.2s ease-out; 
+	 	  -o-transition: all 0.2s ease-out; 
+	 		 transition: all 0.2s ease-out;
+}
+
+/*********************
+=2f CSS3 GRADIENTS
+Be careful with gradients as they can really affect
+the speed of your CSS. Don't overdue it. :)
+*********************/
+.gradient {
+	background-color: #414141;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(65, 65, 65)), to(rgb(51, 51, 51)));
+	background-image: -webkit-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: -moz-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: -o-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: -ms-linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	background-image: linear-gradient(top, rgb(65, 65, 65), rgb(51, 51, 51));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#414141', EndColorStr='#333333');
+}
+
+/*********************
+=2g FONT FACT EXAMPLE
+*********************/
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('library/fonts/font-name.eot');
+    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
+/*********************
+=2h SEARCH INPUTS
+*********************/
+.s {
+	margin: 10px -7px 0 0;
+	padding: 6px 5px;
+	width: 180px;
+}
+
+/******************************************************************
+=03 BASE MOBILE STYLES
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. Don't use px, you'll want to use %s or ems.
+******************************************************************/
+
+body {
+	background-color: #d5d5d5;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+}
+
+/*********************
+=3a BODY CLASSES
+Remember, you want to keep mobile as light as possible so don't
+overload it with background images. Save those for larger screens
+and better connections.
+*********************/
+.rtl {}
+.home {} /* home page */
+.blog {} 
+.archive {} /* archive page */
+.date {} /* date archive page */
+	.date-paged-1 {} /* replace the number to the corresponding page number */
+.search {} /* search page */
+	.search-results {} /* search result page */
+	.search-no-results {} /* no results search page */
+	.search-paged-1 {} /* individual paged search (i.e. body.search-paged-3) */
+.error404 {} /* 404 page */
+.single {} /* single post page */
+	.postid-1 {} /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
+.attachment {} /* attatchment page */
+	.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {} /* style mime type pages */
+.author {} /* author page */
+	.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {} /* category page */
+	.category-1 {} /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {} /* replace the number to the corresponding page number */
+.tag {} /* tag page */
+	.tag-slug {} /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {} /* replace the number to the corresponding page number */
+.page-template {} /* custom page template page */
+	.page-template-page-php {} /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {} /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {} /* replace the number to the corresponding page number */
+.logged-in {} /* if user is logged in */
+.paged {} /* paged items like search results or archives */
+	.paged-1 {} /* individual paged (i.e. body.paged-3) */
+
+/*********************
+=3b GRID & LAYOUT
+*********************/
+
+/*
+no need to put anything here since there's no room for a grid
+on mobile layouts. So, we save even more bytes here. :)
+*/
+
+	/*********************
+	=3b1 WRAPS & INNER
+	*********************/
+	#wrap {
+		background-color: #fff;
+	}
+	
+	/*
+	there are others you probably won't use at this size, so I 
+	removed them. Remember, keep things light.
+	*/
+	
+	#inner {
+		padding: 20px 0 0;
+		margin: 0 auto;
+	}
+
+/*********************
+=3d TITLES & HEADLINES
+What's with the classes? It's a great way to keep
+your CSS slim. Instead of adding another selector to
+make a title look like an H1, you simply add the .h1
+class to it. ( i.e. <h5 class="h1"> ). So easy.
+*********************/
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5 {
+	font-family: sans-serif;
+	line-height: 1.25em;
+	margin: 0 0 10px;
+}
+
+h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {}
+
+h1, .h1 {
+	font-size: 1.875em;
+}
+
+h2, .h2 {
+	font-size: 1.75em;
+}
+
+h3, .h3 {
+	font-size: 1.5em;
+}
+
+h4, .h4 {
+	font-size: 1.25em;
+}
+
+h5, .h5 {
+	font-size: 1.125em;
+}
+
+h6, .h6 {
+	font-size: 1em;
+}
+
+/*********************
+=3e HEADER
+*********************/
+#header {
+	width: 100%;
+	min-height: 100px; margin: 0 auto; /* questionable */
+}
+
+	#title-area {
+		text-align: center;
+	}
+	
+		#title {
+			font-size: 2.25em;
+			line-height: 1.125;
+			text-transform: uppercase;
+			text-align: center;
+		}
+		
+			#title a,
+			#title a:hover {
+				color: #333;
+				text-decoration: none;
+			}
+			
+		#description {
+			font-size: 0.875em;
+			text-align: center;
+		}
+
+	#header .widget-area {
+		padding: 0 0 10px;
+	}
+
+	/*********************
+	=3e1 IMAGE HEADER (PARTIAL)
+	*********************/
+	.header-image #title-area {
+		height: 100px;
+		overflow: hidden;
+		text-indent: -9999;
+		width: 100%;
+		padding: 0;
+	}
+	
+	.header-image #title a {}
+	
+	.header-image #description {}
+	
+	/*********************
+	=3e2 IMAGE HEADER (FULL)
+	*********************/
+	.header-full-width #title-area {
+		width: 100%;
+	}
+	
+	/*********************
+	=3e3 HEADER RIGHT NAV
+	*********************/
+	#header .menu {
+		border: 1px solid #ddd;
+		box-sizing: border-box;
+	}
+	
+		#header .menu ul {}
+	
+			#header .menu li {}
+	
+				#header .menu li a {}
+	
+					#header .menu li a:hover,
+					#header .menu li a:active,
+					#header .menu li:hover a,
+					#header .menu .current_page_item a,
+					#header .menu .current-cat a,
+					#header .menu .current-menu-item a {}
+	
+						#header .menu li li a,
+						#header .menu li li a:link,
+						#header .menu li li a:visited {}
+	
+							#header .menu li li a:hover,
+							#header .menu li li a:active {}
+	
+							#header .menu li ul {}
+							
+							#header .menu li ul a {}
+							
+							#header .menu li ul ul {}
+							
+							#header .menu li:hover>ul {}
+						
+	/*********************
+	=3e4 HEADER SEARCH
+	*********************/
+	#header .searchform {
+		text-align: center;
+	}
+	
+	#header .s {
+		margin: 0 -7px 0 0;
+	}
+
+/*********************
+=3f NAVIGATION
+*********************/
+.menu {
+	clear: both;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+}
+
+	.menu-primary {
+		border-top: 1px solid #ddd;
+	}
+		
+	.menu-secondary {
+		border-top: 0;
+	}
+
+		.menu ul {
+			list-style: none;
+		}
+
+			.menu li {}
+			
+			.menu li a {
+				color: #333;
+				display: block;
+				font-size: 0.87em; 
+				position: relative;
+				text-decoration: none;
+				padding: 10px 3%;
+				border-bottom: 1px solid #ddd;
+			}
+			
+			/* hover & current page highlight */
+			.menu li a:hover,
+			.menu li a:active,
+			.menu .current_page_item a,
+			.menu .current-cat a,
+			.menu .current-menu-item a {
+				background-color: #fff;
+				color: #333;
+			}
+		
+		/* 
+		drop downs & sub menus 
+		So I'm hiding these. Why? Because on mobile,
+		every bit of space counts. Do you really want
+		your users to have to scroll down for 2 min. just
+		to read the article? This is why you'll want to
+		really plan out your menu. You obviously don't
+		have to do it this way, but it's an option. :) 
+		*/
+		.menu li ul {
+			display: none;
+			background: #333;
+			position: inherit;
+		}
+		
+			.menu li li a, 
+			.menu li li a:link,
+			.menu li li a:visited {
+				color: #fff;
+			}
+
+				.menu li li a:hover, 
+				.menu li li a:focus,
+				.menu li li a:focus {}
+				
+				.menu li li a:active {}	
+
+	/*********************
+	=3f1 NAV EXTRAS
+	*********************/
+	#nav li.right {
+	    /* hiding this for mobile */
+	    display: none;
+	}
+	    #nav li.right a {}
+	    	#nav li.right a:hover {}
+	
+	#nav li.rss a {}
+	#nav li.twitter a {}
+	
+	/*********************
+	=3f2 SUBNAV
+	*********************/
+	#subnav {}
+	
+	#subnav li a:hover,
+	#subnav li a:active,
+	#subnav li:hover a,
+	#subnav .current_page_item a,
+	#subnav .current-cat a,
+	#subnav .current-menu-item a {}
+	
+	    #subnav li li a,
+	    #subnav li li a:link,
+	    #subnav li li a:visited {}
+	
+	    	#subnav li li a:hover,
+	    	#subnav li li a:active {}
+	
+	    		#subnav li ul {}
+	    			#subnav li ul a {}
+	    				#subnav li ul ul {}
+							
+	/*********************
+	=3f3 NAV SEARCH
+	*********************/
+	#nav li.search {}
+
+	#nav .searchform {}
+	
+	#nav .s {
+		background-color: #fff;
+		margin: 2px 2px 0 0;
+	}
+
+/*********************
+=3g POSTS & CONTENT
+*********************/
+#content {}
+
+/* layout options */
+.content-sidebar #content, .sidebar-content #content {}
+
+.sidebar-content #content, .sidebar-sidebar-content #content {}
+
+.full-width-content #content {}
+
+	/*********************
+	=3g1 BREADCRUMBS
+	*********************/
+	.breadcrumb {
+		font-size: 0.875em;
+		padding: 5px 10px;
+		margin: 0 20px 20px;
+		background-color: #f5f5f5;
+		border: 1px solid #ddd;
+	}
+	
+	/*********************
+	=3g2 DESCRIPTIONS
+	*********************/
+	.taxonomy-description {
+		background-color: #fff;
+		margin: 0 20px 20px;
+	}
+	
+		.taxonomy-description h1 { 
+			font-size: 0.875em;
+			margin: 0; 
+			padding: 9px 10px 8px;
+			background-color: #f5f5f5;
+			border-bottom: 1px solid #ddd;
+		}
+		
+		.taxonomy-description p {
+			font-size: 0.875em;
+			padding: 15px;
+		}
+	
+	.archive-page {
+		padding: 20px 0 0;
+	}	
+	
+		.archive-page ul,
+		.archive-page ol {
+			padding-bottom: 25px;
+		}
+		
+		.archive-page ul ul {
+			padding-bottom: 0;
+		}
+	
+    /*********************
+    =3g3 POST CLASSES
+    *********************/
+    .hentry {}
+    .post-id {} /* post by id (i.e. post-3) */
+    .post {
+    	padding: 0 20px;
+    	margin: 0 0 40px;
+    } /* general post style */
+    
+    .page {
+    	padding: 0 20px;
+    } /* general article on a page style */
+    
+    .attachment {} /* general style on an attatchment */
+    .sticky {
+    	background-color: #f5f5f5;
+    	margin: -10px 0 40px;
+    	padding: 20px;
+    } /* sticky post style */
+    
+    .category-slug {} /* style by category (i.e. category-videos) */
+    .tag-slug {} /* style by tag (i.e. tag-news) */
+
+    /*********************
+    =3g4 POST INFO
+    *********************/
+    .post-info {
+    	font-size: 0.875em;
+    	margin: -5px 0 15px;
+    }
+    	.post-info .time {}
+    	.post-info .vcard {}
+    	.post-info .post-comments {}
+    	.post-edit-link {}
+    	
+    /*********************
+    =3g5 ENTRY CONTENT
+    *********************/
+    .entry-content {}
+    	
+    	.entry-content p {
+    		padding: 0 0 25px;
+    		color: #565656;
+    	}
+    	
+    /*********************
+    =3g6 LISTS
+    *********************/
+    .entry-content ul, 
+    .entry-content ol, 
+    .entry-content table, 
+    .entry-content dl {}
+    .entry-content ul, 
+    .entry-content ol {
+        padding-bottom: 25px;
+    }
+    
+    .entry-content ul {
+        list-style: square;
+    }
+    
+    .entry-content ol {
+        list-style: decimal;
+    }
+    
+    .entry-content li {
+        margin-left: 30px;
+    }
+    
+    .entry-content ul li {}
+    .entry-content ol li {}
+    
+    .entry-content ul ul,
+    .entry-content ol ol {
+        padding-bottom: 0;
+    }
+    
+    /*********************
+    =3g7 BLOCKQUOTES
+    *********************/
+    .entry-content blockquote {
+        margin: 5px 5px 20px;
+        padding: 25px 30px 5px;
+        border-top: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
+    } 
+    
+    blockquote p {
+        color: #999;
+        font-style: italic;
+    }
+        		
+    /*********************
+    =3g8 DATALISTS
+    *********************/
+    .entry-content dl {}
+    .entry-content dt {}
+    .entry-content dd {}
+    
+    /*********************
+    =3g9 POST IMAGES
+    *********************/
+    .entry-content img {
+        height: auto;
+        max-width: 100%;
+    }
+    
+    .post-image {
+        margin: 0 10px 10px 0;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        padding: 4px;
+    }
+    
+    .alignnone, 
+    img.alignnone {
+        display: inline;
+        margin: 0 0 10px;
+    }
+    
+    .alignleft, 
+    img.alignleft {
+        display: inline;
+        float: left;
+        margin: 0 15px 10px 0;
+    }
+    
+    .alignright, 
+    img.alignright {
+        display: inline;
+        float: right;
+        margin: 0 0 10px 15px;
+    }
+    
+    .aligncenter, 
+    img.aligncenter, 
+    .entry_content .centered {
+        display: block;
+        margin: 0 auto 10px;
+    }
+    
+    /*********************
+    =3g10 POST VIDEOS
+    *********************/
+    .entry-content video {}
+    .entry-content object {}
+    .entry-content pre, 
+    .entry-content code {
+        font-size: 0.875em;
+        padding: 10px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+    }
+    
+    /*********************
+    =3g11 WP-CAPTION
+    *********************/
+    .wp-caption {
+        padding: 5px;
+        text-align: center;
+    }
+    
+    .wp-caption img {}
+    .wp-caption .wp-caption-text {
+        font-size: 0.875em;
+        padding: 5px 0;
+    }
+        		
+    /*********************
+    =3g12 POST GALLERIES
+    *********************/
+    .gallery dl {}
+    .gallery dt {}
+    .gallery dd {}
+    .gallery dl a {}
+    .gallery dl img {}
+    .gallery-caption {}
+    
+    .size-full {}
+    .size-large {}
+    .size-medium {}
+    .size-thumbnail {}
+    
+    /*********************
+    =3g13 POST META
+    *********************/
+    .post-meta {}
+    	.post-meta .categories {}
+    	.post-meta .tags {}
+
+	/*********************
+	=3g14 AUTHOR BOX
+	*********************/
+	.author-box {
+		background-color: #f5f5f5;
+		margin: 0 20px 40px;
+		padding: 10px;
+	}
+	
+		.author-box p {
+			font-size: 0.875em;
+		}
+		
+	    .author-box .avatar { 
+	    	background-color: #fff;
+	    	float: left;
+	    	margin: 0 10px 0 0;
+	    }
+	
+	/*********************
+	=3g15 FEATURED POSTS
+	*********************/
+	.genesis-grid-even, 
+	.genesis-grid-odd {
+		margin: 0 0 20px;
+		padding: 0 0 15px;
+		width: 48%;
+	}
+	
+	.genesis-grid-even {
+		float: left;
+	}
+	
+	.genesis-grid-odd {
+		float: right;
+		clear: both;
+	}
+	
+	.featuredpage,
+	.featuredpost {
+		clear: both;
+		margin: 0 0 15px;
+	}
+	
+	.featuredpage img,
+	.featuredpost img {
+		background: #f5f5f5;
+		border: 1px solid #ddd;
+		padding: 4px;
+	}
+	
+	.featuredpage .page,
+	.featuredpost .post {
+		border-bottom: 1px solid #ddd;
+		margin: 0 0 5px;
+		padding: 5px 15px 10px;
+	}
+	
+	.more-from-category {
+		padding: 5px 15px 0;
+	}
+
+/*********************
+=3h POST NAVIGATION
+*********************/
+.navigation {
+	font-size: 0.875em;
+	padding: 20px 0;
+	margin: 0 20px 20px;
+}
+
+	.navigation li {
+		display: inline;
+	}
+
+		.navigation li a,
+		.navigation li.disabled,
+		.navigation li a:hover,
+		.navigation li.active a {
+			border: 1px solid #ddd;
+			padding: 5px 8px;
+		}
+
+			.navigation li a:hover,
+			.navigation li.active a {
+				background-color: #f5f5f5;
+			}
+
+/*********************
+=3i SIDEBARS & ASIDES
+*********************/
+
+	/*********************
+	=3i1 SIDEBAR 1
+	*********************/
+	.sidebar {}
+	
+		/* sidebar 1 alternate layouts */
+		.sidebar-content #sidebar, 
+		.sidebar-sidebar-content #sidebar {}
+	
+	/*********************
+	=3i2 SIDEBAR 2
+	*********************/
+	#sidebar-alt {}
+	
+		/* sidebar 2 alt layouts */
+		.content-sidebar-sidebar #sidebar-alt {}
+		
+		/* sidebar search */
+		.sidebar .searchform {
+			padding: 5px 0 0 15px;
+		}
+		
+		.sidebar p {
+			font-size: inherit;
+			line-height: inherit;
+		}
+		
+		
+	/*********************
+	=3i3 WIDGET STYLES
+	*********************/
+	.widget {
+	    font-size: 0.875em;
+	    background: #fff;
+	    border: 1px solid #ddd;
+	    padding: 0 0 15px;
+	    margin: 0 20px 20px;
+	}
+	    
+	    .widget-area h4 {
+	    	margin: 0 0 5px;
+	    	background-color: #f5f5f5;
+	    	border-bottom: 1px solid #ddd;
+	    	font-size: 0.875em;
+	    	padding: 9px 10px 8px;
+	    }
+	    
+	    .widget ul, .widget ol {
+	    	padding: 5px 15px 0;
+	    }
+	    
+	    .widget li {
+	    	border-bottom: 1px solid #ddd;
+	    	margin: 0 0 7px;
+	    	padding: 0 0 5px;
+	    	word-wrap: break-word;
+	    }
+	    
+	    	/* remove the border for the last item in a list */
+	    	.widget li:last-child {
+	    		border-bottom: 0;
+	    	}
+	    
+	    .widget li ul {}
+
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+	
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+	
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+	
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+	
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {} 
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+	
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+	.widget_tag_cloud div div {
+	    padding: 5px 15px 0;
+	}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar {
+	    width: 100%;
+	}
+	
+	#wp-calendar thead {
+	    background-color: #f5f5f5;
+	    font-weight: 700;
+	    margin: 10px 0 0;
+	}
+	
+	#wp-calendar td {
+	    background-color: #f5f5f5;
+	    padding: 2px;
+	    text-align: center;
+	}
+	
+	#wp-calendar caption {
+	    font-size: 0.75em;
+	    font-style: italic;
+	    padding: 2px 5px 0 0;
+	    text-align: right;
+	}
+	
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {
+	    padding: 5px 15px 0;
+	}
+	
+	.widget_text {}
+	.textwidget p {}
+	
+	/* eNews and Update Widget */
+	.enews p {
+	    padding: 5px 15px;
+	}
+	
+	.enews #subscribe {
+	    padding: 0 0 0 15px;
+	}
+	
+	.enews #subbox {
+	    margin: 5px -7px 0 0;
+	    padding: 6px 5px;
+	    width: 75%;
+	}
+	
+	/* User Profile Widget */
+	.user-profile {}
+	.user-profile p {
+	    padding: 10px 15px 0;
+	}
+	
+	.user-profile .posts_link {
+	    padding: 0 15px;
+	}
+
+/*********************
+=3j COMMENT STYLES
+**********************/
+#comments {
+	margin: 0 0 15px;
+	padding: 0 20px;
+}
+	
+	#comments .navigation {}
+
+	.subscribe-to-comments {
+		padding: 20px 0 10px;
+	}
+		
+.comment-list {}
+	.comment-list li {
+		font-weight: 700;
+		margin: 15px 0 5px;
+		padding: 10px 5px 10px 10px;
+	}
+	
+		.comment-list li[class*=depth-] {}
+			.comment-list li.depth-1 {
+				border: 1px solid #ddd;
+			}
+			
+				.comment-list li:not(.depth-1) {}
+			.comment-list li.depth-2 {}
+			.comment-list li.depth-3 {}
+			.comment-list li.depth-4 {}
+			.comment-list li.depth-5 {}
+			.comment-list li:last-child { }
+				.comment-list li ul.children li {
+					margin-left: 10px;
+					margin-right: -6px;
+				}
+				
+				.comment-list li ul.children li.alt {}
+				.comment-list li ul.children li.byuser {}
+				.comment-list li ul.children li.comment {}
+				.comment-list li ul.children li.depth-1 {} /* change number for different depth */
+				.comment-list li ul.children li.bypostauthor {}
+				.comment-list li ul.children li.comment-author-admin {}
+				.comment-list li ul.children .alt {}
+				.comment-list li ul.children .odd {}
+				.comment-list li ul.children .even {}
+			.comment-list .alt {
+				border: 1px solid #ddd;
+			}
+			
+			.comment-list .odd {}
+			.comment-list .even {
+				border: 1px solid #ddd;
+			}
+			
+			.comment-list .parent {}
+			.comment-list .comment {}
+			.comment-list .children {}
+			.comment-list .pingback {}
+			.comment-list .bypostauthor {}
+			.comment-list .comment-author {}
+			.comment-list .comment-author-admin {}
+			.comment-list .thread-alt {
+				background-color: #f5f5f5;
+			}
+			
+			.comment-list .thread-odd {}
+			.comment-list .thread-even {
+				background-color: #f5f5f5;
+			}	
+			
+			.comment-list .vcard {}
+				.comment-list .vcard cite.fn {
+					font-style: normal;
+				}
+				
+					.comment-list .vcard cite.fn a.url {}
+				.comment-list .vcard .says {}
+				.comment-list .vcard img.avatar {
+					background: #fff;
+					float: right;
+					margin: 0 5px 0 10px;
+				}
+					
+				.commentmetadata {
+					margin: 0 0 5px;
+					font-size: 0.75em;
+				}
+				 
+					.commentmetadata a {}
+				
+			.comment-content {}
+				.comment-content p {
+					font-size: 0.875em;
+					padding: 0 0 20px;
+				}
+				
+				.comment-list li ul {}		
+				.reply {
+					font-weight: 300;
+					font-weight: 0.875em;
+				}
+				
+					.reply:hover {}
+					
+	/*********************
+	=3j1 PING LIST
+	*********************/
+	.ping-list {
+		margin: 0 0 40px;
+	}
+	
+		.ping-list ol {}
+			.ping-list li {
+				font-weight: 700;
+				margin: 15px 0 5px;
+				padding: 10px 5px 10px 10px;
+			}
+			
+				.ping-list cite {
+					font-style: normal;
+				}
+
+/**********************
+=3k COMMENT FORM STYLES
+*********************/
+#respond {
+	margin: 0 0 15px;
+	padding: 0 20px;
+}
+
+#reply-title { }
+	
+	#cancel-comment-reply {}
+			#cancel-comment-reply a {}
+			
+	#commentform {}
+		
+		.comments-logged-in-as {}
+		
+			#commentform label {}
+			#commentform .required {}
+			
+			#author, 
+			#email, 
+			#url, 
+			#comment {
+				margin: 10px 5px 0 0;
+				padding: 5px;
+				width: 250px;
+			}
+			
+			#author:focus, 
+			#email:focus, 
+			#url:focus, 
+			#comment:focus { }
+			
+			#comment {
+				height: 150px;
+				margin: 10px 0;
+				width: 98%;
+			}
+			
+			#submit {}
+		
+	/*********************
+	=3k1 FORM VALIDATION
+	*********************/
+	#author:invalid, 
+	#email:invalid, 
+	#url:invalid {}		
+	
+	/*********************
+	=3k2 NO COMMENTS
+	*********************/
+	.nocomments {
+		text-align: center;
+	}					
+					
+/*********************
+=3l FOOTER STYLES
+*********************/
+#footer {
+	background-color: #232323;
+	border-top: 1px solid #121212;
+	clear: both;
+	color: #999;
+	font-size: 0.875em;
+}
+
+	#footer .wrap {
+		padding: 10px 15px;
+	}
+
+	#footer a, 
+	#footer a:visited {
+		color: #f5f5f5;
+	}
+	
+		#footer a:hover,
+		#footer a:focus {
+			color: #fff;
+			text-decoration: none;
+		}
+
+	.gototop, .creds {
+		text-align: center;
+	}
+	
+		.gototop {}
+		.creds {}
+
+	/*********************
+	=3l1 FOOTER WIDGETS 
+	*********************/
+	#footer-widgets {
+		background-color: #f5f5f5;
+		border-top: 1px solid #ddd;
+		clear: both;
+	}
+	
+		#footer-widgets .wrap {}
+		
+		#footer-widgets h4 {
+			background: none;
+			border: none;
+			margin: 0 0 5px;
+			padding: 0;
+		}
+		
+		#footer-widgets p {
+			font-size: inherit;
+			line-height: inherit;
+			padding: 0 0 10px;
+		}
+		
+		#footer-widgets .widget {
+			background: none;
+			border: 0;
+			margin: 0 0 15px;
+			padding: 20px 20px 0;
+		}
+		
+		#footer-widgets .widget ul,
+		#footer-widgets .widget ol {
+			padding: 0;
+		}
+	
+		.footer-widgets-1, 
+		.footer-widgets-2, 
+		.footer-widgets-3 {}
+			.footer-widgets-1 {}
+			.footer-widgets-2 {}
+			.footer-widgets-3 {}
+			
+		
+	/* overrides for the featured posts */
+	#footer-widgets .featuredpage .page,
+	#footer-widgets .featuredpost .post {
+		margin: 0 0 10px;
+		padding: 0;
+	}
+	
+	/* override for tag cloud */
+	#footer-widgets .widget_tag_cloud div div {
+		padding: 0;
+	}
+	
+	/* override for the text widgets */
+	#footer-widgets .textwidget {
+		padding: 0;
+	}
+	
+	/* override for the calendar widget */
+	#footer-widgets #wp-calendar thead,
+	#footer-widgets #wp-calendar td {
+		background: none;
+	}
+	
+/*********************
+=3m GRAVITY FORM STYLES 
+*********************/
+
+div.gform_wrapper input,
+div.gform_wrapper select,
+div.gform_wrapper textarea {
+	box-sizing: border-box;
+	color: #333;
+	font-family: sans-serif;
+	font-size: 0.875em !important;
+	padding: 4px 5px !important;
+}
+
+div.gform_footer input.button {
+	color: #333;
+}
+
+div.gform_wrapper .ginput_complex label {
+	font-size: 0.875em;
+}
+
+div.gform_wrapper li,
+div.gform_wrapper form li {
+	margin: 0 0 10px;
+}
+
+div.gform_wrapper .gform_footer {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/******************************************************************
+=04 TABLET & MID-RANGE STYLES
+This is used for tablets like iPads and Android tablets or if 
+someone resizes their browser to a medium size. Here, we'll add
+to our already simple base styles.
+******************************************************************/
+@media only screen and (min-width: 600px) {
+
+/*
+This is for tablets so if you set great styles for mobile, than
+they should expand pretty well here. You can setup a few styles
+here as overrides if you want to spruce it up more.
+*/
+
+} /* end of media query (DO NOT DELETE) */
+
+/******************************************************************
+=05 DESKTOP STYLES
+This is your standard view. It's what most of your visitors will
+see and it will be on a good connection so we can really add some
+hefty styles here without worrying it will overload mobile.
+******************************************************************/
+@media only screen and (min-width: 960px) {
+
+
+body {}
+
+/*********************
+=5a BODY CLASSES
+*********************/
+.rtl {}
+.home {} /* home page */
+.blog {} 
+.archive {} /* archive page */
+.date {} /* date archive page */
+	.date-paged-1 {} /* replace the number to the corresponding page number */
+.search {} /* search page */
+	.search-results {} /* search result page */
+	.search-no-results {} /* no results search page */
+	.search-paged-1 {} /* individual paged search (i.e. body.search-paged-3) */
+.error404 {} /* 404 page */
+.single {} /* single post page */
+	.postid-1 {} /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
+.attachment {} /* attatchment page */
+	.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {} /* style mime type pages */
+.author {} /* author page */
+	.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {} /* category page */
+	.category-1 {} /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {} /* replace the number to the corresponding page number */
+.tag {} /* tag page */
+	.tag-slug {} /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {} /* replace the number to the corresponding page number */
+.page-template {} /* custom page template page */
+	.page-template-page-php {} /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {} /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {} /* replace the number to the corresponding page number */
+.logged-in {} /* if user is logged in */
+.paged {} /* paged items like search results or archives */
+	.paged-1 {} /* individual paged (i.e. body.paged-3) */
+
+/*********************
+=5b GRID & LAYOUT
+We have room now so start working in our grid and lay things out
+a bit more. Things should still be light, but you can customize it
+a bit for a unique tablet experience.
+*********************/
+.five-sixths, .four-fifths, .four-sixths, .one-fifth, .one-fourth, .one-half, .one-sixth, .one-third, .three-fifths, .three-fourths, .three-sixths, .two-fifths, .two-fourths, .two-sixths, .two-thirds {
+	float: left;
+	margin: 0 0 20px;
+	padding-left: 3%;
+}
+
+.one-sixth 							 { width: 14%; }
+.one-fifth 							 { width: 17.4%; }
+.one-fourth 						 { width: 22.5%; }
+.one-third,.two-sixths 				 { width: 31%; }
+.two-fifths 						 { width: 37.8% }
+.one-half,.three-sixths,.two-fourths { width: 48%; }
+.three-fifths 						 { width: 58.2% }
+.four-sixths,.two-thirds 			 { width: 65%; }
+.three-fourths 						 { width: 73.5%; }
+.four-fifths 						 { width: 78.6%; }
+.five-sixths 						 { width: 82%; }
+
+.first {
+	clear: both;
+	padding-left: 0;
+}
+
+	/*********************
+	=5b1 WRAPS & INNER
+	*********************/
+	#wrap {
+		margin: 15px auto;
+		width: 960px;
+		-webkit-box-shadow: 0 0 5px #999;
+		   -moz-box-shadow: 0 0 5px #999;
+				box-shadow: 0 0 5px #999;
+	}
+	
+	#content-sidebar-wrap {
+		width: 750px;
+		float: left;
+	}
+	
+	.content-sidebar #content-sidebar-wrap, .full-width-content #content-sidebar-wrap, .sidebar-content #content-sidebar-wrap {
+		width: 100%;
+	}
+	
+	.sidebar-content-sidebar #content-sidebar-wrap, .sidebar-sidebar-content #content-sidebar-wrap {
+		float: right;
+	}
+	
+	#inner {
+		padding: 20px;
+	}
+
+/*********************
+=5c HEADER
+*********************/
+#header {}
+
+	#title-area {
+		width: 400px;
+		float: left;
+		text-align: left;
+		padding: 20px 0 0 20px;
+	}
+		#title {
+			text-align: left;
+		}
+			#title a {}
+			
+		#description {
+			text-align: left;
+		}
+
+	#header .widget-area {
+		float: right;
+		padding: 25px 20px 0 0;
+		width: 510px;
+	}
+
+	/*********************
+	=5c1 IMAGE HEADER
+	*********************/
+	.header-image #title-area {
+		float: left;
+		width: 400px;
+	}
+	
+	.header-image #description {}
+	
+	/*********************
+	=5c2 IMAGE HEADER (FULL)
+	*********************/
+	.header-full-width #title-area {}
+	
+	li:hover ul ul {}
+	
+	li:hover {}
+	
+	#header ul.nav li a.sf-with-ul,
+	#header ul.menu li a.sf-with-ul,
+	#nav li a.sf-with-ul,
+	#subnav li a.sf-with-ul {}
+	
+	li a .sf-sub-indicator {}
+	
+	li li a .sf-sub-indicator {}
+	
+	/*********************
+	=5c3 HEADER RIGHT NAV
+	*********************/
+	#header .menu {}
+	
+		#header .menu ul {}
+	
+			#header .menu li {}
+	
+				#header .menu li a {}
+	
+					#header .menu li a:hover,
+					#header .menu li a:active,
+					#header .menu li:hover a,
+					#header .menu .current_page_item a,
+					#header .menu .current-cat a,
+					#header .menu .current-menu-item a {}
+	
+						#header .menu li li a,
+						#header .menu li li a:link,
+						#header .menu li li a:visited {}
+	
+							#header .menu li li a:hover,
+							#header .menu li li a:active {}
+	
+							#header .menu li ul {}
+							
+							#header .menu li ul a {}
+							
+							#header .menu li ul ul {}
+							
+							#header .menu li:hover>ul {}
+						
+	/*********************
+	=5c4 HEADER SEARCH
+	*********************/
+	#header .searchform {
+		float: right;
+		padding: 12px 0 0;
+	}
+	
+	#header .s {
+		margin: 10px -7px 0 0;
+	}
+
+/*********************
+=5d NAVIGATION
+*********************/
+.menu {
+	clear: both;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+}
+
+		.menu-primary {
+			border-top: 1px solid #ddd;
+		}
+		
+		.menu-secondary {
+			border-top: 0;
+		}
+
+		.menu ul {}
+
+			.menu li {
+				float: left;
+			}
+			
+			.menu li a {
+				border-right: 1px solid #ddd;
+				display: block;
+				padding: 5px 15px 4px;
+				border-bottom: 0;
+			}
+			
+			/* hover & current page highlight */
+			.menu li a:hover,
+			.menu li a:active,
+			.menu .current_page_item a,
+			.menu .current-cat a,
+			.menu .current-menu-item a {}
+			
+		/* drop downs & sub menus */
+		.menu li ul {
+			display: block;
+			position: absolute;
+			height: auto;
+			left: -9999em;
+			margin: 0 0 0 -1px;
+			width: 160px;
+			z-index: 8999;
+		}
+		
+			/* show sub-menu on hover */
+			.menu li:hover > ul {
+				left: auto;
+			}
+		
+			.menu li li a, 
+			.menu li li a:link,
+			.menu li li a:visited {
+				background-color: #fff;
+				color: #333;
+				border: 1px solid #ddd;
+				border-top: 0;
+				font-size: 0.75em;
+				padding: 5px 10px;
+				width: 138px;
+				text-transform: none;
+			}
+			
+					.menu li ul li:first-child a {
+						border-top: 1px solid #ddd;
+					}
+			
+				.menu li ul a {
+					width: 140px;
+				}
+
+				.menu li li a:hover, 
+				.menu li li a:focus,
+				.menu li li a:focus {
+					background-color: #f5f5f5;
+				}
+				
+				.menu li li a:active {}
+				
+				/*
+				if you change the font, size, or text-transform of the
+				menu than you'll need to adjust the top margin so things
+				line up neatly.
+				*/
+				.menu li ul ul {
+					margin: -30px 0 0 159px;
+				}
+				
+				
+			
+	/*********************
+	=3d1 NAV EXTRAS
+	*********************/
+	.menu li.right {
+	    display: inherit;
+	    float: right;
+	    font-size: 0.875em;
+	    padding: 5px 15px 4px;
+	}
+	    .menu li.right a {
+	    	background: none;
+	    	border: 0;
+	    	display: inline;
+	    	font-size: inherit;
+	    }
+	    	.menu li.right a:hover {
+	    		color: #0d72c7;
+	    	}
+
+	.menu li.rss a {}
+	.menu li.twitter a {}
+			
+	/*********************
+	=3d2 SUBNAV
+	*********************/
+	#subnav {}
+	
+	#subnav li a:hover,
+	#subnav li a:active,
+	#subnav li:hover a,
+	#subnav .current_page_item a,
+	#subnav .current-cat a,
+	#subnav .current-menu-item a {}
+	
+	    #subnav li li a,
+	    #subnav li li a:link,
+	    #subnav li li a:visited {}
+	
+	    	#subnav li li a:hover,
+	    	#subnav li li a:active {}
+	
+	    		#subnav li ul {}
+	    			#subnav li ul a {}
+	    				#subnav li ul ul {}
+							
+	/*********************
+	=3d3 NAV SEARCH
+	*********************/
+	#nav li.search {}
+
+	#nav .searchform {}
+	
+	#nav .s {
+		background-color: #fff;
+		margin: 2px 2px 0 0;
+	}
+			
+/*********************
+=5e POSTS & CONTENT
+*********************/
+#content {
+	float: left;
+	padding: 10px 20px;
+	width: 410px;
+}
+
+/* layout options */
+.content-sidebar #content, .sidebar-content #content {
+	width: 580px;
+}
+
+.sidebar-content #content, .sidebar-sidebar-content #content {
+	float: right;
+}
+
+.full-width-content #content {
+	width: 880px;
+}
+
+
+	/*********************
+	=5e1 BREADCRUMBS
+	*********************/
+	.breadcrumb {
+		margin: -10px 0 30px;
+	}
+	
+	/*********************
+	=5e2 DESCRIPTIONS
+	*********************/
+	.taxonomy-description {
+		margin: -10px 0 30px;
+	}
+	
+	.archive-page {
+		float: left;
+		width: 45%;
+	}	
+	
+    /*********************
+    =5e3 POST CLASSES
+    *********************/
+    .hentry {}
+    .post-id {} /* post by id (i.e. post-3) */
+    .post {
+    	padding: 0;
+    } /* general post style */
+    
+    .page {
+    	padding: 0;
+    } /* general article on a page style */
+    
+    .attachment {} /* general style on an attatchment */
+    .sticky {} /* sticky post style */
+    .category-slug {} /* style by category (i.e. category-videos) */
+    .tag-slug {} /* style by tag (i.e. tag-news) */
+
+    /*********************
+    =5e4 POST INFO
+    *********************/
+    .post-info {}
+    	.post-info .time {}
+    	.post-info .vcard {}
+    	.post-info .post-comments {}
+    	.post-edit-link {}
+    	
+    /*********************
+    =5e5 ENTRY CONTENT
+    *********************/
+    .entry-content {}
+    	
+    	.entry-content p {}
+    	
+    /*********************
+    =5e6 LISTS
+    *********************/
+    .entry-content ul, 
+    .entry-content ol, 
+    .entry-content table, 
+    .entry-content dl {}
+    .entry-content ul, 
+    .entry-content ol {}
+    .entry-content li {}
+    .entry-content ul li {}
+    .entry-content ol li {}
+    
+    /*********************
+    =5e7 BLOCKQUOTES
+    *********************/
+    .entry-content blockquote {} 
+    
+    blockquote p {}
+        		
+    /*********************
+    =5e8 DATALISTS
+    *********************/
+    .entry-content dl {}
+    .entry-content dt {}
+    .entry-content dd {}
+    
+    /*********************
+    =5e9 POST IMAGES
+    *********************/
+    .entry-content img {}
+    .post-image {}
+    .alignnone, 
+    img.alignnone {}
+    .alignleft, 
+    img.alignleft {}
+    .alignright, 
+    img.alignright {}
+    .aligncenter, 
+    img.aligncenter, 
+    .entry_content .centered {}
+    
+    /*********************
+    =5e10 POST VIDEOS
+    *********************/
+    .entry-content video {}
+    .entry-content object {}
+    .entry-content pre, 
+    .entry-content code {}
+    
+    /*********************
+    =5e11 WP-CAPTION
+    *********************/
+    .wp-caption {}
+    .wp-caption img {}
+    .wp-caption .wp-caption-text {}
+        		
+    /*********************
+    =5e12 POST GALLERIES
+    *********************/
+    .gallery dl {}
+    .gallery dt {}
+    .gallery dd {}
+    .gallery dl a {}
+    .gallery dl img {}
+    .gallery-caption {}
+    
+    .size-full {}
+    .size-large {}
+    .size-medium {}
+    .size-thumbnail {}
+    
+    /*********************
+    =5e13 POST META
+    *********************/
+    .post-meta {
+    	border-top: 1px solid #ddd;
+    	clear: both;
+    	font-size: 0.875em;
+    	padding: 5px 0 0;
+    }
+    
+    	.post-meta .categories {}
+    	.post-meta .tags {}
+
+	/*********************
+	=5e14 AUTHOR BOX
+	*********************/
+	.author-box {
+		margin: 0 0 40px;
+	}
+	
+	    .author-box .avatar { }
+	
+	/*********************
+	=5e15 FEATURED POSTS
+	*********************/
+	.genesis-grid-even, 
+	.genesis-grid-odd {}
+	
+	.genesis-grid-even {}
+	
+	.genesis-grid-odd {}
+	
+	
+	.featuredpage,
+	.featuredpost {}
+	
+	.featuredpage img,
+	.featuredpost img {}
+	
+	.featuredpage .page,
+	.featuredpost .post {}
+	
+	.more-from-category {}
+
+/*********************
+=5f POST NAVIGATION
+*********************/
+
+.navigation {
+	margin: 0;
+}
+
+	.navigation li {}
+
+		.navigation li a,
+		.navigation li.disabled,
+		.navigation li a:hover,
+		.navigation li.active a {}
+
+			.navigation li a:hover,
+			.navigation li.active a {}
+
+/*********************
+=5g SIDEBARS & ASIDES
+*********************/
+
+	/*********************
+	=5g1 SIDEBAR 1
+	*********************/
+	#sidebar {
+		float: right;
+		display: inline;
+		width: 280px;
+	}
+	
+		/* sidebar 1 alternate layouts */
+		.sidebar-content #sidebar, 
+		.sidebar-sidebar-content #sidebar {
+			float: left;
+		}
+	
+	/*********************
+	=5g2 SIDEBAR 2
+	*********************/
+	#sidebar-alt {
+		float: left;
+		width: 150px;
+	}
+		
+		/* sidebar 2 alt layouts */
+		.content-sidebar-sidebar #sidebar-alt {
+			float: right;
+		}
+		
+		/* sidebar search */
+		.sidebar .searchform {}
+	
+	/*********************
+	=5g3 WIDGET STYLES
+	*********************/
+	.widget {
+	    margin: 0 0 15px;
+	}
+	    .widget li {}
+	    .widget li ul {}
+	    
+	    .widgettitle {}
+	
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+	
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+	
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+	
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+	
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {} 
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+	
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+	
+	/* eNews and Update Widget */
+	.enews p {}
+	.enews #subscribe {}
+	.enews #subbox {}
+
+	/* User Profile Widget */
+	.user-profile {}
+	.user-profile p {}
+	.user-profile .posts_link {}
+
+/*********************
+=5h COMMENT STYLES
+**********************/
+#comments {
+	padding: 0;
+}
+	
+	#comments .navigation {}
+
+	.subscribe-to-comments {}
+		
+.comment-list {}
+	.comment-list li {}
+		.comment-list li[class*=depth-] {}
+			.comment-list li.depth-1 {}
+				.comment-list li:not(.depth-1) {}
+			.comment-list li.depth-2 {}
+			.comment-list li.depth-3 {}
+			.comment-list li.depth-4 {}
+			.comment-list li.depth-5 {}
+			.comment-list li:last-child { }
+				.comment-list li ul.children li {}
+				.comment-list li ul.children li.alt {}
+				.comment-list li ul.children li.byuser {}
+				.comment-list li ul.children li.comment {}
+				.comment-list li ul.children li.depth-1 {} /* change number for different depth */
+				.comment-list li ul.children li.bypostauthor {}
+				.comment-list li ul.children li.comment-author-admin {}
+				.comment-list li ul.children .alt {}
+				.comment-list li ul.children .odd {}
+				.comment-list li ul.children .even {}
+			.comment-list .alt {}
+			.comment-list .odd {}
+			.comment-list .even {}
+			.comment-list .parent {}
+			.comment-list .comment {}
+			.comment-list .children {}
+			.comment-list .pingback {}
+			.comment-list .bypostauthor {}
+			.comment-list .comment-author {}
+			.comment-list .comment-author-admin {}
+			.comment-list .thread-alt {}
+			.comment-list .thread-odd {}
+			.comment-list .thread-even {}	
+			
+			.comment-list .vcard {}
+				.comment-list .vcard cite.fn {}
+					.comment-list .vcard cite.fn a.url {}
+				.comment-list .vcard .says {}
+				.comment-list .vcard img.avatar {}
+					
+				.comment-list .comment-meta {} 
+					.comment-list .comment-meta a {}
+				
+			.comment-list li .comment_content {}
+				.comment-list li .comment_content p {}
+				.comment-list li ul {}		
+				.comment-list .comment-reply-link {}
+					.comment-list a.comment-reply-link:hover {}
+					
+	/*********************
+	=5h1 PING LIST
+	*********************/
+	.ping-list {}
+		.ping-list ol {}
+			.ping-list li {}
+				.ping-list cite {}
+
+/**********************
+=5i COMMENT FORM STYLES
+*********************/
+#respond {
+	padding: 0;
+}
+
+#reply-title { }
+	
+	#cancel-comment-reply {}
+			#cancel-comment-reply a {}
+			
+	#commentform {}
+		
+		.comments-logged-in-as {}
+		
+			#commentform label {}
+			#commentform .required {}
+			
+			#author, 
+			#email, 
+			#url, 
+			#comment {}
+			
+			#author:focus, 
+			#email:focus, 
+			#url:focus, 
+			#comment:focus { }
+			
+			#comment {}
+			
+			#submit {}
+		
+	/*********************
+	=5i1 FORM VALIDATION
+	*********************/
+	#author:invalid, 
+	#email:invalid, 
+	#url:invalid {}		
+	
+	/*********************
+	=5i2 NO COMMENTS
+	*********************/
+	.nocomments {}					
+					
+/*********************
+=5j FOOTER STYLES
+*********************/
+
+#footer {}
+
+	.gototop {
+		float: left;
+		text-align: left;
+		width: 200px;
+	}
+
+	.creds {
+		float: right;
+		text-align: right;
+		width: 65%;
+	}
+
+	/*********************
+	=5j1 FOOTER WIDGETS 
+	*********************/
+	#footer-widgets {}
+	
+		#footer-widgets .wrap {
+			padding: 20px 30px 10px;
+		}
+	
+		#footer-widgets .widget {
+			padding: 0;
+		}
+	
+		.footer-widgets-1, 
+		.footer-widgets-2, 
+		.footer-widgets-3 {
+			width: 280px;
+		}
+			.footer-widgets-1 {
+				float: left;
+				margin: 0 30px 0 0;
+			}
+			.footer-widgets-2 {
+				float: left;
+			}
+			.footer-widgets-3 {
+				float: right;
+			}
+
+/*********************
+=6k GRAVITY FORM STYLES 
+*********************/
+
+div.gform_wrapper input,
+div.gform_wrapper select,
+div.gform_wrapper textarea {}
+
+div.gform_footer input.button {}
+
+div.gform_wrapper .ginput_complex label {}
+
+div.gform_wrapper li,
+div.gform_wrapper form li {}
+
+div.gform_wrapper .gform_footer {}
+
+} /* end of media query (DO NOT DELETE) */
+
+/******************************************************************
+=06 SUPER LARGE MONITORS STYLES 
+This is for super wide monitors for the l33t people. If you 
+worked in a good base in the previous styles, this should work
+pretty seamlessly.
+******************************************************************/
+@media only screen and (min-width: 1382px) {
+
+/*
+In here, you can do simple overrides and expand upon a few things.
+No need to really redo everything.
+*/
+
+} /* end of media query (DO NOT DELETE) */
+
+/******************************************************************
+=07 IE FIXES
+******************************************************************/
+
+/*
+These fixes are outside of any media query so be careful. You have to
+use the modernizr classes to style them. For examples on how to do this, 
+check out this link:
+http://www.modernizr.com/docs/
+
+You can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using something like:
+
+.ie7 .class { ... }
+
+*/
+
+/******************************************************************
+=08 PRINT STYLESHEET
+******************************************************************/
+@media print { * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } a, a:visited { color: #444 !important; text-decoration: underline; } a[href]:after { content: " (" attr(href) ")"; } abbr[title]:after { content: " (" attr(title) ")"; } .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } pre, blockquote { border: 1px solid #999; page-break-inside: avoid; } thead { display: table-header-group; } tr, img { page-break-inside: avoid; } img { max-width: 100% !important; }
+    @page { margin: 0.5cm; } p, h2, h3 { orphans: 3; widows: 3; } h2, h3{ page-break-after: avoid; }
+} /* end of print stylesheet (DO NOT DELETE) */
