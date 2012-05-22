@@ -147,6 +147,29 @@ function bfg_theme_setup() {
 	
 	// CONTENT AREA **************************************
 	
+	// SIDEBARS AND ASIDES *******************************
+	/*
+	if you want to remove sidebars, you can use the functions
+	below. to add a sidebar, you can just register another.
+	*/
+	// unregister_sidebar( 'sidebar' );
+	// unregister_sidebar( 'sidebar-alt' );
+	
+	/* 
+	to register another sidebar you can use a function similar
+	to the one below.
+	// register a sidebar for a specific page
+	genesis_register_sidebar(array(
+		'name'=>'Sidebar Special',
+		'id' => 'sidebar-special',
+		'description' => 'An Example Special Sidebar.',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => "</div>",
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => "</h4>"
+	));
+	*/
+	
 	
 	// COMMENTS & PINKBACKS ******************************
 	// custom comment layout
@@ -162,6 +185,11 @@ function bfg_theme_setup() {
 	add_filter( 'genesis_footer_backtotop_text', 'bfg_backtotop_text' );
 	// footer credit & attribution text
 	add_filter('genesis_footer_creds_text', 'bfg_footer_cred');
+	
+	/*
+	if you want to add widgets to your footer, you can use this function
+	*/
+	// add_theme_support( 'genesis-footer-widgets', 3 );
 	
 
 } /* DO NOT DELETE (YOUR CHILD THEME WILL IMPLODE!) */
@@ -184,34 +212,8 @@ function remove_genesis_widgets() {
 }
 
 
-
-
-/************* ADD ANOTHER SIDEBAR **********************/
-
-/*
-This is also commented out so you can add it at your
-own discretion.
-*/
-
-/*
-genesis_register_sidebar(array(
-	'name'=>'Sidebar Alt',
-	'id' => 'sidebar-alt',
-	'description' => 'An Example Sidebar.',
-	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget'  => "</div>",
-	'before_title'  => '<h4 class="widgettitle">',
-	'after_title'   => "</h4>"
-));
-*/
-
-
-
-/*
-
-
 // USING GENESIS HOOKS /**********************************
-
+/*
 The Genesis Framework uses hooks to move content around.
 Instead of listing them all out, I'll show you a quick example
 so you can get a quick idea of how they work.
