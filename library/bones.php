@@ -70,12 +70,12 @@ Chrome Frame support & some other "mobile friendly"
 meta tags. they're pretty rad.
 */
 function bfg_viewport_meta() {
-	echo '<!-- bones for genesis: adding google chrome frame support -->' . "\n";
-	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">' . "\n";
-	echo '<!-- bones for genesis: mobile meta :) -->' . "\n";
-	echo '<meta name="HandheldFriendly" content="True">' . "\n";
-	echo '<meta name="MobileOptimized" content="320">' . "\n";
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>' . "\n";
+	echo '<!-- bones for genesis: adding google chrome frame support -->';
+	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">';
+	echo '<!-- bones for genesis: mobile meta :) -->';
+	echo '<meta name="HandheldFriendly" content="True">';
+	echo '<meta name="MobileOptimized" content="320">';
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
 }
 
 
