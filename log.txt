@@ -21,7 +21,7 @@ Bill Erickson - http://www.billerickson.net/
 BONES FOR GENESIS CHANGE LOG & HISTORY
 ******************************************************************/
 
-/* v1.3 HUGE update */
+/* v1.03 HUGE update */
 - created a log file (hooray!)
 - organized the crap out of the functions file
 - created theme setup function and moved filters and actions in there
