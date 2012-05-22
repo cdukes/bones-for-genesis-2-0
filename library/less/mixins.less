@@ -98,30 +98,6 @@ natural solution.
 .menu,
 .breadcrumb { zoom: 1; }
 
-/*********************
-=2a LINKS
-*********************/
-a, a:visited {
-	color: @genesis-blue;
-	text-decoration: none;
-}
-
-a:hover, a:focus {
-	text-decoration: underline;
-}
-
-/*********************
-=2b SELECTION TEXT
-*********************/
-::-moz-selection {
-	background-color: @genesis-blue;
-	color: #fff;
-}
-
-::selection {
-	background-color: @genesis-blue;
-	color: #fff;
-}
 
 /*********************
 HIDING ELEMENTS
@@ -129,28 +105,78 @@ HIDING ELEMENTS
 .hidden { display: none; visibility: hidden; }
 
 /*********************
-CLEARFIX
+CLEARFIXIN'
 *********************/
-.clearfix:before, .clearfix:after { content: ""; display: table; }
-.clearfix:after { clear: both; }
-.clearfix { zoom: 1; }
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix { 
+	&:before,
+	&:after {
+		content: "";
+    	display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	/* for IE */
+	zoom: 1; 
+}
+
+/*********************
+TOOLS
+*********************/
+
+/* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
 
 /*********************
 COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
 *********************/
-@genesis-blue: 		#0d72c7;
-@genesis-grey: 		#f5f5f5;
+
+@yellow:            #ebe16f;
+@red:               #fbe3e4;
+@green:             #e6efc2;
+@blue:              #d5edf8;
 
 @black:             #000;
-@grayDark:          lighten(@black, 25%);
-@gray:              lighten(@black, 50%);
-@grayLight:         lighten(@black, 75%);
-@grayLighter:       lighten(@black, 90%);
 @white:             #fff;
+
+@bones-pink:        #f01d4f;
 
 /*********************
 TYPOGRAPHY
 *********************/
+
+@sans-serif:         "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
+
+
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the 
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	http://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('../fonts/font-name.eot');
+    	src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/font-name.woff') format('woff'),
+             url('../fonts/font-name.ttf') format('truetype'),
+             url('../fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
 /* 
 use the best ampersand 
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
@@ -160,50 +186,40 @@ span.amp {
   font-style: italic;
 }
 
-/*
-embedded font-face example
-*/
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('library/fonts/font-name.eot');
-    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
-	}
-*/
 
-/*********************
-BUTTONS
-*********************/
-input[type="button"], input[type="submit"], .button {
-	background: #333;
-	border: 1px solid #ccc;
-	color: #fff;
-	font-size: 0.875em;
-	font-weight: 700;
-	padding: 5px 7px;
-	text-decoration: none;
-	.rounded(3px);
+/* alerts & notices */
+.alert { 
+	margin: 10px; 
+	padding: 5px 18px; 
+	border: 1px solid; 
 }
 
-	input[type="button"]:hover, input[type="submit"]:hover, .button:hover {
-		background-color: #000;
-		border-color: #ccc;
-		color: #fff;
-	}
-
-/* making sure buttons on the sidebar aren't tiny */
-.sidebar input[type=button], .sidebar input[type=submit], .button{
-	font-size: inherit;
+.help { 
+	border-color: darken(@yellow, 5%); 
+	background: @yellow; 
 }
+
+.info { 
+	border-color: darken(@blue, 5%); 
+	background: @blue; 
+}
+
+.error { 
+	border-color: darken(@red, 5%); 
+	background: @red; 
+}
+
+.success { 
+	border-color: darken(@green, 5%); 
+	background: @green; 
+} 
 
 /*********************
 BORDER RADIUS
 *********************/
-.rounded(@radius: 4px) {
+
+/* .borderRadius(4px); */
+.borderRadius(@radius: 4px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
       -ms-border-radius: @radius;
@@ -211,13 +227,137 @@ BORDER RADIUS
           border-radius: @radius;
 }
 
+/* .borderRadius-left(4px); */
+.borderRadius-left(@radius: 4px) {
+	-webkit-border-bottom-left-radius: @radius;
+  	   -webkit-border-top-left-radius: @radius;
+		-moz-border-radius-bottomleft: @radius;
+		   -moz-border-radius-topleft: @radius;
+			border-bottom-left-radius: @radius;
+			   border-top-left-radius: @radius;
+}
+
+/* .borderRadius-right(4px); */
+.borderRadius-right(@radius: 4px) {
+	-webkit-border-bottom-right-radius: @radius;
+  	   -webkit-border-top-right-radius: @radius;
+		-moz-border-radius-bottomright: @radius;
+		   -moz-border-radius-topright: @radius;
+			border-bottom-right-radius: @radius;
+			   border-top-right-radius: @radius;
+}
+
+/* .borderRadius-bottom(4px); */
+.borderRadius-bottom(@radius: 4px) {
+	-webkit-border-bottom-right-radius: @radius;
+	 -webkit-border-bottom-left-radius: @radius;
+	    -moz-border-radius-bottomright: @radius;
+	     -moz-border-radius-bottomleft: @radius;
+	        border-bottom-right-radius: @radius;
+	         border-bottom-left-radius: @radius;
+}
+
+/* .borderRadius-top(4px); */
+.borderRadius-top(@radius: 4px) {
+	-webkit-border-top-right-radius: @radius;
+	 -webkit-border-top-left-radius: @radius;
+	    -moz-border-radius-topright: @radius;
+	     -moz-border-radius-topleft: @radius;
+	        border-top-right-radius: @radius;
+	         border-top-left-radius: @radius;
+}
+
 /*********************
 TRANISTION
 *********************/
+
+/* .transition(all,2s); */
 .transition(@what: all, @time: 0.2s) {
 	-webkit-transition: @what @time ease-out;
 	   -moz-transition: @what @time ease-out;
  	    -ms-transition: @what @time ease-out;
 	     -o-transition: @what @time ease-out;
 	        transition: @what @time ease-out;
+}
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can 
+really slow down your CSS. Don't overdue it.
+*********************/
+
+/* .css-gradient(#dfdfdf,#f8f8f8); */
+.css-gradient(@from: #dfdfdf, @to: #f8f8f8) {
+	background-color: @to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+	background-image: -webkit-linear-gradient(top, @from, @to);
+	background-image: -moz-linear-gradient(top, @from, @to);
+	background-image: -o-linear-gradient(top, @from, @to);
+	background-image: -ms-linear-gradient(top, @from, @to);
+	background-image: linear-gradient(top, @from, @to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* .boxSizing(border-box); */
+.boxSizing(@type: border-box) {
+	-webkit-box-sizing: @type;
+	   -moz-box-sizing: @type;
+		-ms-box-sizing: @type;
+	     -o-box-sizing: @type; 
+			box-sizing: @type; 
+}
+
+/*********************
+BOX SHADOW
+*********************/
+
+/* .boxShadow(0 0 4px #444); */
+.boxShadow(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) {
+	-webkit-box-shadow: @x @y @radius @spread @color;
+	   -moz-box-shadow: @x @y @radius @spread @color;
+		-ms-box-shadow: @x @y @radius @spread @color;
+	     -o-box-shadow: @x @y @radius @spread @color; 
+			box-shadow: @x @y @radius @spread @color; 
+}
+
+/*********************
+BUTTONS
+*********************/
+
+input[type=button],
+input[type=submit],
+.button, 
+.button:visited {
+	border: 1px solid darken(@bones-pink, 13%);
+	border-top-color: darken(@bones-pink, 7%);
+	border-left-color: darken(@bones-pink, 7%);
+	padding: 4px 12px;
+	color: @white;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(0,0,0, .75);
+	cursor: pointer;
+	margin-bottom: 20px;
+	line-height: 21px;
+	.transition();
+	.borderRadius(4px);
+	.css-gradient(@bones-pink, darken(@bones-pink, 5%));
+
+	&:hover, &:focus {
+		color: @white;
+	  	border: 1px solid darken(@bones-pink, 13%);
+	  	border-top-color: darken(@bones-pink, 20%);
+	 	border-left-color: darken(@bones-pink, 20%);
+		.css-gradient(darken(@bones-pink, 5%), darken(@bones-pink, 10%));
+	}
+	
+	&:active {
+		.css-gradient(darken(@bones-pink, 5%), @bones-pink);
+	}
+		
 }

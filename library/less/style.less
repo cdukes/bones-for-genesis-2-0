@@ -8,29 +8,32 @@ Version: 1.02
 Tags: html5, css3, fixed, hb5
 Template: genesis
 Template Version: 1.8
-
-Stylesheet: Main Stylesheet
-
-Here's where the magic happens. Here, you'll see we are calling in
-the seperate functions for each media query. The base mobile 
-stylesheet is called in the header, so here we're working up from 
-there. To edit the css, just find the corresponding LESS file.
 ******************************************************************/
 
 /*
-Base.css contains the main mobile styles and is called in the 
-header. This way mobile devices get ONLY the styles that apply
-to them. No muss, no fuss.
+Stylesheet: Main Stylesheet
 
-normalize.css and the mixins are also called within that base file 
-
-let's now call the FUNCTIONS for these different stylesets. This
-doesn't load the CSS, the CSS is loaded inside the media queries.
+This file is slim and doesn't contain any styles for a reason.
+We're importing all our other files so we can keep each
+breakpoint organized and well documented. 
 */
 
-@import "600up";
-@import "960up";
-@import "1382up";
+/*********************
+IMPORTING STYLES
+*********************/
+
+@import "normalize.less";
+@import "mixins.less";
+
+/******************************************************************
+BASE (MOBILE) SIZE 
+This is the average viewing window. So Desktops, Laptops, and 
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+******************************************************************/
+
+/* styles in base.less */
+@import "base.less";
 
 /******************************************************************
 TABLET & MID-RANGE STYLES
@@ -41,7 +44,7 @@ to our already simple base styles.
 @media only screen and (min-width: 600px) {
 	
 	/* styles in 600up.less */
-	.600up();
+	@import "600up.less";
 
 } /* end of media query */
 
@@ -54,7 +57,7 @@ hefty styles here without worrying it will overload mobile.
 @media only screen and (min-width: 960px) {
 	
 	/* styles in 960up.less */
-	.960up();
+	@import "960up.less";
 
 } /* end of media query */
 
@@ -67,7 +70,7 @@ pretty seamlessly.
 @media only screen and (min-width: 1382px) {
 	
 	/* styles in 1382up.less */
-	.1382up();
+	@import "1382up.less";
 
 } /* end of media query */
 

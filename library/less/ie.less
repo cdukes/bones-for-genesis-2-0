@@ -12,30 +12,24 @@ without the media queries. No need to worry about editing anything!
 ******************************************************************/
 
 /*
-Base.css contains the main mobile styles and is called in the 
-header. This way mobile devices get ONLY the styles that apply
-to them. No muss, no fuss.
-
-normalize.css and the mixins are also called within that base file 
-
-let's now call the FUNCTIONS for these different stylesets. This
-doesn't load the CSS, the CSS is loaded directly below.
+All we have to do here is call in our stylesheets and that's it.
+No need to worry about how IE will react with media queries 
+because this page is media query free! Pretty awesome.
 */
 
-@import "600up";
-@import "960up";
+/*********************
+IMPORTING STYLES
+*********************/
+
+@import "normalize.less";
+@import "mixins.less";
+@import "base.less";
+@import "600up.less";
+@import "960up.less";
 /* 
 you can call the larger styles if you want, but there's really no need 
 */
 
-/*
-Now we call the functions that contain all the CSS. This means
-you don't have to maintain an IE stylesheet AND a standard 
-responsive stylesheet.
-*/
-
-.600up();
-.960up();
 
 /******************************************************************
 ADDITIONAL IE FIXES
@@ -50,8 +44,5 @@ For example, you can use something like:
 
 .no-textshadow .class { ... }
 
-You can also target specific versions by using something like:
-
-.ie7 .class { ... }
 
 */
