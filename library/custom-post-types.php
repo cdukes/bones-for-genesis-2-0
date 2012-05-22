@@ -46,7 +46,8 @@ function custom_post_example() {
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
 			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png', /* the icon for the custom post type menu */
-			'rewrite' => true,
+			'rewrite'	=> array( 'slug' => 'custom_type', 'with_front' => false ), /* you can specify it's url slug */
+			'has_archive' => 'custom_type', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
