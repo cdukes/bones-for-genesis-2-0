@@ -15,7 +15,10 @@ http://themble.com//genesis/bones/
 
 Special thanks to:
 Bill Erickson - http://www.billerickson.net/
+Jared Atchison - http://www.jaredatchison.com/
+Nick - http://designsbynickthegeek.com/
 
+& several others for their help and support :)
 
 /******************************************************************
 BONES FOR GENESIS CHANGE LOG & HISTORY
