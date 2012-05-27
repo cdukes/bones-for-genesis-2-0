@@ -147,6 +147,9 @@ function bfg_theme_setup() {
 	
 	// CONTENT AREA **************************************
 	
+	
+	
+	
 	// SIDEBARS AND ASIDES *******************************
 	/*
 	if you want to remove sidebars, you can use the functions
@@ -171,7 +174,7 @@ function bfg_theme_setup() {
 	*/
 	
 	
-	// COMMENTS & PINKBACKS ******************************
+	// COMMENTS & PINGBACKS ******************************
 	// custom comment layout
 	add_filter( 'genesis_comment_form_args','bfg_custom_comment_form' );
 	// trackback argument & layout
