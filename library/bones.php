@@ -14,13 +14,12 @@ SCRIPTS & ENQEUEING
 
 // loading modernizr and jquery, and reply script 
 function bfg_scripts_and_styles() {
-  if (!is_admin()) {
   
     // modernizr (without media query polyfill)
-    wp_register_script( 'bfg-modernizr', CHILD_URL . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+    wp_register_script( 'bfg-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
  
     // register mobile stylesheet
-    wp_register_style( 'bfg-stylesheet', CHILD_URL . '/library/css/style.css', array(), '', 'all' );
+    wp_register_style( 'bfg-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -28,7 +27,7 @@ function bfg_scripts_and_styles() {
     }
     
     // adding scripts file in the footer
-    wp_register_script( 'bfg-js', CHILD_URL . '/library/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'bfg-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
     
     /*
     now let's enqueue the scripts and styles into the wp_head function.
@@ -48,7 +47,6 @@ function bfg_scripts_and_styles() {
     wp_deregister_script( 'superfish-args' );
     wp_enqueue_script( 'bfg-js' ); 
     
-  }
 } /* end scripts and styles function */
 
 
