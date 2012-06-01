@@ -40,6 +40,7 @@ BONES FOR GENESIS CHANGE LOG & HISTORY
 - added a more advanced button
 - added slug and rewrite to custom post type for easier urls
 - cut the fat from the 960 stylesheet ( no need for dupe empty calls )
+- changed the screenshot
 
 - added bones.php file for core functions
 	- enqueueing scripts and styles
