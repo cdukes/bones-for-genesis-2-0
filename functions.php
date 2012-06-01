@@ -2,6 +2,7 @@
 /*
 Child Theme Name: Bones for Genesis
 Author: Eddie Machado
+Version: 1.03
 URL: htp://themble.com/genesis/bones/
 
 For more information, check the log.txt file.
