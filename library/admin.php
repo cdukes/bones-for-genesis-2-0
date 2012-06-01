@@ -94,7 +94,7 @@ add_action('wp_dashboard_setup', 'bones_custom_dashboard_widgets');
 // calling your own login css so you can style it 
 function bones_login_css() {
 	/* i couldn't get wp_enqueue_style to work :( */
-	echo '<link rel="stylesheet" href="'. CHILD_URL . '/library/css/login.css">';
+	echo '<link rel="stylesheet" href="'. get_stylesheet_directory_uri() . '/library/css/login.css">';
 }
 
 // changing the logo link from wordpress.org to your site 
