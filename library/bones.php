@@ -30,9 +30,6 @@ function bfg_scripts_and_styles() {
     // adding scripts file in the footer
     wp_register_script( 'bfg-js', CHILD_URL . '/library/js/scripts.js', array( 'jquery' ), '', true );
     
-    // here are some common scripts that most sites use
-    wp_register_script( 'twitter-widgets', '//platform.twitter.com/widgets.js', array(), '', true );
-    
     /*
     now let's enqueue the scripts and styles into the wp_head function.
     for more information on how this works, check out this post:
@@ -50,14 +47,6 @@ function bfg_scripts_and_styles() {
     wp_deregister_script( 'superfish' );
     wp_deregister_script( 'superfish-args' );
     wp_enqueue_script( 'bfg-js' ); 
-    
-    /*
-    to use some of these common scripts, just
-    remove the comment brackets from in front 
-    of them.
-    */
-    // wp_enqueue_script( 'twitter-widgets' ); 
-    
     
   }
 } /* end scripts and styles function */
