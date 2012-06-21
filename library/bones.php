@@ -20,6 +20,9 @@ function bfg_scripts_and_styles() {
  
     // register mobile stylesheet
     wp_register_style( 'bfg-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+
+    // ie-only style sheet
+    wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -49,6 +52,13 @@ function bfg_scripts_and_styles() {
     
 } /* end scripts and styles function */
 
+// adding the conditional wrapper around ie stylesheet
+// source: http://code.garyjones.co.uk/ie-conditional-style-sheets-wordpress/
+function bones_ie_conditional( $tag, $handle ) {
+    if ( 'bones-ie-only' == $handle )
+        $tag = '<!--[if lte IE 9]>' . "\n" . $tag . '<![endif]-->' . "\n";
+    return $tag;
+}
 
 /*
 the responsive meta tag should be added to the genesis

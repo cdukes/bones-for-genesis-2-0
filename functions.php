@@ -98,6 +98,8 @@ function bfg_theme_setup() {
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	// enqueue base scripts and styles
 	add_action('wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
+    // ie conditional wrapper
+    add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
 	// who uses the rsd link anyway? axe it
 	remove_action( 'wp_head', 'rsd_link' );                    
 	// remove Windows Live Writer
