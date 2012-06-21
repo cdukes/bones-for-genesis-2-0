@@ -38,7 +38,8 @@ function bfg_scripts_and_styles() {
     http://wpcandy.com/teaches/how-to-load-scripts-in-wordpress-themes
     */
     wp_enqueue_script( 'bfg-modernizr' ); 
-    wp_enqueue_style( 'bfg-stylesheet' ); 
+    wp_enqueue_style( 'bfg-stylesheet' );
+    wp_enqueue_style('bones-ie-only');
     /*
     I reccomend using a plugin to call jQuery
     using the google cdn. That way it stays cached
