@@ -59,7 +59,7 @@ function bfg_theme_setup() {
 	
 	// THEME SUPPORT *************************************
 	// adding custom background support
-	add_custom_background();
+	add_theme_support( 'custom-background' );
 	// adding post format support 
 	add_theme_support( 'post-formats', array( 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video', 'audio' ));
 	// adding support for post format images
