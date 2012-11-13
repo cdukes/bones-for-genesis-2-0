@@ -1,0 +1,66 @@
+.breadcrumb {}
+
+.post-info {
+    .time {}
+    .vcard {}
+    .post-comments {}    	
+	.post-edit-link {}
+}
+
+.entry-content {
+	p {}
+
+    ul, ol {
+		li {}
+		ul, ol {}
+    }
+    ul {
+        list-style: square;
+    }
+    ol {
+        list-style: decimal;
+    }
+
+    blockquote {
+	   	p {}
+    }
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+    .post-image {
+    }
+    
+    .alignnone, 
+    img.alignnone {
+        display: inline;
+    }
+    
+    .alignleft, 
+    img.alignleft {
+        display: inline;
+        float: left;
+    }
+    
+    .alignright, 
+    img.alignright {
+        display: inline;
+        float: right;
+    }
+    
+    .aligncenter, 
+    img.aligncenter, 
+    .entry_content .centered {
+        display: block;
+    }
+	.wp-caption {
+	    img {}
+	    .wp-caption-text {}
+	}
+}
+
+.post-meta {
+    .categories {}
+    .tags {}
+}

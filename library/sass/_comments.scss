@@ -1,0 +1,40 @@
+#comments {
+	.comment-list {
+		li {
+			&:last-child {}
+			ul.children {
+				li {
+					&.comment {}
+					&.alt {}
+					&.odd {}
+					&.even {}
+					&.comment-author-admin {}
+					.comment-content {
+						p {}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#respond {
+	#reply-title {}	
+	#cancel-comment-reply {
+		a {}
+	}
+	#commentform {
+		label {}
+		.required {}
+		#author, #email, #url, #comment {
+			&:invalid {}
+		}
+		#comment {
+		}				
+		#submit {}
+	}
+}
+
+
+.nocomments {}

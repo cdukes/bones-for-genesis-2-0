@@ -1,0 +1,10 @@
+.blog, .archive, .search {}
+
+.navigation {
+	li {
+		display: inline;
+		a {	
+			&:hover {}
+		}
+	}
+}

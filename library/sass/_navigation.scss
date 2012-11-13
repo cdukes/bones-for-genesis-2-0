@@ -1,0 +1,16 @@
+.menu {
+	ul {
+		li {
+			a {
+				&:hover, &:focus {
+				}
+			}
+			&.current_page_item,
+			&.current-cat,
+			&.current-menu-item {
+				a {
+				}
+			}	
+		}
+	}
+}
