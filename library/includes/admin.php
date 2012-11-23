@@ -24,3 +24,9 @@ function bfg_remove_genesis_widgets() {
     unregister_widget( 'Genesis_Featured_Post' );
     unregister_widget( 'Genesis_Latest_Tweets_Widget' );
 }
+
+
+function bfg_remove_tinymce_tags($arr){
+	$arr['theme_advanced_blockformats'] = 'p,h2,h3,h4,blockquote';
+	return $arr;
+}

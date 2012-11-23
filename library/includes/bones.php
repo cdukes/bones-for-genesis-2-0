@@ -71,3 +71,8 @@ function bfg_remove_recent_comments_style() {
 function bfg_gallery_style($css) {
 	return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
+
+
+function bfg_load_favicon( $favicon_url ) {
+	return get_stylesheet_directory_uri() . '/library/images/favicon.ico';
+}

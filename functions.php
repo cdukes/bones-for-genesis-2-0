@@ -8,6 +8,7 @@ function bfg_theme_setup() {
 	include_once( CHILD_DIR . '/library/includes/admin.php');	
 	add_action('admin_menu', 'bfg_disable_dashboard_widgets');	
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
+	add_filter('tiny_mce_before_init', 'bfg_remove_tinymce_tags');
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );
@@ -36,6 +37,7 @@ function bfg_theme_setup() {
 	add_filter( 'wp_head', 'bfg_remove_wp_widget_recent_comments_style', 1 );
 	add_action('wp_head', 'bfg_remove_recent_comments_style', 1);
 	add_filter('gallery_style', 'bfg_gallery_style');
+	add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
 
 	// Head
 	remove_action( 'wp_head', 'rsd_link' );                    
