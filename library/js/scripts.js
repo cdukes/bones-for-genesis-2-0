@@ -1,14 +1,3 @@
-/*
-Bones for Genesis Scripts File
-Author: Your Name Here
-
-This file should contain any js scripts you want to add to the site.
-You can add it in the Genesis admin too, but sometimes that can
-get a bit jumbled and it's tough once you have a lot going on.
-Use this file to better manage your scripts.
-
-*/
-
 // Modernizr.load to load scripts for older browsers
 Modernizr.load([
 	{
@@ -28,7 +17,7 @@ Modernizr.load([
 
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
-
+	/* var $ = jQuery.noConflict() */
     /*
     Responsive jQuery is a tricky thing.
     There's a bunch of different ways to handle
