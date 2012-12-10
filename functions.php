@@ -2,13 +2,15 @@
 define( 'CHILD_THEME_NAME', 'Bones for Genesis' );
 define( 'CHILD_THEME_URL', 'http://www.themble.com/genesis/bones' );
 
-add_action('genesis_setup','bfg_theme_setup', 15);
+add_action( 'genesis_setup','bfg_theme_setup', 15);
 function bfg_theme_setup() {
 	// Customizing Genesis 
-	include_once( CHILD_DIR . '/library/includes/admin.php');	
-	add_action('admin_menu', 'bfg_disable_dashboard_widgets');	
+	include_once( CHILD_DIR . '/library/includes/admin.php' );	
+	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );	
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
-	add_filter('tiny_mce_before_init', 'bfg_remove_tinymce_tags');
+	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
+	// add_action( 'init', 'bfg_remove_layout_meta_boxes' );
+	add_filter( 'tiny_mce_before_init', 'bfg_remove_tinymce_tags' );
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );
@@ -27,16 +29,16 @@ function bfg_theme_setup() {
 	// add_theme_support( 'genesis-footer-widgets', 3 );
 						
 	// Bones
-	include_once( CHILD_DIR . '/library/includes/bones.php');
+	include_once( CHILD_DIR . '/library/includes/bones.php' );
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-	add_action('wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
+	add_action( 'wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
 	add_filter( 'style_loader_tag', 'bfg_ie_conditional', 10, 2 );
 	add_action( 'genesis_meta', 'bfg_viewport_meta' );
 	add_filter( 'http_request_args', 'bfg_dont_update', 5, 2 );
-	add_filter('the_content', 'bfg_filter_ptags_on_images');
+	add_filter( 'the_content', 'bfg_filter_ptags_on_images' );
 	add_filter( 'wp_head', 'bfg_remove_wp_widget_recent_comments_style', 1 );
-	add_action('wp_head', 'bfg_remove_recent_comments_style', 1);
-	add_filter('gallery_style', 'bfg_gallery_style');
+	add_action( 'wp_head', 'bfg_remove_recent_comments_style', 1);
+	add_filter( 'gallery_style', 'bfg_gallery_style' );
 	add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
 
 	// Head
