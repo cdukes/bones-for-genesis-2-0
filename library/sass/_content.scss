@@ -3,7 +3,7 @@
 .post-info {
     .time {}
     .vcard {}
-    .post-comments {}    	
+    .post-comments {}
 	.post-edit-link {}
 }
 
@@ -31,26 +31,26 @@
     }
     .post-image {
     }
-    
-    .alignnone, 
+
+    .alignnone,
     img.alignnone {
         display: inline;
     }
-    
-    .alignleft, 
+
+    .alignleft,
     img.alignleft {
         display: inline;
         float: left;
     }
-    
-    .alignright, 
+
+    .alignright,
     img.alignright {
         display: inline;
         float: right;
     }
-    
-    .aligncenter, 
-    img.aligncenter, 
+
+    .aligncenter,
+    img.aligncenter,
     .entry_content .centered {
         display: block;
     }

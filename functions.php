@@ -4,9 +4,9 @@ define( 'CHILD_THEME_URL', 'http://www.themble.com/genesis/bones' );
 
 add_action( 'genesis_setup','bfg_theme_setup', 15);
 function bfg_theme_setup() {
-	// Customizing Genesis 
-	include_once( CHILD_DIR . '/library/includes/admin.php' );	
-	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );	
+	// Customizing Genesis
+	include_once( CHILD_DIR . '/library/includes/admin.php' );
+	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
 	// add_action( 'init', 'bfg_remove_layout_meta_boxes' );
@@ -27,7 +27,7 @@ function bfg_theme_setup() {
 	// add_theme_support( 'genesis-post-format-images' );
 	// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 90 ) );
 	// add_theme_support( 'genesis-footer-widgets', 3 );
-						
+
 	// Bones
 	include_once( CHILD_DIR . '/library/includes/bones.php' );
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
@@ -42,12 +42,12 @@ function bfg_theme_setup() {
 	add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
 
 	// Head
-	remove_action( 'wp_head', 'rsd_link' );                    
-	remove_action( 'wp_head', 'wlwmanifest_link' );                       
-	remove_action( 'wp_head', 'index_rel_link' );                         
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); 
-	remove_action( 'wp_head', 'wp_generator' );  
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'index_rel_link' );
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+	remove_action( 'wp_head', 'wp_generator' );
 }
 ?>

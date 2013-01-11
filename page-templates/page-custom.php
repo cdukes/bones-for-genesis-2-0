@@ -6,7 +6,7 @@ Template Name: Custom Page Example
 /*
 This is a custom page template. You can
 add functions here and they will only be
-called on this page. You can also overwrite 
+called on this page. You can also overwrite
 page layout options, remove sidebars, or
 enqueue page specific scripts.
 
@@ -26,7 +26,7 @@ remove_action( 'genesis_comments', 'genesis_do_comments' );
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 
 // inserting custom page content into genesis template
-add_action( 'genesis_before_post', 'bfg_custom_page_example' ); 
+add_action( 'genesis_before_post', 'bfg_custom_page_example' );
 
 // creating custom page content
 function bfg_custom_page_example() { ?>
@@ -40,6 +40,6 @@ function bfg_custom_page_example() { ?>
 
 
 // do genesis
-genesis();  
+genesis();
 
 ?>

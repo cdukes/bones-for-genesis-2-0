@@ -15,7 +15,7 @@ natural solution.
 #inner:after,
 #title-area:before, /* you've got to be kidding */
 #title-area:after,
-.entry-content:before, 
+.entry-content:before,
 .entry-content:after,
 .author-box:before,
 .author-box:after,
@@ -90,8 +90,8 @@ HIDING ELEMENTS
 CLEARFIXIN'
 *********************/
 
-/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
-.clearfix { 
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix {
 	&:before,
 	&:after {
 		content: "";
@@ -101,5 +101,5 @@ CLEARFIXIN'
 		clear: both;
 	}
 	/* for IE */
-	zoom: 1; 
+	zoom: 1;
 }

@@ -29,7 +29,7 @@ function bfg_remove_genesis_widgets() {
 function bfg_hidden_meta_boxes($hidden) {
 	global $current_screen;
 	if( 'post' == $current_screen->id ) {
-		$hidden = array( 'postexcerpt', 'trackbacksdiv', 'postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv' );		
+		$hidden = array( 'postexcerpt', 'trackbacksdiv', 'postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv' );
 	} elseif( 'page' == $current_screen->id ) {
 		$hidden = array( 'postcustom', 'commentstatusdiv', 'commentsdiv', 'slugdiv', 'authordiv' );
 	}
@@ -39,7 +39,7 @@ function bfg_hidden_meta_boxes($hidden) {
 
 function bfg_remove_layout_meta_boxes() {
     remove_post_type_support( 'post', 'genesis-layouts' );
-    remove_post_type_support( 'page', 'genesis-layouts' );    
+    remove_post_type_support( 'page', 'genesis-layouts' );
 }
 
 
