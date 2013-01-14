@@ -1,3 +1,5 @@
+// @codekit-prepend "vendor/fitvids.jquery.js";
+
 var $ = jQuery.noConflict();
 
 $("#content").fitVids();

@@ -1,15 +1,11 @@
 .menu {
-	ul {
-		li {
-			a {
-				&:hover, &:focus {
-				}
-			}
-			&.current_page_item,
-			&.current-cat,
-			&.current-menu-item {
-				a {
-				}
+	li {
+		a:link, a:visited {}
+		a:hover, a:focus, a:active {}
+		&.current_page_item,
+		&.current-cat,
+		&.current-menu-item {
+			a, a:visited {
 			}
 		}
 	}

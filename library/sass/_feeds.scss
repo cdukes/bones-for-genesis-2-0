@@ -3,8 +3,7 @@
 .navigation {
 	li {
 		display: inline;
-		a {
-			&:hover {}
-		}
+		a:link, a:visited {}
+		a:hover, a:focus, a:active {}
 	}
 }

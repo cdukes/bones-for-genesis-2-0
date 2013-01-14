@@ -1,7 +1,4 @@
 <?php
-define( 'CHILD_THEME_NAME', 'Bones for Genesis' );
-define( 'CHILD_THEME_URL', 'http://www.themble.com/genesis/bones' );
-
 add_action( 'genesis_setup','bfg_theme_setup', 15);
 function bfg_theme_setup() {
 	// Customizing Genesis
