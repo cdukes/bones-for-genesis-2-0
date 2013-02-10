@@ -47,3 +47,12 @@ function bfg_remove_tinymce_tags($arr){
 	$arr['theme_advanced_blockformats'] = 'p,h2,h3,h4,blockquote';
 	return $arr;
 }
+
+
+function bfg_remove_profile_fields( $fields ) {
+	unset($fields['aim']);
+	unset($fields['yim']);
+	unset($fields['jabber']);
+
+	return $fields;
+}

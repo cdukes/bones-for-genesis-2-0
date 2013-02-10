@@ -8,6 +8,7 @@ function bfg_theme_setup() {
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
 	// add_action( 'init', 'bfg_remove_layout_meta_boxes' );
 	add_filter( 'tiny_mce_before_init', 'bfg_remove_tinymce_tags' );
+	add_filter('user_contactmethods', 'bfg_remove_profile_fields');
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );
