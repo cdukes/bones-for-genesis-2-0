@@ -2,11 +2,11 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "library/css"
-sass_dir = "library/sass"
-images_dir = "library/images"
-javascripts_dir = "library/js"
-fonts_dir = "library/fonts"
+css_dir = "css"
+sass_dir = "sass"
+images_dir = "images"
+javascripts_dir = "js"
+fonts_dir = "fonts"
 
 output_style = :compressed
 

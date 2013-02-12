@@ -2,7 +2,7 @@
 add_action( 'genesis_setup','bfg_theme_setup', 15);
 function bfg_theme_setup() {
 	// Customizing Genesis
-	include_once( CHILD_DIR . '/library/includes/admin.php' );
+	include_once( CHILD_DIR . '/includes/admin.php' );
 	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
@@ -27,7 +27,7 @@ function bfg_theme_setup() {
 	// add_theme_support( 'genesis-footer-widgets', 3 );
 
 	// Bones
-	include_once( CHILD_DIR . '/library/includes/bones.php' );
+	include_once( CHILD_DIR . '/includes/bones.php' );
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	add_action( 'wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
 	add_filter( 'style_loader_tag', 'bfg_ie_conditional', 10, 2 );
