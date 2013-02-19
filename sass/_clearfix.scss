@@ -80,18 +80,12 @@ natural solution.
 .menu,
 .breadcrumb { zoom: 1; }
 
-
-/*********************
-HIDING ELEMENTS
-*********************/
-.hidden { display: none; visibility: hidden; }
-
 /*********************
 CLEARFIXIN'
 *********************/
 
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
-.clearfix {
+%clearfix {
 	&:before,
 	&:after {
 		content: "";

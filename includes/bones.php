@@ -10,7 +10,7 @@ function bfg_scripts_and_styles() {
     }
 
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', false, '1.8.3');
+	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, '1.9.1');
     wp_register_script( 'bfg-js', get_stylesheet_directory_uri() . '/js/scripts-ck.js', array( 'jquery' ), '', true );
 
     wp_enqueue_script( 'bfg-modernizr' );
