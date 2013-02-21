@@ -20,6 +20,12 @@ a:hover, a:focus, a:active {
 ::-moz-selection {}
 ::selection {}
 
+ul, ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 #wrap {}
 #inner {}
 #content-sidebar-wrap {}

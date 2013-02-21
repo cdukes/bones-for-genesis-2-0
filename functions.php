@@ -26,6 +26,8 @@ function bfg_theme_setup() {
 	// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 90 ) );
 	// add_theme_support( 'genesis-footer-widgets', 3 );
 
+	show_admin_bar( false );
+
 	// Bones
 	include_once( CHILD_DIR . '/includes/bones.php' );
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
