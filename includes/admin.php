@@ -56,3 +56,25 @@ function bfg_remove_profile_fields( $fields ) {
 
 	return $fields;
 }
+
+
+function bfg_login_logo() {
+	echo '<style type="text/css">';
+		echo 'body.login div#login h1 a {';
+			echo 'background: url(' . get_stylesheet_directory_uri() . '/images/login-logo.png) no-repeat;';
+			echo 'padding-bottom: 30px;';
+			echo 'width: 320px;';
+			echo 'height: 68px;';
+		echo '}';
+	echo '</style>';
+}
+
+
+function bfg_login_logo_url() {
+    return home_url();
+}
+
+
+function bfg_login_logo_url_title() {
+    return get_bloginfo( 'name' );
+}
