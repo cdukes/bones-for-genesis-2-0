@@ -32,8 +32,6 @@ function bfg_ie_conditional( $tag, $handle ) {
 
 function bfg_viewport_meta() {
 	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />';
-	echo '<meta name="HandheldFriendly" content="True" />';
-	echo '<meta name="MobileOptimized" content="320" />';
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
 }
 

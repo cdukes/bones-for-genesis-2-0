@@ -78,3 +78,14 @@ function bfg_login_logo_url() {
 function bfg_login_logo_url_title() {
     return get_bloginfo( 'name' );
 }
+
+
+function bfg_login_redirect( $redirect_to, $request, $user ){
+    if( is_array( $user->roles ) ) {
+        if( in_array( 'administrator', $user->roles ) ) {
+            return admin_url();
+        } else {
+            return home_url();
+        }
+    }
+}

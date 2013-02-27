@@ -3,6 +3,7 @@ add_action( 'genesis_setup','bfg_theme_setup', 15);
 function bfg_theme_setup() {
 	// Customizing Genesis
 	include_once( CHILD_DIR . '/includes/admin.php' );
+	include_once( CHILD_DIR . '/includes/genesis_save_custom_fields_fix.php' );
 	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
@@ -12,6 +13,7 @@ function bfg_theme_setup() {
 	//add_action( 'login_enqueue_scripts', 'bfg_login_logo' );
 	add_filter( 'login_headerurl', 'bfg_login_logo_url' );
 	add_filter( 'login_headertitle', 'bfg_login_logo_url_title' );
+	//add_filter('login_redirect', 'bfg_login_redirect', 10, 3);
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );
@@ -42,7 +44,7 @@ function bfg_theme_setup() {
 	add_filter( 'wp_head', 'bfg_remove_wp_widget_recent_comments_style', 1 );
 	add_action( 'wp_head', 'bfg_remove_recent_comments_style', 1);
 	add_filter( 'gallery_style', 'bfg_gallery_style' );
-	add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
+	//add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
 
 	// Head
 	remove_action( 'wp_head', 'rsd_link' );
