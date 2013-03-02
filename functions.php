@@ -14,6 +14,8 @@ function bfg_theme_setup() {
 	add_filter( 'login_headerurl', 'bfg_login_logo_url' );
 	add_filter( 'login_headertitle', 'bfg_login_logo_url_title' );
 	//add_filter('login_redirect', 'bfg_login_redirect', 10, 3);
+	add_filter('wp_mail_from', 'bfg_from_email_address');
+	add_filter('wp_mail_from_name', 'bfg_from_email_name');
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );

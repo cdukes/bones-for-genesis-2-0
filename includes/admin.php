@@ -89,3 +89,15 @@ function bfg_login_redirect( $redirect_to, $request, $user ){
         }
     }
 }
+
+
+function bfg_from_email_address( $email ) {
+	$wpfrom = get_option('admin_email');
+	return $wpfrom;
+}
+
+
+function bfg_from_email_name( $email ){
+	$wpfrom = get_option('blogname');
+	return $wpfrom;
+}
