@@ -1,0 +1,6 @@
+[submodule "js/FitVids.js"]
+	path = js/FitVids.js
+	url = git://github.com/davatron5000/FitVids.js.git
+[submodule "js/iOS-Orientationchange-Fix"]
+	path = js/iOS-Orientationchange-Fix
+	url = git://github.com/scottjehl/iOS-Orientationchange-Fix.git
