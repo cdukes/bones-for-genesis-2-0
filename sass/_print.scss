@@ -1,0 +1,62 @@
+@media print {
+	* {
+		background: transparent !important;
+		color: black !important;
+		text-shadow: none !important;
+		@include filter(none !important);
+	}
+
+	a:link, a:visited {
+		color: black !important;
+		text-decoration: underline;
+	}
+
+	blockquote {
+		border: 1px solid black;
+		page-break-inside: avoid;
+	}
+
+    @page {
+    	margin: .75in;
+    }
+
+    p, h2, h3 {
+    	orphans: 3;
+    	widows: 3;
+    }
+
+    h2, h3 {
+    	page-break-after: avoid;
+    }
+
+    #nav, #sidebar, form {
+	    display: none;
+    }
+
+    #title-area {
+	    float: none;
+	    width: 100%;
+    }
+
+    #title-area a {
+	    float: none;
+	    margin: 0 auto;
+	    display: block;
+	    text-indent: 0;
+	    line-height: 100%;
+	    font-size: 6em;
+    }
+
+    #content {
+	    float: none !important;
+	    width: 100% !important;
+		.entry-title, .entry-content {
+			a[href]:after {
+				content: " (" attr(href) ")";
+			}
+			abbr[title]:after {
+				content: " (" attr(title) ")";
+			}
+		}
+    }
+}
