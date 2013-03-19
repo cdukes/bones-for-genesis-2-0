@@ -4,3 +4,6 @@
 [submodule "js/iOS-Orientationchange-Fix"]
 	path = js/iOS-Orientationchange-Fix
 	url = git://github.com/scottjehl/iOS-Orientationchange-Fix.git
+[submodule "sass/normalize.scss"]
+	path = sass/normalize.scss
+	url = git://github.com/JohnAlbin/normalize.css-with-sass-or-compass.git
