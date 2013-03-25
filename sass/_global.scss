@@ -1,9 +1,3 @@
-.image-replacement {
-	text-indent: 200%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
 *, :before, :after {
 	@include box-sizing(border-box);
 }
@@ -47,25 +41,3 @@ h3 {}
 h4 {}
 h5 {}
 h6 {}
-
-.alignnone {
-    display: inline;
-}
-
-.alignleft {
-    display: inline;
-    float: left;
-}
-
-.alignright {
-    display: inline;
-    float: right;
-}
-
-.aligncenter {
-    display: block;
-}
-.wp-caption {
-    img {}
-    .wp-caption-text {}
-}
