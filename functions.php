@@ -47,6 +47,7 @@ function bfg_theme_setup() {
 	add_action( 'wp_head', 'bfg_remove_recent_comments_style', 1);
 	add_filter( 'gallery_style', 'bfg_gallery_style' );
 	//add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
+	//add_filter( 'upload_mimes', 'bfg_mime_types', 1, 1 );
 
 	// Head
 	remove_action( 'wp_head', 'rsd_link' );

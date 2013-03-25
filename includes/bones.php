@@ -72,3 +72,9 @@ function bfg_gallery_style($css) {
 function bfg_load_favicon( $favicon_url ) {
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
 }
+
+
+function bfg_mime_types( $mime_types ) {
+    $mime_types['vcf'] = 'text/x-vcard';
+    return $mime_types;
+}
