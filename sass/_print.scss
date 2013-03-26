@@ -17,12 +17,12 @@
 	}
 
     @page {
-    	margin: .75in;
+		margin: 2cm 1.5cm;
     }
 
     p, h2, h3 {
-    	orphans: 3;
-    	widows: 3;
+    	orphans: 4;
+    	widows: 2;
     }
 
     h2, h3 {
@@ -56,6 +56,9 @@
 			}
 			abbr[title]:after {
 				content: " (" attr(title) ")";
+			}
+			a[href^="#"]:after, a[href^="javascript"]:after {
+				content: "";
 			}
 		}
     }
