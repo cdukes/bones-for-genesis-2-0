@@ -1,3 +1,5 @@
+$imageMargin: 		1.5em;
+
 .alignnone {
     display: inline;
 }
@@ -5,15 +7,22 @@
 .alignleft {
     display: inline;
     float: left;
+    margin-right: $imageMargin;
+    margin-bottom: $imageMargin;
 }
 
 .alignright {
     display: inline;
     float: right;
+    margin-left: $imageMargin;
+    margin-bottom: $imageMargin;
 }
 
 .aligncenter {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $imageMargin;
 }
 .wp-caption {
     img {}
