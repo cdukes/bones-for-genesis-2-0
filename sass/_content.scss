@@ -8,7 +8,10 @@
 }
 
 .entry-content {
-	p {}
+	p {
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+	}
 
     ul, ol {
 		li {}
