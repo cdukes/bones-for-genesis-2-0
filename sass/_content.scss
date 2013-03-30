@@ -10,7 +10,9 @@
 .entry-content {
 	p {
 		text-overflow: ellipsis;
-		word-wrap: break-word;
+		@include word-break(break-all);
+		@include word-break(break-word);
+		@include hyphens(auto);
 	}
 
     ul, ol {
