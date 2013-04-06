@@ -39,6 +39,8 @@ function bfg_theme_setup() {
 	include_once( CHILD_DIR . '/includes/bones.php' );
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	add_action( 'wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
+	//add_filter( 'script_loader_src', 'bfg_remove_resource_version', 15, 1 );
+	//add_filter( 'style_loader_src', 'bfg_remove_resource_version', 15, 1 );
 	add_filter( 'style_loader_tag', 'bfg_ie_conditional', 10, 2 );
 	add_action( 'genesis_meta', 'bfg_viewport_meta' );
 	add_filter( 'http_request_args', 'bfg_dont_update', 5, 2 );
