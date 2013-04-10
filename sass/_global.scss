@@ -22,7 +22,9 @@ ul, ol {
 
 #wrap {}
 #inner {}
-#content-sidebar-wrap {}
+#content-sidebar-wrap {
+	@extend %clearfix;
+}
 #content {}
 .content-sidebar, .sidebar-content, .sidebar-sidebar-content, .full-width-content {
 	#content {}

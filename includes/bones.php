@@ -23,12 +23,6 @@ function bfg_scripts_and_styles() {
 }
 
 
-function bfg_remove_resource_version( $src ){
-    $parts = explode( '?', $src );
-    return $parts[0];
-}
-
-
 function bfg_ie_conditional( $tag, $handle ) {
     if ( 'bones-ie-only' == $handle )
         $tag = '<!--[if lte IE 9]>' . "\n" . $tag . '<![endif]-->' . "\n";
@@ -80,10 +74,4 @@ function bfg_gallery_style($css) {
 
 function bfg_load_favicon( $favicon_url ) {
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
-}
-
-
-function bfg_mime_types( $mime_types ) {
-    $mime_types['vcf'] = 'text/x-vcard';
-    return $mime_types;
 }

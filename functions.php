@@ -7,13 +7,12 @@ function bfg_theme_setup() {
 	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
-	// add_action( 'init', 'bfg_remove_layout_meta_boxes' );
+	add_action( 'init', 'bfg_remove_layout_meta_boxes' );
 	add_filter( 'tiny_mce_before_init', 'bfg_remove_tinymce_tags' );
 	add_filter('user_contactmethods', 'bfg_remove_profile_fields');
 	//add_action( 'login_enqueue_scripts', 'bfg_login_logo' );
 	add_filter( 'login_headerurl', 'bfg_login_logo_url' );
 	add_filter( 'login_headertitle', 'bfg_login_logo_url_title' );
-	//add_filter('login_redirect', 'bfg_login_redirect', 10, 3);
 	add_filter('wp_mail_from', 'bfg_from_email_address');
 	add_filter('wp_mail_from_name', 'bfg_from_email_name');
 
@@ -33,14 +32,15 @@ function bfg_theme_setup() {
 	// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 90 ) );
 	// add_theme_support( 'genesis-footer-widgets', 3 );
 
-	show_admin_bar( false );
+	if( !current_user_can( 'edit_posts' ) ) {
+		add_filter( 'show_admin_bar', '__return_false' );
+	}
 
 	// Bones
 	include_once( CHILD_DIR . '/includes/bones.php' );
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	add_action( 'wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
-	//add_filter( 'script_loader_src', 'bfg_remove_resource_version', 15, 1 );
-	//add_filter( 'style_loader_src', 'bfg_remove_resource_version', 15, 1 );
+
 	add_filter( 'style_loader_tag', 'bfg_ie_conditional', 10, 2 );
 	add_action( 'genesis_meta', 'bfg_viewport_meta' );
 	add_filter( 'http_request_args', 'bfg_dont_update', 5, 2 );
@@ -49,7 +49,6 @@ function bfg_theme_setup() {
 	add_action( 'wp_head', 'bfg_remove_recent_comments_style', 1);
 	add_filter( 'gallery_style', 'bfg_gallery_style' );
 	//add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
-	//add_filter( 'upload_mimes', 'bfg_mime_types', 1, 1 );
 
 	// Head
 	remove_action( 'wp_head', 'rsd_link' );

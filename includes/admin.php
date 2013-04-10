@@ -80,24 +80,11 @@ function bfg_login_logo_url_title() {
 }
 
 
-function bfg_login_redirect( $redirect_to, $request, $user ){
-    if( is_array( $user->roles ) ) {
-        if( in_array( 'administrator', $user->roles ) ) {
-            return admin_url();
-        } else {
-            return home_url();
-        }
-    }
-}
-
-
 function bfg_from_email_address( $email ) {
-	$wpfrom = get_option('admin_email');
-	return $wpfrom;
+	return get_option('admin_email');
 }
 
 
 function bfg_from_email_name( $email ){
-	$wpfrom = get_option('blogname');
-	return $wpfrom;
+	return get_option('blogname');
 }
