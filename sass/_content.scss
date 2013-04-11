@@ -7,15 +7,25 @@
 	.post-edit-link {}
 }
 
+.entry-title {
+	@include word-break(break-word);
+}
+
 .entry-content {
-	p {
+	p, ul, ol {
 		text-overflow: ellipsis;
-		@include word-break(break-all);
 		@include word-break(break-word);
 		@include hyphens(auto);
+		+ p {
+			margin-top: 1.5em;
+		}
+		+ ul, +ol {
+			margin-top: 1em;
+		}
 	}
 
     ul, ol {
+    	padding-left: 2.5em;
 		li {}
 		ul, ol {}
     }

@@ -9,12 +9,12 @@ function bfg_theme_setup() {
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
 	add_action( 'init', 'bfg_remove_layout_meta_boxes' );
 	add_filter( 'tiny_mce_before_init', 'bfg_remove_tinymce_tags' );
-	add_filter('user_contactmethods', 'bfg_remove_profile_fields');
+	add_filter( 'user_contactmethods', 'bfg_remove_profile_fields' );
 	//add_action( 'login_enqueue_scripts', 'bfg_login_logo' );
 	add_filter( 'login_headerurl', 'bfg_login_logo_url' );
 	add_filter( 'login_headertitle', 'bfg_login_logo_url_title' );
-	add_filter('wp_mail_from', 'bfg_from_email_address');
-	add_filter('wp_mail_from_name', 'bfg_from_email_name');
+	add_filter( 'wp_mail_from', 'bfg_from_email_address' );
+	add_filter( 'wp_mail_from_name', 'bfg_from_email_name' );
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );

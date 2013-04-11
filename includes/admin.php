@@ -1,17 +1,17 @@
 <?php
 function bfg_disable_dashboard_widgets() {
-	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
-	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
+	// remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );    // Right Now Widget
+	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core' ); // Comments Widget
+	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );  // Incoming Links Widget
+	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );         // Plugins Widget
 
-	// remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
+	// remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
+	remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );   // Recent Drafts Widget
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         //
+	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       //
 
 	// removing plugin dashboard boxes
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
+	remove_meta_box( 'yoast_db_widget', 'dashboard', 'normal' );         // Yoast's SEO Plugin Widget
 }
 
 
@@ -61,7 +61,7 @@ function bfg_remove_profile_fields( $fields ) {
 function bfg_login_logo() {
 	echo '<style type="text/css">';
 		echo 'body.login div#login h1 a {';
-			echo 'background: url(' . get_stylesheet_directory_uri() . '/images/login-logo.png) no-repeat;';
+			echo 'background: url( ' . get_stylesheet_directory_uri() . '/images/login-logo.png) no-repeat;';
 			echo 'padding-bottom: 30px;';
 			echo 'width: 320px;';
 			echo 'height: 68px;';
@@ -81,10 +81,10 @@ function bfg_login_logo_url_title() {
 
 
 function bfg_from_email_address( $email ) {
-	return get_option('admin_email');
+	return get_option( 'admin_email' );
 }
 
 
 function bfg_from_email_name( $email ){
-	return get_option('blogname');
+	return get_option( 'blogname' );
 }
