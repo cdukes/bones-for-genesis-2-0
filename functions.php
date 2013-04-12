@@ -3,7 +3,6 @@ add_action( 'genesis_setup','bfg_theme_setup', 15);
 function bfg_theme_setup() {
 	// Customizing Genesis
 	include_once( CHILD_DIR . '/includes/admin.php' );
-	include_once( CHILD_DIR . '/includes/genesis_save_custom_fields_fix.php' );
 	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );
 	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
 	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
