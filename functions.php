@@ -40,7 +40,7 @@ function bfg_theme_setup() {
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	add_action( 'wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
 
-	add_filter( 'style_loader_tag', 'bfg_ie_conditional', 10, 2 );
+	add_filter( 'style_loader_tag', 'bfg_ie_conditionals', 10, 2 );
 	add_action( 'genesis_meta', 'bfg_viewport_meta' );
 	add_filter( 'http_request_args', 'bfg_dont_update', 5, 2 );
 	add_filter( 'the_content', 'bfg_filter_ptags_on_images' );

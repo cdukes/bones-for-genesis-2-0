@@ -26,11 +26,14 @@ function bfg_scripts_and_styles() {
 }
 
 
-function bfg_ie_conditional( $tag, $handle ) {
-    if( 'bfg-ie-only' == $handle ) {
+function bfg_ie_conditionals( $tag, $handle ) {
+	if( 'bfg-css' == $handle ) {
+        $tag = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
+        $tag .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+	} elseif( 'bfg-ie-only' == $handle ) {
         $tag = '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} elseif( 'bfg-ie-universal' == $handle ) {
-        $tag = '<!--[if lte IE 7]>' . "\n" . $tag . '<![endif]-->' . "\n";
+        $tag = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	}
 
     return $tag;
