@@ -11,8 +11,12 @@ a:link, a:visited {
 a:hover, a:focus, a:active {
 }
 
-::-moz-selection {}
-::selection {}
+::-moz-selection {
+	text-shadow: none;
+}
+::selection {
+	text-shadow: none;
+}
 
 ul, ol, p {
 	margin: 0;

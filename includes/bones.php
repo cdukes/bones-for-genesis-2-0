@@ -28,15 +28,15 @@ function bfg_scripts_and_styles() {
 
 function bfg_ie_conditionals( $tag, $handle ) {
 	if( 'bfg-css' == $handle ) {
-        $tag = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
-        $tag .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+        $output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
+        $output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} elseif( 'bfg-ie-only' == $handle ) {
-        $tag = '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+        $output = '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} elseif( 'bfg-ie-universal' == $handle ) {
-        $tag = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+        $output = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	}
 
-    return $tag;
+    return $output;
 }
 
 
@@ -84,4 +84,10 @@ function bfg_gallery_style($css) {
 
 function bfg_load_favicon( $favicon_url ) {
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
+}
+
+
+function bfg_no_js_body_class( $classes ) {
+	$classes[] = 'no-js';
+	return $classes;
 }
