@@ -88,3 +88,17 @@ function bfg_from_email_address( $email ) {
 function bfg_from_email_name( $email ){
 	return get_option( 'blogname' );
 }
+
+
+/* http://wpdaily.co/top-10-snippets/ */
+function bfg_maintenance_mode() {
+	if( !is_user_logged_in() ){
+		wp_die( 'Down for maintenance, please come back soon.', 'Down for maintenance, please come back soon.', array('response' => '503'));
+	}
+}
+
+
+/* http://wpdaily.co/top-10-snippets/ */
+function bfg_failed_login_notice() {
+    return 'Incorrect login information.';
+}

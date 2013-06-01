@@ -91,3 +91,10 @@ function bfg_no_js_body_class( $classes ) {
 	$classes[] = 'no-js';
 	return $classes;
 }
+
+
+/* http://wpdaily.co/top-10-snippets/ */
+function bfg_custom_image_size_choices($sizes) {
+        $sizes['new-size'] = 'Test Size';
+        return $sizes;
+}

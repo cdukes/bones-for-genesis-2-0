@@ -14,6 +14,8 @@ function bfg_theme_setup() {
 	add_filter( 'login_headertitle', 'bfg_login_logo_url_title' );
 	add_filter( 'wp_mail_from', 'bfg_from_email_address' );
 	add_filter( 'wp_mail_from_name', 'bfg_from_email_name' );
+	//add_action( 'get_header', 'bfg_maintenance_mode' );
+	add_filter( 'login_errors', 'bfg_failed_login_notice' );
 
 	// genesis_unregister_layout( 'content-sidebar' );
 	// genesis_unregister_layout( 'sidebar-content' );
@@ -49,6 +51,12 @@ function bfg_theme_setup() {
 	add_filter( 'gallery_style', 'bfg_gallery_style' );
 	//add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
 	//add_filter('body_class','bfg_no_js_body_class');
+
+	//if( function_exists( 'add_image_size') ) {
+	//	add_image_size( 'new-size', 1024, 768, false);
+	//}
+
+	//add_filter( 'image_size_names_choose', 'bfg_custom_image_size_choices' );
 
 	// Head
 	remove_action( 'wp_head', 'rsd_link' );
