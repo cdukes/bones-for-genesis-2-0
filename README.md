@@ -29,7 +29,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - SASS-ready, CodeKit-ready
 - Includes a starter config.rb file for Compass
 - Submodule for normalize.scss
-- `%clearfix` and `%image-replacement` SASS `@extend`s 
+- `%clearfix` and `%image-replacement` SASS `@extend`'s 
 - Unstyled, nested selections following Genesis 2.0's style.css as a template
 - A tiny of helpful attribute resets and suggestions
 
@@ -100,7 +100,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - More standard developer comments & better function formatting
 
 ## Further Resources
-- [Genesis Explained](http://designsbynickthegeek.com/tutorials/genesis-explained-two_
+- [Genesis Explained](http://designsbynickthegeek.com/tutorials/genesis-explained-two_)
 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
