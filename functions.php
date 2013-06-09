@@ -2,7 +2,7 @@
 add_action( 'genesis_setup','bfg_theme_setup', 15 );
 function bfg_theme_setup() {
 	// Developer Tools
-	// include_once( CHILD_DIR . '/includes/genesis.php' );				// DO NOT USE THESE ON A LIVE SITE
+	// include_once( CHILD_DIR . '/includes/developer-tools.php' );		// DO NOT USE THESE ON A LIVE SITE
 
 	// Genesis
 	include_once( CHILD_DIR . '/includes/genesis.php' );				// Customizations to Genesis-specific functions

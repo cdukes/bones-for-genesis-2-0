@@ -8,6 +8,7 @@ remove_action( 'wp_head', 'rsd_link' );									// RSD link
 remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );				// Parent rel link
 remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start post rel link
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacent post rel link
+remove_action( 'wp_head', 'wp_generator' );								// WP Version
 
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets', 999 );

@@ -22,8 +22,6 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	width: auto;
-	letter-spacing: 1px;
-	letter-spacing: 0.1rem;
 	cursor: pointer;
 	&:hover, &:focus, &:active {
 
