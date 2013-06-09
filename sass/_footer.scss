@@ -25,7 +25,7 @@
 	}
 
 	li {
-		word-wrap: break-word;
+		@include word-break(break-word);
 	}
 }
 

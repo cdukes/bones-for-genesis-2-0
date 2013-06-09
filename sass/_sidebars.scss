@@ -9,7 +9,7 @@
 	}
 
 	li {
-		word-wrap: break-word;
+		@include word-break(break-word);
 		&:last-child {
 			margin-bottom: 0;
 		}
