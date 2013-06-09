@@ -1,5 +1,26 @@
+// Use with @extend to make reponsive modules
+%wrap {
+	margin: 0 auto;
+	//width: 100%		// Site should always expand to browser width...
+	//max-width:		// ...unless the browser is larger than this;
+}
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 %image-replacement {
+	overflow: hidden;
 	text-indent: 200%;
 	white-space: nowrap;
-	overflow: hidden;
+}
+
+// http://nicolasgallagher.com/micro-clearfix-hack/
+%clearfix {
+	zoom: 1;			// For IE
+	&:before,
+	&:after {
+    	display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
 }

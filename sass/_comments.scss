@@ -1,40 +1,55 @@
-#comments {
-	.comment-list {
-		li {
-			&:last-child {}
-			ul.children {
-				li {
-					&.comment {}
-					&.alt {}
-					&.odd {}
-					&.even {}
-					&.comment-author-admin {}
-					.comment-content {
-						p {}
-					}
-				}
-			}
-		}
+.entry-comments,
+.ping-list,
+#respond {
+
+	a {
+
 	}
 }
 
+.entry-comments {
+
+	.comment-author {
+
+	}
+}
 
 #respond {
-	#reply-title {}
-	#cancel-comment-reply {
-		a {}
+
+	input[type="email"],
+	input[type="text"],
+	input[type="url"] {
+
 	}
-	#commentform {
-		label {}
-		.required {}
-		#author, #email, #url, #comment {
-			&:invalid {}
-		}
-		#comment {
-		}
-		#submit {}
+
+	label {
+		display: block
 	}
 }
 
+.comment-list,
+.ping-list {
 
-.nocomments {}
+	li {
+		list-style-type: none;
+		li {
+
+		}
+	}
+}
+
+li.comment {
+
+}
+
+.comment .avatar {
+
+}
+
+.bypostauthor {
+
+}
+
+.form-allowed-tags {
+
+}

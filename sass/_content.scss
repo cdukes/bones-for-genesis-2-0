@@ -1,52 +1,104 @@
-.breadcrumb {}
+.breadcrumb {
 
-.post-info {
-    .time {}
-    .vcard {}
-    .post-comments {}
-	.post-edit-link {}
 }
 
 .entry-title {
 	@include word-break(break-word);
+	line-height: 1;
+	a {
+
+		&:hover, &:focus, &:active {
+
+		}
+	}
+}
+
+.archive-title {
+
 }
 
 .entry-content {
-	p, ul, ol {
-		text-overflow: ellipsis;
-		@include word-break(break-word);
-		@include hyphens(auto);
-		+ p {
-			margin-top: 1.5em;
-		}
-		+ ul, +ol {
-			margin-top: 1em;
+    a {
+
+	    &:hover, &:focus, &:active {
+
+	    }
+    }
+
+	.attachment,
+	.gallery {
+
+		a {
+			border: none;
 		}
 	}
 
-    ul, ol {
-    	padding-left: 2.5em;
-		li {}
-		ul, ol {}
-    }
-    ul {
-        list-style: square;
-    }
-    ol {
-        list-style: decimal;
-    }
+	p, ul, ol {
+		@include word-break(break-word);
+		@include hyphens(auto);
+		text-overflow: ellipsis;
+	}
+
+	ol {
+
+		li {
+			list-style-type: decimal;
+		}
+		ol {
+			margin-bottom: 0;
+		}
+	}
+
+	ul {
+
+		li {
+			list-style-type: disc;
+		}
+		ul {
+			margin-bottom: 0;
+		}
+	}
 
     blockquote {
-	   	p {}
-    }
 
-    img {
-        height: auto !important;
-        max-width: 100% !important;
+	   	p {
+
+	   	}
     }
 }
 
-.post-meta {
-    .categories {}
-    .tags {}
+.entry-meta {
+	clear: both;
+	a {
+
+	}
+}
+
+.entry-categories,
+.entry-tags {
+	display: block;
+}
+
+.navigation {
+	clear: both;
+	a {
+
+	}
+
+	li {
+		display: inline;
+		a {
+
+			&:hover, &:focus, &:active {
+
+			}
+		}
+
+		&.active {
+
+			a {
+
+			}
+		}
+	}
 }

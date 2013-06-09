@@ -1,12 +1,71 @@
-.menu {
-	li {
-		a:link, a:visited {}
-		a:hover, a:focus, a:active {}
-		&.current_page_item,
-		&.current-cat,
-		&.current-menu-item {
-			a, a:visited {
+.genesis-nav-menu {
+	clear: both;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	.menu-item {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		&:hover, &:focus, &:active {
+
+			> .sub-menu {
+				left: auto;
+				opacity: 1;
 			}
+		}
+	}
+
+	a {
+		position: relative;
+		display: block;
+	}
+
+	a:hover,
+	a:focus,
+	a:active,
+	.current-menu-item > a,
+	.sub-menu .current-menu-item > a:hover {
+
+	}
+
+	.sub-menu .current-menu-item > a {
+
+	}
+
+	> .menu-item > a {
+
+	}
+
+	.sub-menu {
+		@include opacity(0);
+		@include transition(opacity .4s ease-in-out);
+		position: absolute;
+		left: -9999px;
+		z-index: 99;
+		margin: 0;
+		padding: 0;
+		a {
+			position: relative;
+		}
+
+		.sub-menu {
+
+		}
+	}
+
+	> .first {
+
+		> a {
+
+		}
+	}
+
+	> .last {
+
+		> a {
+
 		}
 	}
 }

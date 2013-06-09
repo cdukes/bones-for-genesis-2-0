@@ -1,70 +1,30 @@
 <?php
-add_action( 'genesis_setup','bfg_theme_setup', 15);
+add_action( 'genesis_setup','bfg_theme_setup', 15 );
 function bfg_theme_setup() {
-	// Customizing Genesis
-	include_once( CHILD_DIR . '/includes/admin.php' );
-	add_action( 'admin_menu', 'bfg_disable_dashboard_widgets' );
-	add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
-	add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2);
-	add_action( 'init', 'bfg_remove_layout_meta_boxes' );
-	add_filter( 'tiny_mce_before_init', 'bfg_remove_tinymce_tags' );
-	add_filter( 'user_contactmethods', 'bfg_remove_profile_fields' );
-	//add_action( 'login_enqueue_scripts', 'bfg_login_logo' );
-	add_filter( 'login_headerurl', 'bfg_login_logo_url' );
-	add_filter( 'login_headertitle', 'bfg_login_logo_url_title' );
-	add_filter( 'wp_mail_from', 'bfg_from_email_address' );
-	add_filter( 'wp_mail_from_name', 'bfg_from_email_name' );
-	//add_action( 'get_header', 'bfg_maintenance_mode' );
-	add_filter( 'login_errors', 'bfg_failed_login_notice' );
+	// Developer Tools
+	// include_once( CHILD_DIR . '/includes/genesis.php' );				// DO NOT USE THESE ON A LIVE SITE
 
-	// genesis_unregister_layout( 'content-sidebar' );
-	// genesis_unregister_layout( 'sidebar-content' );
-	// genesis_unregister_layout( 'content-sidebar-sidebar' );
-	// genesis_unregister_layout( 'sidebar-sidebar-content' );
-	// genesis_unregister_layout( 'sidebar-content-sidebar' );
-	// genesis_unregister_layout( 'full-width-content' );
-	// unregister_sidebar( 'header-right' );
-	// unregister_sidebar( 'sidebar-alt' );
-	// unregister_sidebar( 'sidebar' );
+	// Genesis
+	include_once( CHILD_DIR . '/includes/genesis.php' );				// Customizations to Genesis-specific functions
 
-	// add_theme_support( 'custom-background' );
-	// add_theme_support( 'post-formats', array( 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video', 'audio' ));
-	// add_theme_support( 'genesis-post-format-images' );
-	// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 90 ) );
-	// add_theme_support( 'genesis-footer-widgets', 3 );
+	// Admin
+	include_once( CHILD_DIR . '/includes/admin/admin-functions.php' );	// Customization to admin functionality
+	include_once( CHILD_DIR . '/includes/admin/admin-views.php' );		// Customizations to the admin area display
+	include_once( CHILD_DIR . '/includes/admin/admin-branding.php' );	// Admin view customizations that specifically involve branding
+	include_once( CHILD_DIR . '/includes/admin/admin-options.php' );	// For adding/editing theme options to Genesis
 
-	if( !current_user_can( 'edit_posts' ) ) {
-		add_filter( 'show_admin_bar', '__return_false' );
-	}
+	// Structure (corresponds to Genesis's lib/structure)
+	include_once( CHILD_DIR . '/includes/structure/archive.php' );
+	include_once( CHILD_DIR . '/includes/structure/comments.php' );
+	include_once( CHILD_DIR . '/includes/structure/footer.php' );
+	include_once( CHILD_DIR . '/includes/structure/header.php' );
+	include_once( CHILD_DIR . '/includes/structure/layout.php' );
+	include_once( CHILD_DIR . '/includes/structure/loops.php' );
+	include_once( CHILD_DIR . '/includes/structure/menu.php' );
+	include_once( CHILD_DIR . '/includes/structure/post.php' );
+	include_once( CHILD_DIR . '/includes/structure/search.php' );
+	include_once( CHILD_DIR . '/includes/structure/sidebar.php' );
 
-	// Bones
-	include_once( CHILD_DIR . '/includes/bones.php' );
-	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-	add_action( 'wp_enqueue_scripts', 'bfg_scripts_and_styles', 999);
-
-	add_filter( 'style_loader_tag', 'bfg_ie_conditionals', 10, 2 );
-	add_action( 'genesis_meta', 'bfg_viewport_meta' );
-	add_filter( 'http_request_args', 'bfg_dont_update', 5, 2 );
-	add_filter( 'the_content', 'bfg_filter_ptags_on_images' );
-	add_filter( 'wp_head', 'bfg_remove_wp_widget_recent_comments_style', 1 );
-	add_action( 'wp_head', 'bfg_remove_recent_comments_style', 1);
-	add_filter( 'gallery_style', 'bfg_gallery_style' );
-	//add_filter( 'genesis_pre_load_favicon', 'bfg_load_favicon' );
-	//add_filter('body_class','bfg_no_js_body_class');
-
-	//if( function_exists( 'add_image_size') ) {
-	//	add_image_size( 'new-size', 1024, 768, false);
-	//}
-
-	//add_filter( 'image_size_names_choose', 'bfg_custom_image_size_choices' );
-
-	// Head
-	remove_action( 'wp_head', 'rsd_link' );
-	remove_action( 'wp_head', 'wlwmanifest_link' );
-	remove_action( 'wp_head', 'index_rel_link' );
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-	remove_action( 'wp_head', 'wp_generator' );
+	// Shame
+	include_once( CHILD_DIR . '/includes/shame.php' );					// For new code snippets that haven't been sorted and commented yet
 }
-?>

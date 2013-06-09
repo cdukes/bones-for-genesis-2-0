@@ -1,5 +1,37 @@
-#footer {
-	.wrap {}
-	a:link, a:visited {}
-	a:hover, a:focus, a:active {}
+.footer-widgets {
+	clear: both;
+	.footer-widgets-1,
+	.footer-widgets-2 {
+		float: left;
+	}
+
+	.footer-widgets-3 {
+		float: right;
+	}
+
+	a {
+
+		&:hover, &:focus, &:active {
+
+		}
+	}
+
+	.widget {
+
+	}
+
+	.widgettitle {
+
+	}
+
+	li {
+		word-wrap: break-word;
+	}
+}
+
+.site-footer {
+
+	a {
+
+	}
 }

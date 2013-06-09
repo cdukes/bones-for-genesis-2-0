@@ -1,11 +1,37 @@
-#header {
-	.widget-area {
+.title-area {
+	float: left;
+}
+
+.header-image {
+	.title-area {
+		padding: 0;
+	}
+
+	.site-description,
+	.site-title a {
+		@extend %image-replacement;
+		display: block;
 	}
 }
 
-#title-area {
-	#title {
-		a, a:visited {}
+.site-title {
+	line-height: 1;
+	a {
+
+		&:hover, &:focus, &:active {
+
+		}
 	}
-	#description {}
+}
+
+.site-description {
+	margin: 0;
+	line-height: 1;
+}
+
+.site-header {
+
+	.widget-area {
+		float: right;
+	}
 }

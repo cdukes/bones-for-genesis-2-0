@@ -1,0 +1,61 @@
+$imageMargin: 		1.5rem;
+
+embed,
+iframe,
+img,
+object,
+video {
+	max-width: 100%;
+}
+
+img {
+	width: auto; /* IE8 */
+	height: auto;
+}
+
+img.centered,
+.aligncenter {
+    display: block;
+    margin: 0 auto $imageMargin auto;
+}
+
+img.alignnone {
+}
+
+.alignleft {
+	float: left;
+	text-align: left;
+}
+
+.alignright {
+	float: right;
+	text-align: right;
+}
+
+img.alignleft,
+.wp-caption.alignleft {
+    margin-right: $imageMargin;
+    margin-bottom: $imageMargin;
+}
+
+img.alignright,
+.wp-caption.alignright {
+    margin-bottom: $imageMargin;
+    margin-left: $imageMargin;
+}
+
+.wp-caption {
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.wp-caption-text {
+	margin: 0;
+	text-align: center;
+}
+
+.gallery-caption {
+
+}

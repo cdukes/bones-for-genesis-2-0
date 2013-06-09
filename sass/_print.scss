@@ -1,9 +1,9 @@
 @media print {
 	* {
+		@include filter(none !important);
 		background: transparent !important;
 		color: black !important;
 		text-shadow: none !important;
-		@include filter(none !important);
 	}
 
 	a:link, a:visited {
@@ -29,37 +29,17 @@
     	page-break-after: avoid;
     }
 
-    #nav, #sidebar, form {
-	    display: none;
-    }
-
-    #title-area {
-	    float: none;
-	    width: 100%;
-    }
-
-    #title-area a {
-	    float: none;
-	    margin: 0 auto;
-	    display: block;
-	    text-indent: 0;
-	    line-height: 100%;
-	    font-size: 6em;
-    }
-
-    #content {
-	    float: none !important;
-	    width: 100% !important;
-		.entry-title, .entry-content {
-			a[href]:after {
-				content: " (" attr(href) ")";
-			}
-			abbr[title]:after {
-				content: " (" attr(title) ")";
-			}
-			a[href^="#"]:after, a[href^="javascript"]:after {
-				content: "";
-			}
+	.entry-title, .entry-content {
+		a[href]:after {
+			content: " (" attr(href) ")";
 		}
-    }
+
+		abbr[title]:after {
+			content: " (" attr(title) ")";
+		}
+
+		a[href^="#"]:after, a[href^="javascript"]:after {
+			content: "";
+		}
+	}
 }

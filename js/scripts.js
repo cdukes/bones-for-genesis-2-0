@@ -3,5 +3,9 @@
 
 
 jQuery(document).ready(function($) {
+	// Remove the 'no-js' <body> class
+	$('body').removeClass('no-js');
+
+	// Enable FitVids on the content area
 	$("#content").fitVids();
 });

@@ -1,99 +1,56 @@
-/*********************
-=1a CLEARFIXING GENESIS
-What's this? Fixing floats is one
-of the oldest headaches in web design.
-Instead of using overflow:hidden, we
-are going to clear them using a cool
-trick used in the HTML5 Boilerplate:
-http://nicolasgallagher.com/micro-clearfix-hack/
-To do this though, we have to manually add
-the items we want to clearfix here.
-Kind of a pain, yes, but it's a much more
-natural solution.
-*********************/
-#inner:before,
-#inner:after,
-#title-area:before, /* you've got to be kidding */
-#title-area:after,
-.entry-content:before,
-.entry-content:after,
-.author-box:before,
-.author-box:after,
-.navigation:before,
-.navigation:after, /* is all this really efficient? */
-.user-profile:before,
-.user-profile:after,
-.featuredpage:before,
-.featuredpost:before,
-.featuredpage:after,
-.featuredpost:after,
-.featuredpage .page:before,
-.featuredpost .post:before,
-.featuredpage .page:after,
-.featuredpost .post:after,
-#footer:before, /* nope. probably not */
-#footer:after,
-#footer-widgets:before,
-#footer-widgets:after,
-.wrap:before,
-.wrap:after,
-#comments:before,
-#respond:before,
-#comments:after, /* but it's easier than dealing with overflow: hidden */
-#respond:after,
-.menu:before,
-.menu:after,
-.breadcrumb:before,
-.breadcrumb:after { content: ""; display: table; }
-#inner:after,
-#title-area:after,
-.entry-content:after,
-.author-box:after,
-.navigation:after, /* i tried a ton of solutions */
-.user-profile:after,
-.featuredpage:after,
-.featuredpost:after,
-.featuredpage .page:after,
-.featuredpost .post:after,
-#footer:after, /* but until Genesis adds a clearfix */
-.wrap:after,
-#comments:after,
-#respond:after,
-#footer-widgets:after,
-.menu:after,
-.breadcrumb:after { clear: both; }
-#inner,
-#title-area,
-.entry-content, /* this is what I'm going with */
-.author-box,
-.navigation,
-.user-profile,
-.featuredpage,
-.featuredpost, /* suggestions? hit me on twitter: @eddiemachado */
-.featuredpage .page,
-.featuredpost .post,
-#footer,
-.wrap,
-#comments, /* I'd love to hear your thoughts */
-#respond,
-#footer-widgets,
-.menu,
-.breadcrumb { zoom: 1; }
+// Float Clearing - from Genesis 2.0's style.css
 
-/*********************
-CLEARFIXIN'
-*********************/
+address:before, address:after,
+article:before, article:after,
+aside:before, aside:after,
+audio:before, audio:after,
+blockquote:before, blockquote:after,
+canvas:before, canvas:after,
+dd:before, dd:after,
+div:before, div:after,
+dl:before, dl:after,
+fieldset:before, fieldset:after,
+figcaption:before, figcaption:after,
+figure:before, figure:after,
+footer:before, footer:after,
+form:before, form:after,
+header:before, header:after,
+hr:before, hr:after,
+main:before, main:after,
+output:before, output:after,
+pre:before, pre:after,
+section:before, section:after,
+table:before, table:after,
+tfoot:before, tfoot:after,
+video:before, video:after,
+.clearfix:before, .clearfix:after {
+	display: table;
+	content: " ";
+}
 
-/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
-%clearfix {
-	&:before,
-	&:after {
-		content: "";
-    	display: table;
-	}
-	&:after {
-		clear: both;
-	}
-	/* for IE */
-	zoom: 1;
+address:after,
+article:after,
+aside:after,
+audio:after,
+blockquote:after,
+canvas:after,
+dd:after,
+div:after,
+dl:after,
+fieldset:after,
+figcaption:after,
+figure:after,
+footer:after,
+form:after,
+header:after,
+hr:after,
+main:after,
+output:after,
+pre:after,
+section:after,
+table:after,
+tfoot:after,
+video:after,
+.clearfix:after {
+	clear: both;
 }

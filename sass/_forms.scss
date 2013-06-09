@@ -1,0 +1,36 @@
+input,
+select,
+textarea {
+	width: 100%;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+::-moz-placeholder {
+
+}
+
+::-webkit-input-placeholder {
+
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	width: auto;
+	letter-spacing: 1px;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	&:hover, &:focus, &:active {
+
+	}
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button {
+	display: none;
+}

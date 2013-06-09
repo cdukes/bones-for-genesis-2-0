@@ -1,0 +1,24 @@
+.sidebar {
+
+	a {
+
+	}
+
+	p:last-child {
+		margin: 0;
+	}
+
+	li {
+		word-wrap: break-word;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.widgettitle {
+
+		a {
+
+		}
+	}
+}
