@@ -30,7 +30,7 @@ add_action( 'pre_ping', 'bfg_disable_self_pings' );
 function bfg_disable_self_pings( &$links ) {
 
     foreach ( $links as $l => $link )
-        if ( 0 === strpos( $link, get_option( 'home' ) ) )
+        if ( 0 === strpos( $link, home_url() ) )
             unset($links[$l]);
 
 }
