@@ -18,6 +18,13 @@ add_theme_support( 'genesis-html5' );
 // add_theme_support( 'genesis-responsive-viewport' );
 
 /**
+ * Add Genesis footer widget areas
+ *
+ * @since 2.0.1
+ */
+// add_theme_support( 'genesis-footer-widgets', 3 );
+
+/**
  * Unregister default Genesis layouts
  *
  * @since 1.x

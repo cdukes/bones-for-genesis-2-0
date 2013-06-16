@@ -1,5 +1,6 @@
 .footer-widgets {
 	clear: both;
+
 	.footer-widgets-1,
 	.footer-widgets-2 {
 		float: left;
@@ -11,7 +12,9 @@
 
 	a {
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 
 		}
 	}

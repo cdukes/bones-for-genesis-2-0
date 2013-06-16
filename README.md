@@ -96,6 +96,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 
 ## To Dos
 - **Add admin-options.php support for setting Genesis default options**
+- Better normalize.css integration with starter SASS
 - Add admin-options.php Genesis theme options framework
 - More standard developer comments & better function formatting
 

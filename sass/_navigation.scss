@@ -3,12 +3,16 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
+
 	.menu-item {
 		display: inline-block;
 		margin: 0;
 		padding: 0;
 		text-align: left;
-		&:hover, &:focus, &:active {
+
+		&:hover,
+		&:focus,
+		&:active {
 
 			> .sub-menu {
 				left: auto;
@@ -46,6 +50,7 @@
 		z-index: 99;
 		margin: 0;
 		padding: 0;
+
 		a {
 			position: relative;
 		}
