@@ -1,12 +1,6 @@
-html {
-	font-size: 62.5%; /* 10px browser default */
-}
-
 body {
 	font-weight: 300;
-	font-size: 16px;
-	font-size: 1.6rem;
-	text-rendering:  optimizeLegibility;
+	// text-rendering:  optimizeLegibility;
 }
 
 a,
@@ -20,11 +14,11 @@ textarea:focus {
 }
 
 ::-moz-selection {
-	text-shadow: none;
+	// text-shadow: none;
 }
 
 ::selection {
-	text-shadow: none;
+	// text-shadow: none;
 }
 
 a {
@@ -36,8 +30,6 @@ a {
 	}
 
 	img {
-		margin-bottom: -4px;
-		margin-bottom: -0.4rem;
 	}
 }
 

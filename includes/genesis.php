@@ -18,6 +18,13 @@ add_theme_support( 'genesis-html5' );
 // add_theme_support( 'genesis-responsive-viewport' );
 
 /**
+ * Add support for custom backgrouns
+ *
+ * @since 2.0.2
+ */
+// add_theme_support( 'custom-background' );
+
+/**
  * Add Genesis footer widget areas
  *
  * @since 2.0.1

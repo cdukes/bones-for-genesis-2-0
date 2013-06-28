@@ -95,10 +95,9 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## To Dos
-- **Add admin-options.php support for setting Genesis default options**
-- Better normalize.css integration with starter SASS
+- Add admin-options.php support for setting Genesis default options
 - Add admin-options.php Genesis theme options framework
-- More standard developer comments & better function formatting
+- *(Ongoing)* More standard developer comments & better function formatting
 
 ## Further Resources
 - [Genesis Explained](http://designsbynickthegeek.com/tutorials/genesis-explained-two_)
@@ -106,5 +105,30 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
-### v2.0
+### 2.0.2 (June 28, 2013)
+- Removed page-templates folder. Templates should be in the child theme root, to properly overwrite the Genesis parent templates.
+- Gave `input[type="search"]` explicit box-sizing.
+- Moved `@import "shame"` to the bottom of `style.css`
+- Removed `rem` font sizing skeleton
+- Removed `margin-bottom: -4px` from image links
+- Added `.hide-no-js` helper class
+- Added `add_theme_support( 'custom-background' )`
+- Initialize Genesis's `init.php` file directly now, instead of using the `genesis_setup` hook
+- Added child theme definitions (`CHILD_THEME_NAME`, `CHILD_THEME_URL`, `CHILD_THEME_VERSION`)
+- Commented out `text-shadow: none;` from `::selection`, since this prevents all selection styling unless `background-color` is also specified 
+- Removed `_grid.scss` responsive styling, since it was causing awkward breakpoint issues on non-responsive sites.
+- Commented out `body { text-rendering:  optimizeLegibility; }`, since this can cause display issues on poorly generated fonts.
+- Removed default floats in `_layout.scss`
+- Added skeleton selectors for more HTML5 input types
+- Better `_print.scss`
+
+### 2.0.1 (June 16, 2013)
+- Assume SVG login logo
+- Toggle link manager on/off
+- Added genesis-footer-widgets option
+- More consistent SASS formatting
+- Commented out `width: auto` on images
+- Added `_shame.scss` file
+
+### v2.0 (June 9, 2013)
 - Initial release of Genesis 2.0 BFG fork

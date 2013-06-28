@@ -9,6 +9,20 @@ textarea:focus {
 	outline: none;
 }
 
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+textarea {
+
+}
+
 ::-moz-placeholder {
 
 }
@@ -27,6 +41,10 @@ input[type="submit"] {
 	&:hover, &:focus, &:active {
 
 	}
+}
+
+input[type="search"] {
+	@include box-sizing(border-box);
 }
 
 input[type="search"]::-webkit-search-cancel-button,

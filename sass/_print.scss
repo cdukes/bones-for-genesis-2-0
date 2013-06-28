@@ -6,7 +6,8 @@
 		text-shadow: none !important;
 	}
 
-	a:link, a:visited {
+	a:link,
+	a:visited {
 		color: black !important;
 		text-decoration: underline;
 	}
@@ -20,16 +21,48 @@
 		margin: 2cm 1.5cm;
     }
 
-    p, h2, h3 {
+    p,
+    h2,
+    h3 {
     	orphans: 4;
     	widows: 2;
     }
 
-    h2, h3 {
+    h2,
+    h3 {
     	page-break-after: avoid;
     }
 
-	.entry-title, .entry-content {
+	.menu,
+    .widget-area,
+    .sidebar,
+    .footer-widgets,
+    .site-footer {
+	    display: none !important;
+    }
+
+	.title-area {
+		float: none;
+	}
+
+	.site-header {
+
+		.site-title {
+
+			img {
+				display: block;
+				margin: 0 auto 1em;
+			}
+		}
+	}
+
+    .content {
+	    width: 100% !important;
+    }
+
+	.entry-title,
+	.entry-content {
+
 		a[href]:after {
 			content: " (" attr(href) ")";
 		}
@@ -38,7 +71,8 @@
 			content: " (" attr(title) ")";
 		}
 
-		a[href^="#"]:after, a[href^="javascript"]:after {
+		a[href^="#"]:after,
+		a[href^="javascript"]:after {
 			content: "";
 		}
 	}
