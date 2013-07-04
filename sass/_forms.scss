@@ -1,15 +1,10 @@
-input,
-select,
-textarea {
-	width: 100%;
-}
-
 input:focus,
 textarea:focus {
 	outline: none;
 }
 
 input[type="text"],
+input[type="password"],
 input[type="search"],
 input[type="email"],
 input[type="url"],
@@ -20,7 +15,11 @@ input[type="month"],
 input[type="week"],
 input[type="time"],
 textarea {
+	width: 100%;
+}
 
+select {
+	width: 100%;
 }
 
 ::-moz-placeholder {

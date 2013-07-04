@@ -105,6 +105,11 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.3 (July 4, 2013)
+- Better input skeleton styles
+- Added a starter breakpoint mixin
+- Normalize.scss submodule update
+
 ### 2.0.2 (June 28, 2013)
 - Removed page-templates folder. Templates should be in the child theme root, to properly overwrite the Genesis parent templates.
 - Gave `input[type="search"]` explicit box-sizing.

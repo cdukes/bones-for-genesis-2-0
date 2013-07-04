@@ -1,6 +1,17 @@
 /*********************
 SIZES
 *********************/
+@mixin breakpoint($point) {
+  @if $point == full {
+    @media (min-width: 55em) { @content; }
+  }
+  @else if $point == tablet {
+    @media (max-width: 55em) { @content; }
+  }
+  @else if $point == phone {
+    @media (max-width: 45em)  { @content; }
+  }
+}
 
 /*********************
 COLORS
