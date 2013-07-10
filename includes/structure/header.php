@@ -95,7 +95,7 @@ function bfg_ie_conditionals( $tag, $handle ) {
 
 // add_filter( 'genesis_pre_load_favicon', 'bfg_pre_load_favicon' );
 /**
- * Specify your favicon's location
+ * Simple favicon override to specify your favicon's location
  *
  * @since 2.0.0
  */
@@ -104,6 +104,41 @@ function bfg_pre_load_favicon() {
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
 
 }
+
+// remove_action( 'wp_head', 'genesis_load_favicon' );
+// add_action( 'wp_head', 'bfg_load_favicons' );
+/**
+ * Show the best favicon, within reason
+ *
+ * See: http://www.jonathantneal.com/blog/understand-the-favicon/
+ *
+ * @since 2.0.4
+ */
+function bfg_load_favicons() {
+
+	$favicon_path = get_stylesheet_directory_uri() . '/images/favicons';
+
+	// Use a 144px X 144px PNG for the latest iOS devices
+	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-144.png">';
+
+	// Alternative: tell iOS not to gloss your icon
+	// echo '<link rel="apple-touch-icon-precomposed" href="' . $favicon_path . '/favicon-144.png">';
+
+	// Use a 96px X 96px PNG for modern desktop browsers
+	echo '<link rel="icon" href="' . $favicon_path . '/favicon-96.png">';
+
+	// Give IE <= 9 the old favicon.ico (16px X 16px)
+	echo '<!--[if IE]><link rel="shortcut icon" href="' . $favicon_path . '/favicon.ico"><![endif]-->';
+
+	// Use a 144px X 144px PNG for Windows tablets
+	echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-144.png">';
+
+	// Optional: specify a background color for your Windows tablet icon
+	// echo '<meta name="msapplication-TileColor" content="#d83434">';
+<?php
+
+}
+
 
 add_filter( 'body_class', 'bfg_no_js_body_class' );
 /**

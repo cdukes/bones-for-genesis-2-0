@@ -105,6 +105,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.4 (July 10, 2013)
+- Removed `genesis_footer_backtotop_text` filter, since it's deprecated in Genesis 2.0 with HTML5
+- Added support for better favicon display
+- `g_ent` is deprecated in Genesis 2.0. Switched to `html_entity_decode`, with better characters for post prev/next navigation
+- Styled `pre` like `blockquote` in `_print.scss`
+- Added a button click effect extend in `_toolkit.scss`
+- IE image height correction
+
 ### 2.0.3 (July 4, 2013)
 - Better input skeleton styles
 - Added a starter breakpoint mixin

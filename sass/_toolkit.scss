@@ -33,3 +33,13 @@
 		display: none !important;
 	}
 }
+
+// Extend to buttons to give them a 1px shift on click
+%click-effect {
+
+	&:active {
+		position: relative;
+		top: 1px;
+		left: 1px;
+	}
+}
