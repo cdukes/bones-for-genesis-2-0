@@ -18,7 +18,7 @@ add_theme_support( 'genesis-html5' );
 // add_theme_support( 'genesis-responsive-viewport' );
 
 /**
- * Add support for custom backgrouns
+ * Add support for custom backgrounds
  *
  * @since 2.0.2
  */

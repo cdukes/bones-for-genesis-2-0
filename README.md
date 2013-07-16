@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.0+ and WordPress 3.6+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.0+ and WordPress 3.5+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -29,13 +29,15 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - SASS-ready, CodeKit-ready
 - Includes a starter config.rb file for Compass
 - Submodule for normalize.scss
+- Includes Genesis 2.0 clearfix
 - `%clearfix` and `%image-replacement` SASS `@extend`'s 
 - Unstyled, nested selections following Genesis 2.0's style.css as a template
-- A tiny of helpful attribute resets and suggestions
+- A skeleton of helpful attribute resets and suggestions
 
 ## Document Customizations
 ### Header
 - Remove `<head>` RSD and rel links (updated for Genesis 2.0)
+- Template for serving better favicons to iOS and modern browsers
 - Enqueue custom stylesheets
 - Supports an IE-only stylesheet
 - Support the IE6 Universal Stylesheet
@@ -49,17 +51,18 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Remove `<p>` tags from around images
 - Remove `[gallery]` short code injected styles
 - Customize the post info and meta text (templates, disabled by default)
-- Customize the post navigation prev/next link text (templates, disabled by default)
+- Customize the post navigation link text (templates, disabled by default)
 
 ### Search
 - Edit search input box and button text (template, disabled by default)
+- Redirect straight to the search result when there is only one result (disabled by default)
 
 ### Sidebar
 - Allow shortcodes in text widgets (disabled by default)
 - Remove 'Recent Comments' widget injected styles
 
 ### Footer
-- Customize the footer 'creds' and 'back to top' text (templates, disabled by default)
+- Customize the footer 'creds' text (template, disabled by default)
 
 ### Page Templates
 - Force layout option for template (template, disabled by default)
@@ -68,7 +71,8 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 ### Functionality
 - Prevent the child theme from being overwritten by a WP.org theme of the same name
 - Disable self-pings
-- Add new image sizes, and add them to the media size select menu (template, disabled by default)
+- Add new image sizes, and add them to the media size select menu (templates, disabled by default)
+- Force the Link Manager to be shown/hidden (disabled by default)
 
 ### Branding
 - Change the /wp-login.php logo URL and title to your blog's homepage and name
@@ -97,6 +101,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 ## To Dos
 - Add admin-options.php support for setting Genesis default options
 - Add admin-options.php Genesis theme options framework
+- Better SASS organization into partials, modules, etc.
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Further Resources
@@ -105,6 +110,13 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.5 (July 16, 2013)
+- For `comment-reply` script loading, changed `is_singular()` to `is_single() || is_page() || is_attachment()` in `bfg_load_stylesheets()` for better granularity
+- Added function in `search.php` to redirect directly to the result on searches with only one result (disabled by default)
+- Title links should typically inherit their `.entry-title` color, not show the default link color
+- Added filters in `post.php` to customize the older/newer post navigation text (disabled by default)
+- `Readme.md` updates
+
 ### 2.0.4 (July 10, 2013)
 - Removed `genesis_footer_backtotop_text` filter, since it's deprecated in Genesis 2.0 with HTML5
 - Added support for better favicon display

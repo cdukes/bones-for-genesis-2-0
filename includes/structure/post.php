@@ -56,6 +56,7 @@ function bfg_post_meta() {
 // add_filter ( 'genesis_prev_link_text' , 'bfg_prev_link_text' );
 /**
  * Customize the post navigation prev text
+ * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options)
  *
  * @since 2.0.0
  */
@@ -68,11 +69,38 @@ function bfg_prev_link_text( $text ) {
 // add_filter ( 'genesis_next_link_text' , 'bfg_next_link_text' );
 /**
  * Customize the post navigation next text
+ * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options)
  *
  * @since 2.0.0
  */
 function bfg_next_link_text( $text ) {
 
     return ' ' . html_entity_decode('&#10217;');
+
+}
+
+// add_filter( 'genesis_older_link_text', 'bfg_older_link_text' );
+/**
+ * Customize the post navigation 'older' text
+ * (Only applies to the 'Older/Newer' Post Navigation Technique, set in Genesis > Theme Options)
+ *
+ * @since 2.0.5
+ */
+function bfg_older_link_text() {
+
+	return html_entity_decode('&#10216;') . ' Older';
+
+}
+
+// add_filter( 'genesis_newer_link_text', 'bfg_newer_link_text' );
+/**
+ * Customize the post navigation 'newer' text
+ * (Only applies to the 'Older/Newer' Post Navigation Technique, set in Genesis > Theme Options)
+ *
+ * @since 2.0.5
+ */
+function bfg_newer_link_text() {
+
+	return 'Newer ' . html_entity_decode('&#10217;');
 
 }

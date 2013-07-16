@@ -20,7 +20,7 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets', 999 );
  * @since 2.0.0
  */
 function bfg_load_stylesheets() {
-    if( is_singular() && comments_open() & get_option( 'thread_comments' ) == 1 ) {
+    if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 ) {
 		wp_enqueue_script( 'comment-reply' );
     } else {
 		wp_dequeue_script( 'comment-reply' );
