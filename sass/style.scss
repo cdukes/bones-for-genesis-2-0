@@ -10,7 +10,8 @@
 // Universal Box-Sizing
 *,
 :before,
-:after {
+:after,
+input[type="search"] {
 	@include box-sizing(border-box);
 }
 

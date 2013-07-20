@@ -35,9 +35,12 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	width: auto;
+	line-height: 1;
 	cursor: pointer;
 
-	&:hover, &:focus, &:active {
+	&:hover,
+	&:focus,
+	&:active {
 
 	}
 }

@@ -102,6 +102,8 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Add admin-options.php support for setting Genesis default options
 - Add admin-options.php Genesis theme options framework
 - Better SASS organization into partials, modules, etc.
+- Better `.gitignore`
+- Conditional jQuery 2.0 enqueueing 
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Further Resources
@@ -110,6 +112,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.6 (July 20, 2013)
+- `bfg_load_scripts` doesn't need to be called with priority `999`
+- `input[type="search"]` needs to be explicitly given `box-sizing`. Weird.
+- '[Better Helvetica](http://css-tricks.com/snippets/css/better-helvetica/)' starter sans-serif font stack
+- Buttons should have base `line-height: 1`
+- Added WooCommerce theme support declaration (disabled by default)
+- jQuery version bump
+
 ### 2.0.5 (July 16, 2013)
 - For `comment-reply` script loading, changed `is_singular()` to `is_single() || is_page() || is_attachment()` in `bfg_load_stylesheets()` for better granularity
 - Added function in `search.php` to redirect directly to the result on searches with only one result (disabled by default)

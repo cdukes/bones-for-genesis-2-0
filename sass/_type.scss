@@ -1,6 +1,7 @@
 body {
 	font-weight: 300;
-	// text-rendering:  optimizeLegibility;
+	font-family: $sans;
+	// text-rendering:  optimizeLegibility // Use with caution. May break certain @font-face fonts.
 }
 
 a,

@@ -47,7 +47,7 @@ function bfg_load_stylesheets() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'bfg_load_scripts', 999 );
+add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
 /**
  * Load scripts
  *
@@ -60,7 +60,7 @@ function bfg_load_scripts() {
     if( !is_admin() ) {
 		// Override WP'd default self-hosted jQuery with version from Google's CDN
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js', array(), null);
+		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null);
 
 		// Main script file (in footer)
 	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/js/scripts-ck.js', array( 'jquery' ), null, true );
@@ -136,9 +136,7 @@ function bfg_load_favicons() {
 	// Optional: specify a background color for your Windows tablet icon
 	// echo '<meta name="msapplication-TileColor" content="#d83434">';
 
-
 }
-
 
 add_filter( 'body_class', 'bfg_no_js_body_class' );
 /**
