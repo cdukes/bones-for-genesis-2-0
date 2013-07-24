@@ -112,6 +112,11 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.7 (July 24, 2013)
+- Added better defaults to `bfg_remove_theme_settings_metaboxes`
+- Moved `comment-reply` enqueuing from `bfg_load_stylesheets` to `bfg_load_scripts`
+- Better word break and text overflow handling
+
 ### 2.0.6 (July 20, 2013)
 - `bfg_load_scripts` doesn't need to be called with priority `999`
 - `input[type="search"]` needs to be explicitly given `box-sizing`. Weird.

@@ -10,6 +10,7 @@
 
 	li {
 		@include word-break(break-word);
+		overflow: hidden;
 
 		&:last-child {
 			margin-bottom: 0;

@@ -29,6 +29,7 @@
 
 	li {
 		@include word-break(break-word);
+		overflow: hidden;
 	}
 }
 

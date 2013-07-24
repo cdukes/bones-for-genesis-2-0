@@ -20,11 +20,6 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets', 999 );
  * @since 2.0.0
  */
 function bfg_load_stylesheets() {
-    if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 ) {
-		wp_enqueue_script( 'comment-reply' );
-    } else {
-		wp_dequeue_script( 'comment-reply' );
-    }
 
     if( !is_admin() ) {
 		// Main theme stylesheet
@@ -56,6 +51,12 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
  * @since 2.0.0
  */
 function bfg_load_scripts() {
+
+    if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 ) {
+		wp_enqueue_script( 'comment-reply' );
+    } else {
+		wp_dequeue_script( 'comment-reply' );
+    }
 
     if( !is_admin() ) {
 		// Override WP'd default self-hosted jQuery with version from Google's CDN

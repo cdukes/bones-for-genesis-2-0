@@ -15,11 +15,11 @@ textarea:focus {
 }
 
 ::-moz-selection {
-	// text-shadow: none;
+	// text-shadow: none
 }
 
 ::selection {
-	// text-shadow: none;
+	// text-shadow: none
 }
 
 a {
@@ -45,4 +45,9 @@ p {
 pre {
 	overflow: scroll;
 	white-space: pre;
+}
+
+code {
+	@include word-break(break-word);
+	overflow: hidden;
 }

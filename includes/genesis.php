@@ -70,8 +70,8 @@ add_theme_support( 'genesis-html5' );
 function bfg_remove_genesis_widgets() {
 
     unregister_widget( 'Genesis_Featured_Page' );									// Featured Page
-    unregister_widget( 'Genesis_User_Profile_Widget' );								// Featured Posts
-    unregister_widget( 'Genesis_Featured_Post' );									// User Profile
+    unregister_widget( 'Genesis_User_Profile_Widget' );								// User Profile
+    unregister_widget( 'Genesis_Featured_Post' );									// Featured Posts
 
 }
 
