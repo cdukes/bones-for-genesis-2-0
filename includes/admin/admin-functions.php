@@ -59,11 +59,10 @@ function bfg_image_size_names_choose( $sizes ) {
 }
 
 /**
- * Activate or deactivate the Link Manager
+ * Activate the Link Manager
  *
  * See: http://wordpressexperts.net/how-to-activate-link-manager-in-wordpress-3-5/
  *
  * @since 2.0.1
  */
 // add_filter( 'pre_option_link_manager_enabled', '__return_true' );		// Activate
-// add_filter( 'pre_option_link_manager_enabled', '__return_false' );		// Deactivate

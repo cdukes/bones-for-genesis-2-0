@@ -103,6 +103,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Add admin-options.php Genesis theme options framework
 - Better SASS organization into partials, modules, etc.
 - Better `.gitignore`
+- Add a custom post type template
 - Conditional jQuery 2.0 enqueueing 
 - *(Ongoing)* More standard developer comments & better function formatting
 
@@ -112,6 +113,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.8 (July 27, 2013)
+- Removed measurements from `_headings.scss`
+- Added a custom body class function for page templates
+- Cleaner `bfg_remove_dashboard_menus`
+- Removed (non-functional) option to disable the link manager
+
 ### 2.0.7 (July 24, 2013)
 - Added better defaults to `bfg_remove_theme_settings_metaboxes`
 - Moved `comment-reply` enqueuing from `bfg_load_stylesheets` to `bfg_load_scripts`
