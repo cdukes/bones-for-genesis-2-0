@@ -104,6 +104,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Better SASS organization into partials, modules, etc.
 - Better `.gitignore`
 - Add a custom post type template
+- Add custom post type schema templates
 - Conditional jQuery 2.0 enqueueing 
 - *(Ongoing)* More standard developer comments & better function formatting
 
@@ -113,6 +114,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.9 (August 1, 2013)
+- Added better incorrect login credentials error text
+- Added theme support options for a custom header and post formats (disabled by default)
+- Added snippets for removing the header, site title, site description, nav menus, post title, and post edit link (all disabled by default)
+- Removed `table` clearfix, as it was causing `<thead>`s to collapse
+- Added `%inline-block` helper SASS
+- `bfg_load_scripts` doesn't need to be called with priority `999`
+
 ### 2.0.8 (July 27, 2013)
 - Removed measurements from `_headings.scss`
 - Added a custom body class function for page templates
@@ -125,7 +134,6 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Better word break and text overflow handling
 
 ### 2.0.6 (July 20, 2013)
-- `bfg_load_scripts` doesn't need to be called with priority `999`
 - `input[type="search"]` needs to be explicitly given `box-sizing`. Weird.
 - '[Better Helvetica](http://css-tricks.com/snippets/css/better-helvetica/)' starter sans-serif font stack
 - Buttons should have base `line-height: 1`

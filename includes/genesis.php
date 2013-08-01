@@ -25,6 +25,31 @@ add_theme_support( 'genesis-html5' );
 // add_theme_support( 'custom-background' );
 
 /**
+ * Add support for a custom header
+ *
+ * @since 2.0.9
+ */
+// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 100 ) );
+
+/**
+ * Add Genesis post format support
+ *
+ * @since 2.0.9
+ */
+// add_theme_support( 'post-formats', array(
+// 	'aside',
+// 	'chat',
+// 	'gallery',
+// 	'image',
+// 	'link',
+// 	'quote',
+// 	'status',
+// 	'video',
+// 	'audio'
+// ));
+// add_theme_support( 'genesis-post-format-images' );
+
+/**
  * Add Genesis footer widget areas
  *
  * @since 2.0.1

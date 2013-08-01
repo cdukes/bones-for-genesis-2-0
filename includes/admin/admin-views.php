@@ -158,7 +158,7 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  */
 function bfg_login_errors() {
 
-    return 'Incorrect login information.';
+    return 'Invalid username or password.';
 
 }
 

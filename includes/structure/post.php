@@ -104,3 +104,17 @@ function bfg_newer_link_text() {
 	return 'Newer ' . html_entity_decode('&#10217;');
 
 }
+
+/**
+ * Remove the post title
+ *
+ * @since 2.0.9
+ */
+// remove_action( 'genesis_post_title', 'genesis_do_post_title' );
+
+/**
+ * Remove the post edit links (maybe you just want to use the admin bar)
+ *
+ * @since 2.0.9
+ */
+// add_filter( 'edit_post_link', '__return_false' );
