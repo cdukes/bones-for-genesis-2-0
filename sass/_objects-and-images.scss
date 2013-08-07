@@ -4,12 +4,14 @@ embed,
 iframe,
 img,
 object,
-video {
+video,
+.wp-caption {
 	max-width: 100%;
 }
 
 img {
 	height: auto;
+	width: auto; /* IE8 */
 }
 
 img.centered,

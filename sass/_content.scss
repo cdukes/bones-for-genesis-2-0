@@ -82,6 +82,14 @@
 .entry-meta {
 	clear: both;
 
+	.entry-header & {
+
+	}
+
+	.entry-footer & {
+
+	}
+
 	a {
 
 	}
@@ -92,7 +100,8 @@
 	display: block;
 }
 
-.navigation {
+.archive-pagination,
+.entry-pagination {
 	clear: both;
 
 	a {

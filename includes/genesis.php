@@ -6,7 +6,7 @@
  *
  * @since 2.0.0
  */
-add_theme_support( 'genesis-html5' );
+add_theme_support( 'html5' );
 
 /**
  * Adds <meta> tags for mobile responsiveness.

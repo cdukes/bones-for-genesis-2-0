@@ -114,6 +114,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.10 (August 7, 2013)
+*A quick update for Genesis 2.0 launch day compatibility*
+- Updated `.navigation` selector to `.archive-pagination` and `.entry-pagination`
+- Updated to new Genesis `clearfix`
+- Updated to `add_theme_support( 'html5' );`, instead of `add_theme_support( 'genesis-html5' );`
+
 ### 2.0.9 (August 1, 2013)
 - Added better incorrect login credentials error text
 - Added theme support options for a custom header and post formats (disabled by default)

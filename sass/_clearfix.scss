@@ -1,55 +1,34 @@
 // Float Clearing - from Genesis 2.0's style.css
 
-address:before, address:after,
-article:before, article:after,
-aside:before, aside:after,
-audio:before, audio:after,
-blockquote:before, blockquote:after,
-canvas:before, canvas:after,
-dd:before, dd:after,
-div:before, div:after,
-dl:before, dl:after,
-fieldset:before, fieldset:after,
-figcaption:before, figcaption:after,
-figure:before, figure:after,
-footer:before, footer:after,
-form:before, form:after,
-header:before, header:after,
-hr:before, hr:after,
-main:before, main:after,
-output:before, output:after,
-pre:before, pre:after,
-section:before, section:after,
-tfoot:before, tfoot:after,
-video:before, video:after,
-.clearfix:before, .clearfix:after {
-	display: table;
+.archive-pagination:before,
+.clearfix:before,
+.entry:before,
+.entry-pagination:before,
+.footer-widgets:before,
+.nav-primary:before,
+.nav-secondary:before,
+.site-container:before,
+.site-footer:before,
+.site-header:before,
+.site-inner:before,
+.wrap:before {
 	content: " ";
+	display: table;
 }
 
-address:after,
-article:after,
-aside:after,
-audio:after,
-blockquote:after,
-canvas:after,
-dd:after,
-div:after,
-dl:after,
-fieldset:after,
-figcaption:after,
-figure:after,
-footer:after,
-form:after,
-header:after,
-hr:after,
-main:after,
-output:after,
-pre:after,
-section:after,
-table:after,
-tfoot:after,
-video:after,
-.clearfix:after {
+.archive-pagination:after,
+.clearfix:after,
+.entry:after,
+.entry-pagination:after,
+.footer-widgets:after,
+.nav-primary:after,
+.nav-secondary:after,
+.site-container:after,
+.site-footer:after,
+.site-header:after,
+.site-inner:after,
+.wrap:after {
 	clear: both;
+	content: " ";
+	display: table;
 }
