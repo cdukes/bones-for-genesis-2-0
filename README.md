@@ -114,6 +114,16 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.11 (August 11, 2013)
+- `editor-style.scss` now imports some basic styling (type, grid, objects/images) and is toggled 'on' by default
+- Better fixed-width site support (commented out by default)
+- Hide widget overflows
+- More concise `_header.scss`
+- `.button` is now styled with `button`
+- Added `genesis-style-selector` template (off by default)
+- Added option to change the media manager default view to 'upload', instead of 'library' (off by default)
+- Remote scripts and styles are now registered protocol-agnostically
+
 ### 2.0.10 (August 7, 2013)
 *A quick update for Genesis 2.0 launch day compatibility*
 - Updated `.navigation` selector to `.archive-pagination` and `.entry-pagination`

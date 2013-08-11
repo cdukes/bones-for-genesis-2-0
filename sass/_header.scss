@@ -1,21 +1,17 @@
+.site-header {
+
+	.widget-area {
+		float: right;
+	}
+}
+
 .title-area {
 	float: left;
 }
 
-.header-image {
-	.title-area {
-		padding: 0;
-	}
-
-	.site-description,
-	.site-title a {
-		@extend %image-replacement;
-		display: block;
-	}
-}
-
 .site-title {
 	line-height: 1;
+
 	a {
 
 		&:hover,
@@ -31,9 +27,11 @@
 	line-height: 1;
 }
 
-.site-header {
+.header-image {
 
-	.widget-area {
-		float: right;
+	.site-description,
+	.site-title {
+		@extend %image-replacement;
+		display: block;
 	}
 }

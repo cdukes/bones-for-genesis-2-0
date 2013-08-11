@@ -1,3 +1,8 @@
+html,
+body {
+	// min-width: $siteWidth; // Prevents backgrounds on these elements from being truncated on smaller screens on fixed-width sites
+}
+
 body {
 	font-weight: 300;
 	font-family: $sans;

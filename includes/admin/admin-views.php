@@ -73,12 +73,33 @@ function bfg_hidden_meta_boxes( $hidden ) {
 
 }
 
+// add_action( 'admin_footer-post-new.php', 'bfg_media_manager_default_view' );
+// add_action( 'admin_footer-post.php', 'bfg_media_manager_default_view' );
+/**
+ * Change the media manager default view to 'upload', instead of 'library'
+ *
+ * See: http://wordpress.stackexchange.com/questions/96513/how-to-make-upload-filesselected-by-default-in-insert-media
+ *
+ * @since 2.0.11
+ */
+function bfg_media_manager_default_view() {
+
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
+        });
+    </script>
+    <?php
+
+}
+
 /**
  * Add a stylesheet for TinyMCE
  *
  * @since 2.0.0
  */
-// add_editor_style( 'css/editor-style.css' );
+add_editor_style( 'css/editor-style.css' );
 
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 /**

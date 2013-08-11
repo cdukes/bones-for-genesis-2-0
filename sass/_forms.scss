@@ -33,7 +33,8 @@ select {
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.button {
 	width: auto;
 	line-height: 1;
 	cursor: pointer;

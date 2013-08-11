@@ -1,6 +1,8 @@
 /*********************
 SIZES
 *********************/
+// $siteWidth:		60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
+
 @mixin breakpoint($point) {
   @if $point == full {
     @media (min-width: 55em) { @content; }

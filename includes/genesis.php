@@ -57,6 +57,19 @@ add_theme_support( 'html5' );
 // add_theme_support( 'genesis-footer-widgets', 3 );
 
 /**
+ * Add Genesis theme color scheme selection theme option
+ *
+ * @since 2.0.11
+ */
+// add_theme_support(
+// 	'genesis-style-selector',
+// 	array(
+// 		'bfg-red'   => 'Red',
+// 		'bfg-orange'  => 'Orange'
+// 	)
+// );
+
+/**
  * Declare WooCommerce support, using Genesis Connect for WooCommerce
  *
  * See: http://wordpress.org/plugins/genesis-connect-woocommerce/

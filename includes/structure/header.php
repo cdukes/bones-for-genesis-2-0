@@ -29,12 +29,12 @@ function bfg_load_stylesheets() {
 	    wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/css/ie.css', array(), null );
 
 	    // Fallback for old IE
-	    wp_enqueue_style( 'bfg-ie-universal', 'http://universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
+	    wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
 
 	    // Google Fonts
     	// wp_enqueue_style(
     	// 	'google-fonts',
-    	// 	'http://fonts.googleapis.com/css?family=Open+Sans:300,400,700',		// Open Sans (light, normal, and bold), for example
+    	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700',		// Open Sans (light, normal, and bold), for example
     	// 	array(),
     	// 	null
     	// );
@@ -61,7 +61,7 @@ function bfg_load_scripts() {
     if( !is_admin() ) {
 		// Override WP'd default self-hosted jQuery with version from Google's CDN
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null);
+		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null);
 
 		// Main script file (in footer)
 	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/js/scripts-ck.js', array( 'jquery' ), null, true );
@@ -111,7 +111,7 @@ function bfg_pre_load_favicon() {
 /**
  * Show the best favicon, within reason
  *
- * See: http://www.jonathantneal.com/blog/understand-the-favicon/
+ * See: //www.jonathantneal.com/blog/understand-the-favicon/
  *
  * @since 2.0.4
  */
