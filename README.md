@@ -114,6 +114,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.12 (August 19, 2013)
+- Removed duplicate `box-sizing: border-box;` on `input[type="search"]`
+- Added a `hide-print` class
+- Removed `genesis_older_link_text` and `genesis_newer_link_text` link filter templates, since they're not used in G2.0
+- Added `bfg_remove_scripts_meta_boxes` to remove the scripts metaboxes from posts and/or pages in G2.0
+
 ### 2.0.11 (August 11, 2013)
 - `editor-style.scss` now imports some basic styling (type, grid, objects/images) and is toggled 'on' by default
 - Better fixed-width site support (commented out by default)

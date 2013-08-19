@@ -125,3 +125,16 @@ function bfg_remove_layout_meta_boxes() {
     remove_post_type_support( 'page', 'genesis-layouts' );							// Pages
 
 }
+
+// add_action( 'init', 'bfg_remove_scripts_meta_boxes' );
+/**
+ * Remove the Genesis 'Scripts' meta box for posts and/or pages.
+ *
+ * @since 2.0.12
+ */
+function bfg_remove_scripts_meta_boxes() {
+
+    remove_post_type_support( 'post', 'genesis-scripts' );							// Posts
+    remove_post_type_support( 'page', 'genesis-scripts' );							// Pages
+
+}
