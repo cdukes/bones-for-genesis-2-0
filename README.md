@@ -114,11 +114,11 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
-### 2.0.13 (August 25, 2013)
+### 2.0.13 (August 29, 2013)
 - Added code to remove the comments reply form. Disabled this code and the `genesis_do_comments` removal code by default.
 - Deactivated the IE-only stylesheet by default
 - Moved jQuery to the footer
-- Added a footer script to redraw `@font-face` fonts on IE8
+- Added a footer script to redraw `@font-face` fonts on IE8. (Enabled by default - if you're using BFG, I *hope* you're using icon fonts, as well.)
 
 ### 2.0.12 (August 19, 2013)
 - Removed duplicate `box-sizing: border-box;` on `input[type="search"]`
