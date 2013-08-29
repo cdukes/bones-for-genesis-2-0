@@ -15,12 +15,12 @@
 }
 
 // Sitewide Styles
+@import "grid";
+@import "layout";
 @import "type";
 @import "headings";
 @import "objects-and-images";
 @import "forms";
-@import "layout";
-@import "grid";
 
 // Module Styles
 @import "header";
@@ -29,6 +29,8 @@
 @import "comments";
 @import "sidebars";
 @import "footer";
+
+// Templates
 
 // Print
 @import "print";

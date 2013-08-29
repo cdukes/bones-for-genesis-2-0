@@ -1,8 +1,8 @@
 // Use with @extend to make reponsive modules
 %wrap {
 	margin: 0 auto;
-	//width: 100%		// Site should always expand to browser width...
-	//max-width:		// ...unless the browser is larger than this;
+	//width: 100%;				// Site should always expand to browser width...
+	//max-width: $siteWidth;	// ...unless the browser is larger than this;
 }
 
 %inline-block {

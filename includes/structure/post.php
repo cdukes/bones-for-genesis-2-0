@@ -36,6 +36,7 @@ function bfg_gallery_style( $css ) {
 function bfg_post_info() {
 
 	return '[post_date] by [post_author_posts_link] [post_comments] [post_edit]';
+	// Friendly note: use [post_author] to return the author's name, without an archive link
 
 }
 

@@ -47,6 +47,7 @@
 		@include opacity(0);
 		@include transition(opacity .4s ease-in-out);
 		position: absolute;
+		top: 100%;
 		left: -9999px;
 		z-index: 99;
 		margin: 0;

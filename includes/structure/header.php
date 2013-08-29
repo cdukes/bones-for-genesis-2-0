@@ -26,7 +26,7 @@ function bfg_load_stylesheets() {
 	    wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/css/style.css', array(), null );
 
 	    // IE-only stylesheet
-	    wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/css/ie.css', array(), null );
+	    // wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/css/ie.css', array(), null );
 
 	    // Fallback for old IE
 	    wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
@@ -52,7 +52,7 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
  */
 function bfg_load_scripts() {
 
-    if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 ) {
+    if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 && !is_front_page() ) {
 		wp_enqueue_script( 'comment-reply' );
     } else {
 		wp_dequeue_script( 'comment-reply' );
@@ -61,7 +61,7 @@ function bfg_load_scripts() {
     if( !is_admin() ) {
 		// Override WP'd default self-hosted jQuery with version from Google's CDN
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null);
+		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null, true );
 
 		// Main script file (in footer)
 	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/js/scripts-ck.js', array( 'jquery' ), null, true );

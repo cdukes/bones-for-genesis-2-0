@@ -1,8 +1,5 @@
 .site-header {
 
-	.widget-area {
-		float: right;
-	}
 }
 
 .title-area {
@@ -34,4 +31,8 @@
 		@extend %image-replacement;
 		display: block;
 	}
+}
+
+.header-widget-area {
+	float: right;
 }
