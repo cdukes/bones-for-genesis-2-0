@@ -119,6 +119,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Deactivated the IE-only stylesheet by default
 - Moved jQuery to the footer
 - Added a footer script to redraw `@font-face` fonts on IE8. (Enabled by default - if you're using BFG, I *hope* you're using icon fonts, as well.)
+- Submodules update
 
 ### 2.0.12 (August 19, 2013)
 - Removed duplicate `box-sizing: border-box;` on `input[type="search"]`
