@@ -114,6 +114,11 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.14 (September 4, 2013)
+- Added [SVGeezy](http://benhowdle.im/svgeezy/) as a submodule
+- Added a filter to change JPEG quality (disabled by default)
+- Force the IE-only stylesheet to load after the main stylesheet
+
 ### 2.0.13 (August 29, 2013)
 - Added code to remove the comments reply form. Disabled this code and the `genesis_do_comments` removal code by default.
 - Deactivated the IE-only stylesheet by default

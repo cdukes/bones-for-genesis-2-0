@@ -7,3 +7,6 @@
 [submodule "sass/normalize.scss"]
 	path = sass/normalize.scss
 	url = git://github.com/JohnAlbin/normalize.css-with-sass-or-compass.git
+[submodule "js/svgeezy"]
+	path = js/svgeezy
+	url = https://github.com/benhowdle89/svgeezy.git

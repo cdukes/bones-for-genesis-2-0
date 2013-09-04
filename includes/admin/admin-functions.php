@@ -36,6 +36,15 @@ function bfg_disable_self_pings( &$links ) {
 }
 
 /**
+ * Change WP JPEG compression (WP default is 90%)
+ *
+ * See: http://wpmu.org/how-to-change-jpeg-compression-in-wordpress/
+ *
+ * @since 2.0.14
+ */
+// add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
+
+/**
  * Add new image sizes
  *
  * See: http://wp-snippets.com/disable-self-trackbacks/

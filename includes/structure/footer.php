@@ -11,7 +11,7 @@ function bfg_footer_creds_text() {
 
 }
 
-add_action( 'wp_footer', 'bfp_ie_font_face_fix', 99 );
+add_action( 'wp_footer', 'bfg_ie_font_face_fix', 99 );
 /**
  * Forces the main stylesheet to reload on document ready for IE8 and below.
  * This redraws any @font-face fonts, fixing the IE8 font loading bug
@@ -20,7 +20,7 @@ add_action( 'wp_footer', 'bfp_ie_font_face_fix', 99 );
  *
  * @since 2.0.13
  */
-function bfp_ie_font_face_fix() {
+function bfg_ie_font_face_fix() {
 
 	?><!--[if lt IE 9]>
 		<script>
