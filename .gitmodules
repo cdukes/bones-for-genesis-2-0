@@ -10,3 +10,6 @@
 [submodule "js/svgeezy"]
 	path = js/svgeezy
 	url = https://github.com/benhowdle89/svgeezy.git
+[submodule "js/superfish"]
+	path = js/superfish
+	url = https://github.com/joeldbirch/superfish.git

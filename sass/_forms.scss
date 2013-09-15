@@ -16,6 +16,7 @@ input[type="month"],
 input[type="week"],
 input[type="time"],
 textarea {
+	@include border-radius(0);		// Removes the border radius on iOS
 	width: 100%;
 }
 

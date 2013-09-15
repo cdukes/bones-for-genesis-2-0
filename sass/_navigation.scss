@@ -13,7 +13,8 @@
 
 		&:hover,
 		&:focus,
-		&:active {
+		&:active,
+		&.sfHover {
 
 			> .sub-menu {
 				left: auto;

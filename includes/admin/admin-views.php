@@ -99,7 +99,7 @@ function bfg_media_manager_default_view() {
  *
  * @since 2.0.0
  */
-add_editor_style( 'css/editor-style.css' );
+// add_editor_style( 'css/editor-style.css' );
 
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 /**
@@ -112,6 +112,20 @@ function bfg_tiny_mce_before_init( $options ) {
 	$options['wordpress_adv_hidden'] = false;										// Shows the 'kitchen sink' by default
 	$options['theme_advanced_blockformats'] = 'p,h2,h3,h4,blockquote';				// Restrict the Formats available in TinyMCE. Currently excluded: h1,h5,h6,address,pre
 	return $options;
+
+}
+
+add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
+/**
+ * Enables some commonly used formatting buttons in TinyMCE
+ *
+ * @since 2.0.15
+ */
+function bfg_tinymce_buttons( $buttons ) {
+
+	// $buttons[] = 'hr';															// Horizontal line
+	$buttons[] = 'wp_page';															// Post pagination
+	return $buttons;
 
 }
 
