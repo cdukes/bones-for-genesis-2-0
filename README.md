@@ -106,6 +106,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Add a custom post type template
 - Add custom post type schema templates
 - Conditional jQuery 2.0 enqueueing 
+- More comment hooks
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Further Resources
@@ -114,6 +115,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.16 (September 26, 2013)
+- iOS7 Favicon support
+- Better list style skeleton in `_content.scss`
+- Added a `visuallyhidden` @extend
+- Added a template for removing pings, or the entire comments area (deactivated by default)
+- Added hooks to *remove* the post_info and post_meta areas (deactivated by default)
+- Added granular excerpt text filtering (deactivated by default)
+
 ### 2.0.15 (September 15, 2013)
 - Added [Superfish](https://github.com/joeldbirch/superfish) for IE8 compatibility with drop-down navigation
 - Added template for additional TinyMCE buttons

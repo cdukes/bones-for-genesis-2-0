@@ -41,12 +41,25 @@
 		}
 	}
 
-	p,
-	ul,
-	ol {
+	p {
 		@include word-break(break-word);
 		@include hyphens(auto);
 		text-overflow: ellipsis;
+	}
+
+	ol,
+	ul {
+		@include word-break(break-word);
+		@include hyphens(auto);
+		margin-bottom: 1.5em;
+		margin-left: 2.5em;
+		text-overflow: ellipsis;
+
+		ol,
+		ul {
+			margin-bottom: .5em;
+			margin-left: 1.5em;
+		}
 	}
 
 	ol {
@@ -54,20 +67,12 @@
 		li {
 			list-style-type: decimal;
 		}
-
-		ol {
-			margin-bottom: 0;
-		}
 	}
 
 	ul {
 
 		li {
 			list-style-type: disc;
-		}
-
-		ul {
-			margin-bottom: 0;
 		}
 	}
 

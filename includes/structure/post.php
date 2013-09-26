@@ -25,6 +25,36 @@ function bfg_gallery_style( $css ) {
 
 }
 
+// add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
+/**
+ * Customize the excerpt text, when using the <!--more--> tag
+ *
+ * See: http://my.studiopress.com/snippets/post-excerpts/
+ *
+ * @since 2.0.16
+ */
+function bfg_more_tag_excerpt_link() {
+
+	return ' <a class="more-link" href="' . get_permalink() . '">Read more &rarr;</a>';
+
+}
+
+// add_filter( 'excerpt_more', 'bfg_truncated_excerpt_link' );
+// add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
+/**
+ * Customize the excerpt text, when using automatic truncation
+ *
+ * See: http://my.studiopress.com/snippets/post-excerpts/
+ *
+ * @since 2.0.16
+ */
+function bfg_truncated_excerpt_link() {
+
+	return '... <a class="more-link" href="' . get_permalink() . '">Read more &rarr;</a>';
+
+}
+
+// remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 // add_filter( 'genesis_post_info', 'bfg_post_info' );
 /**
  * Customize the post info text
@@ -40,6 +70,7 @@ function bfg_post_info() {
 
 }
 
+// remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 // add_filter( 'genesis_post_meta', 'bfg_post_meta' );
 /**
  * Customize the post meta text

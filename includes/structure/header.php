@@ -119,11 +119,8 @@ function bfg_load_favicons() {
 
 	$favicon_path = get_stylesheet_directory_uri() . '/images/favicons';
 
-	// Use a 144px X 144px PNG for the latest iOS devices
-	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-144.png">';
-
-	// Alternative: tell iOS not to gloss your icon
-	// echo '<link rel="apple-touch-icon-precomposed" href="' . $favicon_path . '/favicon-144.png">';
+	// Use a 152px X 152px PNG for the latest iOS devices
+	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-152.png">';
 
 	// Use a 96px X 96px PNG for modern desktop browsers
 	echo '<link rel="icon" href="' . $favicon_path . '/favicon-96.png">';
@@ -131,8 +128,9 @@ function bfg_load_favicons() {
 	// Give IE <= 9 the old favicon.ico (16px X 16px)
 	echo '<!--[if IE]><link rel="shortcut icon" href="' . $favicon_path . '/favicon.ico"><![endif]-->';
 
-	// Use a 144px X 144px PNG for Windows tablets
-	echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-144.png">';
+	// Use a 144px X 144px PNG for Windows tablets, or just serve them the iOS7 152px icon
+	// echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-144.png">';
+	echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-152.png">';
 
 	// Optional: specify a background color for your Windows tablet icon
 	// echo '<meta name="msapplication-TileColor" content="#d83434">';
