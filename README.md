@@ -115,6 +115,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.17 (October 5, 2013)
+- Use fixed site width on old IE fallback.
+- Use `@extend %clearfix` where practical
+- Don't bold or hide outline on input:focus by default
+- Better old IE icon font redraw script
+
 ### 2.0.16 (September 26, 2013)
 - iOS7 Favicon support
 - Better list style skeleton in `_content.scss`

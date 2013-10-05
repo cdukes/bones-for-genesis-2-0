@@ -111,7 +111,7 @@ function bfg_pre_load_favicon() {
 /**
  * Show the best favicon, within reason
  *
- * See: //www.jonathantneal.com/blog/understand-the-favicon/
+ * See: http://www.jonathantneal.com/blog/understand-the-favicon/
  *
  * @since 2.0.4
  */

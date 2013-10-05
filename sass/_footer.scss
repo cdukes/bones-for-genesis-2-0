@@ -1,14 +1,5 @@
 .footer-widgets {
-	clear: both;
-
-	.footer-widgets-1,
-	.footer-widgets-2 {
-		float: left;
-	}
-
-	.footer-widgets-3 {
-		float: right;
-	}
+	@extend %clearfix;
 
 	a {
 

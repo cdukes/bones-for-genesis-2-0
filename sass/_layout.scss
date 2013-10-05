@@ -3,7 +3,7 @@
 }
 
 .site-inner {
-	clear: both;
+	@extend %clearfix;
 }
 
 .content-sidebar-sidebar,

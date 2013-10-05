@@ -13,3 +13,6 @@
 [submodule "js/superfish"]
 	path = js/superfish
 	url = https://github.com/joeldbirch/superfish.git
+[submodule "js/jQuery-HTML5-placeholder-fix.js"]
+	path = js/jQuery-HTML5-placeholder-fix.js
+	url = https://gist.github.com/379601.git
