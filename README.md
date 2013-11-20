@@ -102,11 +102,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Add admin-options.php support for setting Genesis default options
 - Add admin-options.php Genesis theme options framework
 - Better SASS organization into partials, modules, etc.
-- Better `.gitignore`
-- Add a custom post type template
-- Add custom post type schema templates
 - Conditional jQuery 2.0 enqueueing 
-- More comment hooks
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Further Resources
