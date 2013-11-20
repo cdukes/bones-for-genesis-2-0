@@ -124,3 +124,11 @@ function bfg_next_link_text( $text ) {
  * @since 2.0.9
  */
 // add_filter( 'edit_post_link', '__return_false' );
+
+/**
+ * Hide the author box
+ *
+ * @since 2.0.18
+ */
+// add_filter( 'get_the_author_genesis_author_box_single', '__return_false' );
+// add_filter( 'get_the_author_genesis_author_box_archive', '__return_false' );

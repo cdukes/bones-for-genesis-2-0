@@ -42,3 +42,20 @@ function bfg_redirect_single_search_result() {
     }
 
 }
+
+// add_filter( 'pre_get_posts', 'bfg_only_search_posts' );
+/**
+ * Limit searching to just posts, excluding pages and CPTs
+ *
+ * See: http://www.mhsiung.com/2009/11/limit-wordpress-search-scope-to-blog-posts/
+ *
+ * @since 2.0.18
+ */
+function bfg_only_search_posts( $query ) {
+
+	if( $query->is_search ) {
+		$query->set( 'post_type', 'post' );
+	}
+	return $query;
+
+}

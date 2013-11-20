@@ -115,6 +115,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.18 (November 20, 2013)
+- Added a template to deregister the default Genesis menus, and add your own (deactivated by default)
+- Added [flexbox mixins](https://github.com/mastastealth/sass-flex-mixin), pending proper Compass support
+- Added a template to limit searches to just posts (deactivated by default)
+- Added hooks to hide the author box on single posts and/or archive pages (deactivated by default)
+
 ### 2.0.17 (October 5, 2013)
 - Use fixed site width on old IE fallback.
 - Use `@extend %clearfix` where practical

@@ -99,6 +99,20 @@ add_theme_support( 'html5' );
 // unregister_sidebar( 'sidebar-alt' );
 // unregister_sidebar( 'sidebar' );
 
+/**
+ * Unregister default Genesis menus and add your own
+ *
+ * @since 2.0.18
+ */
+// remove_theme_support( 'genesis-menus' );
+// add_theme_support(
+// 	'genesis-menus',
+// 	array(
+// 		'primary' => 'Primary Menu',
+// 		'secondary' => 'Primary Menu',
+// 	)
+// );
+
 // add_action( 'widgets_init', 'bfg_remove_genesis_widgets', 20 );
 /**
  * Disable some or all of the default Genesis widgets.
