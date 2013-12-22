@@ -1,14 +1,11 @@
 .genesis-nav-menu {
 	@extend %clearfix;
-	margin: 0;
-	padding: 0;
+	@extend %unstyled-list;
 	width: 100%;
 
 	.menu-item {
 		position: relative;
 		display: inline-block;
-		margin: 0;
-		padding: 0;
 		text-align: left;
 
 		&:hover,
@@ -51,8 +48,6 @@
 		top: 100%;
 		left: -9999px;
 		z-index: 99;
-		margin: 0;
-		padding: 0;
 
 		a {
 			position: relative;

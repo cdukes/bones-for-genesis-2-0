@@ -111,6 +111,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.19 (December 22, 2013)
+- Show archive term title if no Genesis title is set (disabled by default)
+- Force monospace font for `input[type="password"]`. This resolves an issue with some @font-face fonts in IE8.
+- Limit form field widths to width of container
+- Added a `.one-fifth` grid option
+- Added `%unstyled-list` SASS extend
+- Added retina breakpoint
+
 ### 2.0.18 (November 20, 2013)
 - Added a template to deregister the default Genesis menus, and add your own (deactivated by default)
 - Added [flexbox mixins](https://github.com/mastastealth/sass-flex-mixin), pending proper Compass support

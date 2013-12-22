@@ -4,15 +4,28 @@ SIZES
 // $siteWidth:		60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
 
 @mixin breakpoint($point) {
-  @if $point == full {
-    @media (min-width: 55em) { @content; }
-  }
-  @else if $point == tablet {
-    @media (max-width: 55em) { @content; }
-  }
-  @else if $point == phone {
-    @media (max-width: 45em)  { @content; }
-  }
+	@if $point == full {
+		@media (min-width: 55em) { @content; }
+	}
+	@else if $point == tablet {
+		@media (max-width: 55em) { @content; }
+	}
+	@else if $point == phone {
+		@media (max-width: 45em)  { @content; }
+	}
+	// http://mir.aculo.us/2012/11/28/the-ultimate-target-retina-screens-media-query/
+	@else if $point == retina {
+		@media
+			(min--moz-device-pixel-ratio: 1.5),
+			(-o-min-device-pixel-ratio: 3/2),
+			(-webkit-min-device-pixel-ratio: 1.5),
+			(min-device-pixel-ratio: 1.5),
+			(min-resolution: 144dpi),
+			(min-resolution: 1.5dppx)
+		{
+			@content;
+		}
+	}
 }
 
 /*********************

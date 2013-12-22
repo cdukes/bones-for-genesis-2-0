@@ -16,7 +16,12 @@ input[type="week"],
 input[type="time"],
 textarea {
 	@include border-radius(0);		// Removes the border radius on iOS
+	max-width: 100%;
 	width: 100%;
+}
+
+input[type="password"] {
+	font-family: monospace; // Not all fonts will show the password bullets in IE8
 }
 
 select {
