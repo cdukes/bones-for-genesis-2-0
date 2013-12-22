@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Only show the admin bar to users who can at least use Posts
  *

@@ -1,4 +1,5 @@
 <?php
+
 add_action( 'wp_footer', 'bfg_query_stats' );
 /**
  * Easily see the number of database queries made to load your page in your footer.

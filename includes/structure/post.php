@@ -1,4 +1,5 @@
 <?php
+
 add_filter( 'the_content', 'bfg_remove_ptags_on_images' );
 /**
  * Remove <p> tags from around images

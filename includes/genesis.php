@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Force HTML5
  *

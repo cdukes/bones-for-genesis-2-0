@@ -1,4 +1,5 @@
 <?php
+
 // add_filter( 'genesis_search_text', 'bfg_search_text' );
 /**
  * Customize the search form input box text

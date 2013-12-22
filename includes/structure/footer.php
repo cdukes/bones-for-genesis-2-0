@@ -1,4 +1,5 @@
 <?php
+
 // add_filter( 'genesis_footer_creds_text', 'bfg_footer_creds_text' );
 /**
  * Custom footer 'creds' text

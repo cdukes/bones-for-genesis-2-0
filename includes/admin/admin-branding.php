@@ -1,4 +1,5 @@
 <?php
+
 add_filter( 'login_headerurl', 'bfg_login_headerurl' );
 /**
  * Makes the login screen's logo link to your homepage, instead of to WordPress.org.

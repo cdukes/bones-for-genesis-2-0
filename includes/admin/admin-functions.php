@@ -1,4 +1,5 @@
 <?php
+
 add_filter( 'http_request_args', 'bfg_prevent_child_theme_update', 5, 2 );
 /**
  * Prevent the child theme from being overwritten by a WordPress.org theme with the same name.

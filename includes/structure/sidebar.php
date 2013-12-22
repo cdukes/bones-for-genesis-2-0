@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Remove the sidebar
  *
