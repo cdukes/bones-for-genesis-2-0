@@ -111,6 +111,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.20 (January 2, 2014)
+- Hide edit links by default
+- Added `X-UA-Compatible` `<meta>` tag
+- Added jQuery fallback, if Google CDN fails
+- Added script to disable hover events on scroll (disabled by default)
+- Prevent authors and contributors from seeing media that isn't theirs (hidden by default)
+- WP 3.8 login logo styles
+
 ### 2.0.19 (December 22, 2013)
 - Show archive term title if no Genesis title is set (disabled by default)
 - Force monospace font for `input[type="password"]`. This resolves an issue with some @font-face fonts in IE8.

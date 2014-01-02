@@ -31,16 +31,20 @@ function bfg_login_headertitle() {
  * Disabled by default. Make sure you have a login logo before using this function!
  *
  * Updated 2.0.1: Assumes SVG logo by default
+ * Updated 2.0.20: WP 3.8 logo
  *
  * @since 2.0.0
  */
 function bfg_replace_login_logo() {
 
 	?><style type="text/css">
-		body.login div#login h1 a {
-			background-image: url(<?php echo get_stylesheet_directory_uri() ?>/images/login-logo.svg) !important;
-			/* background-size: 274px 63px; */		<?php // Adjust to the dimensions of your logo. WP Default: 274px 63px ?>
-			/* padding-bottom: 15px; */		<?php // Useful for spacing your logo from the form below. Default: 15px ?>
+		.login h1 a {
+			background-image: url(<?php echo get_stylesheet_directory_uri() ?>/images/login-logo.svg);
+
+			/* Adjust to the dimensions of your logo. WP Default: 80px 80px */
+			background-size: 80px 80px;
+			width: 80px;
+			height: 80px;
 		}
 	</style>
 <?php

@@ -40,13 +40,13 @@ add_action('widgets_init', 'bfg_unregister_default_widgets');
 function bfg_unregister_default_widgets() {
 
 	// unregister_widget( 'WP_Widget_Pages' );
-	unregister_widget( 'WP_Widget_Calendar' );
+	// unregister_widget( 'WP_Widget_Calendar' );
 	// unregister_widget( 'WP_Widget_Archives' );
 	unregister_widget( 'WP_Widget_Meta' );
 	// unregister_widget( 'WP_Widget_Search' );
 	// unregister_widget( 'WP_Widget_Text' );
 	// unregister_widget( 'WP_Widget_Categories' );
-	unregister_widget( 'WP_Widget_Recent_Posts' );
+	// unregister_widget( 'WP_Widget_Recent_Posts' );
 	// unregister_widget( 'WP_Widget_Recent_Comments' );
 	// unregister_widget( 'WP_Widget_RSS' );
 	// unregister_widget( 'WP_Widget_Tag_Cloud' );
@@ -92,6 +92,29 @@ function bfg_media_manager_default_view() {
         });
     </script>
     <?php
+
+}
+
+// add_filter( 'posts_where', 'bfg_restrict_attachment_viewing' );
+/**
+ * Prevent authors and contributors from seeing media that isn't theirs
+ *
+ * See: http://wordpress.org/support/topic/restrict-editors-from-viewing-media-that-others-have-uploaded
+ *
+ * @since 2.0.20
+ */
+function bfg_restrict_attachment_viewing( $where ) {
+
+	global $current_user;
+	if(
+		is_admin() &&
+		!current_user_can('edit_others_posts') &&
+		isset($_POST['action']) &&
+		$_POST['action'] == 'query-attachments'
+	) {
+			$where .= ' AND post_author=' . $current_user->data->ID;
+	}
+	return $where;
 
 }
 

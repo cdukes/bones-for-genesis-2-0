@@ -11,6 +11,18 @@ remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start post rel l
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacent post rel link
 remove_action( 'wp_head', 'wp_generator' );								// WP Version
 
+add_action( 'genesis_doctype', 'bfg_x_ua_compatible' );
+/**
+ * For IE to render in edge mode
+ *
+ * @since 2.0.20
+ */
+function bfg_x_ua_compatible() {
+
+	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">' . "\n";
+
+}
+
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets' );
 /**
@@ -60,9 +72,10 @@ function bfg_load_scripts() {
     }
 
     if( !is_admin() ) {
-		// Override WP'd default self-hosted jQuery with version from Google's CDN
+		// Override WP default self-hosted jQuery with version from Google's CDN
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null, true );
+		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.3/jquery.min.js', array(), null, true );
+		add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 		// Main script file (in footer)
 	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/js/scripts-ck.js', array( 'jquery' ), null, true );
@@ -92,6 +105,31 @@ function bfg_ie_conditionals( $tag, $handle ) {
 	}
 
     return $output;
+
+}
+
+/**
+ * jQuery local fallback, if Google CDN is unreachable
+ *
+ * See: https://github.com/roots/roots/blob/aa59cede7fbe2b853af9cf04e52865902d2ff1a9/lib/scripts.php#L37-L52
+ *
+ * @since 2.0.20
+ */
+add_action( 'wp_head', 'bfg_jquery_local_fallback' );
+function bfg_jquery_local_fallback( $src, $handle = null ) {
+
+	static $add_jquery_fallback = false;
+
+	if( $add_jquery_fallback ) {
+		echo '<script>window.jQuery || document.write(\'<script src="' . includes_url() . 'js/jquery/jquery.js"><\/script>\')</script>' . "\n";
+		$add_jquery_fallback = false;
+	}
+
+	if( $handle === 'jquery' ) {
+		$add_jquery_fallback = true;
+	}
+
+	return $src;
 
 }
 

@@ -14,6 +14,37 @@ function bfg_footer_creds_text() {
 
 }
 
+// add_action( 'wp_footer', 'bfg_disable_pointer_events_on_scroll', 99 );
+/**
+ * Disable pointer events when scrolling
+ *
+ * See: https://gist.github.com/ossreleasefeed/7768761
+ *
+ * @since 2.0.20
+ */
+function bfg_disable_pointer_events_on_scroll() {
+
+	?><script>
+		var root = document.documentElement;
+		var timer;
+
+		window.addEventListener('scroll', function() {
+			// User scrolling so stop the timeout
+			clearTimeout(timer);
+			// Pointer events has not already been disabled.
+			if (!root.style.pointerEvents) {
+				root.style.pointerEvents = 'none';
+			}
+
+			timer = setTimeout(function() {
+				root.style.pointerEvents = '';
+			}, 250);
+		}, false);
+	</script>
+	<?php
+
+}
+
 add_action( 'wp_footer', 'bfg_ie_font_face_fix', 99 );
 /**
  * Forces the main stylesheet to reload on document ready for IE8 and below.

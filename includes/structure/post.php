@@ -124,7 +124,7 @@ function bfg_next_link_text( $text ) {
  *
  * @since 2.0.9
  */
-// add_filter( 'edit_post_link', '__return_false' );
+add_filter( 'edit_post_link', '__return_false' );
 
 /**
  * Hide the author box
