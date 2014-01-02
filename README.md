@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.0+ and WordPress 3.5+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.0.1+ and WordPress 3.8+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
