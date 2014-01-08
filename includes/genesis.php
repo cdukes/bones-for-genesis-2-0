@@ -110,7 +110,7 @@ add_theme_support( 'html5' );
 // 	'genesis-menus',
 // 	array(
 // 		'primary' => 'Primary Menu',
-// 		'secondary' => 'Primary Menu',
+// 		'secondary' => 'Secondary Menu',
 // 	)
 // );
 

@@ -22,7 +22,7 @@
 }
 
 .entry-content {
-	overflow: hidden;
+	// overflow: hidden;
 
     a {
 
@@ -84,6 +84,10 @@
     }
 }
 
+.entry-pagination {
+
+}
+
 .entry-meta {
 	clear: both;
 
@@ -105,8 +109,7 @@
 	display: block;
 }
 
-.archive-pagination,
-.entry-pagination {
+.archive-pagination {
 	clear: both;
 
 	a {

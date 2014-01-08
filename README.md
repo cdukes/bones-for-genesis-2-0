@@ -111,6 +111,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.21 (January 8, 2014)
+- Added `$rss` social color variable
+- Caption container `width` should be `auto`
+- Split `.entry-pagination` and `.archive-pagination` styles
+- Removed `overflow: hidden` on `.entry-content`, as it causes `outline` no child elements to sometimes be partially hidden
+
 ### 2.0.20 (January 2, 2014)
 - Hide edit links by default
 - Added `X-UA-Compatible` `<meta>` tag
