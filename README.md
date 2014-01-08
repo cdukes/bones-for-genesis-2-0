@@ -105,9 +105,6 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Conditional jQuery 2.0 enqueueing 
 - *(Ongoing)* More standard developer comments & better function formatting
 
-## Further Resources
-- [Genesis Explained](http://designsbynickthegeek.com/tutorials/genesis-explained-two_)
-
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
