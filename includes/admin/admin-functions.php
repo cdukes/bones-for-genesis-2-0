@@ -1,25 +1,5 @@
 <?php
 
-add_filter( 'http_request_args', 'bfg_prevent_child_theme_update', 5, 2 );
-/**
- * Prevent the child theme from being overwritten by a WordPress.org theme with the same name.
- *
- * See: Mark Jaquith (http://markjaquith.wordpress.com/2009/12/14/excluding-your-plugin-or-theme-from-update-checks/)
- *
- * @since 1.x
- */
-function bfg_prevent_child_theme_update( $r, $url ) {
-
-	if ( 0 !== strpos( $url, 'http://api.wordpress.org/themes/update-check' ) )
-		return $r; // Not a theme update request. Bail immediately.
-	$themes = unserialize( $r['body']['themes'] );
-	unset( $themes[ get_option( 'template' ) ] );
-	unset( $themes[ get_option( 'stylesheet' ) ] );
-	$r['body']['themes'] = serialize( $themes );
-	return $r;
-
-}
-
 add_action( 'pre_ping', 'bfg_disable_self_pings' );
 /**
  * Prevent the child theme from being overwritten by a WordPress.org theme with the same name.

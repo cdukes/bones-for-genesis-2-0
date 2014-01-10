@@ -117,7 +117,7 @@ function bfg_next_link_text( $text ) {
  *
  * @since 2.0.9
  */
-// remove_action( 'genesis_post_title', 'genesis_do_post_title' );
+// remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 
 /**
  * Remove the post edit links (maybe you just want to use the admin bar)

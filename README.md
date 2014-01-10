@@ -108,6 +108,9 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 **Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
 
 ## Changelog
+### 2.0.22 (January 10, 2014)
+- Removed `bfg_prevent_child_theme_update`, since Genesis 2.0.2 now does this.
+
 ### 2.0.21 (January 8, 2014)
 - Added `$rss` social color variable
 - Caption container `width` should be `auto`
