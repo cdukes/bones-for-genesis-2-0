@@ -7,7 +7,12 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 
 *Issues and pull requests are welcome and will be addressed.*
 
-*All functions are prefixed with `bfg`. Do a find-and-replace to align the these function names to your project's prefix.'* 
+*Note: As of v2.1.0, BFG2.0 uses Bower instead of Git submodules.*
+
+## To Get Started
+git clone https://github.com/cdukes/bones-for-genesis-2-0.git
+
+*All functions are prefixed with `bfg`. Do a find-and-replace to align the these function names to your project's prefix.'*
 
 ## Developer Tools (disabled by default)
 - Display database query info in your footer
@@ -30,7 +35,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Includes a starter config.rb file for Compass
 - Submodule for normalize.scss
 - Includes Genesis 2.0 clearfix
-- `%clearfix` and `%image-replacement` SASS `@extend`'s 
+- `%clearfix` and `%image-replacement` SASS `@extend`'s
 - Unstyled, nested selections following Genesis 2.0's style.css as a template
 - A skeleton of helpful attribute resets and suggestions
 
@@ -102,12 +107,14 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Add admin-options.php support for setting Genesis default options
 - Add admin-options.php Genesis theme options framework
 - Better SASS organization into partials, modules, etc.
-- Conditional jQuery 2.0 enqueueing 
+- Conditional jQuery 2.0 enqueueing
 - *(Ongoing)* More standard developer comments & better function formatting
 
-**Reminder**: Run `git submodule foreach git pull origin master` on your repo to update all submodules before beginning a new project.
-
 ## Changelog
+### 2.1.0 (January XX, 2014)
+- Migrated submodules to Bower
+- Fixed jQuery version reference in `includes/header.php`
+
 ### 2.0.22 (January 10, 2014)
 - Removed `bfg_prevent_child_theme_update`, since Genesis 2.0.2 now does this.
 
@@ -247,7 +254,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 - Added `add_theme_support( 'custom-background' )`
 - Initialize Genesis's `init.php` file directly now, instead of using the `genesis_setup` hook
 - Added child theme definitions (`CHILD_THEME_NAME`, `CHILD_THEME_URL`, `CHILD_THEME_VERSION`)
-- Commented out `text-shadow: none;` from `::selection`, since this prevents all selection styling unless `background-color` is also specified 
+- Commented out `text-shadow: none;` from `::selection`, since this prevents all selection styling unless `background-color` is also specified
 - Removed `_grid.scss` responsive styling, since it was causing awkward breakpoint issues on non-responsive sites.
 - Commented out `body { text-rendering:  optimizeLegibility; }`, since this can cause display issues on poorly generated fonts.
 - Removed default floats in `_layout.scss`
