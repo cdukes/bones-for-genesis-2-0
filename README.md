@@ -13,7 +13,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 ```
 git clone https://github.com/cdukes/bones-for-genesis-2-0.git genesis-bfg
 cd genesis-bfg
-bower install
+bower update
 compass compile # To make sure everything is installed and working
 ```
 

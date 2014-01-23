@@ -20,6 +20,7 @@
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
     "superfish": "~1.7.4",
     "svgeezy": "~1.0.0",
-    "normalize.scss": "~2.2.0"
+    "normalize.scss": "~2.2.0",
+    "jquery-placeholder": "~2.0.7"
   }
 }
