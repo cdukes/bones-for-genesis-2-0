@@ -15,11 +15,11 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "~2.1.3",
     "sass-flex-mixin": "mastastealth/sass-flex-mixin",
     "jquery.fitvids": "davatron5000/FitVids.js#~1.0.3",
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
     "superfish": "~1.7.4",
-    "svgeezy": "~1.0.0"
+    "svgeezy": "~1.0.0",
+    "normalize.scss": "~2.2.0+normalize.2.1.3"
   }
 }
