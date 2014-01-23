@@ -7,10 +7,13 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 
 *Issues and pull requests are welcome and will be addressed.*
 
-*Note: As of v2.1.0, BFG2.0 uses Bower instead of Git submodules.*
+**Note: As of v2.1.0, BFG uses [Bower](http://bower.io/) instead of Git submodules. Apologies for the extra dependencies, but I believe this is a step toward fewer compile errors and less painful package management.**
 
 ## To Get Started
+```
 git clone https://github.com/cdukes/bones-for-genesis-2-0.git
+bower install
+```
 
 *All functions are prefixed with `bfg`. Do a find-and-replace to align the these function names to your project's prefix.'*
 
