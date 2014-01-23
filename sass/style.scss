@@ -1,10 +1,10 @@
 // Compass & Variables
 @import "compass/css3";
-@import "sass-flex-mixin/flex.scss";
+@import "../bower_components/sass-flex-mixin/flex.scss";
 @import "variables";
 
 // Normalize, Clearfix, & Toolkit
-@import "normalize.scss/_normalize.scss";
+@import "../bower_components/normalize-css/normalize.css";
 @import "clearfix";
 @import "toolkit";
 

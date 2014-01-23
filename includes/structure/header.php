@@ -74,7 +74,7 @@ function bfg_load_scripts() {
     if( !is_admin() ) {
 		// Override WP default self-hosted jQuery with version from Google's CDN
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.3/jquery.min.js', array(), null, true );
+		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null, true );
 		add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 		// Main script file (in footer)
