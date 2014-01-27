@@ -32,7 +32,6 @@ compass compile # To make sure everything is installed and working
 
 ## JavaScript
 - CodeKit-ready
-- Submodules for [FitVids.js](http://fitvidsjs.com/) & [iOS orientationchange zoom bug](https://github.com/scottjehl/iOS-Orientationchange-Fix)
 - 'no-js' `<body>` class for easy JS detection
 
 ## CSS
@@ -116,8 +115,9 @@ compass compile # To make sure everything is installed and working
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
-### 2.1.0 (January XX, 2014)
+### 2.1.0 (January 27, 2014)
 - Migrated submodules to Bower
+- Added jQuery Placeholder plugin
 - Fixed jQuery version reference in `includes/header.php`
 
 ### 2.0.22 (January 10, 2014)
