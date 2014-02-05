@@ -60,3 +60,7 @@ code {
 	@include word-break(break-word);
 	overflow: hidden;
 }
+
+iframe {
+	border: none;
+}
