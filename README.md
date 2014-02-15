@@ -115,6 +115,10 @@ compass compile # To make sure everything is installed and working
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.1.1 (February 15, 2014)
+- Removed iFrame border by default
+- Updated normalize.scss repo reference
+
 ### 2.1.0 (January 27, 2014)
 - Migrated submodules to Bower
 - Added jQuery Placeholder plugin
