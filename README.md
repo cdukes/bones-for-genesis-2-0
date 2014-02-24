@@ -13,7 +13,7 @@ A starting point for new Genesis projects. This is a starter child theme, not a 
 ```
 git clone https://github.com/cdukes/bones-for-genesis-2-0.git genesis-bfg
 cd genesis-bfg
-bower update
+bower update --save
 compass compile # To make sure everything is installed and working
 ```
 
@@ -115,6 +115,11 @@ compass compile # To make sure everything is installed and working
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.1.2 (February 24, 2014)
+- Update jQuery to 1.11.0
+- Document to use `--save` option when updating Bower
+- Require PHP files instead of including them, as in StudioPress's [example Genesis child theme](http://www.studiopress.com/free-themes/sample)
+
 ### 2.1.1 (February 15, 2014)
 - Removed iFrame border by default
 - Updated normalize.scss repo reference
