@@ -3,8 +3,8 @@
 }
 
 .entry-title {
-	@include word-break(break-word);
 	overflow: hidden;
+	word-break: break-word;
 
 	a {
 		color: inherit;
@@ -42,18 +42,18 @@
 	}
 
 	p {
-		@include word-break(break-word);
-		@include hyphens(auto);
 		text-overflow: ellipsis;
+		word-break: break-word;
+		hyphens: auto;
 	}
 
 	ol,
 	ul {
-		@include word-break(break-word);
-		@include hyphens(auto);
 		margin-bottom: 1.5em;
 		margin-left: 2.5em;
 		text-overflow: ellipsis;
+		word-break: break-word;
+		hyphens: auto;
 
 		ol,
 		ul {

@@ -19,8 +19,8 @@
 	}
 
 	li {
-		@include word-break(break-word);
 		overflow: hidden;
+		word-break: break-word;
 	}
 }
 

@@ -17,7 +17,7 @@ input[type="reset"],
 input[type="submit"],
 textarea:focus,
 .button {
-	@include transition(all 0.1s ease-in-out);
+	transition: all 0.1s ease-in-out;
 }
 
 ::-moz-selection {

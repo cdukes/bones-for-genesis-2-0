@@ -1,9 +1,10 @@
 @media print {
+
 	* {
-		@include filter(none !important);
 		background: transparent !important;
 		color: black !important;
 		text-shadow: none !important;
+		filter: none !important;
 	}
 
 	a:link,

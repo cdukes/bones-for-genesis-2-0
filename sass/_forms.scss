@@ -15,9 +15,9 @@ input[type="month"],
 input[type="week"],
 input[type="time"],
 textarea {
-	@include border-radius(0);		// Removes the border radius on iOS
 	max-width: 100%;
 	width: 100%;
+	border-radius: 0;		// Removes the border radius on iOS
 }
 
 input[type="password"] {
@@ -57,7 +57,7 @@ input[type="submit"],
 }
 
 input[type="search"] {
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
