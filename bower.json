@@ -1,6 +1,5 @@
 {
-  "name": "Bones for Genesis 2.0",
-  "version": "2.1.2",
+  "name": "genesis-bones",
   "homepage": "http://bonesforgenesis.com",
   "description": "A starting point for new Genesis 2.0 projects.",
   "authors": [
