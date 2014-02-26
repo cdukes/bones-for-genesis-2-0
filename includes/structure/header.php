@@ -36,7 +36,7 @@ function bfg_load_stylesheets() {
 
     if( !is_admin() ) {
 		// Main theme stylesheet
-	    wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/css/style.css', array(), null );
+	    wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/build/css/style.min.css', array(), null );
 
 	    // IE-only stylesheet
 	    // wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/css/ie.css', array('bfg'), null );
@@ -78,7 +78,7 @@ function bfg_load_scripts() {
 		add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 		// Main script file (in footer)
-	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/js/scripts-ck.js', array( 'jquery' ), null, true );
+	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/build/js/scripts.min.js', array( 'jquery' ), null, true );
     }
 
 }
