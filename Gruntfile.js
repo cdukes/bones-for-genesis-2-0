@@ -110,6 +110,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-notify');
 
 	grunt.registerTask('default', ['clean', 'concat', 'uglify', 'imagemin', 'sass', 'autoprefixer', 'cssmin', 'watch']);
 
