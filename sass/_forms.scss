@@ -29,15 +29,11 @@ select {
 }
 
 .placeholder {
-
+	text-overflow: ellipsis;
 }
 
-::-moz-placeholder {
-
-}
-
-::-webkit-input-placeholder {
-
+::placeholder {
+	text-overflow: ellipsis;
 }
 
 button,
