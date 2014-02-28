@@ -37,6 +37,7 @@ module.exports = function(grunt) {
 		sass: {
 			build: {
 				options: {
+					compass: true,
 					style: 'expanded'
 				},
 				files: {
@@ -48,7 +49,7 @@ module.exports = function(grunt) {
 		autoprefixer: {
 			build: {
 				options: {
-					browsers: ['last 2 version', '> 1%', 'ie 8', 'ie 9'],
+					browsers: ['last 2 version', 'ie 8', 'ie 9'],
 					cascade: true,
 				},
 				src: 'build/css/style.css',
