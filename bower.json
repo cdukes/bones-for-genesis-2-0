@@ -14,7 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "sass-flex-mixin": "mastastealth/sass-flex-mixin",
     "jquery.fitvids": "davatron5000/FitVids.js#~1.0.3",
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
     "superfish": "~1.7.4",
