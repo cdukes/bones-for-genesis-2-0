@@ -16,7 +16,7 @@ function bfg_footer_creds_text() {
 
 // add_action( 'wp_footer', 'bfg_disable_pointer_events_on_scroll', 99 );
 /**
- * Disable pointer events when scrolling
+ * Disable pointer events when scrolling. Be careful using this with CSS :hover-enabled menus.
  *
  * See: https://gist.github.com/ossreleasefeed/7768761
  *
