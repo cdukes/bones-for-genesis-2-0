@@ -1,7 +1,7 @@
 {
   "name": "genesis-bones",
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "^0.4.2",
     "grunt-contrib-concat": "^0.3.0",
     "grunt-contrib-uglify": "^0.3.3",
     "grunt-contrib-imagemin": "^0.5.0",
