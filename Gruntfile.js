@@ -41,26 +41,31 @@ module.exports = function(grunt) {
 					style: 'expanded'
 				},
 				files: {
-					'build/css/style.css': 'sass/style.scss'
+					'build/css/style.css': 'sass/style.scss',
+					'build/css/ie.css': 'sass/ie.scss',
 				}
 			}
 		},
 
 		autoprefixer: {
-			build: {
+			style: {
 				options: {
 					browsers: ['last 2 version', 'ie 8', 'ie 9'],
 					cascade: true,
 				},
 				src: 'build/css/style.css',
 				dest: 'build/css/style.prefixed.css',
-			},
+			}
 		},
 
 		cssmin: {
-			build: {
+			style: {
 				src: 'build/css/style.prefixed.css',
 				dest: 'build/css/style.min.css'
+			},
+			ie: {
+				src: 'build/css/ie.css',
+				dest: 'build/css/ie.min.css'
 			}
 		},
 

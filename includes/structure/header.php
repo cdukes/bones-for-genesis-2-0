@@ -39,7 +39,7 @@ function bfg_load_stylesheets() {
 	    wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/build/css/style.min.css', array(), null );
 
 	    // IE-only stylesheet
-	    // wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/css/ie.css', array('bfg'), null );
+	    // wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/build/css/ie.min.css', array('bfg'), null );
 
 	    // Fallback for old IE
 	    wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
