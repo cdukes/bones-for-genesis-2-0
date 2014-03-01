@@ -25,13 +25,12 @@ grunt
 - Display database query info in your footer
 - Put the site in maintenance mode for non-admins
 - Grunt:
-
--- Automatic JS concatenation 
--- Automatic JS minification (Uglify)
--- Automatic image optimization (JPEG, PNG, GIF) 
--- SASS & Compass support
--- [Autoprefixer](https://github.com/ai/autoprefixer) and CSS minification support
--- Watches for file changes, and notifies on error
+ - Automatic JS concatenation 
+ - Automatic JS minification (Uglify)
+ - Automatic image optimization (JPEG, PNG, GIF) 
+ - SASS & Compass support
+ - [Autoprefixer](https://github.com/ai/autoprefixer) and CSS minification support
+ - Watches for file changes, and notifies on error
 
 ## Genesis Customizations
 - Enable Genesis 2.0 HTML5 support
