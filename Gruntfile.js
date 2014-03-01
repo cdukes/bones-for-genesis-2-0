@@ -71,7 +71,10 @@ module.exports = function(grunt) {
 					cwd: 'images/',
 					src: ['**/*.{png,jpg,gif}'],
 					dest: 'build/images/'
-				}]
+				}],
+				options: {
+					cache: false // Bug: https://github.com/gruntjs/grunt-contrib-imagemin/issues/140
+				}
 			}
 		},
 
