@@ -12,8 +12,8 @@
 .site-header:before,
 .site-inner:before,
 .wrap:before {
-	content: " ";
 	display: table;
+	content: " ";
 }
 
 .archive-pagination:after,
@@ -29,6 +29,6 @@
 .site-inner:after,
 .wrap:after {
 	clear: both;
-	content: " ";
 	display: table;
+	content: " ";
 }
