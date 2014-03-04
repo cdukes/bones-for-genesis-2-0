@@ -12,6 +12,10 @@ remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );				// Parent rel link
 remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start post rel link
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacent post rel link
 remove_action( 'wp_head', 'wp_generator' );								// WP Version
+// remove_action( 'wp_head', 'feed_links', 2 ); // Remove feed links
+// remove_action( 'wp_head', 'feed_links_extra', 3 ); // Remove comment feed links
+
+
 
 add_action( 'genesis_doctype', 'bfg_x_ua_compatible' );
 /**
