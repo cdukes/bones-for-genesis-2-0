@@ -1,5 +1,7 @@
 <?php
 
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 add_filter( 'the_content', 'bfg_remove_ptags_on_images' );
 /**
  * Remove <p> tags from around images

@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.1 (March 04, 2014)
+- Added SVG optimization, via Grunt
+- Prevent direct access to PHP files
+
 ### 2.2.0 (March 01, 2014)
 - Grunt integration
 - Remove Compass @includes and sass-flex-mixin, instead use Autoprefixer

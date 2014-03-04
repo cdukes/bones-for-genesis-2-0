@@ -1,5 +1,7 @@
 <?php
 
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 add_action( 'pre_ping', 'bfg_disable_self_pings' );
 /**
  * Prevent the child theme from being overwritten by a WordPress.org theme with the same name.

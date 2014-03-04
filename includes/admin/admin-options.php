@@ -1,5 +1,7 @@
 <?php
 
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 // add_action( 'genesis_theme_settings_metaboxes', 'bfg_remove_theme_settings_metaboxes' );
 /**
  * Remove some or all of the options metaboxes in Dashboard > Genesis > Theme Settings

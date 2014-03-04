@@ -1,5 +1,7 @@
 <?php
 
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 // add_filter( 'genesis_footer_creds_text', 'bfg_footer_creds_text' );
 /**
  * Custom footer 'creds' text

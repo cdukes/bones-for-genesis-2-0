@@ -83,6 +83,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		svgmin: {
+			build: {
+				files: [{
+					expand: true,
+					cwd: 'images/',
+					src: ['**/*.svg'],
+					dest: 'build/images/',
+					ext: '.svg'
+				}]
+			}
+		},
+
 		watch: {
 			js: {
 				files: ['js/*.js'],
@@ -102,7 +114,7 @@ module.exports = function(grunt) {
 
 			images: {
 				files: ['images/*'],
-				tasks: ['imagemin'],
+				tasks: ['imagemin', 'svgmin'],
 				options: {
 					spawn: false,
 				}
@@ -118,9 +130,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-svgmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-notify');
 
-	grunt.registerTask('default', ['clean', 'concat', 'uglify', 'imagemin', 'sass', 'autoprefixer', 'cssmin', 'watch']);
+	grunt.registerTask('default', ['clean', 'concat', 'uglify', 'imagemin', 'svgmin', 'sass', 'autoprefixer', 'cssmin', 'watch']);
 
 };

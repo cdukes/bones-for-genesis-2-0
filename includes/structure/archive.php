@@ -1,5 +1,7 @@
 <?php
 
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 // remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
 // add_action( 'genesis_before_loop', 'bfg_do_taxonomy_title_description', 15 );
 /**

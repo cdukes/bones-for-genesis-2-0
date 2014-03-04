@@ -1,5 +1,7 @@
 <?php
 
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Remove comments frontend. Useful if replacing WP commenting with Disqus.
  *
