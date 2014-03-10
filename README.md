@@ -135,6 +135,7 @@ grunt
 
 ## Changelog
 ### 2.2.2 (March 11, 2014)
+- Added option to remove feed links (disabled by default)
 - More consistent code spacing
 - Place SASS first in Grunt process order
 - Added hook to remove breadcrumbs (disabled by default)
