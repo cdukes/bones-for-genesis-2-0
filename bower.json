@@ -1,11 +1,5 @@
 {
   "name": "genesis-bones",
-  "homepage": "http://bonesforgenesis.com",
-  "description": "A starting point for new Genesis 2.0 projects.",
-  "authors": [
-    "Cooper Dukes @INNEO"
-  ],
-  "license": "WTFPL",
   "ignore": [
     "**/.*",
     "node_modules",

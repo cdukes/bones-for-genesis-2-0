@@ -134,6 +134,12 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.2 (March 11, 2014)
+- More consistent code spacing
+- Place SASS first in Grunt process order
+- Added hook to remove breadcrumbs (disabled by default)
+- Better list style defaults
+
 ### 2.2.1 (March 04, 2014)
 - Added SVG optimization, via Grunt
 - Prevent direct access to PHP files
