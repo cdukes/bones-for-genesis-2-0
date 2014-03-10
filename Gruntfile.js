@@ -10,6 +10,19 @@ module.exports = function(grunt) {
 			},
 		},
 
+		sass: {
+			build: {
+				options: {
+					compass: true,
+					style: 'expanded'
+				},
+				files: {
+					'build/css/style.css': 'sass/style.scss',
+					'build/css/ie.css': 'sass/ie.scss',
+				}
+			}
+		},
+
 		concat: {
 			build: {
 				src: [
@@ -31,19 +44,6 @@ module.exports = function(grunt) {
 			build: {
 				src: 'build/js/scripts.js',
 				dest: 'build/js/scripts.min.js'
-			}
-		},
-
-		sass: {
-			build: {
-				options: {
-					compass: true,
-					style: 'expanded'
-				},
-				files: {
-					'build/css/style.css': 'sass/style.scss',
-					'build/css/ie.css': 'sass/ie.scss',
-				}
 			}
 		},
 
@@ -124,9 +124,9 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -134,6 +134,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-notify');
 
-	grunt.registerTask('default', ['clean', 'concat', 'uglify', 'imagemin', 'svgmin', 'sass', 'autoprefixer', 'cssmin', 'watch']);
+	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'imagemin', 'svgmin', 'autoprefixer', 'cssmin', 'watch']);
 
 };
