@@ -36,23 +36,23 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets' );
  */
 function bfg_load_stylesheets() {
 
-    if( !is_admin() ) {
+	if( !is_admin() ) {
 		// Main theme stylesheet
-	    wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/build/css/style.min.css', array(), null );
+		wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/build/css/style.min.css', array(), null );
 
-	    // IE-only stylesheet
-	    // wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/build/css/ie.min.css', array('bfg'), null );
+		// IE-only stylesheet
+		// wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/build/css/ie.min.css', array('bfg'), null );
 
-	    // Fallback for old IE
-	    wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
+		// Fallback for old IE
+		wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
 
-	    // Google Fonts
-    	// wp_enqueue_style(
-    	// 	'google-fonts',
-    	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700',		// Open Sans (light, normal, and bold), for example
-    	// 	array(),
-    	// 	null
-    	// );
+		// Google Fonts
+	 	// wp_enqueue_style(
+	 	// 	'google-fonts',
+	 	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700',		// Open Sans (light, normal, and bold), for example
+	 	// 	array(),
+	 	// 	null
+	 	// );
 	}
 
 }
@@ -67,21 +67,21 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
  */
 function bfg_load_scripts() {
 
-    if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 && !is_front_page() ) {
+	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 && !is_front_page() ) {
 		wp_enqueue_script( 'comment-reply' );
-    } else {
+	} else {
 		wp_dequeue_script( 'comment-reply' );
-    }
+	}
 
-    if( !is_admin() ) {
+	if( !is_admin() ) {
 		// Override WP default self-hosted jQuery with version from Google's CDN
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', array(), null, true );
 		add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 		// Main script file (in footer)
-	    wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/build/js/scripts.min.js', array( 'jquery' ), null, true );
-    }
+		wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/build/js/scripts.min.js', array( 'jquery' ), null, true );
+	}
 
 }
 
@@ -96,17 +96,17 @@ add_filter( 'style_loader_tag', 'bfg_ie_conditionals', 10, 2 );
 function bfg_ie_conditionals( $tag, $handle ) {
 
 	if( 'bfg' == $handle ) {
-        $output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
-        $output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
+		$output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} elseif( 'bfg-ie' == $handle ) {
-        $output = '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+		$output = '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} elseif( 'bfg-ie-universal' == $handle ) {
-        $output = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+		$output = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} else {
 		$output = $tag;
 	}
 
-    return $output;
+	return $output;
 
 }
 

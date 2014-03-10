@@ -19,33 +19,33 @@
 		page-break-inside: avoid;
 	}
 
-    @page {
+	@page {
 		margin: 2cm 1.5cm;
-    }
+	}
 
-    p,
-    h2,
-    h3 {
-    	orphans: 4;
-    	widows: 2;
-    }
+	p,
+	h2,
+	h3 {
+		orphans: 4;
+		widows: 2;
+	}
 
-    h2,
-    h3 {
-    	page-break-after: avoid;
-    }
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
 
 	.menu,
-    .widget-area,
-    .sidebar,
-    .footer-widgets,
-    .site-footer {
-	    display: none !important;
-    }
+	.widget-area,
+	.sidebar,
+	.footer-widgets,
+	.site-footer {
+		display: none !important;
+	}
 
-    .hide-print {
-	    display: none !important;
-    }
+	.hide-print {
+		display: none !important;
+	}
 
 	.title-area {
 		float: none;
@@ -62,9 +62,9 @@
 		}
 	}
 
-    .content {
-	    width: 100% !important;
-    }
+	.content {
+		width: 100% !important;
+	}
 
 	.entry-title,
 	.entry-content {

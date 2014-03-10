@@ -67,8 +67,8 @@ add_theme_support( 'html5' );
 // add_theme_support(
 // 	'genesis-style-selector',
 // 	array(
-// 		'bfg-red'   => 'Red',
-// 		'bfg-orange'  => 'Orange'
+// 		'bfg-red' => 'Red',
+// 		'bfg-orange' => 'Orange'
 // 	)
 // );
 
@@ -124,9 +124,9 @@ add_theme_support( 'html5' );
  */
 function bfg_remove_genesis_widgets() {
 
-    unregister_widget( 'Genesis_Featured_Page' );									// Featured Page
-    unregister_widget( 'Genesis_User_Profile_Widget' );								// User Profile
-    unregister_widget( 'Genesis_Featured_Post' );									// Featured Posts
+	unregister_widget( 'Genesis_Featured_Page' );									// Featured Page
+	unregister_widget( 'Genesis_User_Profile_Widget' );								// User Profile
+	unregister_widget( 'Genesis_Featured_Post' );									// Featured Posts
 
 }
 
@@ -138,8 +138,8 @@ function bfg_remove_genesis_widgets() {
  */
 function bfg_remove_layout_meta_boxes() {
 
-    remove_post_type_support( 'post', 'genesis-layouts' );							// Posts
-    remove_post_type_support( 'page', 'genesis-layouts' );							// Pages
+	remove_post_type_support( 'post', 'genesis-layouts' );							// Posts
+	remove_post_type_support( 'page', 'genesis-layouts' );							// Pages
 
 }
 
@@ -151,7 +151,7 @@ function bfg_remove_layout_meta_boxes() {
  */
 function bfg_remove_scripts_meta_boxes() {
 
-    remove_post_type_support( 'post', 'genesis-scripts' );							// Posts
-    remove_post_type_support( 'page', 'genesis-scripts' );							// Pages
+	remove_post_type_support( 'post', 'genesis-scripts' );							// Posts
+	remove_post_type_support( 'page', 'genesis-scripts' );							// Pages
 
 }

@@ -16,8 +16,8 @@ img {
 
 img.centered,
 .aligncenter {
-    display: block;
-    margin: 0 auto $imageMargin auto;
+	display: block;
+	margin: 0 auto $imageMargin auto;
 }
 
 img.alignnone {
@@ -35,14 +35,14 @@ img.alignnone {
 
 img.alignleft,
 .wp-caption.alignleft {
-    margin-right: $imageMargin;
-    margin-bottom: $imageMargin;
+	margin-right: $imageMargin;
+	margin-bottom: $imageMargin;
 }
 
 img.alignright,
 .wp-caption.alignright {
-    margin-bottom: $imageMargin;
-    margin-left: $imageMargin;
+	margin-bottom: $imageMargin;
+	margin-left: $imageMargin;
 }
 
 .wp-caption {

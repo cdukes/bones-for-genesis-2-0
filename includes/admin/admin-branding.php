@@ -10,7 +10,7 @@ add_filter( 'login_headerurl', 'bfg_login_headerurl' );
  */
 function bfg_login_headerurl() {
 
-    return home_url();
+	return home_url();
 
 }
 
@@ -22,7 +22,7 @@ add_filter( 'login_headertitle', 'bfg_login_headertitle' );
  */
 function bfg_login_headertitle() {
 
-    return get_bloginfo( 'name' );
+	return get_bloginfo( 'name' );
 
 }
 
@@ -89,8 +89,8 @@ add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
  */
 function bfg_remove_wp_icon_from_admin_bar() {
 
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('wp-logo');
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('wp-logo');
 
 }
 

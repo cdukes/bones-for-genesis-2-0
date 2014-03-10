@@ -87,13 +87,13 @@ function bfg_hidden_meta_boxes( $hidden ) {
  */
 function bfg_media_manager_default_view() {
 
-    ?>
-    <script type="text/javascript">
-        jQuery(document).ready(function($){
-            wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
-        });
-    </script>
-    <?php
+	?>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
+		});
+	</script>
+	<?php
 
 }
 
@@ -114,7 +114,7 @@ function bfg_restrict_attachment_viewing( $where ) {
 		isset($_POST['action']) &&
 		$_POST['action'] == 'query-attachments'
 	) {
-			$where .= ' AND post_author=' . $current_user->data->ID;
+		$where .= ' AND post_author=' . $current_user->data->ID;
 	}
 	return $where;
 
@@ -186,26 +186,26 @@ function bfg_user_contactmethods( $fields ) {
 function bfg_remove_dashboard_menus() {
 
 	global $menu;
-    $restricted = array(
-    	__('Dashboard'),
-    	__('Posts'),
-    	__('Media'),
-    	__('Links'),
-    	__('Pages'),
-    	__('Comments'),
-    	__('Appearance'),
-    	__('Plugins'),
-    	__('Users'),
-    	__('Tools'),
-    	__('Settings')
-    );
-    end($menu);
-    while( prev($menu) ) {
-        $value = explode( ' ', $menu[key($menu)][0] );
-        if( in_array($value[0] != NULL ? $value[0] : "" , $restricted) ) {
-	        unset( $menu[key($menu)] );
-        }
-    }
+	$restricted = array(
+		__('Dashboard'),
+		__('Posts'),
+		__('Media'),
+		__('Links'),
+		__('Pages'),
+		__('Comments'),
+		__('Appearance'),
+		__('Plugins'),
+		__('Users'),
+		__('Tools'),
+		__('Settings')
+	);
+	end($menu);
+	while( prev($menu) ) {
+		$value = explode( ' ', $menu[key($menu)][0] );
+		if( in_array($value[0] != NULL ? $value[0] : "" , $restricted) ) {
+			unset( $menu[key($menu)] );
+		}
+	}
 
 }
 
@@ -219,7 +219,7 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  */
 function bfg_login_errors() {
 
-    return 'Invalid username or password.';
+	return 'Invalid username or password.';
 
 }
 
@@ -238,6 +238,6 @@ function bfg_hide_admin_help_button() {
 			display: none !important;
 		}
 	</style>
-<?php
+	<?php
 
 }

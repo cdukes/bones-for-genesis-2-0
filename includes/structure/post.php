@@ -97,7 +97,7 @@ function bfg_post_meta() {
  */
 function bfg_prev_link_text( $text ) {
 
-    return html_entity_decode('&#10216;') . ' ';
+	return html_entity_decode('&#10216;') . ' ';
 
 }
 
@@ -110,7 +110,7 @@ function bfg_prev_link_text( $text ) {
  */
 function bfg_next_link_text( $text ) {
 
-    return ' ' . html_entity_decode('&#10217;');
+	return ' ' . html_entity_decode('&#10217;');
 
 }
 

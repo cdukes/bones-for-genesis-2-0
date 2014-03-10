@@ -24,14 +24,14 @@
 .entry-content {
 	// overflow: hidden;
 
-    a {
+	a {
 
-	    &:hover,
-	    &:focus,
-	    &:active {
+		&:hover,
+		&:focus,
+		&:active {
 
-	    }
-    }
+		}
+	}
 
 	.attachment,
 	.gallery {
@@ -76,12 +76,12 @@
 		}
 	}
 
-    blockquote {
+	blockquote {
 
-	   	p {
+	 	p {
 
-	   	}
-    }
+	 	}
+	}
 }
 
 .entry-pagination {

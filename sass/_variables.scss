@@ -11,7 +11,7 @@ $siteWidth:		60em; // Useful for fixed width sites, as well as for limiting the 
 		@media (max-width: 55em) { @content; }
 	}
 	@else if $point == phone {
-		@media (max-width: 45em)  { @content; }
+		@media (max-width: 45em) { @content; }
 	}
 	// http://mir.aculo.us/2012/11/28/the-ultimate-target-retina-screens-media-query/
 	@else if $point == retina {

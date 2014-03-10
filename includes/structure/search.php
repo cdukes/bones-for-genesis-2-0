@@ -36,13 +36,13 @@ function bfg_search_button_text( $text ) {
  */
 function bfg_redirect_single_search_result() {
 
-    if( is_search() ) {
-        global $wp_query;
+	if( is_search() ) {
+		global $wp_query;
 
-        if( $wp_query->post_count == 1) {
-            wp_redirect( get_permalink( $wp_query->posts['0']->ID ) );
-        }
-    }
+		if( $wp_query->post_count == 1) {
+			wp_redirect( get_permalink( $wp_query->posts['0']->ID ) );
+		}
+	}
 
 }
 
