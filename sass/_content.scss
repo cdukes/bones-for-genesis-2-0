@@ -49,8 +49,9 @@
 
 	ol,
 	ul {
+		overflow: hidden;
 		margin-bottom: 1.5em;
-		margin-left: 2.5em;
+		padding-left: 2.5em;
 		text-overflow: ellipsis;
 		word-break: break-word;
 		hyphens: auto;
@@ -58,7 +59,7 @@
 		ol,
 		ul {
 			margin-bottom: .5em;
-			margin-left: 1.5em;
+			padding-left: 1.5em;
 		}
 	}
 
