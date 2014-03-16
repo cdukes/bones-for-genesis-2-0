@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			js: {
-				files: ['js/*.js'],
+				files: ['js/**/*.js'],
 				tasks: ['concat', 'uglify'],
 				options: {
 					spawn: false,
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 			},
 
 			css: {
-				files: ['sass/*.scss'],
+				files: ['sass/**/*.scss'],
 				tasks: ['sass', 'autoprefixer', 'cssmin'],
 				options: {
 					spawn: false,
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 			},
 
 			images: {
-				files: ['images/*'],
+				files: ['images/**/*'],
 				tasks: ['imagemin', 'svgmin'],
 				options: {
 					spawn: false,

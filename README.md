@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.3 (March 16, 2014)
+- Added function to disable pingbacks (disabled by default)
+- Grunt will now watch SASS, JS, and image subfolders
+
 ### 2.2.2 (March 11, 2014)
 - Added option to remove feed links (disabled by default)
 - More consistent code spacing
