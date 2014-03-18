@@ -1,0 +1,23 @@
+html {
+
+	&.lt-ie9 {
+		min-width: $siteWidth;
+	}
+}
+
+.lt-ie9 {
+
+	body {
+		min-width: $siteWidth;
+	}
+
+	.site-container {
+		margin: 0 auto;
+		width: $siteWidth;
+	}
+
+	// IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images
+	img {
+		height: auto;
+	}
+}

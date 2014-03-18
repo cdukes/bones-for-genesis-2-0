@@ -15,17 +15,29 @@ remove_action( 'wp_head', 'wp_generator' );								// WP Version
 // remove_action( 'wp_head', 'feed_links', 2 ); // Remove feed links
 // remove_action( 'wp_head', 'feed_links_extra', 3 ); // Remove comment feed links
 
-
-
-add_action( 'genesis_doctype', 'bfg_x_ua_compatible' );
+remove_action( 'genesis_doctype', 'genesis_do_doctype' );
+add_action( 'genesis_doctype', 'bfg_do_doctype' );
 /**
- * For IE to render in edge mode
+ * Overrides the default Genesis doctype with IE and JS identifier classes
  *
- * @since 2.0.20
+ * See: http://html5boilerplate.com/
+ *
+ * @since 2.2.4
  */
-function bfg_x_ua_compatible() {
+function bfg_do_doctype() {
 
-	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">' . "\n";
+	if( genesis_html5() ) {
+?>
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js lt-ie9" <?php language_attributes( 'html' ); ?>> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes( 'html' ); ?>> <!--<![endif]-->
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<?php
+	} else {
+		genesis_xhtml_doctype();
+	}
 
 }
 
@@ -43,9 +55,6 @@ function bfg_load_stylesheets() {
 	if( !is_admin() ) {
 		// Main theme stylesheet
 		wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/build/css/style.min.css', array(), null );
-
-		// IE-only stylesheet
-		// wp_enqueue_style( 'bfg-ie', get_stylesheet_directory_uri() . '/build/css/ie.min.css', array('bfg'), null );
 
 		// Fallback for old IE
 		wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
@@ -102,8 +111,6 @@ function bfg_ie_conditionals( $tag, $handle ) {
 	if( 'bfg' == $handle ) {
 		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
 		$output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	} elseif( 'bfg-ie' == $handle ) {
-		$output = '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} elseif( 'bfg-ie-universal' == $handle ) {
 		$output = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} else {
@@ -179,19 +186,6 @@ function bfg_load_favicons() {
 
 	// Optional: specify a background color for your Windows tablet icon
 	// echo '<meta name="msapplication-TileColor" content="#d83434">';
-
-}
-
-add_filter( 'body_class', 'bfg_no_js_body_class' );
-/**
- * Adds a 'no-js' class to <body>, for testing the presence of JavaScript
- *
- * @since 2.0.0
- */
-function bfg_no_js_body_class( $classes ) {
-
-	$classes[] = 'no-js';
-	return $classes;
 
 }
 

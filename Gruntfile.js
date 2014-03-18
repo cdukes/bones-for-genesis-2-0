@@ -17,8 +17,7 @@ module.exports = function(grunt) {
 					style: 'expanded'
 				},
 				files: {
-					'build/css/style.css': 'sass/style.scss',
-					'build/css/ie.css': 'sass/ie.scss',
+					'build/css/style.css': 'sass/style.scss'
 				}
 			}
 		},
@@ -59,13 +58,9 @@ module.exports = function(grunt) {
 		},
 
 		cssmin: {
-			style: {
+			build: {
 				src: 'build/css/style.prefixed.css',
 				dest: 'build/css/style.min.css'
-			},
-			ie: {
-				src: 'build/css/ie.css',
-				dest: 'build/css/ie.min.css'
 			}
 		},
 
