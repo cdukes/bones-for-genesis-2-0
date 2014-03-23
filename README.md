@@ -135,7 +135,7 @@ grunt
 
 ## Changelog
 ### 2.2.4 (March 23, 2014)
-- Use IE indicator classes in the <html> tag, instead of a separate IE stylesheet
+- Use IE indicator classes in the `<html>` tag, instead of a separate IE stylesheet
 - Remove manifest link
 
 ### 2.2.3 (March 16, 2014)
