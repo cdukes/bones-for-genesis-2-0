@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.4 (March 23, 2014)
+- Use IE indicator classes in the <html> tag, instead of a separate IE stylesheet
+- Remove manifest link
+
 ### 2.2.3 (March 16, 2014)
 - Added function to disable pingbacks (disabled by default)
 - Grunt will now watch SASS, JS, and image subfolders
