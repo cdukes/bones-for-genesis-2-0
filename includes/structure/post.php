@@ -28,6 +28,13 @@ function bfg_gallery_style( $css ) {
 
 }
 
+/**
+ * Allow pages to have excerpts
+ *
+ * @since 2.2.5
+ */
+// add_post_type_support( 'page', 'excerpt' );
+
 // add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
 /**
  * Customize the excerpt text, when using the <!--more--> tag

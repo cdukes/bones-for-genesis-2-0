@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.5 (April 6, 2014)
+- Refactored the starter CSS
+- Added template to allow pages to have excerpts (disabled by default)
+
 ### 2.2.4 (March 23, 2014)
 - Use IE indicator classes in the `<html>` tag, instead of a separate IE stylesheet
 - Remove manifest link
