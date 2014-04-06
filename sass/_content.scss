@@ -22,39 +22,15 @@
 }
 
 .entry-content {
-	// overflow: hidden;
-
-	a {
-
-		&:hover,
-		&:focus,
-		&:active {
-
-		}
-	}
-
-	.attachment,
-	.gallery {
-
-		a {
-			border: none;
-		}
-	}
 
 	p {
-		text-overflow: ellipsis;
-		word-break: break-word;
-		hyphens: auto;
+		@extend %type;
 	}
 
 	ol,
 	ul {
-		overflow: hidden;
-		margin-bottom: 1.5em;
+		@extend %type;
 		padding-left: 2.5em;
-		text-overflow: ellipsis;
-		word-break: break-word;
-		hyphens: auto;
 
 		ol,
 		ul {
@@ -100,14 +76,10 @@
 
 	}
 
-	a {
+	.entry-categories,
+	.entry-tags {
 
 	}
-}
-
-.entry-categories,
-.entry-tags {
-	display: block;
 }
 
 .archive-pagination {

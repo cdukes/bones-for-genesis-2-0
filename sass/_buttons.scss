@@ -1,0 +1,23 @@
+.btn {
+	display: inline-block;
+	width: auto;
+	border: none;
+	border-radius: 0;
+	text-align: center;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+
+	}
+
+	&.block {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}

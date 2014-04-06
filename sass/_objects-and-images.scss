@@ -10,17 +10,18 @@ video,
 }
 
 img {
-	width: auto; /* IE8 */
-	height: auto;
+	width: auto;
+	height: auto; // IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images
 }
 
-img.centered,
+img.aligncenter,
 .aligncenter {
 	display: block;
 	margin: 0 auto $imageMargin auto;
 }
 
 img.alignnone {
+
 }
 
 .alignleft {
@@ -58,6 +59,8 @@ img.alignright,
 	text-align: center;
 }
 
-.gallery-caption {
+img.alignleft,
+img.alignright,
+img.aligncenter {
 
 }

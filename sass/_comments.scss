@@ -1,55 +1,56 @@
-.entry-comments,
-.ping-list,
-#respond {
+.comment-list {
 
-	a {
+	.comment {
+
+		> article {
+
+		}
+	}
+
+	.children {
 
 	}
 }
 
-.entry-comments {
+.comment-header {
+	@extend %clearfix;
 
 	.comment-author {
 
 	}
-}
 
-#respond {
+	img {
 
-	input[type="email"],
-	input[type="text"],
-	input[type="url"] {
-
-	}
-
-	label {
-		display: block
 	}
 }
 
-.comment-list,
-.ping-list {
+.comment-content {
+	@extend .entry-content;
+}
 
-	li {
-		list-style-type: none;
-		li {
+.comment-respond {
 
-		}
+
+	.form-submit {
+		@extend %clearfix;
 	}
 }
 
-li.comment {
-
-}
-
-.comment .avatar {
-
-}
-
-.bypostauthor {
-
-}
-
+.comment-notes,
+.logged-in-as,
 .form-allowed-tags {
+	@extend %type;
+}
+
+.comment-notes,
+.logged-in-as,
+.form-allowed-tags,
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+
+}
+
+.comment-form-comment {
 
 }

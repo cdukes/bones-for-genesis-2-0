@@ -1,9 +1,18 @@
 .genesis-nav-menu {
 	@extend %clearfix;
-	@extend %unstyled-list;
 	width: 100%;
 
+	// Applied to all menu <li>s
 	.menu-item {
+
+		a {
+			position: relative;
+			display: block;
+		}
+	}
+
+	// First level
+	> .menu-item {
 		position: relative;
 		display: inline-block;
 		text-align: left;
@@ -18,29 +27,20 @@
 				opacity: 1;
 			}
 		}
+
+		&.current-menu-item {
+
+			> a {
+
+			}
+		}
+
+		> a {
+
+		}
 	}
 
-	a {
-		position: relative;
-		display: block;
-	}
-
-	a:hover,
-	a:focus,
-	a:active,
-	.current-menu-item > a,
-	.sub-menu .current-menu-item > a:hover {
-
-	}
-
-	.sub-menu .current-menu-item > a {
-
-	}
-
-	> .menu-item > a {
-
-	}
-
+	// Sublevels
 	.sub-menu {
 		position: absolute;
 		top: 100%;
@@ -49,25 +49,14 @@
 		opacity: 0;
 		transition: opacity .4s ease-in-out;
 
-		a {
-			position: relative;
+		> .menu-item {
+
+			> a {
+				position: relative;
+			}
 		}
 
 		.sub-menu {
-
-		}
-	}
-
-	> .first {
-
-		> a {
-
-		}
-	}
-
-	> .last {
-
-		> a {
 
 		}
 	}

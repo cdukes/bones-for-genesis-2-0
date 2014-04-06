@@ -1,71 +1,27 @@
-.wrap {
-	// @extend %wrap;
+// Genesis layout <body> classes:
+// .content-sidebar-sidebar
+// .sidebar-content-sidebar
+// .sidebar-sidebar-content
+// .content-sidebar
+// .sidebar-content
+// .full-width-content
+
+.site-container {
+
 }
 
-.site-inner {
+.content-sidebar-wrap {
 	@extend %clearfix;
 }
 
-.content-sidebar-sidebar,
-.sidebar-content-sidebar,
-.sidebar-sidebar-content {
+.content {
 
-	.content-sidebar-wrap {
-
-	}
-
-	.content {
-
-	}
-}
-
-.content-sidebar-sidebar {
-
-	.content-sidebar-wrap {
-
-	}
-}
-
-.sidebar-content-sidebar,
-.sidebar-sidebar-content {
-
-	.content-sidebar-wrap {
-
-	}
-}
-
-.content-sidebar .content,
-.content-sidebar-sidebar .content,
-.sidebar-content-sidebar .content {
-
-}
-
-.full-width-content {
-
-	.content {
-		width: 100%;
-	}
 }
 
 .sidebar-primary {
 
 }
 
-.sidebar-content,
-.sidebar-sidebar-content {
-
-	.sidebar-primary{
-
-	}
-}
-
 .sidebar-secondary {
 
-}
-
-.content-sidebar-sidebar {
-
-	.sidebar-secondary {
-
-	}
 }

@@ -1,13 +1,8 @@
 .footer-widgets {
 	@extend %clearfix;
 
-	a {
+	> .wrap {
 
-		&:hover,
-		&:focus,
-		&:active {
-
-		}
 	}
 
 	.widget {
@@ -17,16 +12,11 @@
 	.widgettitle {
 
 	}
-
-	li {
-		overflow: hidden;
-		word-break: break-word;
-	}
 }
 
 .site-footer {
 
-	a {
+	> .wrap {
 
 	}
 }

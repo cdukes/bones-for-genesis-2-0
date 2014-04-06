@@ -5,11 +5,6 @@
 	//max-width: $siteWidth;	// ...unless the browser is larger than this
 }
 
-%inline-block {
-	display: inline-block;
-	vertical-align: middle;
-}
-
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 %image-replacement {
 	overflow: hidden;
@@ -33,7 +28,7 @@
 }
 
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-.visuallyhidden {
+%visuallyhidden {
 	position: absolute;
 	overflow: hidden;
 	clip: rect(0 0 0 0);
@@ -51,18 +46,20 @@
 	}
 }
 
-// Extend to buttons to give them a 1px shift on click
-%click-effect {
-
-	&:active {
-		position: relative;
-		top: 1px;
-		left: 1px;
-	}
-}
-
 %unstyled-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+%type {
+	margin-bottom: 1.5em;
+	text-overflow: ellipsis;
+	word-break: break-word;
+	hyphens: auto;
+	line-height: 1.5;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }

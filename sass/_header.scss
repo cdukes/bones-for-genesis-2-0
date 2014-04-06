@@ -1,9 +1,23 @@
 .site-header {
 
+	> .wrap {
+
+	}
 }
 
 .title-area {
 	float: left;
+}
+
+.site-title,
+.site-description {
+	margin: 0;
+	line-height: 1;
+
+	.header-image & {
+		@extend %image-replacement;
+		display: block;
+	}
 }
 
 .site-title {
@@ -19,20 +33,10 @@
 	}
 }
 
-.site-description {
-	margin: 0;
-	line-height: 1;
-}
-
-.header-image {
-
-	.site-description,
-	.site-title {
-		@extend %image-replacement;
-		display: block;
-	}
-}
-
 .header-widget-area {
 	float: right;
+
+	.widget {
+
+	}
 }

@@ -4,8 +4,6 @@ body {
 }
 
 body {
-	font-weight: 300;
-	font-family: $sans;
 	// text-rendering: optimizeLegibility; // Use with caution. May break certain @font-face fonts.
 }
 
@@ -53,8 +51,8 @@ pre {
 }
 
 code {
-	word-break: break-word;
 	overflow: hidden;
+	word-break: break-word;
 }
 
 iframe {
