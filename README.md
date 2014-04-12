@@ -134,6 +134,9 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.6 (April 12, 2014)
+- Fixed removal of `no-js` class
+
 ### 2.2.5 (April 6, 2014)
 - Refactored the starter CSS
 - Added template to allow pages to have excerpts (disabled by default)
