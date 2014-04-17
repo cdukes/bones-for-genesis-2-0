@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.0.2+ and WordPress 3.8+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.0.2+ and WordPress 3.9+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -134,6 +134,9 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.7 (April 17, 2014)
+- Update TinyMCE filters for WP 3.9, which uses TinyMCE 4
+
 ### 2.2.6 (April 12, 2014)
 - Fixed removal of `no-js` class
 
