@@ -34,8 +34,7 @@ function bfg_disable_self_pings( &$links ) {
  *
  * @since 2.0.0
  */
-// add_image_size( 'desktop-size', 1024, 768, false);
-// add_image_size( 'size-slug', width, height, crop?);
+// add_image_size( 'desktop-size', 1024, 768, array( 'left', 'top' ) ); // Crop positions are: top, left, right, bottom, center
 
 // add_filter( 'image_size_names_choose', 'bfg_image_size_names_choose' );
 /**

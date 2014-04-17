@@ -134,6 +134,11 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.8 (April 17, 2014)
+- Better `add_theme_support( 'html5' );`, include WP 3.9's HTML5 galleries
+- Added template for changing image crop positions (disabled by default)
+- Added template to deregister Genesis parent theme page templates (disabled by default)
+
 ### 2.2.7 (April 17, 2014)
 - Update TinyMCE filters for WP 3.9, which uses TinyMCE 4
 
