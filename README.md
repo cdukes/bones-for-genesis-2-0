@@ -134,6 +134,11 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.9 (April 24, 2014)
+- Added [Picturefill](https://scottjehl.github.io/picturefill/)
+- Added a clear transients button to the admin menu
+- Add a plugins link to the appearance admin bar menu
+
 ### 2.2.8 (April 17, 2014)
 - Better `add_theme_support( 'html5' );`, include WP 3.9's HTML5 galleries
 - Added template for changing image crop positions (disabled by default)

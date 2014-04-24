@@ -28,6 +28,7 @@ module.exports = function(grunt) {
 					'bower_components/iOS-Orientationchange-Fix/ios-orientationchange-fix.js',
 					'bower_components/jquery.fitvids/jquery.fitvids.js',
 					'bower_components/jquery-placeholder/jquery.placeholder.js',
+					'bower_components/picturefill/picturefill.js',
 					'bower_components/svgeezy/svgeezy.js',
 					'bower_components/superfish/dist/js/superfish.js',
 					'js/*.js'

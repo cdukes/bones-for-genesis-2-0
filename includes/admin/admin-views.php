@@ -258,3 +258,25 @@ function bfg_deregister_page_templates( $templates ) {
 	return $templates;
 
 }
+
+add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
+/**
+ * Add a plugins link to the appearance admin bar menu
+ *
+ * @since 2.2.9
+ */
+function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
+
+	if( !current_user_can('install_plugins') )
+		return;
+
+	$node = array(
+		'parent' => 'appearance',
+		'id' => 'plugins',
+		'title' => __('Plugins'),
+		'href' => admin_url('plugins.php')
+	);
+
+	$wp_admin_bar->add_node( $node );
+
+}

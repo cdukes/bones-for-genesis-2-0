@@ -13,6 +13,7 @@
     "superfish": "~1.7.4",
     "svgeezy": "~1.0.0",
     "normalize-scss": "~2.1.3",
-    "jquery-placeholder": "~2.0.7"
+    "jquery-placeholder": "~2.0.7",
+    "picturefill": "~1.2.1"
   }
 }
