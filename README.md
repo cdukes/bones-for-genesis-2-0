@@ -136,7 +136,7 @@ grunt
 ## Changelog
 ### 2.2.10 (June 6, 2014)
 - jQuery version update
-- Added CSS to hide the spinner on input[type="number"] (disabled by default)
+- Added CSS to hide the spinner on `input[type="number"]` (disabled by default)
 - Use `genesis_footer_output` instead of `genesis_footer_creds_text` to filter footer HTML
 
 ### 2.2.9 (April 24, 2014)
