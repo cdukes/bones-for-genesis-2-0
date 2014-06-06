@@ -24,6 +24,17 @@ input[type="password"] {
 	font-family: monospace; // Not all fonts will show the password bullets in IE8
 }
 
+// Hide the spinner on input[type="number"] in Firefox
+input[type="number"] {
+	// -moz-appearance:textfield;
+}
+
+// Hide the spinner on input[type="number"] in Chrome/Safari
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	// -webkit-appearance: none;
+}
+
 select {
 	width: 100%;
 }
