@@ -134,6 +134,12 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.11 (June 21, 2014)
+- Fixed some code formatting issues
+- Enabled `bfg_remove_xmlrpc_pingback_ping` by default
+- Removed `bfg_remove_ptags_on_images`, since it no longer works. As an alternative, I've [suggested making `wpautop()`'s block elements list filterable](https://core.trac.wordpress.org/ticket/28607)
+- Set `appearance: none;` on `input` elements by default
+
 ### 2.2.10 (June 6, 2014)
 - jQuery version update
 - Added CSS to hide the spinner on `input[type="number"]` (disabled by default)

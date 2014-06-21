@@ -11,7 +11,9 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 2.0.0
  */
 function bfg_search_text() {
+
 	return esc_attr( 'Search Text Goes Here...' );
+
 }
 
 // add_filter( 'genesis_search_button_text', 'bfg_search_button_text' );
@@ -23,7 +25,9 @@ function bfg_search_text() {
  * @since 2.0.0
  */
 function bfg_search_button_text( $text ) {
+
 	return esc_attr( 'Click Here...' );
+
 }
 
 // add_action( 'template_redirect', 'bfg_redirect_single_search_result' );

@@ -2,20 +2,6 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-add_filter( 'the_content', 'bfg_remove_ptags_on_images' );
-/**
- * Remove <p> tags from around images
- *
- * See: http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
- *
- * @since 1.x
- */
-function bfg_remove_ptags_on_images( $content ){
-
-	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
-
-}
-
 add_filter( 'gallery_style', 'bfg_gallery_style' );
 /**
  * Remove the injected styles for the [gallery] shortcode

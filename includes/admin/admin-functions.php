@@ -30,7 +30,7 @@ function bfg_disable_self_pings( &$links ) {
 /**
  * Add new image sizes
  *
- * See: http://wp-snippets.com/disable-self-trackbacks/
+ * See: http://wptheming.com/2014/04/features-wordpress-3-9/
  *
  * @since 2.0.0
  */
@@ -45,8 +45,10 @@ function bfg_disable_self_pings( &$links ) {
  * @since 2.0.0
  */
 function bfg_image_size_names_choose( $sizes ) {
+
 	$sizes['desktop-size'] = 'Desktop';
 	return $sizes;
+
 }
 
 /**
@@ -65,7 +67,7 @@ function bfg_image_size_names_choose( $sizes ) {
  *
  * @since 2.2.3
  */
-// add_filter( 'xmlrpc_methods', 'bfg_remove_xmlrpc_pingback_ping' );
+add_filter( 'xmlrpc_methods', 'bfg_remove_xmlrpc_pingback_ping' );
 function bfg_remove_xmlrpc_pingback_ping( $methods ) {
 
 	unset($methods['pingback.ping']);

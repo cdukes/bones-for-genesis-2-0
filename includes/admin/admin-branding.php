@@ -49,7 +49,7 @@ function bfg_replace_login_logo() {
 			height: 80px;
 		}
 	</style>
-<?php
+	<?php
 
 }
 
