@@ -74,3 +74,12 @@ function bfg_remove_xmlrpc_pingback_ping( $methods ) {
 	return $methods;
 
 };
+
+/**
+ * Disable XML-RPC
+ *
+ * See: https://wordpress.stackexchange.com/questions/78780/xmlrpc-enabled-filter-not-called
+ *
+ * @since 2.2.12
+ */
+// if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;

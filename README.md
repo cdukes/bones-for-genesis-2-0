@@ -134,6 +134,12 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.12 (June 21, 2014)
+- Added `<meta http-equiv="cleartype" content="on">` for better font rendering on mobile IE
+- Added better `show_admin_bar` filtering, as the old version was triggering errors in BuddyPress and bbPress.
+- Better use of semver. Bower will now update its dependencies to the latest minor release of the indicated major version. (ex. It'll update to Normalize v3.0.2 and v3.1.0, but _not_ to v4.0.0.)
+- Added code to disable XML-RPC entirely (code is disabled by default)
+
 ### 2.2.11 (June 21, 2014)
 - Fixed some code formatting issues
 - Enabled `bfg_remove_xmlrpc_pingback_ping` by default

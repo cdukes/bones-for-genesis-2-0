@@ -7,8 +7,11 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 2.0.0
  */
-if( !current_user_can( 'edit_posts' ) ) {
-	add_filter( 'show_admin_bar', '__return_false' );
+add_filter( 'show_admin_bar' , 'bfg_maybe_hide_admin_bar', 99 );
+function bfg_maybe_hide_admin_bar( $default ) {
+
+	return current_user_can( 'edit_posts' ) ? $default : false;
+
 }
 
 add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );

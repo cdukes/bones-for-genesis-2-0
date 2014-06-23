@@ -8,12 +8,12 @@
     "tests"
   ],
   "dependencies": {
-    "jquery.fitvids": "davatron5000/FitVids.js#~1.0.3",
+    "jquery.fitvids": "davatron5000/FitVids.js#^1.x",
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
-    "superfish": "~1.7.4",
-    "svgeezy": "~1.0.0",
-    "normalize-scss": "~2.1.3",
-    "jquery-placeholder": "~2.0.7",
-    "picturefill": "~1.2.1"
+    "superfish": "^1.x",
+    "svgeezy": "^1.x",
+    "normalize-scss": "^3.x",
+    "jquery-placeholder": "^2.x",
+    "picturefill": "^1.x"
   }
 }
