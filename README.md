@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.1.0+ and WordPress 3.9+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.1+ and WordPress 3.9+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -134,6 +134,14 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.14 (July 11, 2014)
+- Set all package versions in `package.json` to `*`, so that NPM will download the latest versions, then update the file with that info, on `npm update --save-dev`
+- Set Bower to always pull the latest versions of its dependencies 
+- Removed `grunt-svgmin`, since `grunt-contrib-imagemin` now supports SVGs
+- Added `grunt-newer`, so that only changed images will be optimized when Grunt is watching for changes
+- No longer create a `style.prefixed.css` file. Replace `style.css` with the prefixed version
+- Added `grunt-colorguard`, which outputs warnings about similar CSS colors
+
 ### 2.2.13 (July 1, 2014)
 - Version bump for Genesis 2.1.0
 

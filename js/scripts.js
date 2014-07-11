@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
 	// Remove the 'no-js' <body> class
 	$('html').removeClass('no-js');

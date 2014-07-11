@@ -148,7 +148,7 @@ function bfg_tiny_mce_before_init( $options ) {
 
 add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
 /**
- * Enables some commonly used formatting buttons in TinyMCE
+ * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/
  *
  * @since 2.0.15
  */
