@@ -134,6 +134,9 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.15 (July 13, 2014)
+- Use [CSSO](https://github.com/css/csso) for CSS magnification
+
 ### 2.2.14 (July 11, 2014)
 - Set all package versions in `package.json` to `*`, so that NPM will download the latest versions, then update the file with that info, on `npm update --save-dev`
 - Set Bower to always pull the latest versions of its dependencies 

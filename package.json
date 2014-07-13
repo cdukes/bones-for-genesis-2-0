@@ -6,11 +6,11 @@
     "grunt-colorguard": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
-    "grunt-contrib-cssmin": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-sass": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
+    "grunt-csso": "*",
     "grunt-newer": "*",
     "grunt-notify": "*"
   }

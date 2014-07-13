@@ -58,10 +58,15 @@ module.exports = function(grunt) {
 			}
 		},
 
-		cssmin: {
-			build: {
-				src: 'build/css/style.css',
-				dest: 'build/css/style.min.css'
+		csso: {
+			compress: {
+				options: {
+					restructure: true,
+					report: 'min'
+				},
+				files: {
+					'build/css/style.min.css': ['build/css/style.css']
+				}
 			}
 		},
 
@@ -99,7 +104,7 @@ module.exports = function(grunt) {
 
 			css: {
 				files: ['sass/**/*.scss'],
-				tasks: ['sass', 'autoprefixer', 'cssmin', 'colorguard'],
+				tasks: ['sass', 'autoprefixer', 'csso'],
 				options: {
 					spawn: false,
 				}
@@ -122,12 +127,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-csso');
 	grunt.loadNpmTasks('grunt-colorguard');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-notify');
 
-	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'cssmin', 'colorguard', 'watch']);
+	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso', 'colorguard', 'watch']);
 
 };
