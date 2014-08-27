@@ -134,6 +134,11 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.16 (August 27, 2014)
+- Use [Colors](https://github.com/mrmrs/colors) for better default color variables
+- Don't check `is_admin()` in `wp_enqueue_scripts`, since that hook is only called on the frontend
+- Better universal box-sizing
+
 ### 2.2.15 (July 13, 2014)
 - Use [CSSO](https://github.com/css/csso) for CSS magnification
 

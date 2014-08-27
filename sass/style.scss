@@ -1,5 +1,10 @@
 // Compass & Variables
 @import "compass/css3";
+
+// Colors
+@import "../bower_components/Colors/sass/variables";
+
+// Variables
 @import "variables";
 
 // Normalize, Clearfix, & Toolkit
@@ -7,11 +12,15 @@
 @import "clearfix";
 @import "toolkit";
 
-// Universal Box-Sizing
-*,
-:before,
-:after {
+// Universal Box-Sizing (http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
+html {
 	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
 
 // Sitewide Styles
