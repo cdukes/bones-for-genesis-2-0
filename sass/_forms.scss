@@ -37,6 +37,10 @@ input::-webkit-inner-spin-button {
 	// -webkit-appearance: none;
 }
 
+textarea {
+	resize: vertical; // Allow only vertical resizing of textareas.
+}
+
 select {
 	width: 100%;
 }

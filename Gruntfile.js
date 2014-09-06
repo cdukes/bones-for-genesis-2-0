@@ -6,16 +6,17 @@ module.exports = function(grunt) {
 
 		clean: {
 			build: {
-				src: [ 'build' ]
-			},
+				src: ['build']
+			}
 		},
 
 		sass: {
+			options: {
+				compass: true,
+				style: 'expanded',
+				precision: 3
+			},
 			build: {
-				options: {
-					compass: true,
-					style: 'expanded'
-				},
 				files: {
 					'build/css/style.css': 'sass/style.scss'
 				}
@@ -31,9 +32,9 @@ module.exports = function(grunt) {
 					'bower_components/picturefill/picturefill.js',
 					'bower_components/svgeezy/svgeezy.js',
 					'bower_components/superfish/dist/js/superfish.js',
-					'js/*.js'
+					'js/scripts.js'
 				],
-				dest: 'build/js/scripts.js',
+				dest: 'build/js/scripts.js'
 			}
 		},
 
@@ -42,28 +43,28 @@ module.exports = function(grunt) {
 				preserveComments: 'some',
 			},
 			build: {
-				src: 'build/js/scripts.js',
-				dest: 'build/js/scripts.min.js'
+				files: {
+					'build/js/scripts.min.js': 'build/js/scripts.js'
+				}
 			}
 		},
 
 		autoprefixer: {
-			style: {
-				options: {
-					browsers: ['last 2 version', 'ie 8', 'ie 9'],
-					cascade: true,
-				},
-				src: 'build/css/style.css',
-				dest: 'build/css/style.css',
+			options: {
+				cascade: true
+			},
+			build: {
+				files: {
+					'build/css/style.css': ['build/css/style.css']
+				}
 			}
 		},
 
 		csso: {
-			compress: {
-				options: {
-					restructure: true,
-					report: 'min'
-				},
+			options: {
+				report: 'min'
+			},
+			build: {
 				files: {
 					'build/css/style.min.css': ['build/css/style.css']
 				}
@@ -80,16 +81,16 @@ module.exports = function(grunt) {
 		},
 
 		imagemin: {
+			options: {
+				cache: false // Bug: https://github.com/gruntjs/grunt-contrib-imagemin/issues/140
+			},
 			build: {
 				files: [{
 					expand: true,
 					cwd: 'images/',
 					src: ['**/*.{png,jpg,gif,svg}'],
 					dest: 'build/images/'
-				}],
-				options: {
-					cache: false // Bug: https://github.com/gruntjs/grunt-contrib-imagemin/issues/140
-				}
+				}]
 			}
 		},
 
@@ -98,15 +99,15 @@ module.exports = function(grunt) {
 				files: ['js/**/*.js'],
 				tasks: ['concat', 'uglify'],
 				options: {
-					spawn: false,
-				},
+					spawn: false
+				}
 			},
 
 			css: {
 				files: ['sass/**/*.scss'],
 				tasks: ['sass', 'autoprefixer', 'csso'],
 				options: {
-					spawn: false,
+					spawn: false
 				}
 			},
 
@@ -114,7 +115,7 @@ module.exports = function(grunt) {
 				files: ['images/**/*'],
 				tasks: ['newer:imagemin'],
 				options: {
-					spawn: false,
+					spawn: false
 				}
 			}
 		}
@@ -133,6 +134,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-notify');
 
-	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso', 'colorguard', 'watch']);
+	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso', 'watch']);
 
 };

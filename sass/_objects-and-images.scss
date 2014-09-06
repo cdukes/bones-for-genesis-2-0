@@ -9,6 +9,14 @@ video,
 	max-width: 100%;
 }
 
+// Remove the gap between images, videos, audio and canvas and the bottom of their containers: h5bp.com/i/440
+audio,
+canvas,
+img,
+video {
+	vertical-align: middle;
+}
+
 img {
 	width: auto;
 	height: auto; // IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images

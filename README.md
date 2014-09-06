@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.1+ and WordPress 3.9+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.1+ and WordPress 4.0+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -134,6 +134,17 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.17 (September 6, 2014)
+- `Gruntfile.js`: More consistent syntax
+- `Gruntfile.js`: `sass` now uses `precision: 3`
+- `Gruntfile.js`: `concat` no longer includes the entire `/js/` folder
+- `Gruntfile.js`: `autoprefixer` now uses the default `browser` setting
+- `Gruntfile.js`: `csso` now keeps `restructure` off by default
+- `Gruntfile.js`: `colorguard` is no longer run by default
+- Added some default styling for the search form
+- Added Chrome on Android and iOS web app lines to `bfg_load_favicons()`
+- Added some styles fixes from H5BP
+
 ### 2.2.16 (August 27, 2014)
 - Use [Colors](https://github.com/mrmrs/colors) for better default color variables
 - Don't check `is_admin()` in `wp_enqueue_scripts`, since that hook is only called on the frontend

@@ -169,8 +169,15 @@ function bfg_load_favicons() {
 
 	$favicon_path = get_stylesheet_directory_uri() . '/images/favicons';
 
-	// Use a 152px X 152px PNG for the latest iOS devices
+	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
+    echo '<meta name="mobile-web-app-capable" content="yes">';
+    echo '<link rel="icon" sizes="192x192" href="' . $favicon_path . '/favicon-192.png">';
+
+	// Use a 152px X 152px PNG for the latest iOS devices, also setup app styles
 	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-152.png">';
+	echo '<meta name="apple-mobile-web-app-capable" content="yes">';
+	echo '<meta name="apple-mobile-web-app-status-bar-style" content="black">';
+	echo '<meta name="apple-mobile-web-app-title" content="' . get_bloginfo('name') . '">';
 
 	// Use a 96px X 96px PNG for modern desktop browsers
 	echo '<link rel="icon" href="' . $favicon_path . '/favicon-96.png">';

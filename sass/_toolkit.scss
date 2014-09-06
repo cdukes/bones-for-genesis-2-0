@@ -27,6 +27,22 @@
 	}
 }
 
+// Image replacement (H5BP)
+%ir {
+	display: block;
+	overflow: hidden;
+	border: 0;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	text-align: left;
+	text-indent: -999em;
+	direction: ltr;
+
+	br {
+		display: none;
+	}
+}
+
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 %visuallyhidden {
 	position: absolute;
