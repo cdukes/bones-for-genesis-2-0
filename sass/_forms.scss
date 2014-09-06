@@ -59,3 +59,17 @@ input[type="submit"] {
 input[type="search"] {
 	box-sizing: border-box; // Overrides normalize.css
 }
+
+.search-form {
+	display: flex;
+	align-items: center;
+
+	input[type="search"] {
+		flex: 1;
+	}
+
+	input[type="submit"] {
+		margin-left: .25em;
+
+	}
+}
