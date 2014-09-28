@@ -14,7 +14,8 @@ module.exports = function(grunt) {
 			options: {
 				compass: true,
 				style: 'expanded',
-				precision: 3
+				precision: 3,
+				sourcemap: 'none'
 			},
 			build: {
 				files: {

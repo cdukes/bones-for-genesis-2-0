@@ -22,10 +22,6 @@ textarea {
 	-moz-appearance: none;
 }
 
-input[type="password"] {
-	font-family: monospace; // Not all fonts will show the password bullets in IE8
-}
-
 // Hide the spinner on input[type="number"] in Firefox
 input[type="number"] {
 	// -moz-appearance:textfield;
@@ -64,16 +60,26 @@ input[type="search"] {
 	box-sizing: border-box; // Overrides normalize.css
 }
 
-.search-form {
+.search-form,
+.post-password-form {
 	display: flex;
 	align-items: center;
+
+	input[type="submit"] {
+		margin-left: .25em;
+	}
+}
+
+.search-form {
 
 	input[type="search"] {
 		flex: 1;
 	}
+}
 
-	input[type="submit"] {
-		margin-left: .25em;
+.post-password-form {
 
+	input[type="password"] {
+		flex: 1;
 	}
 }

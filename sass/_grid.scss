@@ -1,4 +1,6 @@
 // http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css
+// http://wpsmith.net/2013/wp/genesis-2-0-drops-fifths-from-column-classes/
+// https://github.com/cdukes/bones-for-genesis-2-0/issues/23
 
 .five-sixths,
 .four-sixths,
@@ -7,6 +9,9 @@
 .one-sixth,
 .one-third,
 .one-fifth,
+.two-fifths,
+.three-fifths,
+.four-fifths,
 .three-fourths,
 .three-sixths,
 .two-fourths,
@@ -41,7 +46,19 @@
 }
 
 .one-fifth {
-	width: 17.9487179487%;
+	width: 17.9487179487179488%;
+}
+
+.two-fifths {
+	width: 38.4615384615384616%;
+}
+
+.three-fifths {
+	width: 58.9743589743589744%;
+}
+
+.four-fifths {
+	width: 79.4871794871794872%;
 }
 
 .one-sixth {

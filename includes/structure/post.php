@@ -128,3 +128,21 @@ add_filter( 'edit_post_link', '__return_false' );
  */
 // add_filter( 'get_the_author_genesis_author_box_single', '__return_false' );
 // add_filter( 'get_the_author_genesis_author_box_archive', '__return_false' );
+
+/**
+ * Adjust the default WP password protected form to support keeping the input and submit on the same line
+ *
+ * @since 2.2.18
+ */
+add_filter( 'the_password_form', 'bfg_password_form' );
+function bfg_password_form( $post = 0 ) {
+
+	$post = get_post( $post );
+	$label = 'pwbox-' . ( empty($post->ID) ? rand() : $post->ID );
+	$output = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
+		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="Password">';
+		$output .= '<input type="submit" name="Submit" value="' . esc_attr__( 'Submit' ) . '">';
+	$output .= '</form>';
+	return $output;
+
+}

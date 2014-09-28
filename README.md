@@ -134,6 +134,12 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.18 (September 28, 2014)
+- Fifths grid classes
+- Turn off sourcemaps in Grunt
+- Only overwrite `input[type="password"]` font on IE8
+- Add default HTML/CSS for password protected post form
+
 ### 2.2.17 (September 6, 2014)
 - `Gruntfile.js`: More consistent syntax
 - `Gruntfile.js`: `sass` now uses `precision: 3`
