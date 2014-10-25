@@ -65,6 +65,8 @@ function bfg_image_size_names_choose( $sizes ) {
  *
  * See: http://wptavern.com/how-to-prevent-wordpress-from-participating-in-pingback-denial-of-service-attacks
  *
+ * Still having pingback/trackback issues? This post might help: https://wordpress.org/support/topic/disabling-pingbackstrackbacks-on-pages#post-4046256
+ *
  * @since 2.2.3
  */
 add_filter( 'xmlrpc_methods', 'bfg_remove_xmlrpc_pingback_ping' );

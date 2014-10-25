@@ -134,6 +134,9 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.19 (October 25, 2014)
+- Better `.gitignore`
+
 ### 2.2.18 (September 28, 2014)
 - Fifths grid classes
 - Turn off sourcemaps in Grunt
