@@ -3,17 +3,17 @@ textarea:focus {
 	// outline: none;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="search"],
-input[type="email"],
-input[type="url"],
-input[type="tel"],
-input[type="number"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
+input[type='text'],
+input[type='password'],
+input[type='search'],
+input[type='email'],
+input[type='url'],
+input[type='tel'],
+input[type='number'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
 textarea {
 	max-width: 100%;
 	width: 100%;
@@ -23,7 +23,7 @@ textarea {
 }
 
 // Hide the spinner on input[type="number"] in Firefox
-input[type="number"] {
+input[type='number'] {
 	// -moz-appearance:textfield;
 }
 
@@ -50,13 +50,13 @@ select {
 }
 
 button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
 	@extend .btn;
 }
 
-input[type="search"] {
+input[type='search'] {
 	box-sizing: border-box; // Overrides normalize.css
 }
 
@@ -65,21 +65,21 @@ input[type="search"] {
 	display: flex;
 	align-items: center;
 
-	input[type="submit"] {
+	input[type='submit'] {
 		margin-left: .25em;
 	}
 }
 
 .search-form {
 
-	input[type="search"] {
+	input[type='search'] {
 		flex: 1;
 	}
 }
 
 .post-password-form {
 
-	input[type="password"] {
+	input[type='password'] {
 		flex: 1;
 	}
 }

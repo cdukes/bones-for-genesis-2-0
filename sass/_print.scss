@@ -2,9 +2,9 @@
 
 	* {
 		background: transparent !important;
+		filter: none !important;
 		color: black !important;
 		text-shadow: none !important;
-		filter: none !important;
 	}
 
 	a:link,
@@ -70,16 +70,16 @@
 	.entry-content {
 
 		a[href]:after {
-			content: " (" attr(href) ")";
+			content: ' (' attr(href) ')';
 		}
 
 		abbr[title]:after {
-			content: " (" attr(title) ")";
+			content: ' (' attr(title) ')';
 		}
 
-		a[href^="#"]:after,
-		a[href^="javascript"]:after {
-			content: "";
+		a[href^='#']:after,
+		a[href^='javascript']:after {
+			content: '';
 		}
 	}
 }

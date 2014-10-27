@@ -1,16 +1,16 @@
 // Compass & Variables
-@import "compass/css3";
+@import 'compass/css3';
 
 // Colors
-@import "../bower_components/Colors/sass/variables";
+@import '../bower_components/Colors/sass/variables';
 
 // Variables
-@import "variables";
+@import 'variables';
 
 // Normalize, Clearfix, & Toolkit
-@import "../bower_components/normalize-scss/normalize.scss";
-@import "clearfix";
-@import "toolkit";
+@import '../bower_components/normalize-scss/normalize.scss';
+@import 'clearfix';
+@import 'toolkit';
 
 // Universal Box-Sizing (http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
 html {
@@ -24,29 +24,29 @@ html {
 }
 
 // Sitewide Styles
-@import "grid";
-@import "layout";
-@import "type";
-@import "headings";
-@import "objects-and-images";
-@import "buttons";
-@import "forms";
+@import 'grid';
+@import 'layout';
+@import 'type';
+@import 'headings';
+@import 'objects-and-images';
+@import 'buttons';
+@import 'forms';
 
 // Module Styles
-@import "header";
-@import "navigation";
-@import "content";
-@import "comments";
-@import "sidebars";
-@import "footer";
+@import 'header';
+@import 'navigation';
+@import 'content';
+@import 'comments';
+@import 'sidebars';
+@import 'footer';
 
 // Templates
 
 // Print
-@import "print";
+@import 'print';
 
 // IE Compatibility
-@import "ie";
+@import 'ie';
 
 // Shame - For new style snippets that haven't been sorted and commented yet
-@import "shame";
+@import 'shame';

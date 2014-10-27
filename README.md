@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.20 (October 27, 2014)
+- Run [CSSComb](http://csscomb.com/) on `.scss` files
+- Add `.csscomb.json` project file
+
 ### 2.2.19 (October 25, 2014)
 - Better `.gitignore`
 

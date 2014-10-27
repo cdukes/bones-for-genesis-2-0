@@ -10,12 +10,12 @@ body {
 a,
 button,
 input:focus,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
+input[type='button'],
+input[type='reset'],
+input[type='submit'],
 textarea:focus,
 .button {
-	transition: all 0.1s ease-in-out;
+	transition: all .1s ease-in-out;
 }
 
 ::selection {
@@ -27,7 +27,6 @@ a {
 	&:hover,
 	&:focus,
 	&:active {
-
 	}
 }
 

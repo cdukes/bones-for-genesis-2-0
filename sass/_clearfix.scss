@@ -13,7 +13,7 @@
 .site-inner:before,
 .wrap:before {
 	display: table;
-	content: " ";
+	content: ' ';
 }
 
 .archive-pagination:after,
@@ -30,5 +30,5 @@
 .wrap:after {
 	display: table;
 	clear: both;
-	content: " ";
+	content: ' ';
 }
