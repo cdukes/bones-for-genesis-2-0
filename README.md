@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.21 (November 5, 2014)
+- Use latest version of jQuery 1.x by default
+- Include `animation-fill-mode` in `.csscomb.json`
+
 ### 2.2.20 (October 27, 2014)
 - Run [CSSComb](http://csscomb.com/) on `.scss` files
 - Add `.csscomb.json` project file
