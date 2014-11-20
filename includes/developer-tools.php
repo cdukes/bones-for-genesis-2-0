@@ -55,7 +55,7 @@ function bfg_clear_transients_node( $wp_admin_bar ) {
 		'id' => 'clear-transients',
 		'title' => 'Clear Transients (' . $count . ')',
 		'parent' => 'site-name',
-		'href' => '?clear-transients=1'
+		'href' => get_admin_url() . '?clear-transients=1'
 	);
 
 	$wp_admin_bar->add_node( $args );

@@ -134,6 +134,13 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.22 (November 20, 2014)
+- Consistent EOF line
+- Disable Genesis SEO by default
+- Running `Clear Transients` always returns you to `/wp-admin/`
+- Avoid `console` errors in browsers that lack a console
+- Add `order` to `.csscomb.json` sorting
+
 ### 2.2.21 (November 5, 2014)
 - Use latest version of jQuery 1.x by default
 - Include `animation-fill-mode` in `.csscomb.json`

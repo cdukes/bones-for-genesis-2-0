@@ -155,3 +155,10 @@ function bfg_remove_scripts_meta_boxes() {
 	remove_post_type_support( 'page', 'genesis-scripts' );							// Pages
 
 }
+
+/**
+ * Disable Genesis SEO
+ *
+ * @since 2.0.22
+ */
+genesis_disable_seo();

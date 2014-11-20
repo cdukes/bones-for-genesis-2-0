@@ -47,6 +47,7 @@
                 "flex-order",
                 "flex-shrink",
                 "flex-wrap",
+                "order",
                 "justify-content",
                 "float",
                 "clear",
