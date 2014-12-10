@@ -134,6 +134,9 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.23 (December 10, 2014)
+- Disable Genesis SEO by default, without conflicting with Genesis's method
+
 ### 2.2.22 (November 20, 2014)
 - Consistent EOF line
 - Disable Genesis SEO by default

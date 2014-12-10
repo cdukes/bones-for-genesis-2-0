@@ -161,4 +161,17 @@ function bfg_remove_scripts_meta_boxes() {
  *
  * @since 2.0.22
  */
-genesis_disable_seo();
+remove_action( 'after_setup_theme', 'genesis_seo_compatibility_check' );
+add_action( 'after_setup_theme', 'bfg_maybe_disable_genesis_seo', 8 );
+function bfg_maybe_disable_genesis_seo() {
+
+	genesis_disable_seo();
+
+	//* Disable Genesis <title> generation
+	if( genesis_detect_seo_plugins() && function_exists( 'seo_title_tag' ) ) {
+		remove_filter( 'wp_title', 'genesis_default_title', 10, 3 );
+		remove_action( 'genesis_title', 'wp_title' );
+		add_action( 'genesis_title', 'seo_title_tag' );
+	}
+
+}
