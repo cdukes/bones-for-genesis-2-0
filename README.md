@@ -134,6 +134,12 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.24 (January 21, 2015)
+- Better HTML handling for WP system emails
+- Add function to get an array of image sizes
+- Add hook to remove dashboard Activity widget
+- Add hook to remove secondary sidebar
+
 ### 2.2.23 (December 10, 2014)
 - Disable Genesis SEO by default, without conflicting with Genesis's method
 
