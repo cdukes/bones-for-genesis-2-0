@@ -79,3 +79,30 @@
 		margin-bottom: 0;
 	}
 }
+
+// http://tobiasahlin.com/spinkit/
+%spinner {
+	display: block;
+	padding: .25em;
+	width: 100%;
+	text-align: center;
+
+	> div {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		border-radius: 100%;
+		background-color: $gray;
+		vertical-align: middle;
+		animation: bouncedelay 1.4s infinite ease-in-out;
+		animation-fill-mode: both;
+	}
+
+	.bounce1 {
+		animation-delay: -.32s;
+	}
+
+	.bounce2 {
+		animation-delay: -.16s;
+	}
+}

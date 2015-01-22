@@ -134,6 +134,9 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.25 (January 22, 2015)
+- Add a default spinner, with Gravity Forms support
+
 ### 2.2.24 (January 21, 2015)
 - Better HTML handling for WP system emails
 - Add function to get an array of image sizes
