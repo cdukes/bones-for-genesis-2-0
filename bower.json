@@ -15,6 +15,7 @@
     "normalize-scss": "*",
     "jquery-placeholder": "*",
     "picturefill": "*",
-    "Colors": "mrmrs/colors"
+    "Colors": "mrmrs/colors",
+    "jquery.cookie": "carhartl/jquery-cookie"
   }
 }

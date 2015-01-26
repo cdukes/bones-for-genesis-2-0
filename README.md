@@ -134,6 +134,10 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.26 (January 26, 2015)
+- Add `jquery.cookie.js`
+- Automatically remove `readme.html` (and optionally `xmlrpc.php`) after a WP core update
+
 ### 2.2.25 (January 22, 2015)
 - Add a default spinner, with Gravity Forms support
 
