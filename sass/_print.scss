@@ -1,5 +1,4 @@
 @media print {
-
 	* {
 		background: transparent !important;
 		filter: none !important;
@@ -52,9 +51,7 @@
 	}
 
 	.site-header {
-
 		.site-title {
-
 			img {
 				display: block;
 				margin: 0 auto 1em;
@@ -68,7 +65,6 @@
 
 	.entry-title,
 	.entry-content {
-
 		a[href]:after {
 			content: ' (' attr(href) ')';
 		}

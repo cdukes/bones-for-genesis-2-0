@@ -1,7 +1,5 @@
 .comment-list {
-
 	.comment {
-
 		> article {
 		}
 	}
@@ -25,8 +23,6 @@
 }
 
 .comment-respond {
-
-
 	.form-submit {
 		@extend %clearfix;
 	}

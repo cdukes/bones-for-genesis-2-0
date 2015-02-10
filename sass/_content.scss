@@ -19,7 +19,6 @@
 }
 
 .entry-content {
-
 	p {
 		@extend %type;
 	}
@@ -37,21 +36,18 @@
 	}
 
 	ol {
-
 		li {
 			list-style-type: decimal;
 		}
 	}
 
 	ul {
-
 		li {
 			list-style-type: disc;
 		}
 	}
 
 	blockquote {
-
 		p {
 		}
 	}
@@ -84,7 +80,6 @@
 		display: inline;
 
 		a {
-
 			&:hover,
 			&:focus,
 			&:active {
@@ -95,7 +90,6 @@
 		}
 
 		&.active {
-
 			a {
 			}
 		}

@@ -1,28 +1,33 @@
 /*********************
 SIZES
 *********************/
-$siteWidth:		60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
+$siteWidth: 60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
 
 @mixin breakpoint($point) {
 	@if $point == full {
-		@media (min-width: 55em) { @content; }
+		@media (min-width: 55em) {
+			@content;
+		}
 	}
 	@else if $point == tablet {
-		@media (max-width: 55em) { @content; }
+		@media (max-width: 55em) {
+			@content;
+		}
 	}
 	@else if $point == phone {
-		@media (max-width: 45em) { @content; }
+		@media (max-width: 45em) {
+			@content;
+		}
 	}
 	// http://mir.aculo.us/2012/11/28/the-ultimate-target-retina-screens-media-query/
 	@else if $point == retina {
 		@media
-			(min--moz-device-pixel-ratio: 1.5),
-			(-o-min-device-pixel-ratio: 3/2),
-			(-webkit-min-device-pixel-ratio: 1.5),
-			(min-device-pixel-ratio: 1.5),
-			(min-resolution: 144dpi),
-			(min-resolution: 1.5dppx)
-		{
+		(min--moz-device-pixel-ratio: 1.5),
+		(-o-min-device-pixel-ratio: 3/2),
+		(-webkit-min-device-pixel-ratio: 1.5),
+		(min-device-pixel-ratio: 1.5),
+		(min-resolution: 144dpi),
+		(min-resolution: 1.5dppx) {
 			@content;
 		}
 	}
@@ -35,18 +40,18 @@ COLORS
 /*********************
 SOCIAL COLORS - http://designpieces.com/2012/12/social-media-colours-hex-and-rgb/
 *********************/
-$twitter:			#00aced;
-$facebook: 			#3b5998;
-$linkedin:			#007bb6;
-$google:			#dd4b39;
-$youtube:			#bb0000;
-$pinterest: 		#cb2027;
-$tumblr:			#32506d;
-$flickr:			#ff0084;
-$instagram:			#517fa4;
-$vimeo:				#aad450;
-$foursquare: 		#0072b1;
-$rss:				#ff6600;
+$twitter: #00aced;
+$facebook: #3b5998;
+$linkedin: #007bb6;
+$google: #dd4b39;
+$youtube: #b00;
+$pinterest: #cb2027;
+$tumblr: #32506d;
+$flickr: #ff0084;
+$instagram: #517fa4;
+$vimeo: #aad450;
+$foursquare: #0072b1;
+$rss: #f60;
 
 /*********************
 TYPOGRAPHY - http://cssfontstack.com/

@@ -1,12 +1,10 @@
 html {
-
 	&.lt-ie9 {
 		min-width: $siteWidth;
 	}
 }
 
 .lt-ie9 {
-
 	body {
 		min-width: $siteWidth;
 	}

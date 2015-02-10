@@ -4,7 +4,6 @@
 
 	// Applied to all menu <li>s
 	.menu-item {
-
 		a {
 			position: relative;
 			display: block;
@@ -21,7 +20,6 @@
 		&:focus,
 		&:active,
 		&.sfHover {
-
 			> .sub-menu {
 				left: auto;
 				opacity: 1;
@@ -29,7 +27,6 @@
 		}
 
 		&.current-menu-item {
-
 			> a {
 			}
 		}
@@ -48,7 +45,6 @@
 		transition: opacity .4s ease-in-out;
 
 		> .menu-item {
-
 			> a {
 				position: relative;
 			}

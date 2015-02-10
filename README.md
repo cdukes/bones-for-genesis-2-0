@@ -134,6 +134,12 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.2.27 (February 10, 2015)
+- Add `csscomb.js` to `package.json`. I would love to integrate combing into Grunt `watch`, but I can't figure out a friendly way run it on `.scss` files that I'm currently editing. For now, it can be run on the command line with `csscomb sass`.
+- Modify `.csscomb.json` to work with `csscomb.js`
+- Run `csscomb.js` on `sass/*`
+- `return` `bfg_admin_footer_text()`, since it's a filter
+
 ### 2.2.26 (January 26, 2015)
 - Add `jquery.cookie.js`
 - Automatically remove `readme.html` (and optionally `xmlrpc.php`) after a WP core update

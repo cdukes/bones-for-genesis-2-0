@@ -129,8 +129,8 @@ function bfg_remove_wp_icon_from_admin_bar() {
  *
  * @since 2.0.0
  */
-function bfg_admin_footer_text () {
+function bfg_admin_footer_text() {
 
-	echo 'YOUR TEXT HERE.';
+	return 'YOUR TEXT HERE.';
 
 }

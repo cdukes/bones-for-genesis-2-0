@@ -12,6 +12,7 @@
     "grunt-contrib-watch": "*",
     "grunt-csso": "*",
     "grunt-newer": "*",
-    "grunt-notify": "*"
+    "grunt-notify": "*",
+    "csscomb": "*"
   }
 }
