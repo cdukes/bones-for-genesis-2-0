@@ -54,8 +54,12 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets' );
  */
 function bfg_load_stylesheets() {
 
+	$use_production_assets = genesis_get_option('bfg_production_on');
+	$use_production_assets = !empty($use_production_assets);
+
 	// Main theme stylesheet
-	wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . '/build/css/style.min.css', array(), null );
+	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';
+	wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . $src, array(), null );
 
 	// Fallback for old IE
 	wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
@@ -80,6 +84,9 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
  */
 function bfg_load_scripts() {
 
+	$use_production_assets = genesis_get_option('bfg_production_on');
+	$use_production_assets = !empty($use_production_assets);
+
 	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 && !is_front_page() ) {
 		wp_enqueue_script( 'comment-reply' );
 	} else {
@@ -88,11 +95,23 @@ function bfg_load_scripts() {
 
 	// Override WP default self-hosted jQuery with version from Google's CDN
 	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', array(), null, true );
+	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
+	wp_register_script( 'jquery', $src, array(), null, true );
 	add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 	// Main script file (in footer)
-	wp_enqueue_script( 'bfg', get_stylesheet_directory_uri() . '/build/js/scripts.min.js', array( 'jquery' ), null, true );
+	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
+	$stylesheet_dir = get_stylesheet_directory_uri();
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array( 'jquery' ), null, true );
+	wp_localize_script(
+		'bfg',
+		'grunticon_paths',
+		array(
+			'svg' => $stylesheet_dir . '/build/svgs/icons.data.svg.css',
+			'png' => $stylesheet_dir . '/build/svgs/icons.data.png.css',
+			'fallback' => $stylesheet_dir . '/build/svgs/icons.fallback.css'
+		)
+	);
 
 }
 

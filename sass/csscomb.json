@@ -1,10 +1,4 @@
 {
-    "exclude": [
-        ".git/**",
-        "node_modules/**",
-        "bower_components/**",
-        "vendor/**"
-    ],
     "always-semicolon": true,
     "block-indent": "\t",
     "color-case": "lower",

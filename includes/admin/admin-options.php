@@ -24,3 +24,70 @@ function bfg_remove_theme_settings_metaboxes( $_genesis_theme_settings_pagehook 
 	// remove_meta_box( 'genesis-theme-settings-scripts', $_genesis_theme_settings_pagehook, 'main' );			// Header and Footer Scripts
 
 }
+
+add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
+/**
+ * Set default values for custom theme options
+ *
+ * @since 2.3.0
+ */
+function bfg_theme_settings_defaults( $defaults ) {
+
+	$defaults['bfg_production_on'] = false;
+	return $defaults;
+
+}
+
+add_action( 'genesis_settings_sanitizer_init', 'bfg_settings_sanitizer' );
+/**
+ * Set filters for custom theme options
+ *
+ * @since 2.3.0
+ */
+function bfg_settings_sanitizer() {
+
+	genesis_add_option_filter(
+		'one_zero',
+		GENESIS_SETTINGS_FIELD,
+		array(
+			'bfg_production_on',
+		)
+	);
+
+}
+
+add_action( 'genesis_theme_settings_metaboxes', 'bfg_theme_settings_metaboxes' );
+/**
+ * Add meta boxes for custom theme options
+ *
+ * @since 2.3.0
+ */
+function bfg_theme_settings_metaboxes( $pagehook ) {
+
+	add_meta_box(
+		'bfg-environment-settings',
+		'Environment',
+		'bfg_environment_settings_box',
+		$pagehook,
+		'main',
+		'high'
+	);
+
+}
+
+/**
+ * Render the 'Environment' meta box
+ *
+ * @since 2.3.0
+ */
+function bfg_environment_settings_box() {
+
+	?>
+	<p>
+		<label>
+			<input type="checkbox" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" value="1" <?php checked( genesis_get_option('bfg_production_on'), 1 ); ?> />
+		<?php _e( 'Use Production Assets?', 'bfg' ); ?></label>
+	</p>
+	<?php
+
+}

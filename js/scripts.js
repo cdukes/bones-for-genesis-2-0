@@ -50,4 +50,8 @@ jQuery(function($) {
 		if( 0 === $(this).find('.spinner').length )
 			$(this).find('.gform_ajax_spinner').after('<span class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></span>');
 	});
+
+	// Grunticon
+	grunticon([grunticon_paths.svg, grunticon_paths.png, grunticon_paths.fallback]);
+
 });

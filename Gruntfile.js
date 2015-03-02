@@ -10,6 +10,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		csscomb: {
+			options: {
+				config: 'sass/csscomb.json'
+			},
+			build: {
+	            expand: true,
+	            cwd: 'sass/',
+	            src: ['**/*.scss', '!_mixins.scss', '!_variables.scss'],
+	            dest: 'sass/'
+			}
+		},
+
 		sass: {
 			options: {
 				compass: true,
@@ -24,6 +36,33 @@ module.exports = function(grunt) {
 			}
 		},
 
+		grunticon: {
+			options: {
+				compressPNG: true
+			},
+			build: {
+				files: [{
+					expand: true,
+					cwd: 'svgs/',
+					src: ['*.svg', '*.png'],
+					dest: 'build/svgs/'
+				}]
+			}
+		},
+
+		jshint: {
+			options: {
+				globals: {
+					jQuery: true
+				}
+			},
+			build: {
+				files: {
+					src: ['js/**/*.js']
+				}
+			}
+		},
+
 		concat: {
 			build: {
 				src: [
@@ -34,6 +73,7 @@ module.exports = function(grunt) {
 					'bower_components/picturefill/picturefill.js',
 					'bower_components/superfish/dist/js/superfish.js',
 					'bower_components/svgeezy/svgeezy.js',
+					'build/svgs/grunticon.loader.js',
 					'js/scripts.js'
 				],
 				dest: 'build/js/scripts.js'
@@ -73,15 +113,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		colorguard: {
-			options: {
-				threshold: 3
-			},
-			build: {
-				src: 'build/css/style.css'
-			}
-		},
-
 		imagemin: {
 			options: {
 				cache: false // Bug: https://github.com/gruntjs/grunt-contrib-imagemin/issues/140
@@ -99,7 +130,7 @@ module.exports = function(grunt) {
 		watch: {
 			js: {
 				files: ['js/**/*.js'],
-				tasks: ['concat', 'uglify'],
+				tasks: ['concat'],
 				options: {
 					spawn: false
 				}
@@ -107,7 +138,7 @@ module.exports = function(grunt) {
 
 			css: {
 				files: ['sass/**/*.scss'],
-				tasks: ['sass', 'autoprefixer', 'csso'],
+				tasks: ['sass'],
 				options: {
 					spawn: false
 				}
@@ -119,6 +150,14 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
+			},
+
+			svgs: {
+				files: ['svgs/**/*'],
+				tasks: ['newer:grunticon'],
+				options: {
+					spawn: false
+				}
 			}
 		}
 
@@ -126,16 +165,19 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-csscomb');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-grunticon');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-csso');
-	grunt.loadNpmTasks('grunt-colorguard');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-notify');
 
-	grunt.registerTask('default', ['clean', 'sass', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso', 'watch']);
+	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'imagemin', 'watch']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'sass', 'grunticon', 'jshint', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso']);
 
 };

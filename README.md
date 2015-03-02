@@ -134,6 +134,13 @@ grunt
 - *(Ongoing)* More standard developer comments & better function formatting
 
 ## Changelog
+### 2.3.0 (March 9, 2015)
+- Add a `Use Production Assets?` theme setting (unchecked by default), to enable switching between minified and un-minified assets
+- Remove `grunt-colorguard`
+- Add `grunt-contrib-jshint` and `grunt-csscomb`
+- Add `grunt icon` for SVG handling
+- Split Grunt into tasks: `default` (for development) and `build` (for checking and minifying)
+
 ### 2.2.27 (February 10, 2015)
 - Add `csscomb.js` to `package.json`. I would love to integrate combing into Grunt `watch`, but I can't figure out a friendly way run it on `.scss` files that I'm currently editing. For now, it can be run on the command line with `csscomb sass`.
 - Modify `.csscomb.json` to work with `csscomb.js`

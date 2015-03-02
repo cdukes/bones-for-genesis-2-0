@@ -3,16 +3,17 @@
   "devDependencies": {
     "grunt": "*",
     "grunt-autoprefixer": "*",
-    "grunt-colorguard": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-imagemin": "*",
+    "grunt-contrib-jshint": "*",
     "grunt-contrib-sass": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
+    "grunt-csscomb": "*",
     "grunt-csso": "*",
+    "grunt-grunticon": "*",
     "grunt-newer": "*",
-    "grunt-notify": "*",
-    "csscomb": "*"
+    "grunt-notify": "*"
   }
 }
