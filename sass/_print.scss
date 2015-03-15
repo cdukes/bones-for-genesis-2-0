@@ -19,13 +19,14 @@
 	}
 
 	@page {
-		margin: 2cm 1.5cm;
+		margin-top: .75in;
+		margin-bottom: .75in;
 	}
 
 	p,
 	h2,
 	h3 {
-		orphans: 4;
+		orphans: 2;
 		widows: 2;
 	}
 

@@ -58,7 +58,7 @@ function bfg_image_size_names_choose( $sizes ) {
  *
  * @since 2.2.24
  */
-function get_image_sizes( $size = '' ) {
+function bfg_get_image_sizes( $size = '' ) {
 
 	global $_wp_additional_image_sizes;
 

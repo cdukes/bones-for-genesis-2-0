@@ -34,6 +34,11 @@ add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
 function bfg_theme_settings_defaults( $defaults ) {
 
 	$defaults['bfg_production_on'] = false;
+	$defaults['content_archive'] = 'excerpts';
+	$defaults['content_archive_thumbnail'] = 1;
+	$defaults['image_size'] = 'thumbnail';
+	$defaults['trackbacks_posts'] = 0;
+
 	return $defaults;
 
 }

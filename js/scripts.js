@@ -52,6 +52,7 @@ jQuery(function($) {
 	});
 
 	// Grunticon
-	grunticon([grunticon_paths.svg, grunticon_paths.png, grunticon_paths.fallback]);
+	if( typeof grunticon === 'function')
+		grunticon([grunticon_paths.svg, grunticon_paths.png, grunticon_paths.fallback]);
 
 });

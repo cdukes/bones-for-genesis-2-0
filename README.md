@@ -126,14 +126,14 @@ grunt
 ### Options
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
-## To Dos
-- Add admin-options.php support for setting Genesis default options
-- Add admin-options.php Genesis theme options framework
-- Better SASS organization into partials, modules, etc.
-- Conditional jQuery 2.0 enqueueing
-- *(Ongoing)* More standard developer comments & better function formatting
-
 ## Changelog
+### 2.3.1 (march 15, 2015)
+- Incorporate some type settings from [Medium](https://medium.com/@mwichary/death-to-typewriters-technical-supplement-8f3c754626f2)
+- Genesis theme setting defaults
+- Add `ajax_object` JS variable (disabled by default)
+- Use jQuery 2.x, with a 1.x fallback for old IE
+- Only trigger `grunticon` if SVGs exist
+
 ### 2.3.0 (March 9, 2015)
 - Add a `Use Production Assets?` theme setting (unchecked by default), to enable switching between minified and un-minified assets
 - Remove `grunt-colorguard`

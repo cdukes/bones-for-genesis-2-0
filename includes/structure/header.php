@@ -95,7 +95,7 @@ function bfg_load_scripts() {
 
 	// Override WP default self-hosted jQuery with version from Google's CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
+	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
 	add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
@@ -112,10 +112,11 @@ function bfg_load_scripts() {
 			'fallback' => $stylesheet_dir . '/build/svgs/icons.fallback.css'
 		)
 	);
+	// wp_localize_script( 'bfg', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 }
 
-add_filter( 'style_loader_tag', 'bfg_ie_conditionals', 10, 2 );
+add_filter( 'style_loader_tag', 'bfg_ie_style_conditionals', 10, 2 );
 /**
  * Wrap stylesheets in IE conditional comments.
  *
@@ -123,13 +124,38 @@ add_filter( 'style_loader_tag', 'bfg_ie_conditionals', 10, 2 );
  *
  * @since 1.x
  */
-function bfg_ie_conditionals( $tag, $handle ) {
+function bfg_ie_style_conditionals( $tag, $handle ) {
 
-	if( 'bfg' == $handle ) {
+	if( 'bfg' === $handle ) {
 		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
 		$output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	} elseif( 'bfg-ie-universal' == $handle ) {
+	} elseif( 'bfg-ie-universal' === $handle ) {
 		$output = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+	} else {
+		$output = $tag;
+	}
+
+	return $output;
+
+}
+
+add_filter( 'script_loader_tag', 'bfg_ie_script_conditionals', 10, 3 );
+/**
+ * Conditionally load jQuery v1 on old IE
+ *
+ * @since 2.3.1
+ */
+function bfg_ie_script_conditionals( $tag, $handle, $src ) {
+
+	if( 'jquery' === $handle ) {
+		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
+		$output .= '<!--[if gt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
+
+		$use_production_assets = genesis_get_option('bfg_production_on');
+		$use_production_assets = !empty($use_production_assets);
+		$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
+		$fallback_script = '<script type="text/javascript" src="' . $src . '"></script>';
+		$output .= '<!--[if lte IE 8]>' . "\n" . $fallback_script . '<![endif]-->' . "\n";
 	} else {
 		$output = $tag;
 	}
