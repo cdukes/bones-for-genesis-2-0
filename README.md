@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.1+ and WordPress 4.0+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.1+ and WordPress 4.1+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -127,7 +127,7 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
-### 2.3.1 (march 15, 2015)
+### 2.3.1 (March 15, 2015)
 - Incorporate some type settings from [Medium](https://medium.com/@mwichary/death-to-typewriters-technical-supplement-8f3c754626f2)
 - Genesis theme setting defaults
 - Add `ajax_object` JS variable (disabled by default)
