@@ -3,7 +3,8 @@
 node_modules
 bower_components
 build
-
+preview.html
+grunticon.loader.js
 
 
 # OS X - https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
