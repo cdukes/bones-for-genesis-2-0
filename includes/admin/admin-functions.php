@@ -2,6 +2,26 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+// add_action( 'admin_enqueue_scripts', 'bfg_load_admin_stylesheets_and_scripts' );
+/**
+ * Enqueue admin CSS and JS files
+ *
+ * @since 2.3.2
+ */
+function bfg_load_admin_stylesheets_and_scripts() {
+
+	$stylesheet_dir = get_stylesheet_directory_uri();
+	$use_production_assets = genesis_get_option('bfg_production_on');
+	$use_production_assets = !empty($use_production_assets);
+
+	$src = $use_production_assets ? '/build/css/admin.min.css' : '/build/css/admin.css';
+	wp_enqueue_style( 'bfg-admin', $stylesheet_dir . $src, array(), null );
+
+	$src = $use_production_assets ? '/build/js/admin.min.js' : '/build/js/admin.js';
+	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array('jquery'), null, true );
+
+}
+
 add_action( 'pre_ping', 'bfg_disable_self_pings' );
 /**
  * Prevent the child theme from being overwritten by a WordPress.org theme with the same name.

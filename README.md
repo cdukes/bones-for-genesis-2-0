@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.2 (March 26, 2015)
+- Move `@mixin breakpoint {}` to `_mixins.scss`
+- Add `acf-json` folder placeholder for Advanced Custom Fields integration
+- Add scaffold for admin JS and CSS files (disabled by default)
+- Better 404 page text
+
 ### 2.3.1 (March 15, 2015)
 - Incorporate some type settings from [Medium](https://medium.com/@mwichary/death-to-typewriters-technical-supplement-8f3c754626f2)
 - Genesis theme setting defaults

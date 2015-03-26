@@ -31,7 +31,8 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
-					'build/css/style.css': 'sass/style.scss'
+					'build/css/style.css': 'sass/style.scss',
+					'build/css/admin.css': 'sass/admin.scss'
 				}
 			}
 		},
@@ -77,6 +78,12 @@ module.exports = function(grunt) {
 					'js/scripts.js'
 				],
 				dest: 'build/js/scripts.js'
+			},
+			admin: {
+				src: [
+					'js/admin.js'
+				],
+				dest: 'build/js/admin.js'
 			}
 		},
 
@@ -86,7 +93,8 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
-					'build/js/scripts.min.js': 'build/js/scripts.js'
+					'build/js/scripts.min.js': 'build/js/scripts.js',
+					'build/js/admin.min.js': 'build/js/admin.js'
 				}
 			}
 		},
@@ -97,7 +105,8 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
-					'build/css/style.css': ['build/css/style.css']
+					'build/css/style.css': ['build/css/style.css'],
+					'build/css/admin.css': ['build/css/admin.css']
 				}
 			}
 		},
@@ -108,7 +117,8 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
-					'build/css/style.min.css': ['build/css/style.css']
+					'build/css/style.min.css': ['build/css/style.css'],
+					'build/css/admin.min.css': ['build/css/admin.css']
 				}
 			}
 		},
