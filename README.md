@@ -36,7 +36,7 @@ grunt
 - Enable Genesis 2.0 HTML5 support
 - Enable Genesis 2.0 responsive viewport support (disabled by default)
 - Unregister default Genesis layouts (template, disabled by default)
-- Unregister default Genesis widgets  (template, disabled by default)
+- Unregister default Genesis widgets (template, disabled by default)
 - Remove Genesis 'Layout Settings' meta boxes (template, disabled by default)
 - Various other hooks to tweak Genesis's setup, such as footer widget count, menu names, post format support, etc.
 
@@ -127,6 +127,11 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.3 (March 27, 2015)
+- Trim extra spaces
+- Include `autoprefixer` in `Gruntfile.js` `watch`
+- Set `nonull` to `true` on `grunt:concat`, so warn about missing source files
+
 ### 2.3.2 (March 26, 2015)
 - Move `@mixin breakpoint {}` to `_mixins.scss`
 - Add `acf-json` folder placeholder for Advanced Custom Fields integration
@@ -438,7 +443,7 @@ grunt
 - Added child theme definitions (`CHILD_THEME_NAME`, `CHILD_THEME_URL`, `CHILD_THEME_VERSION`)
 - Commented out `text-shadow: none;` from `::selection`, since this prevents all selection styling unless `background-color` is also specified
 - Removed `_grid.scss` responsive styling, since it was causing awkward breakpoint issues on non-responsive sites.
-- Commented out `body { text-rendering:  optimizeLegibility; }`, since this can cause display issues on poorly generated fonts.
+- Commented out `body { text-rendering: optimizeLegibility; }`, since this can cause display issues on poorly generated fonts.
 - Removed default floats in `_layout.scss`
 - Added skeleton selectors for more HTML5 input types
 - Better `_print.scss`

@@ -15,10 +15,10 @@ module.exports = function(grunt) {
 				config: 'sass/csscomb.json'
 			},
 			build: {
-	            expand: true,
-	            cwd: 'sass/',
-	            src: ['**/*.scss', '!_mixins.scss', '!_variables.scss'],
-	            dest: 'sass/'
+				expand: true,
+				cwd: 'sass/',
+				src: ['**/*.scss', '!_mixins.scss', '!_variables.scss'],
+				dest: 'sass/'
 			}
 		},
 
@@ -71,19 +71,21 @@ module.exports = function(grunt) {
 					'bower_components/jquery.cookie/jquery.cookie.js',
 					'bower_components/jquery.fitvids/jquery.fitvids.js',
 					'bower_components/jquery-placeholder/jquery.placeholder.js',
-					'bower_components/picturefill/picturefill.js',
+					'bower_components/picturefill/dist/picturefill.js',
 					'bower_components/superfish/dist/js/superfish.js',
 					'bower_components/svgeezy/svgeezy.js',
 					'build/svgs/grunticon.loader.js',
 					'js/scripts.js'
 				],
-				dest: 'build/js/scripts.js'
+				dest: 'build/js/scripts.js',
+				nonull: true
 			},
 			admin: {
 				src: [
 					'js/admin.js'
 				],
-				dest: 'build/js/admin.js'
+				dest: 'build/js/admin.js',
+				nonull: true
 			}
 		},
 
@@ -148,7 +150,7 @@ module.exports = function(grunt) {
 
 			css: {
 				files: ['sass/**/*.scss'],
-				tasks: ['sass'],
+				tasks: ['sass', 'autoprefixer'],
 				options: {
 					spawn: false
 				}

@@ -215,8 +215,8 @@ function bfg_load_favicons() {
 	$favicon_path = get_stylesheet_directory_uri() . '/images/favicons';
 
 	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
-    echo '<meta name="mobile-web-app-capable" content="yes">';
-    echo '<link rel="icon" sizes="192x192" href="' . $favicon_path . '/favicon-192.png">';
+	echo '<meta name="mobile-web-app-capable" content="yes">';
+	echo '<link rel="icon" sizes="192x192" href="' . $favicon_path . '/favicon-192.png">';
 
 	// Use a 152px X 152px PNG for the latest iOS devices, also setup app styles
 	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-152.png">';

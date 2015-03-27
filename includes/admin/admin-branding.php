@@ -89,8 +89,8 @@ function bfg_wp_mail_from() {
  */
 function bfg_force_mandrill_payload_to_html( $message ) {
 
-    $message['html'] = wpautop($message['html']);
-    return $message;
+	$message['html'] = wpautop($message['html']);
+	return $message;
 
 }
 
@@ -102,7 +102,7 @@ add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message'
  */
 function bfg_cleanup_retrieve_password_message( $message ) {
 
-    return preg_replace( '/<(.+?)>/', '$1', $message );
+	return preg_replace( '/<(.+?)>/', '$1', $message );
 
 }
 
