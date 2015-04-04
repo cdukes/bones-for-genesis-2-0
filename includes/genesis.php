@@ -175,3 +175,10 @@ function bfg_maybe_disable_genesis_seo() {
 	}
 
 }
+
+/**
+ * Use HTML5 semantic headings
+ *
+ * @since 2.3.4
+ */
+add_filter( 'genesis_pre_get_option_semantic_headings', '__return_true' );

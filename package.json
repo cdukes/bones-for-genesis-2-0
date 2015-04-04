@@ -1,5 +1,5 @@
 {
-  "name": "genesis-bones",
+  "name": "genesis-bfg",
   "devDependencies": {
     "grunt": "*",
     "grunt-autoprefixer": "*",

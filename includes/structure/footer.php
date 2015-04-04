@@ -45,7 +45,7 @@ function bfg_disable_pointer_events_on_scroll() {
 
 }
 
-add_action( 'wp_footer', 'bfg_ie_font_face_fix', 99 );
+// add_action( 'wp_footer', 'bfg_ie_font_face_fix', 99 );
 /**
  * Forces the main stylesheet to reload on document ready for IE8 and below.
  * This redraws any @font-face fonts, fixing the IE8 font loading bug

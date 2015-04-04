@@ -127,6 +127,14 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.4 (April 5, 2015)
+- Remove `genesis_loop_else` from 404 page
+- jQuery 2.0-compatible `superfish` check
+- Use semantic headings
+- Turn off `bfg_ie_font_face_fix` by default (replaced by SVGs)
+- `min-height` for grid classes
+- Minor CSS tweaks
+
 ### 2.3.3 (March 27, 2015)
 - Trim extra spaces
 - Include `autoprefixer` in `Gruntfile.js` `watch`

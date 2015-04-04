@@ -55,6 +55,10 @@
 	border: 0;
 }
 
+.screen-reader-text {
+	@extend %visuallyhidden;
+}
+
 .no-js {
 	.hide-no-js {
 		display: none !important;

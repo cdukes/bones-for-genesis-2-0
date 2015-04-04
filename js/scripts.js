@@ -34,9 +34,7 @@ jQuery(function($) {
 	svgeezy.init( 'svg-no-check', 'png' );
 
 	// IE8 fallbacks
-	// https://stackoverflow.com/questions/8890460/how-to-detect-ie7-and-ie8-using-jquery-support
-
-	if( !$.support.leadingWhitespace ) {
+	if( $('html').hasClass('lt-ie9') ) {
 		// Superfish for main navigation
 		$('.menu-primary').superfish();
 	}
