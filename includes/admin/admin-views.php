@@ -184,33 +184,21 @@ function bfg_user_contactmethods( $fields ) {
 /**
  * Remove default admin dashboard menus
  *
- * See: http://speckyboy.com/2011/04/27/20-snippets-and-hacks-to-make-wordpress-user-friendly-for-your-clients/
- *
  * @since 2.0.0
  */
 function bfg_remove_dashboard_menus() {
 
-	global $menu;
-	$restricted = array(
-		__('Dashboard'),
-		__('Posts'),
-		__('Media'),
-		__('Links'),
-		__('Pages'),
-		__('Comments'),
-		__('Appearance'),
-		__('Plugins'),
-		__('Users'),
-		__('Tools'),
-		__('Settings')
-	);
-	end($menu);
-	while( prev($menu) ) {
-		$value = explode( ' ', $menu[key($menu)][0] );
-		if( in_array($value[0] != NULL ? $value[0] : "" , $restricted) ) {
-			unset( $menu[key($menu)] );
-		}
-	}
+	remove_menu_page('index.php'); // Dashboard tab
+	remove_menu_page('edit.php'); // Posts
+	remove_menu_page('upload.php'); // Media
+	remove_menu_page('edit.php?post_type=page'); // Pages
+	remove_menu_page('edit-comments.php'); // Comments
+	remove_menu_page('genesis'); // Genesis
+	remove_menu_page('themes.php'); // Appearance
+	remove_menu_page('plugins.php'); // Plugins
+	remove_menu_page('users.php'); // Users
+	remove_menu_page('tools.php'); // Tools
+	remove_menu_page('options-general.php'); // Settings
 
 }
 

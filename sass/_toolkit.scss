@@ -27,6 +27,10 @@
 	}
 }
 
+.clear {
+	@extend %clearfix;
+}
+
 // Image replacement (H5BP)
 %ir {
 	display: block;

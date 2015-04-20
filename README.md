@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.5 (April 20, 2015)
+- Alphabetize packages
+- Add `.clear` class
+- Better `bfg_remove_dashboard_menus` implementation
+- Add `<meta name="referrer" content="origin">` to `bfg_do_doctype`, to preserve referrer information when moving from SSL to non-SSL (disabled by default)
+
 ### 2.3.4 (April 5, 2015)
 - Remove `genesis_loop_else` from 404 page
 - jQuery 2.0-compatible `superfish` check

@@ -36,6 +36,7 @@ function bfg_do_doctype() {
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="cleartype" content="on">
+<!-- <meta name="referrer" content="origin"> -->
 <?php
 	} else {
 		genesis_xhtml_doctype();
