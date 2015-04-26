@@ -4,7 +4,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // add_filter( 'genesis_footer_output', 'bfg_footer_creds_text' );
 /**
- * Custom footer 'creds' text
+ * Custom footer 'creds' text.
  *
  * @since 2.0.0
  */
@@ -48,7 +48,7 @@ function bfg_disable_pointer_events_on_scroll() {
 // add_action( 'wp_footer', 'bfg_ie_font_face_fix', 99 );
 /**
  * Forces the main stylesheet to reload on document ready for IE8 and below.
- * This redraws any @font-face fonts, fixing the IE8 font loading bug
+ * This redraws any @font-face fonts, fixing the IE8 font loading bug.
  *
  * See: http://stackoverflow.com/questions/9809351/ie8-css-font-face-fonts-only-working-for-before-content-on-over-and-sometimes
  *

@@ -2,7 +2,7 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
+/*
  * Remove the primary and secondary menus
  *
  * @since 2.0.9

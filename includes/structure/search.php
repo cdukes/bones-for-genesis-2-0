@@ -4,7 +4,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // add_filter( 'genesis_search_text', 'bfg_search_text' );
 /**
- * Customize the search form input box text
+ * Customize the search form input box text.
  *
  * See: http://www.briangardner.com/code/customize-search-form/
  *
@@ -18,7 +18,7 @@ function bfg_search_text() {
 
 // add_filter( 'genesis_search_button_text', 'bfg_search_button_text' );
 /**
- * Customize the search form input button text
+ * Customize the search form input button text.
  *
  * See: http://www.briangardner.com/code/customize-search-form/
  *
@@ -32,7 +32,7 @@ function bfg_search_button_text( $text ) {
 
 // add_action( 'template_redirect', 'bfg_redirect_single_search_result' );
 /**
- * Redirect to the result itself, if only one search result is returned
+ * Redirect to the result itself, if only one search result is returned.
  *
  * See: http://www.developerdrive.com/2013/07/5-quick-and-easy-tricks-to-improve-your-wordpress-theme/
  *
@@ -43,7 +43,7 @@ function bfg_redirect_single_search_result() {
 	if( is_search() ) {
 		global $wp_query;
 
-		if( $wp_query->post_count == 1) {
+		if( $wp_query->post_count === 1) {
 			wp_redirect( get_permalink( $wp_query->posts['0']->ID ) );
 		}
 	}
@@ -52,7 +52,7 @@ function bfg_redirect_single_search_result() {
 
 // add_filter( 'pre_get_posts', 'bfg_only_search_posts' );
 /**
- * Limit searching to just posts, excluding pages and CPTs
+ * Limit searching to just posts, excluding pages and CPTs.
  *
  * See: http://www.mhsiung.com/2009/11/limit-wordpress-search-scope-to-blog-posts/
  *
@@ -63,6 +63,7 @@ function bfg_only_search_posts( $query ) {
 	if( $query->is_search ) {
 		$query->set( 'post_type', 'post' );
 	}
+
 	return $query;
 
 }

@@ -6,7 +6,7 @@ remove_action( 'genesis_loop_else', 'genesis_do_noposts' );
 remove_action( 'genesis_loop', 'genesis_404' );
 add_action( 'genesis_loop', 'bfg_404' );
 /**
- * Better default 404 text
+ * Better default 404 text.
  *
  * See: https://yoast.com/404-error-pages-wordpress/
  *
@@ -31,7 +31,7 @@ function bfg_404() {
 
 			$args = array(
 				'post_type' => array('post', 'page'),
-				's' => $s
+				's'         => $s,
 			);
 
 			$posts = get_posts( $args );

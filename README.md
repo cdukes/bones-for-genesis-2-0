@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.6 (April 26, 2015)
+- Configure and run [PHP Coding Standards Fixer](http://cs.sensiolabs.org/)
+- Added `bfg_downsize_uploaded_image`, which will reduce the *original* uploaded image to the specified size (disabled by default)
+
 ### 2.3.5 (April 20, 2015)
 - Alphabetize packages
 - Add `.clear` class

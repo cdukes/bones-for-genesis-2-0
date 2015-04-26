@@ -2,12 +2,12 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
+/*
  * Only show the admin bar to users who can at least use Posts
  *
  * @since 2.0.0
  */
-add_filter( 'show_admin_bar' , 'bfg_maybe_hide_admin_bar', 99 );
+add_filter( 'show_admin_bar', 'bfg_maybe_hide_admin_bar', 99 );
 function bfg_maybe_hide_admin_bar( $default ) {
 
 	return current_user_can( 'edit_posts' ) ? $default : false;
@@ -69,13 +69,14 @@ add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2 );
 function bfg_hidden_meta_boxes( $hidden ) {
 
 	global $current_screen;
-	if( 'post' == $current_screen->id ) {
-		$hidden = array( 'postexcerpt', 'trackbacksdiv', 'postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv' );
+	if( 'post' === $current_screen->id ) {
+		$hidden = array('postexcerpt', 'trackbacksdiv', 'postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv');
 		// Other hideable post boxes: genesis_inpost_scripts_box, commentsdiv, categorydiv, tagsdiv, postimagediv
-	} elseif( 'page' == $current_screen->id ) {
-		$hidden = array( 'postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv', 'postimagediv' );
+	} elseif( 'page' === $current_screen->id ) {
+		$hidden = array('postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv', 'postimagediv');
 		// Other hideable post boxes: genesis_inpost_scripts_box, pageparentdiv
 	}
+
 	return $hidden;
 
 }
@@ -83,7 +84,7 @@ function bfg_hidden_meta_boxes( $hidden ) {
 // add_action( 'admin_footer-post-new.php', 'bfg_media_manager_default_view' );
 // add_action( 'admin_footer-post.php', 'bfg_media_manager_default_view' );
 /**
- * Change the media manager default view to 'upload', instead of 'library'
+ * Change the media manager default view to 'upload', instead of 'library'.
  *
  * See: http://wordpress.stackexchange.com/questions/96513/how-to-make-upload-filesselected-by-default-in-insert-media
  *
@@ -103,7 +104,7 @@ function bfg_media_manager_default_view() {
 
 // add_filter( 'posts_where', 'bfg_restrict_attachment_viewing' );
 /**
- * Prevent authors and contributors from seeing media that isn't theirs
+ * Prevent authors and contributors from seeing media that isn't theirs.
  *
  * See: http://wordpress.org/support/topic/restrict-editors-from-viewing-media-that-others-have-uploaded
  *
@@ -116,15 +117,16 @@ function bfg_restrict_attachment_viewing( $where ) {
 		is_admin() &&
 		!current_user_can('edit_others_posts') &&
 		isset($_POST['action']) &&
-		$_POST['action'] == 'query-attachments'
+		$_POST['action'] === 'query-attachments'
 	) {
 		$where .= ' AND post_author=' . $current_user->data->ID;
 	}
+
 	return $where;
 
 }
 
-/**
+/*
  * Add a stylesheet for TinyMCE
  *
  * @since 2.0.0
@@ -133,15 +135,15 @@ function bfg_restrict_attachment_viewing( $where ) {
 
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 /**
- * Modifies the TinyMCE settings array
+ * Modifies the TinyMCE settings array.
  *
  * @since 2.0.0
  */
 function bfg_tiny_mce_before_init( $options ) {
 
 	$options['element_format'] = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
-	$options['schema'] = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
-	$options['block_formats'] = 'Paragraph=p;Header 2=h2;Header 3=h3;Header 4=h4;Blockquote=blockquote'; // Restrict the block formats available in TinyMCE. See: http://www.tinymce.com/wiki.php/Configuration:block_formats
+	$options['schema']         = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
+	$options['block_formats']  = 'Paragraph=p;Header 2=h2;Header 3=h3;Header 4=h4;Blockquote=blockquote'; // Restrict the block formats available in TinyMCE. See: http://www.tinymce.com/wiki.php/Configuration:block_formats
 
 	return $options;
 
@@ -149,7 +151,7 @@ function bfg_tiny_mce_before_init( $options ) {
 
 add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
 /**
- * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/
+ * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/.
  *
  * @since 2.0.15
  */
@@ -182,7 +184,7 @@ function bfg_user_contactmethods( $fields ) {
 
 // add_action( 'admin_menu', 'bfg_remove_dashboard_menus' );
 /**
- * Remove default admin dashboard menus
+ * Remove default admin dashboard menus.
  *
  * @since 2.0.0
  */
@@ -218,7 +220,7 @@ function bfg_login_errors() {
 
 add_action( 'admin_head', 'bfg_hide_admin_help_button' );
 /**
- * Hide the top-right help pull-down button by adding some CSS to the admin <head>
+ * Hide the top-right help pull-down button by adding some CSS to the admin <head>.
  *
  * See: http://speckyboy.com/2011/04/27/20-snippets-and-hacks-to-make-wordpress-user-friendly-for-your-clients/
  *
@@ -236,7 +238,7 @@ function bfg_hide_admin_help_button() {
 }
 
 /**
- * Deregister Genesis parent theme page templates
+ * Deregister Genesis parent theme page templates.
  *
  * See: http://wptheming.com/2014/04/features-wordpress-3-9/
  *
@@ -247,13 +249,14 @@ function bfg_deregister_page_templates( $templates ) {
 
 	unset($templates['page_archive.php']);
 	unset($templates['page_blog.php']);
+
 	return $templates;
 
 }
 
 add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
 /**
- * Add a plugins link to the appearance admin bar menu
+ * Add a plugins link to the appearance admin bar menu.
  *
  * @since 2.2.9
  */
@@ -264,9 +267,9 @@ function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
 
 	$node = array(
 		'parent' => 'appearance',
-		'id' => 'plugins',
-		'title' => __('Plugins'),
-		'href' => admin_url('plugins.php')
+		'id'     => 'plugins',
+		'title'  => __('Plugins'),
+		'href'   => admin_url('plugins.php'),
 	);
 
 	$wp_admin_bar->add_node( $node );

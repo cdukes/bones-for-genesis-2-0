@@ -90,13 +90,14 @@ function bfg_wp_mail_from() {
 function bfg_force_mandrill_payload_to_html( $message ) {
 
 	$message['html'] = wpautop($message['html']);
+
 	return $message;
 
 }
 
 add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message' );
 /**
- * Remove the brackets from the retreive PW link, since they get hidden on HTML
+ * Remove the brackets from the retreive PW link, since they get hidden on HTML.
  *
  * @since 2.2.24
  */
@@ -108,7 +109,7 @@ function bfg_cleanup_retrieve_password_message( $message ) {
 
 add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
 /**
- * Removes the WP icon from the admin bar
+ * Removes the WP icon from the admin bar.
  *
  * See: http://wp-snippets.com/remove-wordpress-logo-admin-bar/
  *
@@ -123,7 +124,7 @@ function bfg_remove_wp_icon_from_admin_bar() {
 
 // add_filter( 'admin_footer_text', 'bfg_admin_footer_text' );
 /**
- * Modify the admin footer text
+ * Modify the admin footer text.
  *
  * See: http://wp-snippets.com/change-footer-text-in-wp-admin/
  *

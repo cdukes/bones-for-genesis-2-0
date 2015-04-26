@@ -4,13 +4,13 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // add_action( 'admin_enqueue_scripts', 'bfg_load_admin_stylesheets_and_scripts' );
 /**
- * Enqueue admin CSS and JS files
+ * Enqueue admin CSS and JS files.
  *
  * @since 2.3.2
  */
 function bfg_load_admin_stylesheets_and_scripts() {
 
-	$stylesheet_dir = get_stylesheet_directory_uri();
+	$stylesheet_dir        = get_stylesheet_directory_uri();
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
 
@@ -39,7 +39,7 @@ function bfg_disable_self_pings( &$links ) {
 }
 
 /**
- * Change WP JPEG compression (WP default is 90%)
+ * Change WP JPEG compression (WP default is 90%).
  *
  * See: http://wpmu.org/how-to-change-jpeg-compression-in-wordpress/
  *
@@ -48,7 +48,7 @@ function bfg_disable_self_pings( &$links ) {
 // add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 
 /**
- * Add new image sizes
+ * Add new image sizes.
  *
  * See: http://wptheming.com/2014/04/features-wordpress-3-9/
  *
@@ -58,7 +58,7 @@ function bfg_disable_self_pings( &$links ) {
 
 // add_filter( 'image_size_names_choose', 'bfg_image_size_names_choose' );
 /**
- * Add new image sizes to media size selection menu
+ * Add new image sizes to media size selection menu.
  *
  * See: http://wpdaily.co/top-10-snippets/
  *
@@ -67,12 +67,13 @@ function bfg_disable_self_pings( &$links ) {
 function bfg_image_size_names_choose( $sizes ) {
 
 	$sizes['desktop-size'] = 'Desktop';
+
 	return $sizes;
 
 }
 
 /**
- * List available image sizes with width and height
+ * List available image sizes with width and height.
  *
  * See: http://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
  *
@@ -83,19 +84,20 @@ function bfg_get_image_sizes( $size = '' ) {
 	global $_wp_additional_image_sizes;
 
 	$sizes = array();
+
 	$get_intermediate_image_sizes = get_intermediate_image_sizes();
 
 	// Create the full array with sizes and crop info
 	foreach( $get_intermediate_image_sizes as $_size ) {
-		if( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
-			$sizes[$_size]['width'] = get_option( $_size . '_size_w' );
+		if( in_array( $_size, array('thumbnail', 'medium', 'large'), true ) ) {
+			$sizes[$_size]['width']  = get_option( $_size . '_size_w' );
 			$sizes[$_size]['height'] = get_option( $_size . '_size_h' );
-			$sizes[$_size]['crop'] = (bool) get_option( $_size . '_crop' );
+			$sizes[$_size]['crop']   = (bool) get_option( $_size . '_crop' );
 		} elseif ( isset( $_wp_additional_image_sizes[$_size] ) ) {
 			$sizes[$_size] = array(
-				'width' => $_wp_additional_image_sizes[$_size]['width'],
+				'width'  => $_wp_additional_image_sizes[$_size]['width'],
 				'height' => $_wp_additional_image_sizes[$_size]['height'],
-				'crop' => $_wp_additional_image_sizes[$_size]['crop']
+				'crop'   => $_wp_additional_image_sizes[$_size]['crop'],
 			);
 		}
 	}
@@ -108,7 +110,43 @@ function bfg_get_image_sizes( $size = '' ) {
 
 }
 
-/**
+/*
+ * Downsize the original uploaded image if it's too large
+ *
+ * See: https://wordpress.stackexchange.com/questions/63707/automatically-replace-original-uploaded-image-with-large-image-size
+ *
+ * @since 2.3.6
+ */
+// add_filter( 'wp_generate_attachment_metadata', 'bfg_downsize_uploaded_image', 99 );
+function bfg_downsize_uploaded_image( $image_data ) {
+
+	$max_image_size_name = 'large';
+
+	// Abort if no max image
+	if( !isset($image_data['sizes'][$max_image_size_name]) )
+		return $image_data;
+
+	// paths to the uploaded image and the max image
+	$upload_dir              = wp_upload_dir();
+	$uploaded_image_location = $upload_dir['basedir'] . '/' . $image_data['file'];
+	$max_image_location      = $upload_dir['path'] . '/' . $image_data['sizes'][$max_image_size_name]['file'];
+
+	// Delete original image
+	unlink($uploaded_image_location);
+
+	// Rename max image to original image
+	rename( $max_image_location, $uploaded_image_location );
+
+	// Update and return image metadata
+	$image_data['width']  = $image_data['sizes'][$max_image_size_name]['width'];
+	$image_data['height'] = $image_data['sizes'][$max_image_size_name]['height'];
+	unset($image_data['sizes'][$max_image_size_name]);
+
+	return $image_data;
+
+}
+
+/*
  * Activate the Link Manager
  *
  * See: http://wordpressexperts.net/how-to-activate-link-manager-in-wordpress-3-5/
@@ -117,7 +155,7 @@ function bfg_get_image_sizes( $size = '' ) {
  */
 // add_filter( 'pre_option_link_manager_enabled', '__return_true' );		// Activate
 
-/**
+/*
  * Disable pingbacks
  *
  * See: http://wptavern.com/how-to-prevent-wordpress-from-participating-in-pingback-denial-of-service-attacks
@@ -130,11 +168,12 @@ add_filter( 'xmlrpc_methods', 'bfg_remove_xmlrpc_pingback_ping' );
 function bfg_remove_xmlrpc_pingback_ping( $methods ) {
 
 	unset($methods['pingback.ping']);
+
 	return $methods;
 
 };
 
-/**
+/*
  * Disable XML-RPC
  *
  * See: https://wordpress.stackexchange.com/questions/78780/xmlrpc-enabled-filter-not-called
@@ -143,7 +182,7 @@ function bfg_remove_xmlrpc_pingback_ping( $methods ) {
  */
 // if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;
 
-/**
+/*
  * Automatically remove readme.html (and optionally xmlrpc.php) after a WP core update
  *
  * @since 2.2.26

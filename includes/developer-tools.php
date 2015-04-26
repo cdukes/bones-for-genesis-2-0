@@ -34,7 +34,7 @@ function bfg_maintenance_mode() {
 
 add_action( 'admin_bar_menu', 'bfg_clear_transients_node', 99 );
 /**
- * Clear all transients with one click
+ * Clear all transients with one click.
  *
  * @since 2.2.9
  */
@@ -45,17 +45,17 @@ function bfg_clear_transients_node( $wp_admin_bar ) {
 
 	global $wpdb;
 
-	if( isset($_GET['clear-transients']) && 1 == $_GET['clear-transients'] ) {
+	if( isset($_GET['clear-transients']) && 1 === (int) $_GET['clear-transients'] ) {
 		$wpdb->query( "DELETE FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%') OR `option_name` LIKE ('_transient_timeout_%')" );
 	}
 
 	$count = $wpdb->query( "SELECT `option_name` FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%')" );
 
 	$args = array(
-		'id' => 'clear-transients',
-		'title' => 'Clear Transients (' . $count . ')',
+		'id'     => 'clear-transients',
+		'title'  => 'Clear Transients (' . $count . ')',
 		'parent' => 'site-name',
-		'href' => get_admin_url() . '?clear-transients=1'
+		'href'   => get_admin_url() . '?clear-transients=1',
 	);
 
 	$wp_admin_bar->add_node( $args );

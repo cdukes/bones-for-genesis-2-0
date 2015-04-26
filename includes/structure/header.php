@@ -2,7 +2,7 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
+/*
  * Cleanup <head>
  *
  * @since 2.0.0
@@ -19,7 +19,7 @@ remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
 remove_action( 'genesis_doctype', 'genesis_do_doctype' );
 add_action( 'genesis_doctype', 'bfg_do_doctype' );
 /**
- * Overrides the default Genesis doctype with IE and JS identifier classes
+ * Overrides the default Genesis doctype with IE and JS identifier classes.
  *
  * See: http://html5boilerplate.com/
  *
@@ -77,7 +77,7 @@ function bfg_load_stylesheets() {
 
 add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
 /**
- * Load scripts
+ * Load scripts.
  *
  * Only load these scripts on the front-end.
  *
@@ -88,7 +88,7 @@ function bfg_load_scripts() {
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
 
-	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & get_option( 'thread_comments' ) == 1 && !is_front_page() ) {
+	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & (int) get_option( 'thread_comments' ) === 1 && !is_front_page() ) {
 		wp_enqueue_script( 'comment-reply' );
 	} else {
 		wp_dequeue_script( 'comment-reply' );
@@ -101,16 +101,16 @@ function bfg_load_scripts() {
 	add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 	// Main script file (in footer)
-	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
+	$src            = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	$stylesheet_dir = get_stylesheet_directory_uri();
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array( 'jquery' ), null, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), null, true );
 	wp_localize_script(
 		'bfg',
 		'grunticon_paths',
 		array(
-			'svg' => $stylesheet_dir . '/build/svgs/icons.data.svg.css',
-			'png' => $stylesheet_dir . '/build/svgs/icons.data.png.css',
-			'fallback' => $stylesheet_dir . '/build/svgs/icons.fallback.css'
+			'svg'      => $stylesheet_dir . '/build/svgs/icons.data.svg.css',
+			'png'      => $stylesheet_dir . '/build/svgs/icons.data.png.css',
+			'fallback' => $stylesheet_dir . '/build/svgs/icons.fallback.css',
 		)
 	);
 	// wp_localize_script( 'bfg', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
@@ -142,7 +142,7 @@ function bfg_ie_style_conditionals( $tag, $handle ) {
 
 add_filter( 'script_loader_tag', 'bfg_ie_script_conditionals', 10, 3 );
 /**
- * Conditionally load jQuery v1 on old IE
+ * Conditionally load jQuery v1 on old IE.
  *
  * @since 2.3.1
  */
@@ -154,8 +154,8 @@ function bfg_ie_script_conditionals( $tag, $handle, $src ) {
 
 		$use_production_assets = genesis_get_option('bfg_production_on');
 		$use_production_assets = !empty($use_production_assets);
-		$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
-		$fallback_script = '<script type="text/javascript" src="' . $src . '"></script>';
+		$src                   = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
+		$fallback_script       = '<script type="text/javascript" src="' . $src . '"></script>';
 		$output .= '<!--[if lte IE 8]>' . "\n" . $fallback_script . '<![endif]-->' . "\n";
 	} else {
 		$output = $tag;
@@ -165,7 +165,7 @@ function bfg_ie_script_conditionals( $tag, $handle, $src ) {
 
 }
 
-/**
+/*
  * jQuery local fallback, if Google CDN is unreachable
  *
  * See: https://github.com/roots/roots/blob/aa59cede7fbe2b853af9cf04e52865902d2ff1a9/lib/scripts.php#L37-L52
@@ -192,7 +192,7 @@ function bfg_jquery_local_fallback( $src, $handle = null ) {
 
 // add_filter( 'genesis_pre_load_favicon', 'bfg_pre_load_favicon' );
 /**
- * Simple favicon override to specify your favicon's location
+ * Simple favicon override to specify your favicon's location.
  *
  * @since 2.0.0
  */
@@ -205,7 +205,7 @@ function bfg_pre_load_favicon() {
 // remove_action( 'wp_head', 'genesis_load_favicon' );
 // add_action( 'wp_head', 'bfg_load_favicons' );
 /**
- * Show the best favicon, within reason
+ * Show the best favicon, within reason.
  *
  * See: http://www.jonathantneal.com/blog/understand-the-favicon/
  *
@@ -240,14 +240,14 @@ function bfg_load_favicons() {
 
 }
 
-/**
+/*
  * Remove the header
  *
  * @since 2.0.9
  */
 // remove_action( 'genesis_header', 'genesis_do_header' );
 
-/**
+/*
  * Remove the site title and/or description
  *
  * @since 2.0.9

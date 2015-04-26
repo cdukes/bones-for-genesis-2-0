@@ -6,7 +6,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	Template Name: Custom Template Starter
 */
 
-/**
+/*
  * Add a custom body class to this page template. A nicer CSS hook than the WP template default
  *
  * @since 2.0.8
@@ -15,11 +15,12 @@ add_filter( 'body_class', 'bfg_custom_template_body_class' );
 function bfg_custom_template_body_class( $classes ) {
 
 	$classes[] = 'landing';
+
 	return $classes;
 
 }
 
-/**
+/*
  * Force a layout setting for the page
  *
  * See: http://www.briangardner.com/code/force-layout-setting/

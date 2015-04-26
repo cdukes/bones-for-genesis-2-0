@@ -2,14 +2,14 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
+/*
  * Force HTML5
  *
  * See: http://www.briangardner.com/code/add-html5-markup/
  *
  * @since 2.0.0
  */
-add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption') );
 
 /**
  * Adds <meta> tags for mobile responsiveness.
@@ -21,21 +21,21 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // add_theme_support( 'genesis-responsive-viewport' );
 
 /**
- * Add support for custom backgrounds
+ * Add support for custom backgrounds.
  *
  * @since 2.0.2
  */
 // add_theme_support( 'custom-background' );
 
 /**
- * Add support for a custom header
+ * Add support for a custom header.
  *
  * @since 2.0.9
  */
 // add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 100 ) );
 
 /**
- * Add Genesis post format support
+ * Add Genesis post format support.
  *
  * @since 2.0.9
  */
@@ -53,14 +53,14 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // add_theme_support( 'genesis-post-format-images' );
 
 /**
- * Add Genesis footer widget areas
+ * Add Genesis footer widget areas.
  *
  * @since 2.0.1
  */
 // add_theme_support( 'genesis-footer-widgets', 3 );
 
 /**
- * Add Genesis theme color scheme selection theme option
+ * Add Genesis theme color scheme selection theme option.
  *
  * @since 2.0.11
  */
@@ -73,7 +73,7 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // );
 
 /**
- * Declare WooCommerce support, using Genesis Connect for WooCommerce
+ * Declare WooCommerce support, using Genesis Connect for WooCommerce.
  *
  * See: http://wordpress.org/plugins/genesis-connect-woocommerce/
  *
@@ -82,7 +82,7 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // add_theme_support( 'genesis-connect-woocommerce' );
 
 /**
- * Unregister default Genesis layouts
+ * Unregister default Genesis layouts.
  *
  * @since 1.x
  */
@@ -94,7 +94,7 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // genesis_unregister_layout( 'full-width-content' );
 
 /**
- * Unregister default Genesis sidebars
+ * Unregister default Genesis sidebars.
  *
  * @since 1.x
  */
@@ -103,7 +103,7 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // unregister_sidebar( 'sidebar' );
 
 /**
- * Unregister default Genesis menus and add your own
+ * Unregister default Genesis menus and add your own.
  *
  * @since 2.0.18
  */
@@ -156,7 +156,7 @@ function bfg_remove_scripts_meta_boxes() {
 
 }
 
-/**
+/*
  * Disable Genesis SEO
  *
  * @since 2.0.22
@@ -176,7 +176,7 @@ function bfg_maybe_disable_genesis_seo() {
 
 }
 
-/**
+/*
  * Use HTML5 semantic headings
  *
  * @since 2.3.4

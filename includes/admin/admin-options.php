@@ -4,7 +4,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // add_action( 'genesis_theme_settings_metaboxes', 'bfg_remove_theme_settings_metaboxes' );
 /**
- * Remove some or all of the options metaboxes in Dashboard > Genesis > Theme Settings
+ * Remove some or all of the options metaboxes in Dashboard > Genesis > Theme Settings.
  *
  * See: http://genesissnippets.com/remove-unused-theme-settings-metaboxes/
  *
@@ -27,17 +27,17 @@ function bfg_remove_theme_settings_metaboxes( $_genesis_theme_settings_pagehook 
 
 add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
 /**
- * Set default values for custom theme options
+ * Set default values for custom theme options.
  *
  * @since 2.3.0
  */
 function bfg_theme_settings_defaults( $defaults ) {
 
-	$defaults['bfg_production_on'] = false;
-	$defaults['content_archive'] = 'excerpts';
+	$defaults['bfg_production_on']         = false;
+	$defaults['content_archive']           = 'excerpts';
 	$defaults['content_archive_thumbnail'] = 1;
-	$defaults['image_size'] = 'thumbnail';
-	$defaults['trackbacks_posts'] = 0;
+	$defaults['image_size']                = 'thumbnail';
+	$defaults['trackbacks_posts']          = 0;
 
 	return $defaults;
 
@@ -45,7 +45,7 @@ function bfg_theme_settings_defaults( $defaults ) {
 
 add_action( 'genesis_settings_sanitizer_init', 'bfg_settings_sanitizer' );
 /**
- * Set filters for custom theme options
+ * Set filters for custom theme options.
  *
  * @since 2.3.0
  */
@@ -63,7 +63,7 @@ function bfg_settings_sanitizer() {
 
 add_action( 'genesis_theme_settings_metaboxes', 'bfg_theme_settings_metaboxes' );
 /**
- * Add meta boxes for custom theme options
+ * Add meta boxes for custom theme options.
  *
  * @since 2.3.0
  */
@@ -81,7 +81,7 @@ function bfg_theme_settings_metaboxes( $pagehook ) {
 }
 
 /**
- * Render the 'Environment' meta box
+ * Render the 'Environment' meta box.
  *
  * @since 2.3.0
  */
