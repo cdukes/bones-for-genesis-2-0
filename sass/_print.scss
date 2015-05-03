@@ -1,12 +1,15 @@
 @media print {
-	* {
+	*,
+	*:before,
+	*:after {
 		background: transparent !important;
 		filter: none !important;
-		color: black !important;
+		box-shadow: none !important;
+		color: black !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
 		text-shadow: none !important;
 	}
 
-	a:link,
+	a,
 	a:visited {
 		color: black !important;
 		text-decoration: underline;
@@ -18,16 +21,29 @@
 		page-break-inside: avoid;
 	}
 
-	@page {
-		margin-top: .75in;
-		margin-bottom: .75in;
+	/*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+	thead {
+		display: table-header-group;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
 	}
 
 	p,
 	h2,
 	h3 {
-		orphans: 2;
-		widows: 2;
+		orphans: 3;
+		widows: 3;
 	}
 
 	h2,
@@ -74,8 +90,13 @@
 			content: ' (' attr(title) ')';
 		}
 
+		/*
+	     * Don't show links that are fragment identifiers,
+	     * or use the `javascript:` pseudo protocol
+	     */
+
 		a[href^='#']:after,
-		a[href^='javascript']:after {
+		a[href^='javascript:']:after {
 			content: '';
 		}
 	}

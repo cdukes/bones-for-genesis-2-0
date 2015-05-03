@@ -17,6 +17,10 @@ video {
 	vertical-align: middle;
 }
 
+figure {
+	margin: 0;
+}
+
 img {
 	width: auto;
 	height: auto; // IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images

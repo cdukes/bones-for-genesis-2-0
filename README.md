@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.7 (May 3, 2015)
+- Remove `<meta http-equiv="cleartype" content="on">` from `<head>`
+- Add `<meta name="format-detection" content="telephone=no">` (disabled by default)
+- Remove `figure` and `blockquote` margins
+- Remove `Picturefill` script
+- Update `@media print` styles from [HTML5 Boilerplate](https://html5boilerplate.com/)
+
 ### 2.3.6 (April 26, 2015)
 - Configure and run [PHP Coding Standards Fixer](http://cs.sensiolabs.org/)
 - Added `bfg_downsize_uploaded_image`, which will reduce the *original* uploaded image to the specified size (disabled by default)

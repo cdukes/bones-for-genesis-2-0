@@ -71,7 +71,6 @@ module.exports = function(grunt) {
 					'bower_components/jquery.cookie/jquery.cookie.js',
 					'bower_components/jquery.fitvids/jquery.fitvids.js',
 					'bower_components/jquery-placeholder/jquery.placeholder.js',
-					'bower_components/picturefill/dist/picturefill.js',
 					'bower_components/superfish/dist/js/superfish.js',
 					'bower_components/svgeezy/svgeezy.js',
 					'build/svgs/grunticon.loader.js',

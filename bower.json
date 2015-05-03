@@ -14,7 +14,6 @@
     "jquery.cookie": "carhartl/jquery-cookie",
     "jquery.fitvids": "davatron5000/FitVids.js",
     "normalize-scss": "*",
-    "picturefill": "*",
     "superfish": "*",
     "svgeezy": "*"
   }
