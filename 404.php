@@ -3,7 +3,7 @@
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 remove_action( 'genesis_loop_else', 'genesis_do_noposts' );
-remove_action( 'genesis_loop', 'genesis_404' );
+remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action( 'genesis_loop', 'bfg_404' );
 /**
  * Better default 404 text.
@@ -54,7 +54,7 @@ function bfg_404() {
 					<strong>If you typed in a URL...</strong> make sure the spelling, cApitALiZaTiOn, and punctuation are correct. Then, try reloading the page.
 				</li>
 				<li>
-					<strong>Start over again</strong> at the <a href="<?php get_bloginfo('url');?>">homepage</a> (and please contact us to say what went wrong, so we can fix it).
+					<strong>Start over again</strong> at the <a href="<?php echo get_bloginfo('url');?>">homepage</a> (and please contact us to say what went wrong, so we can fix it).
 				</li>
 			</ol>
 			<?php

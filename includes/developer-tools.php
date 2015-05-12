@@ -47,13 +47,14 @@ function bfg_clear_transients_node( $wp_admin_bar ) {
 
 	if( isset($_GET['clear-transients']) && 1 === (int) $_GET['clear-transients'] ) {
 		$wpdb->query( "DELETE FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%') OR `option_name` LIKE ('_transient_timeout_%')" );
+		wp_cache_flush();
 	}
 
 	$count = $wpdb->query( "SELECT `option_name` FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%')" );
 
 	$args = array(
 		'id'     => 'clear-transients',
-		'title'  => 'Clear Transients (' . $count . ')',
+		'title'  => !empty($count) ? 'Clear Transients (' . $count . ')' : 'Clear Transients',
 		'parent' => 'site-name',
 		'href'   => get_admin_url() . '?clear-transients=1',
 	);

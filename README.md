@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.8 (May 12, 2015)
+- Highlight non-breaking spaces in drafts to give the author a chance to correct them
+- Letterspace strings of capitals
+- Link numerical expressions with hard spaces
+- Also flush cache in `bfg_clear_transients_node`
+- 404 template fixes
+
 ### 2.3.7 (May 3, 2015)
 - Remove `<meta http-equiv="cleartype" content="on">` from `<head>`
 - Add `<meta name="format-detection" content="telephone=no">` (disabled by default)

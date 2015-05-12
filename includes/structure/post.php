@@ -147,3 +147,59 @@ function bfg_password_form( $post = 0 ) {
 	return $output;
 
 }
+
+add_filter( 'the_content', 'bfg_highlight_non_breaking_spaces' );
+/*
+ * Highlight non-breaking spaces in drafts to give the author a chance to correct them
+ *
+ * @since 2.3.8
+ */
+function bfg_highlight_non_breaking_spaces( $content ) {
+
+	global $post;
+
+	// Stop if post is published
+	$unpublished_statuses = array( 'pending', 'draft', 'future' );
+	if( !in_array( $post->post_status, $unpublished_statuses, true ) )
+		return $content;
+
+	// Stop if user can't edit post
+	if( !current_user_can( 'edit_post', $post->ID ) )
+		return $content;
+
+	// Highlight non-breaking spaces
+	return str_replace('&nbsp;', '<mark title="Non-breaking space">&nbsp;</mark>', $content);
+
+}
+
+add_filter( 'the_content', 'bfg_letterspace_abbreviations' );
+/*
+ * Letterspace all strings of capitals and small caps, and all long strings of digits
+ *
+ * See: http://webtypography.net/2.1.6
+ *
+ * @since 2.3.8
+ */
+function bfg_letterspace_abbreviations( $content ) {
+
+	$search  = '/\b([A-Z][A-Z0-9]{2,})\b/';
+	$replace = '<abbr>$1</abbr>';
+	return preg_replace( $search, $replace, $content );
+
+}
+
+add_filter( 'the_content', 'bfg_hard_space_expressions' );
+/*
+ * Link short numerical and mathematical expressions with hard spaces
+ *
+ * See: http://webtypography.net/2.4.6
+ *
+ * @since 2.3.8
+ */
+function bfg_hard_space_expressions( $content ) {
+
+	$search  = '/([0-9]) ([a-zA-Z])/';
+	$replace = '$1&nbsp;$2';
+	return preg_replace( $search, $replace, $content );
+
+}
