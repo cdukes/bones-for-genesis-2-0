@@ -58,9 +58,12 @@ function bfg_load_stylesheets() {
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
 
+	$assets_version = genesis_get_option('bfg_assets_version');
+	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+
 	// Main theme stylesheet
 	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';
-	wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . $src, array(), null );
+	wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . $src, array(), $assets_version );
 
 	// Fallback for old IE
 	wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
@@ -88,6 +91,9 @@ function bfg_load_scripts() {
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
 
+	$assets_version = genesis_get_option('bfg_assets_version');
+	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+
 	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & (int) get_option( 'thread_comments' ) === 1 && !is_front_page() ) {
 		wp_enqueue_script( 'comment-reply' );
 	} else {
@@ -103,7 +109,7 @@ function bfg_load_scripts() {
 	// Main script file (in footer)
 	$src            = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	$stylesheet_dir = get_stylesheet_directory_uri();
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), null, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
 	wp_localize_script(
 		'bfg',
 		'grunticon_paths',

@@ -127,6 +127,11 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.9 (May 28, 2015)
+- Run `autoprefixer` in `grunt:default`
+- Add a `Assets Version Number` field to Genesis options, for cache busting
+- Disable `text-rendering: optimizeLegibility;`, per [this article](http://bocoup.com/weblog/text-rendering/)
+
 ### 2.3.8 (May 12, 2015)
 - Highlight non-breaking spaces in drafts to give the author a chance to correct them
 - Letterspace strings of capitals

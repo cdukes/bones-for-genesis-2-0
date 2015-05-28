@@ -34,6 +34,7 @@ add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
 function bfg_theme_settings_defaults( $defaults ) {
 
 	$defaults['bfg_production_on']         = false;
+	$defaults['bfg_assets_version']        = null;
 	$defaults['content_archive']           = 'excerpts';
 	$defaults['content_archive_thumbnail'] = 1;
 	$defaults['image_size']                = 'thumbnail';
@@ -56,6 +57,14 @@ function bfg_settings_sanitizer() {
 		GENESIS_SETTINGS_FIELD,
 		array(
 			'bfg_production_on',
+		)
+	);
+
+	genesis_add_option_filter(
+		'absint',
+		GENESIS_SETTINGS_FIELD,
+		array(
+			'bfg_assets_version',
 		)
 	);
 
@@ -90,8 +99,21 @@ function bfg_environment_settings_box() {
 	?>
 	<p>
 		<label>
-			<input type="checkbox" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" value="1" <?php checked( genesis_get_option('bfg_production_on'), 1 ); ?> />
+			<input type="checkbox" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" value="1" <?php checked( genesis_get_option('bfg_production_on'), 1 ); ?> >
 		<?php _e( 'Use Production Assets?', 'bfg' ); ?></label>
+	</p>
+
+	<p>
+		<label>
+			<?php _e( 'Assets Version Number:', 'bfg' ); ?><br>
+			<input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]" value="<?php echo esc_attr( genesis_get_option('bfg_assets_version') ); ?>" class="regular-text" id="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]">
+		</label>
+	</p>
+
+	<p>
+		<span class="description">
+			Add or change the value here to force users' browsers to re-download the theme CSS/JS.
+		</span>
 	</p>
 	<?php
 
