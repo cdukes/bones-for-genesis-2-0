@@ -4,11 +4,10 @@ body {
 }
 
 body {
-	// text-rendering: optimizeLegibility; // May break certain @font-face fonts. Use `text-rendering: auto;` to selectively undo.
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	-moz-font-feature-settings: 'liga' on;
+	font-variant-ligatures: common-ligatures;
 }
 
 a,

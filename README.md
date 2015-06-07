@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.10 (June 7, 2015)
+- Add `font-variant-ligatures` attribute
+- Update `jQuery`
+
 ### 2.3.9 (May 28, 2015)
 - Run `autoprefixer` in `grunt:default`
 - Add a `Assets Version Number` field to Genesis options, for cache busting
