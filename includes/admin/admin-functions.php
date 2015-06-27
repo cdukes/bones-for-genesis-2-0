@@ -66,7 +66,7 @@ function bfg_disable_self_pings( &$links ) {
  */
 function bfg_image_size_names_choose( $sizes ) {
 
-	$sizes['desktop-size'] = 'Desktop';
+	$sizes['desktop-size'] = __( 'Desktop', CHILD_THEME_TEXT_DOMAIN );
 
 	return $sizes;
 
@@ -180,7 +180,7 @@ function bfg_remove_xmlrpc_pingback_ping( $methods ) {
  *
  * @since 2.2.12
  */
-// if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;
+if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;
 
 /*
  * Automatically remove readme.html (and optionally xmlrpc.php) after a WP core update
@@ -193,7 +193,7 @@ function bfg_remove_files_on_upgrade() {
 	if( file_exists(ABSPATH . 'readme.html') )
 		unlink(ABSPATH . 'readme.html');
 
-	// if( file_exists(ABSPATH . 'xmlrpc.php') )
-	// 	unlink(ABSPATH . 'xmlrpc.php');
+	if( file_exists(ABSPATH . 'xmlrpc.php') )
+		unlink(ABSPATH . 'xmlrpc.php');
 
 }

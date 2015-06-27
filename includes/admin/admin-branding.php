@@ -132,6 +132,11 @@ function bfg_remove_wp_icon_from_admin_bar() {
  */
 function bfg_admin_footer_text() {
 
-	return 'YOUR TEXT HERE.';
+	$text = __( 'Built by <a href="%s" target="_blank">Cooper Dukes @INNEO</a>', CHILD_THEME_TEXT_DOMAIN );
+	$text = sprintf(
+		$text,
+		'https://inneosg.com'
+	);
+	return $text;
 
 }

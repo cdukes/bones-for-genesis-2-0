@@ -127,6 +127,18 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.11 (June 27, 2015)
+- Remove `bfg_custom_template_body_class` from `page_custom.php`. (I like using the auto-generated template `<body>` classes.)
+- Make theme strings translatable, with a consistent `CHILD_THEME_TEXT_DOMAIN` domain
+- Add `bfg_schema_empty()` and hooks to remove some schema attributes added by Genesis (disabled by default)
+- Set default credit text for `bfg_admin_footer_text()`
+- Block XMLRPC_REQUEST by default and delete `xmlrpc.php` on core upgrade
+- Better, environment-aware `add_editor_style()`, disabled by default
+- Remove `bfg_query_stats()` and `bfg_maintenance_mode()` helper functions. There are much better plugins for both.
+- Disable comment feed RSS in `<head>` by default
+- Remove `<meta name="referrer" content="origin">`, since it causes a redirect bug with password-protected posts
+- Use WordPress SEO's breadcrumbs when available, falling back to Genesis's method
+
 ### 2.3.10 (June 7, 2015)
 - Add `font-variant-ligatures` attribute
 - Update `jQuery`

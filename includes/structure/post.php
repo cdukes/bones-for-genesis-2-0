@@ -31,7 +31,7 @@ function bfg_gallery_style( $css ) {
  */
 function bfg_more_tag_excerpt_link() {
 
-	return ' <a class="more-link" href="' . get_permalink() . '">Read more &rarr;</a>';
+	return ' <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', CHILD_THEME_TEXT_DOMAIN ) . '</a>';
 
 }
 
@@ -46,7 +46,7 @@ function bfg_more_tag_excerpt_link() {
  */
 function bfg_truncated_excerpt_link() {
 
-	return '... <a class="more-link" href="' . get_permalink() . '">Read more &rarr;</a>';
+	return '... <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', CHILD_THEME_TEXT_DOMAIN ) . '</a>';
 
 }
 
@@ -61,7 +61,7 @@ function bfg_truncated_excerpt_link() {
  */
 function bfg_post_info() {
 
-	return '[post_date] by [post_author_posts_link] [post_comments] [post_edit]';
+	return '[post_date] ' . __( 'by', CHILD_THEME_TEXT_DOMAIN ) . ' [post_author_posts_link] [post_comments] [post_edit]';
 	// Friendly note: use [post_author] to return the author's name, without an archive link
 
 }
@@ -77,7 +77,7 @@ function bfg_post_info() {
  */
 function bfg_post_meta() {
 
-	return '[post_categories before="Filed Under: "] [post_tags before="Tagged: "]';
+	return '[post_categories before="' . __( 'Filed Under: ', CHILD_THEME_TEXT_DOMAIN ) . '"] [post_tags before="' . __( 'Tagged: ', CHILD_THEME_TEXT_DOMAIN ) . '"]';
 
 }
 
@@ -140,8 +140,8 @@ function bfg_password_form( $post = 0 ) {
 	$post   = get_post( $post );
 	$label  = 'pwbox-' . ( empty($post->ID) ? rand() : $post->ID );
 	$output = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
-		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="Password">';
-		$output .= '<input type="submit" name="Submit" value="' . esc_attr__( 'Submit' ) . '">';
+		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="' . __( 'Password', CHILD_THEME_TEXT_DOMAIN ) . '">';
+		$output .= '<input type="submit" name="' . __( 'Submit', CHILD_THEME_TEXT_DOMAIN ) . '" value="' . esc_attr__( 'Submit' ) . '">';
 	$output .= '</form>';
 
 	return $output;
@@ -168,7 +168,7 @@ function bfg_highlight_non_breaking_spaces( $content ) {
 		return $content;
 
 	// Highlight non-breaking spaces
-	return str_replace('&nbsp;', '<mark title="Non-breaking space">&nbsp;</mark>', $content);
+	return str_replace('&nbsp;', '<mark title="' . __( 'Non-breaking space', CHILD_THEME_TEXT_DOMAIN ) . '">&nbsp;</mark>', $content);
 
 }
 

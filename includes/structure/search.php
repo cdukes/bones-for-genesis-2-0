@@ -12,7 +12,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function bfg_search_text() {
 
-	return esc_attr( 'Search Text Goes Here...' );
+	return esc_attr( __( 'Search Text Goes Here...', CHILD_THEME_TEXT_DOMAIN ) );
 
 }
 
@@ -26,7 +26,7 @@ function bfg_search_text() {
  */
 function bfg_search_button_text( $text ) {
 
-	return esc_attr( 'Click Here...' );
+	return esc_attr( __( 'Click Here...', CHILD_THEME_TEXT_DOMAIN ) );
 
 }
 

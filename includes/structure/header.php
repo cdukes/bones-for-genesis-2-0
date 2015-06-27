@@ -13,8 +13,8 @@ remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start post rel l
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacent post rel link
 remove_action( 'wp_head', 'wp_generator' );								// WP Version
 remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
-// remove_action( 'wp_head', 'feed_links', 2 ); // Remove feed links
-// remove_action( 'wp_head', 'feed_links_extra', 3 ); // Remove comment feed links
+// remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
+remove_action( 'wp_head', 'feed_links_extra', 3 ); 						// Remove comment feed links
 
 remove_action( 'genesis_doctype', 'genesis_do_doctype' );
 add_action( 'genesis_doctype', 'bfg_do_doctype' );
@@ -36,7 +36,6 @@ function bfg_do_doctype() {
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- <meta name="format-detection" content="telephone=no"> -->
-<!-- <meta name="referrer" content="origin"> -->
 <?php
 	} else {
 		genesis_xhtml_doctype();

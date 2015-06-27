@@ -80,7 +80,7 @@ function bfg_theme_settings_metaboxes( $pagehook ) {
 
 	add_meta_box(
 		'bfg-environment-settings',
-		'Environment',
+		__( 'Environment', CHILD_THEME_TEXT_DOMAIN ),
 		'bfg_environment_settings_box',
 		$pagehook,
 		'main',
@@ -100,19 +100,19 @@ function bfg_environment_settings_box() {
 	<p>
 		<label>
 			<input type="checkbox" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" value="1" <?php checked( genesis_get_option('bfg_production_on'), 1 ); ?> >
-		<?php _e( 'Use Production Assets?', 'bfg' ); ?></label>
+		<?php _e( 'Use Production Assets?', CHILD_THEME_TEXT_DOMAIN ); ?></label>
 	</p>
 
 	<p>
 		<label>
-			<?php _e( 'Assets Version Number:', 'bfg' ); ?><br>
+			<?php _e( 'Assets Version Number:', CHILD_THEME_TEXT_DOMAIN ); ?><br>
 			<input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]" value="<?php echo esc_attr( genesis_get_option('bfg_assets_version') ); ?>" class="regular-text" id="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]">
 		</label>
 	</p>
 
 	<p>
 		<span class="description">
-			Add or change the value here to force users' browsers to re-download the theme CSS/JS.
+			<?php _e( "Add or change the value here to force users' browsers to re-download the theme CSS/JS.", CHILD_THEME_TEXT_DOMAIN ); ?><br>
 		</span>
 	</p>
 	<?php

@@ -126,12 +126,20 @@ function bfg_restrict_attachment_viewing( $where ) {
 
 }
 
+// add_action( 'admin_init', 'bfg_add_editor_style' );
 /*
  * Add a stylesheet for TinyMCE
  *
  * @since 2.0.0
  */
-// add_editor_style( 'css/editor-style.css' );
+function bfg_add_editor_style() {
+
+	$use_production_assets = genesis_get_option('bfg_production_on');
+	$use_production_assets = !empty($use_production_assets);
+	$src                   = $use_production_assets ? '/build/css/editor-style.min.css' : '/build/css/editor-style.css';
+	add_editor_style( get_stylesheet_directory_uri() . $src );
+
+}
 
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 /**
@@ -214,7 +222,7 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  */
 function bfg_login_errors() {
 
-	return 'Invalid username or password.';
+	return __( 'Invalid username or password.', CHILD_THEME_TEXT_DOMAIN );
 
 }
 
@@ -268,7 +276,7 @@ function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
 	$node = array(
 		'parent' => 'appearance',
 		'id'     => 'plugins',
-		'title'  => __('Plugins'),
+		'title'  => __( 'Plugins', CHILD_THEME_TEXT_DOMAIN ),
 		'href'   => admin_url('plugins.php'),
 	);
 
