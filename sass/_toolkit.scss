@@ -78,7 +78,7 @@
 %type {
 	margin-bottom: 1.5em;
 	text-overflow: ellipsis;
-	word-break: break-word;
+	word-wrap: break-word;
 	hyphens: auto;
 	letter-spacing: .01rem;
 	line-height: 1.5;

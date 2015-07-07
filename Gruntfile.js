@@ -37,6 +37,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		csslint: {
+			build: {
+				options: {
+					csslintrc: '.csslintrc'
+				},
+				src: [
+					'build/css/style.css',
+					'build/css/admin.css'
+				]
+			}
+		},
+
 		grunticon: {
 			options: {
 				compressPNG: true
@@ -177,6 +189,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -189,6 +202,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 
 	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'imagemin', 'autoprefixer', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'sass', 'grunticon', 'jshint', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'sass', 'csslint', 'grunticon', 'jshint', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso']);
 
 };

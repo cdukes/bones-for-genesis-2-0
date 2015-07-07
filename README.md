@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.12 (July 7, 2015)
+- Fix use of `word-break` to properly wrap overflowing words
+- Include `grunt-contrib-csslint`. This can be triggered with `grunt csslint`, as it isn't (yet) part of `grunt build`
+
 ### 2.3.11 (June 27, 2015)
 - Remove `bfg_custom_template_body_class` from `page_custom.php`. (I like using the auto-generated template `<body>` classes.)
 - Make theme strings translatable, with a consistent `CHILD_THEME_TEXT_DOMAIN` domain

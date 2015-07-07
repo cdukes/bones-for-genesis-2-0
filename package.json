@@ -5,6 +5,7 @@
     "grunt-autoprefixer": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-csslint": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-sass": "*",
