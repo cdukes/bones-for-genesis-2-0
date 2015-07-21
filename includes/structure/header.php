@@ -70,7 +70,7 @@ function bfg_load_stylesheets() {
 	// Google Fonts
  	// wp_enqueue_style(
  	// 	'google-fonts',
- 	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700',		// Open Sans (light, normal, and bold), for example
+ 	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
  	// 	array(),
  	// 	null
  	// );

@@ -172,7 +172,7 @@ function bfg_highlight_non_breaking_spaces( $content ) {
 
 }
 
-add_filter( 'the_content', 'bfg_letterspace_abbreviations' );
+// add_filter( 'the_content', 'bfg_letterspace_abbreviations' );
 /*
  * Letterspace all strings of capitals and small caps, and all long strings of digits
  *

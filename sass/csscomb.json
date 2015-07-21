@@ -7,6 +7,7 @@
     "eof-newline": true,
     "leading-zero": false,
     "quotes": "single",
+    "remove-empty-rulesets": false,
     "space-after-colon": " ",
     "space-after-combinator": " ",
     "space-after-opening-brace": "\n",

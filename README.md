@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.13 (July 21, 2015)
+- Add `remove-empty-rulesets` to `csscomb.json`
+- Also CSSComb `_variables.scss`
+- Disable `bfg_letterspace_abbreviations` - causing issues with HTML attributes
+- Encode Google Font SRC properly
+- Move page templates to subfolder
+
 ### 2.3.12 (July 7, 2015)
 - Fix use of `word-break` to properly wrap overflowing words
 - Include `grunt-contrib-csslint`. This can be triggered with `grunt csslint`, as it isn't (yet) part of `grunt build`

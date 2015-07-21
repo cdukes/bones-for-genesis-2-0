@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			build: {
 				expand: true,
 				cwd: 'sass/',
-				src: ['**/*.scss', '!_mixins.scss', '!_variables.scss'],
+				src: ['**/*.scss', '!_mixins.scss'],
 				dest: 'sass/'
 			}
 		},
