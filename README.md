@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.14 (July 27, 2015)
+- Rename `csscomb.json` to `.csscomb.json`
+- Rename `.csslintrc` to `sass/.csslintrc`
+- Remove `remove-empty-rulesets` from `.csscomb.json`, since `false` isn't an allowed value
+- Force a default color on form elements
+
 ### 2.3.13 (July 21, 2015)
 - Add `remove-empty-rulesets` to `csscomb.json`
 - Also CSSComb `_variables.scss`

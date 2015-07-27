@@ -180,9 +180,9 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  */
 function bfg_user_contactmethods( $fields ) {
 
-	//$fields['facebook'] = 'Facebook';												// Add Facebook
-	//$fields['twitter'] = 'Twitter';												// Add Twitter
-	//$fields['linkedin'] = 'LinkedIn';												// Add LinkedIn
+	// $fields['facebook'] = 'Facebook';												// Add Facebook
+	// $fields['twitter'] = 'Twitter';												// Add Twitter
+	// $fields['linkedin'] = 'LinkedIn';												// Add LinkedIn
 	unset( $fields['aim'] );														// Remove AIM
 	unset( $fields['yim'] );														// Remove Yahoo IM
 	unset( $fields['jabber'] );														// Remove Jabber / Google Talk

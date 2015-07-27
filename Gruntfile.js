@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 
 		csscomb: {
 			options: {
-				config: 'sass/csscomb.json'
+				config: 'sass/.csscomb.json'
 			},
 			build: {
 				expand: true,
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 		csslint: {
 			build: {
 				options: {
-					csslintrc: '.csslintrc'
+					csslintrc: 'sass/.csslintrc'
 				},
 				src: [
 					'build/css/style.css',

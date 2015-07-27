@@ -18,6 +18,7 @@ textarea {
 	max-width: 100%;
 	width: 100%;
 	border-radius: 0;		 // Removes the border radius on iOS
+	color: $black;
 	-webkit-appearance: none; // Removes the shadow on iOS
 	-moz-appearance: none;
 }
