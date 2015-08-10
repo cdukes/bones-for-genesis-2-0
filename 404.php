@@ -18,12 +18,12 @@ function bfg_404() {
 
 	echo '<article class="entry">';
 
-		printf( '<h1 class="entry-title">%s</h1>', __( 'Not found, error 404', 'genesis' ) );
+		printf( '<h1 class="entry-title">%s</h1>', __( 'Not found, error 404', CHILD_THEME_TEXT_DOMAIN ) );
 
 		echo '<div class="entry-content">';
 
 			?>
-			<p>Let's help you find what you came here for:</p>
+			<p><?php echo __( "Let's help you find what you came here for:", CHILD_THEME_TEXT_DOMAIN ); ?></p>
 
 			<?php
 			$s = preg_replace( '/(.*)-(html|htm|php|asp|aspx)$/', '$1', $wp_query->query_vars['name'] );
@@ -36,25 +36,30 @@ function bfg_404() {
 
 			$posts = get_posts( $args );
 			if( count($posts) > 0 ) {
-				echo '<p>Were you looking for <strong>one of these</strong> posts or pages?</p>';
+				echo '<p>' . __( 'Were you looking for <strong>one of these</strong> posts or pages?', CHILD_THEME_TEXT_DOMAIN ) . '</p>';
 				echo '<ul>';
 					foreach( $posts as $post )
 						echo '<li><a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a></li>';
 				echo '</ul>';
-				echo '<p>If not, don\'t worry, here\'s a few more tips for you to find it:</p>';
+				echo '<p>' . __( "If not, don't worry, here's a few more tips for you to find it:", CHILD_THEME_TEXT_DOMAIN ) . '</p>';
 			}
 			?>
 
 			<ol>
 				<li>
-					<strong>Search</strong> for it:
+					<?php echo __( '<strong>Search</strong> for it:', CHILD_THEME_TEXT_DOMAIN ); ?>
 					<?php echo get_search_form(); ?>
 				</li>
 				<li>
-					<strong>If you typed in a URL...</strong> make sure the spelling, cApitALiZaTiOn, and punctuation are correct. Then, try reloading the page.
+					<?php echo __( '<strong>If you typed in a URL...</strong> make sure the spelling, cApitALiZaTiOn, and punctuation are correct. Then, try reloading the page.', CHILD_THEME_TEXT_DOMAIN ); ?>
 				</li>
 				<li>
-					<strong>Start over again</strong> at the <a href="<?php echo get_bloginfo('url');?>">homepage</a> (and please contact us to say what went wrong, so we can fix it).
+					<?php
+					printf(
+						__( '<strong>Start over again</strong> at the <a href="%s">homepage</a> (and please contact us to say what went wrong, so we can fix it).', CHILD_THEME_TEXT_DOMAIN ),
+						get_bloginfo('url')
+					)
+					?>
 				</li>
 			</ol>
 			<?php

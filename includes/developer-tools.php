@@ -33,3 +33,31 @@ function bfg_clear_transients_node( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $args );
 
 }
+
+// add_action( 'admin_bar_menu', 'bfg_cron_count_node', 99 );
+/**
+ * Show the length of the scheduled cron task list
+ *
+ * @since 2.3.15
+ */
+function bfg_cron_count_node( $wp_admin_bar ) {
+
+	if( !is_admin() || !current_user_can('manage_options') )
+		return;
+
+	global $wpdb;
+
+	$count = get_option( 'cron' );
+	$count = count($count);
+	if( 0 === $count )
+		return;
+
+	$label = __( 'Cron Tasks:', CHILD_THEME_TEXT_DOMAIN );
+	$args  = array(
+		'id'     => 'cron-task-count',
+		'title'  => !empty($count) ? $label . ' ' . $count : $label,
+	);
+
+	$wp_admin_bar->add_node( $args );
+
+}

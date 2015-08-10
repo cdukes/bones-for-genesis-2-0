@@ -26,6 +26,7 @@
 	ol,
 	ul {
 		@extend %type;
+		overflow: hidden;
 		padding-left: 2.5em;
 
 		ol,

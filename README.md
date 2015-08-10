@@ -127,6 +127,11 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.15 (August 10, 2015)
+- Report the number of cron tasks in queue on the admin bar (disabled by default)
+- Make `404.php` translation-ready
+- Add `ul, ol { overflow: hidden; }` for better wrapping around images
+
 ### 2.3.14 (July 27, 2015)
 - Rename `csscomb.json` to `.csscomb.json`
 - Rename `.csslintrc` to `sass/.csslintrc`
