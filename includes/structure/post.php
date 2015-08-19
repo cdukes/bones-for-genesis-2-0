@@ -140,7 +140,8 @@ function bfg_password_form( $post = 0 ) {
 	$post   = get_post( $post );
 	$label  = 'pwbox-' . ( empty($post->ID) ? rand() : $post->ID );
 	$output = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
-		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="' . __( 'Password', CHILD_THEME_TEXT_DOMAIN ) . '">';
+		$autofocus = is_singular() ? 'autofocus' : '';
+		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="' . __( 'Password', CHILD_THEME_TEXT_DOMAIN ) . '" ' . $autofocus . '>';
 		$output .= '<input type="submit" name="' . __( 'Submit', CHILD_THEME_TEXT_DOMAIN ) . '" value="' . esc_attr__( 'Submit' ) . '">';
 	$output .= '</form>';
 
@@ -188,7 +189,7 @@ function bfg_letterspace_abbreviations( $content ) {
 
 }
 
-add_filter( 'the_content', 'bfg_hard_space_expressions' );
+// add_filter( 'the_content', 'bfg_hard_space_expressions' );
 /*
  * Link short numerical and mathematical expressions with hard spaces
  *

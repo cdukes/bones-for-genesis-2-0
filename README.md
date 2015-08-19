@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.16 (August 19, 2015)
+- Remove `csslint` from `grunt build`
+- Autofocus password input on single post page
+- Disable `bfg_hard_space_expressions`
+- `@extend %type;` on more elements
+
 ### 2.3.15 (August 10, 2015)
 - Report the number of cron tasks in queue on the admin bar (disabled by default)
 - Make `404.php` translation-ready

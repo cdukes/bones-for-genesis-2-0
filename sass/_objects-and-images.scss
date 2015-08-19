@@ -66,6 +66,7 @@ img.alignright,
 }
 
 .wp-caption-text {
+	@extend %type;
 	margin: 0;
 	text-align: center;
 }

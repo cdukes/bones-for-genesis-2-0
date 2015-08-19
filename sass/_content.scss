@@ -61,6 +61,7 @@
 }
 
 .entry-pagination {
+	@extend %type;
 }
 
 .entry-meta {
