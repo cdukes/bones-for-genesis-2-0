@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.17 (September 3, 2015)
+- Accessibility updates for Genesis 2.2
+- Other CSS tweaks
+- Remove Gravity Forms-specific JS + CSS
+- Check for `window.addEventListener` before running `bfg_disable_pointer_events_on_scroll()`, for better IE8 compatibility 
+- Remove unnecessary role attributes
+
 ### 2.3.16 (August 19, 2015)
 - Remove `csslint` from `grunt build`
 - Autofocus password input on single post page

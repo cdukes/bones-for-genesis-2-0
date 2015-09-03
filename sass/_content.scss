@@ -60,6 +60,10 @@
 	}
 }
 
+.more-link {
+	position: relative;
+}
+
 .entry-pagination {
 	@extend %type;
 }

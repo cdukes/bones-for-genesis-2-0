@@ -31,38 +31,6 @@
 	@extend %clearfix;
 }
 
-// Image replacement (H5BP)
-%ir {
-	display: block;
-	overflow: hidden;
-	border: 0;
-	background-color: transparent;
-	background-repeat: no-repeat;
-	text-align: left;
-	text-indent: -999em;
-	direction: ltr;
-
-	br {
-		display: none;
-	}
-}
-
-// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-%visuallyhidden {
-	position: absolute;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-	margin: -1px;
-	padding: 0;
-	width: 1px;
-	height: 1px;
-	border: 0;
-}
-
-.screen-reader-text {
-	@extend %visuallyhidden;
-}
-
 .no-js {
 	.hide-no-js {
 		display: none !important;
@@ -85,32 +53,5 @@
 
 	&:last-child {
 		margin-bottom: 0;
-	}
-}
-
-// http://tobiasahlin.com/spinkit/
-%spinner {
-	display: block;
-	padding: .25em;
-	width: 100%;
-	text-align: center;
-
-	> div {
-		display: inline-block;
-		width: 1em;
-		height: 1em;
-		border-radius: 100%;
-		background-color: $gray;
-		vertical-align: middle;
-		animation: bouncedelay 1.4s infinite ease-in-out;
-		animation-fill-mode: both;
-	}
-
-	.bounce1 {
-		animation-delay: -.32s;
-	}
-
-	.bounce2 {
-		animation-delay: -.16s;
 	}
 }

@@ -42,13 +42,6 @@ jQuery(function($) {
 	// Support for HTML5 placeholders
 	$('input, textarea').placeholder();
 
-	// Overwrite the Gravity Forms spinner.
-	// They don't have a hook to change the HTML of the spinner, so we hide their spinner with CSS, then add our spinner's HTML by hooking into the form submit JS event
-	$('[id^=gform_]').submit(function() {
-		if( 0 === $(this).find('.spinner').length )
-			$(this).find('.gform_ajax_spinner').after('<span class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></span>');
-	});
-
 	// Grunticon
 	if( typeof grunticon === 'function')
 		grunticon([grunticon_paths.svg, grunticon_paths.png, grunticon_paths.fallback]);

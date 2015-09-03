@@ -25,21 +25,23 @@ function bfg_footer_creds_text() {
 function bfg_disable_pointer_events_on_scroll() {
 
 	?><script>
-		var root = document.documentElement;
-		var timer;
+		if( window.addEventListener ) {
+			var root = document.documentElement;
+			var timer;
 
-		window.addEventListener('scroll', function() {
-			// User scrolling so stop the timeout
-			clearTimeout(timer);
-			// Pointer events has not already been disabled.
-			if (!root.style.pointerEvents) {
-				root.style.pointerEvents = 'none';
-			}
+			window.addEventListener('scroll', function() {
+				// User scrolling so stop the timeout
+				clearTimeout(timer);
+				// Pointer events has not already been disabled.
+				if (!root.style.pointerEvents) {
+					root.style.pointerEvents = 'none';
+				}
 
-			timer = setTimeout(function() {
-				root.style.pointerEvents = '';
-			}, 250);
-		}, false);
+				timer = setTimeout(function() {
+					root.style.pointerEvents = '';
+				}, 250);
+			}, false);
+		}
 	</script>
 	<?php
 

@@ -61,20 +61,6 @@ input[type='search'] {
 	box-sizing: border-box; // Overrides normalize.css
 }
 
-.gform_wrapper {
-	.gform_ajax_spinner {
-		display: none !important;
-	}
-
-	.spinner {
-		@extend %spinner;
-		display: inline-block;
-		margin-left: .5em;
-		width: auto;
-		vertical-align: middle;
-	}
-}
-
 .search-form,
 .post-password-form {
 	display: flex;

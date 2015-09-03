@@ -11,6 +11,15 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption') );
 
+/*
+ * Genesis 2.2 accessibility features
+ *
+ * See: https://github.com/copyblogger/genesis-sample/commit/7613301f5e89b6fad15bb3165f607406db7c7c91
+ *
+ * @since 2.3.17
+ */
+add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu',  'search-form', 'skip-links', 'rems' ) );
+
 /**
  * Adds <meta> tags for mobile responsiveness.
  *

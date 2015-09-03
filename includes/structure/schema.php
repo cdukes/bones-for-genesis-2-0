@@ -2,20 +2,20 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-// add_filter( 'genesis_attr_site-header', 'bfg_schema_empty' );
-// add_filter( 'genesis_attr_nav-primary', 'bfg_schema_empty' );
-// add_filter( 'genesis_attr_sidebar-primary', 'bfg_schema_empty' );
-// add_filter( 'genesis_attr_site-footer', 'bfg_schema_empty' );
+add_filter( 'genesis_attr_search-form', 'bfg_unset_role_attribute' );
+add_filter( 'genesis_attr_sidebar-primary', 'bfg_unset_role_attribute' );
 /**
- * Remove extra schema attributes
+ * Remove unnecessary role attributes
  *
- * @since 2.3.11
+ * @since 2.3.17
+ *
+ * See: https://validator.w3.org/
  */
-function bfg_schema_empty( $attr ) {
+function bfg_unset_role_attribute( $attributes ) {
 
-	$attr['itemtype']  = '';
-	$attr['itemprop']  = '';
-	$attr['itemscope'] = '';
-	return $attr;
+	if( isset($attributes['role']) )
+		unset($attributes['role']);
+
+	return $attributes;
 
 }

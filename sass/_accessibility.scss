@@ -1,0 +1,44 @@
+// Display outline on focus
+:focus {
+	outline: 1px solid $gray;
+	color: $black;
+}
+
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// https://raw.githubusercontent.com/copyblogger/genesis-sample/5afef88688b0f187733cea089fbb5bfc5ce2c351/style.css
+%visuallyhidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	background: $white;
+	color: $black;
+
+	&:focus {
+		z-index: 100000;
+		display: block;
+		clip: auto;
+		width: auto;
+		height: auto;
+	}
+}
+
+.screen-reader-text,
+.screen-reader-shortcut {
+	@extend %visuallyhidden;
+}
+
+// https://raw.githubusercontent.com/copyblogger/genesis-sample/5afef88688b0f187733cea089fbb5bfc5ce2c351/style.css
+.genesis-skip-link {
+	margin: 0;
+
+	li {
+		width: 0;
+		height: 0;
+		list-style: none;
+	}
+}
