@@ -21,7 +21,7 @@ function bfg_gallery_style( $css ) {
  */
 // add_post_type_support( 'page', 'excerpt' );
 
-// add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
+add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
 /**
  * Customize the excerpt text, when using the <!--more--> tag.
  *
@@ -35,8 +35,8 @@ function bfg_more_tag_excerpt_link() {
 
 }
 
-// add_filter( 'excerpt_more', 'bfg_truncated_excerpt_link' );
-// add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
+add_filter( 'excerpt_more', 'bfg_truncated_excerpt_link' );
+add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
 /**
  * Customize the excerpt text, when using automatic truncation.
  *
@@ -81,7 +81,7 @@ function bfg_post_meta() {
 
 }
 
-// add_filter ( 'genesis_prev_link_text' , 'bfg_prev_link_text' );
+add_filter ( 'genesis_prev_link_text' , 'bfg_prev_link_text' );
 /**
  * Customize the post navigation prev text
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
@@ -94,7 +94,7 @@ function bfg_prev_link_text( $text ) {
 
 }
 
-// add_filter ( 'genesis_next_link_text' , 'bfg_next_link_text' );
+add_filter ( 'genesis_next_link_text' , 'bfg_next_link_text' );
 /**
  * Customize the post navigation next text
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
@@ -170,37 +170,5 @@ function bfg_highlight_non_breaking_spaces( $content ) {
 
 	// Highlight non-breaking spaces
 	return str_replace('&nbsp;', '<mark title="' . __( 'Non-breaking space', CHILD_THEME_TEXT_DOMAIN ) . '">&nbsp;</mark>', $content);
-
-}
-
-// add_filter( 'the_content', 'bfg_letterspace_abbreviations' );
-/*
- * Letterspace all strings of capitals and small caps, and all long strings of digits
- *
- * See: http://webtypography.net/2.1.6
- *
- * @since 2.3.8
- */
-function bfg_letterspace_abbreviations( $content ) {
-
-	$search  = '/\b([A-Z][A-Z0-9]{2,})\b/';
-	$replace = '<abbr>$1</abbr>';
-	return preg_replace( $search, $replace, $content );
-
-}
-
-// add_filter( 'the_content', 'bfg_hard_space_expressions' );
-/*
- * Link short numerical and mathematical expressions with hard spaces
- *
- * See: http://webtypography.net/2.4.6
- *
- * @since 2.3.8
- */
-function bfg_hard_space_expressions( $content ) {
-
-	$search  = '/([0-9]) ([a-zA-Z])/';
-	$replace = '$1&nbsp;$2';
-	return preg_replace( $search, $replace, $content );
 
 }

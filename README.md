@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.18 (September 10, 2015)
+- Allow shortcodes in text widgets by default
+- Turn on filters for `the_content_more_link`, `excerpt_more`, `get_the_content_more_link`, `genesis_prev_link_text`, and `genesis_next_link_text` by default
+- Remove `bfg_letterspace_abbreviations` and `bfg_hard_space_expressions` - too many issues with HTML tags being broken
+- Disable `img { width: auto; height: auto; }` by default
+
 ### 2.3.17 (September 3, 2015)
 - Accessibility updates for Genesis 2.2
 - Other CSS tweaks

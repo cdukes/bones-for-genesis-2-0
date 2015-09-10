@@ -21,7 +21,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 2.0.0
  */
-// add_filter( 'widget_text', 'do_shortcode' );
+add_filter( 'widget_text', 'do_shortcode' );
 
 add_action( 'wp_head', 'bfg_remove_recent_comments_widget_styles', 1 );
 /**
