@@ -43,16 +43,37 @@ function bfg_do_doctype() {
 
 }
 
-remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-add_action( 'wp_enqueue_scripts', 'bfg_load_stylesheets' );
+add_action( 'wp_head', 'bfg_fetch_dns', 1 );
 /**
- * Overrides the default Genesis stylesheet with child theme specific.
+ * Prefetch the DNS for external resource domains. Better browser support than preconnect.
+ *
+ * See: https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/
+ *
+ * @since 2.3.19
+ */
+function bfg_fetch_dns() {
+
+	$hrefs = array(
+		'//ajax.googleapis.com',
+		// '//fonts.googleapis.com'
+	);
+
+	foreach( $hrefs as $href )
+		echo "\n" . '<link rel="dns-prefetch" href="' . $href . '">';
+
+}
+
+remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+remove_action( 'wp_enqueue_scripts', 'genesis_register_scripts' );
+add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
+/**
+ * Overrides the default Genesis stylesheet with child theme specific CSS and JS.
  *
  * Only load these styles on the front-end.
  *
  * @since 2.0.0
  */
-function bfg_load_stylesheets() {
+function bfg_load_assets() {
 
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
@@ -60,12 +81,11 @@ function bfg_load_stylesheets() {
 	$assets_version = genesis_get_option('bfg_assets_version');
 	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
 
+	$stylesheet_dir = get_stylesheet_directory_uri();
+
 	// Main theme stylesheet
 	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';
-	wp_enqueue_style( 'bfg', get_stylesheet_directory_uri() . $src, array(), $assets_version );
-
-	// Fallback for old IE
-	wp_enqueue_style( 'bfg-ie-universal', '//universal-ie6-css.googlecode.com/files/ie6.1.1.css', array(), null );
+	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $assets_version );
 
 	// Google Fonts
  	// wp_enqueue_style(
@@ -75,24 +95,7 @@ function bfg_load_stylesheets() {
  	// 	null
  	// );
 
-}
-
-add_action( 'wp_enqueue_scripts', 'bfg_load_scripts' );
-/**
- * Load scripts.
- *
- * Only load these scripts on the front-end.
- *
- * @since 2.0.0
- */
-function bfg_load_scripts() {
-
-	$use_production_assets = genesis_get_option('bfg_production_on');
-	$use_production_assets = !empty($use_production_assets);
-
-	$assets_version = genesis_get_option('bfg_assets_version');
-	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
-
+ 	// Dequeue comment-reply if no active comments on page
 	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & (int) get_option( 'thread_comments' ) === 1 && !is_front_page() ) {
 		wp_enqueue_script( 'comment-reply' );
 	} else {
@@ -107,7 +110,6 @@ function bfg_load_scripts() {
 
 	// Main script file (in footer)
 	$src            = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	$stylesheet_dir = get_stylesheet_directory_uri();
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
 	wp_localize_script(
 		'bfg',
@@ -135,8 +137,6 @@ function bfg_ie_style_conditionals( $tag, $handle ) {
 	if( 'bfg' === $handle ) {
 		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
 		$output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	} elseif( 'bfg-ie-universal' === $handle ) {
-		$output = '<!--[if lt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	} else {
 		$output = $tag;
 	}

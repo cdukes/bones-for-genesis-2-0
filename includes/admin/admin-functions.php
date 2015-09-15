@@ -2,13 +2,13 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-// add_action( 'admin_enqueue_scripts', 'bfg_load_admin_stylesheets_and_scripts' );
+// add_action( 'admin_enqueue_scripts', 'bfg_load_admin_assets' );
 /**
  * Enqueue admin CSS and JS files.
  *
  * @since 2.3.2
  */
-function bfg_load_admin_stylesheets_and_scripts() {
+function bfg_load_admin_assets() {
 
 	$stylesheet_dir        = get_stylesheet_directory_uri();
 	$use_production_assets = genesis_get_option('bfg_production_on');

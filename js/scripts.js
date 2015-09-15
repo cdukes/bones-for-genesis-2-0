@@ -22,7 +22,7 @@
 	}
 }());
 
-jQuery(function($) {
+(function($) {
 
 	// Remove the 'no-js' <body> class
 	$('html').removeClass('no-js');
@@ -46,4 +46,4 @@ jQuery(function($) {
 	if( typeof grunticon === 'function')
 		grunticon([grunticon_paths.svg, grunticon_paths.png, grunticon_paths.fallback]);
 
-});
+})( window.jQuery );

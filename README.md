@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.19 (September 15, 2015)
+- Merge `bfg_load_stylesheets()` and `bfg_load_scripts()` into `bfg_load_assets()`
+- Remove IE universal stylesheet
+- Add `dns-prefetch` for CDN-based resources
+- Unhook `genesis_register_scripts()`
+
 ### 2.3.18 (September 10, 2015)
 - Allow shortcodes in text widgets by default
 - Turn on filters for `the_content_more_link`, `excerpt_more`, `get_the_content_more_link`, `genesis_prev_link_text`, and `genesis_next_link_text` by default
