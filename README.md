@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.20 (October 5, 2015)
+- Better clearfixes
+- Update `bfg_load_favicons()` for latest OSes
+
 ### 2.3.19 (September 15, 2015)
 - Merge `bfg_load_stylesheets()` and `bfg_load_scripts()` into `bfg_load_assets()`
 - Remove IE universal stylesheet

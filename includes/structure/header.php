@@ -218,30 +218,35 @@ function bfg_pre_load_favicon() {
  */
 function bfg_load_favicons() {
 
-	$favicon_path = get_stylesheet_directory_uri() . '/images/favicons';
+	$stylesheet_dir = get_stylesheet_directory_uri();
+	$favicon_path = $stylesheet_dir . '/images/favicons';
+	$favicon_build_path = $stylesheet_dir . '/build/images/favicons';
+
+	// Set to false to disable, otherwise set to a hex color
+	$color = false;
 
 	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
-	echo '<meta name="mobile-web-app-capable" content="yes">';
-	echo '<link rel="icon" sizes="192x192" href="' . $favicon_path . '/favicon-192.png">';
+	echo '<link rel="icon" type="image/png" href="' . $favicon_build_path . '/favicon-192.png" sizes="192x192">';
 
-	// Use a 152px X 152px PNG for the latest iOS devices, also setup app styles
-	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-152.png">';
-	echo '<meta name="apple-mobile-web-app-capable" content="yes">';
-	echo '<meta name="apple-mobile-web-app-status-bar-style" content="black">';
-	echo '<meta name="apple-mobile-web-app-title" content="' . get_bloginfo('name') . '">';
-
-	// Use a 96px X 96px PNG for modern desktop browsers
-	echo '<link rel="icon" href="' . $favicon_path . '/favicon-96.png">';
+	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
+	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_build_path . '/favicon-180.png">';
 
 	// Give IE <= 9 the old favicon.ico (16px X 16px)
 	echo '<!--[if IE]><link rel="shortcut icon" href="' . $favicon_path . '/favicon.ico"><![endif]-->';
 
-	// Use a 144px X 144px PNG for Windows tablets, or just serve them the iOS7 152px icon
-	// echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-144.png">';
-	echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-152.png">';
+	// Use a 144px X 144px PNG for Windows tablets
+	echo '<meta name="msapplication-TileImage" content="' . $favicon_build_path . '/favicon-144.png">';
 
-	// Optional: specify a background color for your Windows tablet icon
-	// echo '<meta name="msapplication-TileColor" content="#d83434">';
+	if( false !== $color ) {
+		// Windows icon background color
+		echo '<meta name="msapplication-TileColor" content="' . $color . '">';
+
+		// Chrome for Android taskbar color
+		echo '<meta name="theme-color" content="' . $color . '">';
+
+		// Safari 9 pinned tab color
+		echo '<link rel="mask-icon" href="' . $favicon_build_path . '/favicon.svg" color="' . $color . '">';
+	}
 
 }
 
