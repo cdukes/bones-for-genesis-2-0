@@ -5,7 +5,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 add_filter( 'genesis_attr_search-form', 'bfg_unset_role_attribute' );
 add_filter( 'genesis_attr_sidebar-primary', 'bfg_unset_role_attribute' );
 /**
- * Remove unnecessary role attributes
+ * Remove unnecessary role attributes.
  *
  * @since 2.3.17
  *

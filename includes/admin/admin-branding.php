@@ -137,6 +137,7 @@ function bfg_admin_footer_text() {
 		$text,
 		'https://inneosg.com'
 	);
+
 	return $text;
 
 }

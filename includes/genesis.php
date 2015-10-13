@@ -18,7 +18,7 @@ add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form',
  *
  * @since 2.3.17
  */
-add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu',  'search-form', 'skip-links', 'rems' ) );
+add_theme_support( 'genesis-accessibility', array('headings', 'drop-down-menu', 'search-form', 'skip-links', 'rems') );
 
 /**
  * Adds <meta> tags for mobile responsiveness.

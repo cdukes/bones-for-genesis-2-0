@@ -9,3 +9,4 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 // remove_action( 'genesis_after_header', 'genesis_do_nav' );
 // remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+

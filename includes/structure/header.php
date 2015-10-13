@@ -109,7 +109,7 @@ function bfg_load_assets() {
 	add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 	// Main script file (in footer)
-	$src            = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
+	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
 	wp_localize_script(
 		'bfg',
@@ -218,8 +218,8 @@ function bfg_pre_load_favicon() {
  */
 function bfg_load_favicons() {
 
-	$stylesheet_dir = get_stylesheet_directory_uri();
-	$favicon_path = $stylesheet_dir . '/images/favicons';
+	$stylesheet_dir     = get_stylesheet_directory_uri();
+	$favicon_path       = $stylesheet_dir . '/images/favicons';
 	$favicon_build_path = $stylesheet_dir . '/build/images/favicons';
 
 	// Set to false to disable, otherwise set to a hex color
@@ -264,3 +264,4 @@ function bfg_load_favicons() {
  */
 // remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 // remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
+

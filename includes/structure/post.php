@@ -14,7 +14,7 @@ function bfg_gallery_style( $css ) {
 
 }
 
-/**
+/*
  * Allow pages to have excerpts.
  *
  * @since 2.2.5
@@ -81,7 +81,7 @@ function bfg_post_meta() {
 
 }
 
-add_filter ( 'genesis_prev_link_text' , 'bfg_prev_link_text' );
+add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
 /**
  * Customize the post navigation prev text
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
@@ -94,7 +94,7 @@ function bfg_prev_link_text( $text ) {
 
 }
 
-add_filter ( 'genesis_next_link_text' , 'bfg_next_link_text' );
+add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
 /**
  * Customize the post navigation next text
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
@@ -160,7 +160,7 @@ function bfg_highlight_non_breaking_spaces( $content ) {
 	global $post;
 
 	// Stop if post is published
-	$unpublished_statuses = array( 'pending', 'draft', 'future' );
+	$unpublished_statuses = array('pending', 'draft', 'future');
 	if( !in_array( $post->post_status, $unpublished_statuses, true ) )
 		return $content;
 
