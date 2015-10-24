@@ -12,25 +12,6 @@
 	white-space: nowrap;
 }
 
-// http://nicolasgallagher.com/micro-clearfix-hack/
-%clearfix {
-	zoom: 1;			// For IE
-
-	&:before,
-	&:after {
-		display: table;
-		content: '';
-	}
-
-	&:after {
-		clear: both;
-	}
-}
-
-.clear {
-	@extend %clearfix;
-}
-
 .no-js {
 	.hide-no-js {
 		display: none !important;

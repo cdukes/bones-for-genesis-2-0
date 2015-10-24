@@ -1,5 +1,20 @@
 // Float Clearing - from Genesis 2.2.2's style.css
 
+// http://nicolasgallagher.com/micro-clearfix-hack/
+%clearfix {
+	zoom: 1;			// For IE
+
+	&:before,
+	&:after {
+		display: table;
+		content: '';
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
 .author-box,
 .clearfix,
 .entry,
