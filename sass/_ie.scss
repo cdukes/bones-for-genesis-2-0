@@ -1,17 +1,17 @@
 html {
 	&.lt-ie9 {
-		min-width: $siteWidth;
+		min-width: $site-width;
 	}
 }
 
 .lt-ie9 {
 	body {
-		min-width: $siteWidth;
+		min-width: $site-width;
 	}
 
 	.site-container {
 		margin: 0 auto;
-		width: $siteWidth;
+		width: $site-width;
 	}
 
 	input[type='password'] {

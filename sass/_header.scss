@@ -7,26 +7,15 @@
 	float: left;
 }
 
-.site-title,
-.site-description {
-	margin: 0;
-	line-height: 1;
-
-	.header-image & {
-		@extend %image-replacement;
-		display: block;
+.site-title {
+	a {
+		&:hover,
+		&:focus {
+		}
 	}
 }
 
-.site-title {
-	line-height: 1;
-
-	a {
-		&:hover,
-		&:focus,
-		&:active {
-		}
-	}
+.site-description {
 }
 
 .header-widget-area {

@@ -1,5 +1,3 @@
-$imageMargin: 1.5em;
-
 embed,
 iframe,
 img,
@@ -22,14 +20,14 @@ figure {
 }
 
 img {
-	// width: auto;
-	// height: auto; // IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images
+	width: auto; // IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images
+	height: auto;
 }
 
 img.aligncenter,
 .aligncenter {
 	display: block;
-	margin: 0 auto $imageMargin auto;
+	margin: 0 auto $spacer auto;
 }
 
 img.alignnone {
@@ -47,14 +45,14 @@ img.alignnone {
 
 img.alignleft,
 .wp-caption.alignleft {
-	margin-right: $imageMargin;
-	margin-bottom: $imageMargin;
+	margin-right: $spacer;
+	margin-bottom: $spacer;
 }
 
 img.alignright,
 .wp-caption.alignright {
-	margin-bottom: $imageMargin;
-	margin-left: $imageMargin;
+	margin-bottom: $spacer;
+	margin-left: $spacer;
 }
 
 .wp-caption {

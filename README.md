@@ -127,6 +127,9 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.22 (November 22, 2015)
+- CSS tweaks
+
 ### 2.3.21 (October 24, 2015)
 - Update `PHP-CS-Fixer` options
 - Remove excessive `%clearfix` use

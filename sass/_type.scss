@@ -1,24 +1,14 @@
 html,
 body {
-	// min-width: $siteWidth; // Prevents backgrounds on these elements from being truncated on smaller screens on fixed-width sites
+	// min-width: $site-width; // Prevents backgrounds on these elements from being truncated on smaller screens on fixed-width sites
 }
 
 body {
+	font-family: $sans;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
 	font-variant-ligatures: common-ligatures;
-}
-
-a,
-button,
-input:focus,
-input[type='button'],
-input[type='reset'],
-input[type='submit'],
-textarea:focus,
-.button {
-	transition: all .1s ease-in-out;
 }
 
 ::selection {
@@ -27,10 +17,10 @@ textarea:focus,
 
 a {
 	text-decoration: underline;
+	transition: all .1s ease-in-out;
 
 	&:hover,
-	&:focus,
-	&:active {
+	&:focus {
 	}
 }
 
@@ -41,7 +31,6 @@ ul {
 
 p {
 	margin: 0;
-	padding: 0;
 }
 
 strong {

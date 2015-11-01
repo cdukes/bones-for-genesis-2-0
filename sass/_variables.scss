@@ -1,11 +1,13 @@
 /*********************
 SIZES
 *********************/
-$siteWidth: 60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
+$spacer: 1.5em;
+$site-width: 60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
 
 /*********************
 COLORS
 *********************/
+$grey: $gray;
 
 /*********************
 SOCIAL COLORS - http://designpieces.com/2012/12/social-media-colours-hex-and-rgb/
@@ -26,3 +28,5 @@ $rss: #f60;
 /*********************
 TYPOGRAPHY - http://cssfontstack.com/
 *********************/
+// https://medium.com/@mwichary/system-shock-6b1dc6d6596f
+$sans: -apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;

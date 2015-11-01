@@ -4,19 +4,14 @@
 	border: none;
 	border-radius: 0;
 	text-align: center;
+	white-space: nowrap;
 	line-height: 1;
 	cursor: pointer;
+	transition: all .1s ease-in-out;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 
 	&:hover,
-	&:focus,
-	&:active {
-	}
-
-	&.block {
-		display: block;
-		margin-right: auto;
-		margin-left: auto;
+	&:focus {
 	}
 }
