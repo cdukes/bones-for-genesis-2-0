@@ -86,7 +86,13 @@ function bfg_load_assets() {
 	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $assets_version );
 
+	// Disable the 'Open Sans' loaded by the admin bar
+	// https://wordpress.org/support/topic/remove-open-sans-and-add-custom-fonts
+	wp_deregister_style( 'open-sans' );
+	wp_register_style( 'open-sans', false );
+
 	// Google Fonts
+	// Consider async loading: https://github.com/typekit/webfontloader
  	// wp_enqueue_style(
  	// 	'google-fonts',
  	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
@@ -120,27 +126,6 @@ function bfg_load_assets() {
 		)
 	);
 	// wp_localize_script( 'bfg', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
-
-}
-
-add_filter( 'style_loader_tag', 'bfg_ie_style_conditionals', 10, 2 );
-/**
- * Wrap stylesheets in IE conditional comments.
- *
- * Load the main stylesheet for all non-IE browsers & IE8+, the IE stylesheet for IE8+, and the IE universal stylesheet for IE 7-.
- *
- * @since 1.x
- */
-function bfg_ie_style_conditionals( $tag, $handle ) {
-
-	if( 'bfg' === $handle ) {
-		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
-		$output .= '<!--[if gte IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	} else {
-		$output = $tag;
-	}
-
-	return $output;
 
 }
 

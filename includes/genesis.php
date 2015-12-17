@@ -152,6 +152,13 @@ function bfg_remove_layout_meta_boxes() {
 
 }
 
+/*
+ * Remove the Genesis 'Layout Settings' meta box for terms
+ *
+ * @since 2.3.23
+ */
+remove_theme_support( 'genesis-archive-layouts' );
+
 // add_action( 'init', 'bfg_remove_scripts_meta_boxes' );
 /**
  * Remove the Genesis 'Scripts' meta box for posts and/or pages.
@@ -190,4 +197,5 @@ function bfg_maybe_disable_genesis_seo() {
  *
  * @since 2.3.4
  */
-add_filter( 'genesis_pre_get_option_semantic_headings', '__return_true' );
+// add_filter( 'genesis_pre_get_option_semantic_headings', '__return_true' );
+

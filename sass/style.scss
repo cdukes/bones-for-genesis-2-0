@@ -5,8 +5,9 @@
 @import '../bower_components/Colors/sass/variables';
 
 // Variables & Mixins
+@import '../bower_components/include-media/dist/_include-media';
+@import '../bower_components/include-media-export/dist/_include-media-export';
 @import 'variables';
-@import 'mixins';
 
 // Normalize, Clearfix, & Toolkit
 @import '../bower_components/normalize-scss/normalize.scss';

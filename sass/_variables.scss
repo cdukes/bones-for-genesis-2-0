@@ -5,6 +5,11 @@ $spacer: 1.5em;
 $site-width: 60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
 
 /*********************
+BREAKPOINTS
+*********************/
+$breakpoints: ( phone: 45em, tablet: 55em );
+
+/*********************
 COLORS
 *********************/
 $grey: $gray;

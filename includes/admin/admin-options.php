@@ -97,24 +97,42 @@ function bfg_theme_settings_metaboxes( $pagehook ) {
 function bfg_environment_settings_box() {
 
 	?>
-	<p>
-		<label>
-			<input type="checkbox" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" value="1" <?php checked( genesis_get_option('bfg_production_on'), 1 ); ?> >
-		<?php _e( 'Use Production Assets?', CHILD_THEME_TEXT_DOMAIN ); ?></label>
-	</p>
+	<table class="form-table">
+		<tbody>
+			<tr valign="top">
+				<th scope="row">
+					<?php _e( 'Production Assets', CHILD_THEME_TEXT_DOMAIN ); ?>
+				</th>
+				<td>
+					<p>
+						<label for="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]">
+							<input type="checkbox" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" id="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_production_on]" value="1" <?php checked( genesis_get_option('bfg_production_on'), 1 ); ?>>
+							<?php _e( 'Enable?', CHILD_THEME_TEXT_DOMAIN ); ?>
+						</label>
+					</p>
+				</td>
+			</tr>
 
-	<p>
-		<label>
-			<?php _e( 'Assets Version Number:', CHILD_THEME_TEXT_DOMAIN ); ?><br>
-			<input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]" value="<?php echo esc_attr( genesis_get_option('bfg_assets_version') ); ?>" class="regular-text" id="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]">
-		</label>
-	</p>
+			<tr valign="top">
+				<th scope="row">
+					<label for="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]">
+						<?php _e( 'Assets Version Number:', CHILD_THEME_TEXT_DOMAIN ); ?>
+					</label>
+				</th>
+				<td>
+					<p>
+						<input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]" value="<?php echo esc_attr( genesis_get_option('bfg_assets_version') ); ?>" class="regular-text" id="<?php echo GENESIS_SETTINGS_FIELD; ?>[bfg_assets_version]">
+					</p>
 
-	<p>
-		<span class="description">
-			<?php _e( "Add or change the value here to force users' browsers to re-download the theme CSS/JS.", CHILD_THEME_TEXT_DOMAIN ); ?><br>
-		</span>
-	</p>
+					<p>
+						<span class="description">
+							<?php _e( "Change the value here to force users' browsers to re-download the theme CSS/JS.", CHILD_THEME_TEXT_DOMAIN ); ?><br>
+						</span>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 	<?php
 
 }

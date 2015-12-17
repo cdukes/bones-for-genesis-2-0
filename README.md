@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.2+ and WordPress 4.3+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.2.4+ and WordPress 4.4+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -127,6 +127,14 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.23
+- Remove `bfg_ie_style_conditionals`
+- Turn off `semantic_headings` by default
+- Use `.form-table` for admin options
+- Disable the 'Open Sans' loaded by the admin bar
+- Remove the Genesis 'Layout Settings' meta box for terms
+- Use `[include-media](https://github.com/eduardoboucas/include-media)` and `[include-media-export](https://github.com/eduardoboucas/include-media-export)` to unify SCSS and JS breakpoints 
+
 ### 2.3.22 (November 22, 2015)
 - CSS tweaks
 

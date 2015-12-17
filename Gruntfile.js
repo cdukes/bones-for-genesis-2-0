@@ -79,6 +79,7 @@ module.exports = function(grunt) {
 		concat: {
 			build: {
 				src: [
+					'bower_components/include-media-export/include-media.js',
 					'bower_components/iOS-Orientationchange-Fix/ios-orientationchange-fix.js',
 					'bower_components/jquery.cookie/jquery.cookie.js',
 					'bower_components/jquery.fitvids/jquery.fitvids.js',
