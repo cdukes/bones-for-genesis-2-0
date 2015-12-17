@@ -132,7 +132,7 @@ grunt
 - Turn off `semantic_headings` by default
 - Use `.form-table` for admin options
 - Disable the 'Open Sans' loaded by the admin bar
-- Remove the Genesis 'Layout Settings' meta box for terms
+- Add option to remove the Genesis 'Layout Settings' meta box for terms (Disabled by default)
 - Use [include-media](https://github.com/eduardoboucas/include-media) and [include-media-export](https://github.com/eduardoboucas/include-media-export) to unify SCSS and JS breakpoints 
 
 ### 2.3.22 (November 22, 2015)
