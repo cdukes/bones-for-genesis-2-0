@@ -133,7 +133,7 @@ grunt
 - Use `.form-table` for admin options
 - Disable the 'Open Sans' loaded by the admin bar
 - Remove the Genesis 'Layout Settings' meta box for terms
-- Use `[include-media](https://github.com/eduardoboucas/include-media)` and `[include-media-export](https://github.com/eduardoboucas/include-media-export)` to unify SCSS and JS breakpoints 
+- Use [include-media](https://github.com/eduardoboucas/include-media) and [include-media-export](https://github.com/eduardoboucas/include-media-export) to unify SCSS and JS breakpoints 
 
 ### 2.3.22 (November 22, 2015)
 - CSS tweaks
