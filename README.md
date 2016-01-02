@@ -127,7 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
-### 2.3.23
+### 2.3.24 (January 2, 2016)
+- Fix `Colors` partial reference
+
+### 2.3.23 (December 16, 2015)
 - Remove `bfg_ie_style_conditionals`
 - Turn off `semantic_headings` by default
 - Use `.form-table` for admin options

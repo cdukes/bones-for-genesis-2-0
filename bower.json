@@ -8,7 +8,7 @@
     "tests"
   ],
   "dependencies": {
-    "Colors": "mrmrs/colors",
+    "colors-sass": "mrmrs/colors-sass",
     "include-media-export": "*",
     "include-media": "*",
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
