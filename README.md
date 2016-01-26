@@ -127,6 +127,9 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.26 (January 26, 2016)
+- Remove WP-API <head> material
+
 ### 2.3.25 (January 14, 2016)
 - Turn off TinyMCE's auto-expand
 

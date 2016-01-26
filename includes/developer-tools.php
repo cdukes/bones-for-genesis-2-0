@@ -45,8 +45,6 @@ function bfg_cron_count_node( $wp_admin_bar ) {
 	if( !is_admin() || !current_user_can('manage_options') )
 		return;
 
-	global $wpdb;
-
 	$count = get_option( 'cron' );
 	$count = count($count);
 	if( 0 === $count )

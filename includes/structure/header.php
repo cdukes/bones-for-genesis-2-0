@@ -16,6 +16,11 @@ remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
 // remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
 remove_action( 'wp_head', 'feed_links_extra', 3 ); 						// Remove comment feed links
 
+// Remove WP-API <head> material
+// See: https://wordpress.stackexchange.com/questions/211467/remove-json-api-links-in-header-html
+remove_action( 'wp_head', 'rest_output_link_wp_head' );
+remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+
 remove_action( 'genesis_doctype', 'genesis_do_doctype' );
 add_action( 'genesis_doctype', 'bfg_do_doctype' );
 /**
