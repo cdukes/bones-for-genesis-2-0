@@ -27,7 +27,7 @@ add_theme_support( 'genesis-accessibility', array('headings', 'drop-down-menu', 
  *
  * @since 2.0.0
  */
-// add_theme_support( 'genesis-responsive-viewport' );
+add_theme_support( 'genesis-responsive-viewport' );
 
 /**
  * Add support for custom backgrounds.

@@ -24,6 +24,7 @@ function bfg_footer_creds_text() {
  */
 function bfg_disable_pointer_events_on_scroll() {
 
+	ob_start();
 	?><script>
 		if( window.addEventListener ) {
 			var root = document.documentElement;
@@ -44,6 +45,8 @@ function bfg_disable_pointer_events_on_scroll() {
 		}
 	</script>
 	<?php
+	$output = ob_get_clean();
+	echo preg_replace( '/\s+/', ' ', $output ) . "\n";
 
 }
 
@@ -58,6 +61,7 @@ function bfg_disable_pointer_events_on_scroll() {
  */
 function bfg_ie_font_face_fix() {
 
+	ob_start();
 	?><!--[if lt IE 9]>
 		<script>
 			jQuery(document).ready(function($) {
@@ -73,5 +77,7 @@ function bfg_ie_font_face_fix() {
 		</script>
 	<![endif]-->
 	<?php
+	$output = ob_get_clean();
+	echo preg_replace( '/\s+/', ' ', $output ) . "\n";
 
 }

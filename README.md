@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.27 (February 9, 2016)
+- Use `.htaccess` to block access to development assets
+- Switch to `js-cookie`, since `jquery-cookie` is deprecated
+- Turn `genesis-responsive-viewport` on by default
+- Remove spaces on footer scripts + better HTML formatting
+
 ### 2.3.26 (January 26, 2016)
 - Remove WP-API <head> material
 

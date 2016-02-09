@@ -1,0 +1,16 @@
+Options -Indexes
+
+<Files "bower.json">
+	Order Allow,Deny
+	Deny from all
+</Files>
+
+<Files "Gruntfile.js">
+	Order Allow,Deny
+	Deny from all
+</Files>
+
+<Files "package.json">
+	Order Allow,Deny
+	Deny from all
+</Files>

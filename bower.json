@@ -13,8 +13,8 @@
     "include-media": "*",
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
     "jquery-placeholder": "*",
-    "jquery.cookie": "carhartl/jquery-cookie",
     "jquery.fitvids": "davatron5000/FitVids.js",
+    "js-cookie": "js-cookie/js-cookie",
     "normalize-scss": "*",
     "superfish": "*",
     "svgeezy": "*"

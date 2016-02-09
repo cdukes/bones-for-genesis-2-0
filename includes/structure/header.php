@@ -63,7 +63,7 @@ function bfg_fetch_dns() {
 	);
 
 	foreach( $hrefs as $href )
-		echo "\n" . '<link rel="dns-prefetch" href="' . $href . '">';
+		echo '<link rel="dns-prefetch" href="' . $href . '">' . "\n";
 
 }
 
