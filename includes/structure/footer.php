@@ -31,9 +31,8 @@ function bfg_disable_pointer_events_on_scroll() {
 			var timer;
 
 			window.addEventListener('scroll', function() {
-				// User scrolling so stop the timeout
 				clearTimeout(timer);
-				// Pointer events has not already been disabled.
+
 				if (!root.style.pointerEvents) {
 					root.style.pointerEvents = 'none';
 				}

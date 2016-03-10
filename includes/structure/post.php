@@ -148,27 +148,3 @@ function bfg_password_form( $post = 0 ) {
 	return $output;
 
 }
-
-add_filter( 'the_content', 'bfg_highlight_non_breaking_spaces' );
-/*
- * Highlight non-breaking spaces in drafts to give the author a chance to correct them
- *
- * @since 2.3.8
- */
-function bfg_highlight_non_breaking_spaces( $content ) {
-
-	global $post;
-
-	// Stop if post is published
-	$unpublished_statuses = array('pending', 'draft', 'future');
-	if( !in_array( $post->post_status, $unpublished_statuses, true ) )
-		return $content;
-
-	// Stop if user can't edit post
-	if( !current_user_can( 'edit_post', $post->ID ) )
-		return $content;
-
-	// Highlight non-breaking spaces
-	return str_replace('&nbsp;', '<mark title="' . __( 'Non-breaking space', CHILD_THEME_TEXT_DOMAIN ) . '">&nbsp;</mark>', $content);
-
-}

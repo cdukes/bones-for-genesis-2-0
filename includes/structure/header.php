@@ -196,7 +196,7 @@ function bfg_pre_load_favicon() {
 
 }
 
-// remove_action( 'wp_head', 'genesis_load_favicon' );
+remove_action( 'wp_head', 'genesis_load_favicon' );
 // add_action( 'wp_head', 'bfg_load_favicons' );
 /**
  * Show the best favicon, within reason.

@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.2.4+ and WordPress 4.4+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.2.7+ and WordPress 4.4+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.28 (March 10, 2016)
+- Remove `bfg_highlight_non_breaking_spaces`
+- Unhook `genesis_load_favicon` by default
+- Fix JS error in `bfg_disable_pointer_events_on_scroll`
+- Remove `bfg_do_taxonomy_title_description`
+
 ### 2.3.27 (February 9, 2016)
 - Use `.htaccess` to block access to development assets
 - Switch to `js-cookie`, since `jquery-cookie` is deprecated

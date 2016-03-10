@@ -20,7 +20,7 @@ add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form',
  */
 add_theme_support( 'genesis-accessibility', array('headings', 'drop-down-menu', 'search-form', 'skip-links', 'rems') );
 
-/**
+/*
  * Adds <meta> tags for mobile responsiveness.
  *
  * See: http://www.briangardner.com/code/add-viewport-meta-tag/

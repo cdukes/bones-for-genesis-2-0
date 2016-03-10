@@ -1,3 +1,3 @@
-jQuery(document).ready(function($) {
+(function($) {
 
-});
+})( window.jQuery );
