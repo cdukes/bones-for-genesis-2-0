@@ -3,6 +3,13 @@
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
+ * Remove the Genesis redirect on theme upgrade
+ *
+ * @since 2.3.29
+ */
+remove_action( 'genesis_upgrade', 'genesis_upgrade_redirect' );
+
+/*
  * Force HTML5
  *
  * See: http://www.briangardner.com/code/add-html5-markup/

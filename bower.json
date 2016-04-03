@@ -15,7 +15,7 @@
     "jquery-placeholder": "*",
     "jquery.fitvids": "davatron5000/FitVids.js",
     "js-cookie": "js-cookie/js-cookie",
-    "normalize-scss": "*",
+    "sanitize-css": "10up/sanitize.css",
     "superfish": "*",
     "svgeezy": "*"
   }
