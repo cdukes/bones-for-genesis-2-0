@@ -1,0 +1,31 @@
+.archive-description {
+}
+
+.archive-title {
+}
+
+.archive-pagination {
+	clear: both;
+
+	a {
+	}
+
+	li {
+		display: inline;
+
+		a {
+			&:hover,
+			&:focus,
+			&:active {
+			}
+		}
+
+		&.pagination-omission {
+		}
+
+		&.active {
+			a {
+			}
+		}
+	}
+}

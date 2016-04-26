@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.30 (April 26, 2016)
+- Add archive SCSS template
+- Enable JS source maps
+- Add `bfg_remove_meta_boxes` - partially disabled by default 
+- Remove the Genesis user meta boxes - disabled by default
+
 ### 2.3.29 (April 3, 2016)
 - Remove `genesis_upgrade_redirect`
 - Use `sanitize.css` instead of `normalize.scss`

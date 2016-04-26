@@ -180,6 +180,16 @@ function bfg_remove_scripts_meta_boxes() {
 }
 
 /*
+ * Remove the Genesis user meta boxes
+ *
+ * @since 2.3.30
+ */
+// remove_action( 'show_user_profile', 'genesis_user_options_fields' );
+// remove_action( 'edit_user_profile', 'genesis_user_options_fields' );
+// remove_action( 'show_user_profile', 'genesis_user_archive_fields' );
+// remove_action( 'edit_user_profile', 'genesis_user_archive_fields' );
+
+/*
  * Disable Genesis SEO
  *
  * @since 2.0.22

@@ -286,3 +286,36 @@ function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $node );
 
 }
+
+add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
+/**
+ * Remove WP default meta boxes. You should always unhook 'Custom Fields', since it can be a large query.
+ *
+ * @since 2.3.30
+ */
+function bfg_remove_meta_boxes() {
+
+	// Post
+	// remove_meta_box( 'authordiv', 'post', 'normal' );
+	// remove_meta_box( 'categorydiv', 'post', 'side' );
+	// remove_meta_box( 'commentsdiv', 'post', 'normal' );
+	// remove_meta_box( 'commentstatusdiv', 'post', 'normal' );
+	remove_meta_box( 'postcustom', 'post', 'normal' );
+	// remove_meta_box( 'postexcerpt', 'post', 'normal' );
+	// remove_meta_box( 'postimagediv', 'post', 'side' );
+	// remove_meta_box( 'revisionsdiv', 'post', 'normal' );
+	// remove_meta_box( 'slugdiv', 'post', 'normal' );
+	// remove_meta_box( 'submitdiv', 'post', 'side' );
+	// remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );
+	// remove_meta_box( 'trackbacksdiv', 'post', 'normal' );
+
+	// Page
+	// remove_meta_box( 'authordiv', 'page', 'normal' );
+	// remove_meta_box( 'commentstatusdiv', 'page', 'normal' );
+	// remove_meta_box( 'pageparentdiv', 'page', 'side' );
+	remove_meta_box( 'postcustom', 'page', 'normal' );
+	// remove_meta_box( 'postimagediv', 'page', 'side' );
+	// remove_meta_box( 'slugdiv', 'page', 'normal' );
+	// remove_meta_box( 'submitdiv', 'page', 'side' );
+
+}

@@ -15,9 +15,6 @@
 	}
 }
 
-.archive-title {
-}
-
 .entry-content {
 	p {
 		@extend %type;
@@ -80,31 +77,5 @@
 
 	.entry-categories,
 	.entry-tags {
-	}
-}
-
-.archive-pagination {
-	clear: both;
-
-	a {
-	}
-
-	li {
-		display: inline;
-
-		a {
-			&:hover,
-			&:focus,
-			&:active {
-			}
-		}
-
-		&.pagination-omission {
-		}
-
-		&.active {
-			a {
-			}
-		}
 	}
 }
