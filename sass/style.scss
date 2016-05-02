@@ -4,10 +4,10 @@
 // Colors
 @import '../bower_components/colors-sass/sass/variables';
 
-// Variables & Mixins
+// Variables & Mixins - variables must be imported after include-media, so that breakpoints aren't overwritten
 @import '../bower_components/include-media/dist/_include-media';
-@import '../bower_components/include-media-export/dist/_include-media-export';
 @import 'variables';
+@import '../bower_components/include-media-export/dist/_include-media-export';
 
 // Normalize, Clearfix, & Toolkit
 @import '../bower_components/sanitize-css/lib/sanitize.scss';

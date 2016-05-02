@@ -7,6 +7,10 @@ video,
 	max-width: 100%;
 }
 
+img {
+	height: auto;
+}
+
 // Remove the gap between images, videos, audio and canvas and the bottom of their containers: h5bp.com/i/440
 audio,
 canvas,
@@ -19,18 +23,13 @@ figure {
 	margin: 0;
 }
 
-img {
-	width: auto; // IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images
-	height: auto;
-}
-
-img.aligncenter,
-.aligncenter {
+a.aligncenter img {
 	display: block;
-	margin: 0 auto $spacer auto;
+	margin: 0 auto;
 }
 
-img.alignnone {
+a.alignnone {
+	display: inline-block;
 }
 
 .alignleft {
@@ -43,16 +42,27 @@ img.alignnone {
 	text-align: right;
 }
 
-img.alignleft,
-.wp-caption.alignleft {
-	margin-right: $spacer;
-	margin-bottom: $spacer;
+img.centered,
+.aligncenter {
+	display: block;
+	margin: 0 auto $spacer;
 }
 
+img.alignnone,
+.alignnone {
+	margin-bottom: $spacer / 1;
+}
+
+a.alignleft,
+img.alignleft,
+.wp-caption.alignleft {
+	margin: 0 $spacer $spacer 0;
+}
+
+a.alignright,
 img.alignright,
 .wp-caption.alignright {
-	margin-bottom: $spacer;
-	margin-left: $spacer;
+	margin: 0 0 $spacer $spacer;
 }
 
 .wp-caption {
@@ -69,7 +79,8 @@ img.alignright,
 	text-align: center;
 }
 
-img.alignleft,
-img.alignright,
-img.aligncenter {
+.wp-audio-shortcode,
+.wp-playlist,
+.wp-video {
+	margin: 0 0 $spacer;
 }

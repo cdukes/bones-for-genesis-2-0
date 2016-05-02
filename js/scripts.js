@@ -33,12 +33,6 @@
 	// SVG fallbacks
 	svgeezy.init( 'svg-no-check', 'png' );
 
-	// IE8 fallbacks
-	if( $('html').hasClass('lt-ie9') ) {
-		// Superfish for main navigation
-		$('.menu-primary').superfish();
-	}
-
 	// Support for HTML5 placeholders
 	$('input, textarea').placeholder();
 

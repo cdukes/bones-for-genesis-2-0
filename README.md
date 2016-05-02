@@ -127,6 +127,15 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.31 (May 2, 2016)
+- Remove superfish
+- Remove `:focus` override
+- Tweak default styles
+- Tweak `@media print` styles
+- Fix bugs related to `include-media-export` usage
+- Add `bfg_limit_menu_depth` to limit the number of submenus for the default menus
+- Enable more HTML5 and accessibility features
+
 ### 2.3.30 (April 26, 2016)
 - Add archive SCSS template
 - Enable JS source maps

@@ -1,5 +1,6 @@
 .genesis-nav-menu {
 	@extend %clearfix;
+	clear: both;
 	width: 100%;
 
 	// Applied to all menu <li>s
@@ -17,9 +18,7 @@
 		text-align: left;
 
 		&:hover,
-		&:focus,
-		&:active,
-		&.sfHover {
+		&:focus {
 			> .sub-menu {
 				left: auto;
 				opacity: 1;

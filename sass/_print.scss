@@ -39,6 +39,10 @@
 		max-width: 100% !important;
 	}
 
+	@page {
+		margin: 2cm .5cm;
+	}
+
 	p,
 	h2,
 	h3 {
@@ -46,16 +50,38 @@
 		widows: 3;
 	}
 
+	h1,
 	h2,
-	h3 {
+	h3,
+	h4,
+	h5,
+	h6 {
+		page-break-inside: avoid;
 		page-break-after: avoid;
+		orphans: 3;
+		widows: 3;
 	}
 
-	.menu,
-	.widget-area,
-	.sidebar,
-	.footer-widgets,
-	.site-footer {
+	button,
+	input,
+	select,
+	textarea,
+	.breadcrumb,
+	.comment-edit-link,
+	.comment-form,
+	.comment-list .reply a,
+	.comment-reply-title,
+	.edit-link,
+	.entry-comments-link,
+	.entry-footer,
+	.genesis-box,
+	.header-widget-area,
+	.hidden-print,
+	.home-top,
+	.nav-primary,
+	.nav-secondary,
+	.post-edit-link,
+	.sidebar {
 		display: none !important;
 	}
 
@@ -63,21 +89,25 @@
 		display: none !important;
 	}
 
-	.title-area {
-		float: none;
-	}
-
-	.site-header {
-		.site-title {
-			img {
-				display: block;
-				margin: 0 auto 1em;
-			}
-		}
+	img {
+		page-break-inside: avoid;
+		page-break-after: avoid;
 	}
 
 	.content {
 		width: 100% !important;
+	}
+
+	blockquote,
+	pre,
+	table {
+		page-break-inside: avoid;
+	}
+
+	dl,
+	ol,
+	ul {
+		page-break-before: avoid;
 	}
 
 	.entry-title,

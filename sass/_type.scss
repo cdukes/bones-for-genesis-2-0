@@ -21,6 +21,7 @@ a {
 
 	&:hover,
 	&:focus {
+		text-decoration: none;
 	}
 }
 
@@ -33,6 +34,7 @@ p {
 	margin: 0;
 }
 
+b,
 strong {
 	font-weight: 700;
 }
@@ -53,4 +55,12 @@ code {
 
 iframe {
 	border: none;
+}
+
+hr {
+	clear: both;
+	margin: $spacer 0;
+	border: 0;
+	border-collapse: collapse;
+	border-top: 1px solid $grey;
 }

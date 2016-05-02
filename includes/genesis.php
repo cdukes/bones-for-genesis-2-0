@@ -16,7 +16,7 @@ remove_action( 'genesis_upgrade', 'genesis_upgrade_redirect' );
  *
  * @since 2.0.0
  */
-add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption') );
+add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'gallery', 'search-form') );
 
 /*
  * Genesis 2.2 accessibility features
@@ -25,7 +25,7 @@ add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form',
  *
  * @since 2.3.17
  */
-add_theme_support( 'genesis-accessibility', array('headings', 'drop-down-menu', 'search-form', 'skip-links', 'rems') );
+add_theme_support( 'genesis-accessibility', array('404-page', 'drop-down-menu', 'headings', 'rems', 'search-form', 'skip-links') );
 
 /*
  * Adds <meta> tags for mobile responsiveness.
@@ -36,21 +36,30 @@ add_theme_support( 'genesis-accessibility', array('headings', 'drop-down-menu', 
  */
 add_theme_support( 'genesis-responsive-viewport' );
 
-/**
+/*
  * Add support for custom backgrounds.
  *
  * @since 2.0.2
  */
 // add_theme_support( 'custom-background' );
 
-/**
+/*
  * Add support for a custom header.
  *
  * @since 2.0.9
  */
-// add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 100 ) );
+// add_theme_support(
+// 	'custom-header',
+// 	array(
+// 		'width'           => 600,
+// 		'height'          => 160,
+// 		'header-selector' => '.site-title a',
+// 		'header-text'     => false,
+// 		'flex-height'     => true,
+// 	)
+// );
 
-/**
+/*
  * Add Genesis post format support.
  *
  * @since 2.0.9
@@ -67,6 +76,9 @@ add_theme_support( 'genesis-responsive-viewport' );
 // 	'audio'
 // ));
 // add_theme_support( 'genesis-post-format-images' );
+
+//* Add support for after entry widget
+// add_theme_support( 'genesis-after-entry-widget-area' );
 
 /**
  * Add Genesis footer widget areas.
