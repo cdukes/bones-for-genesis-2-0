@@ -24,6 +24,8 @@
 
 (function($) {
 
+	"use strict";
+
 	// Remove the 'no-js' <body> class
 	$('html').removeClass('no-js');
 

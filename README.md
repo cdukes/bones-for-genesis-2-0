@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.32 (May 17, 2016)
+- Add `genesis_404_entry_title` filter to `404.php`
+- Use `normalize.scss` instead of `sanitize.css`
+- `"use strict"` on JS files
+- Remove hyphens on paragraph text
+
 ### 2.3.31 (May 2, 2016)
 - Remove superfish
 - Remove `:focus` override

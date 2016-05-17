@@ -18,7 +18,7 @@ function bfg_404() {
 
 	echo '<article class="entry">';
 
-		printf( '<h1 class="entry-title">%s</h1>', __( 'Not found, error 404', CHILD_THEME_TEXT_DOMAIN ) );
+		printf( '<h1 class="entry-title">%s</h1>', apply_filters( 'genesis_404_entry_title', __( 'Not found, error 404', CHILD_THEME_TEXT_DOMAIN ) ) );
 
 		echo '<div class="entry-content">';
 
