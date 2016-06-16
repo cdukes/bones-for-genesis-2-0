@@ -15,6 +15,11 @@
     "grunt-csso": "*",
     "grunt-grunticon": "*",
     "grunt-newer": "*",
-    "grunt-notify": "*"
+    "grunt-notify": "*",
+    "grunt-postcss": "*",
+    "postcss-reporter": "*",
+    "postcss-scss": "*",
+    "stylelint-config-standard": "*",
+    "stylelint": "*"
   }
 }

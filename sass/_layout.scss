@@ -9,6 +9,10 @@
 .site-container {
 }
 
+.site-inner {
+	word-wrap: break-word;
+}
+
 .content-sidebar-wrap {
 	@extend %clearfix;
 }

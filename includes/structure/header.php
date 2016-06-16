@@ -114,7 +114,7 @@ function bfg_load_assets() {
 
 	// Override WP default self-hosted jQuery with version from Google's CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js';
+	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
 	add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 

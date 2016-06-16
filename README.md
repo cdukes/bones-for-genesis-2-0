@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.2.7+ and WordPress 4.4+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.3+ and WordPress 4.4+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.33 (June 15, 2016)
+- Use [Stylelint](https://github.com/stylelint/stylelint) for better SCSS consistency
+- Force strict JS
+- Added `bfg_load_child_theme_textdomain()` (disabled by default)
+- Updated jQuery version
+- Various style tweaks
+
 ### 2.3.32 (May 17, 2016)
 - Add `genesis_404_entry_title` filter to `404.php`
 - Use `normalize.scss` instead of `sanitize.css`

@@ -22,6 +22,21 @@ module.exports = function(grunt) {
 			}
 		},
 
+		postcss: {
+			build: {
+				options: {
+					syntax: require('postcss-scss'),
+					processors: [
+						require('stylelint')({
+							configFile: 'sass/.stylelintrc'
+						}),
+						require('postcss-reporter')({ clearMessages: true })
+					]
+				},
+				src: 'sass/**/*.scss'
+			}
+		},
+
 		sass: {
 			options: {
 				compass: true,
@@ -65,6 +80,7 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
+				strict: true,
 				globals: {
 					jQuery: true
 				}
@@ -201,8 +217,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-grunticon');
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-notify');
+	grunt.loadNpmTasks('grunt-postcss');
 
 	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'imagemin', 'autoprefixer', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'sass', 'grunticon', 'jshint', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'postcss', 'sass', 'grunticon', 'jshint', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso']);
 
 };

@@ -4,13 +4,13 @@
 %clearfix {
 	zoom: 1;			// For IE
 
-	&:before,
-	&:after {
+	&::before,
+	&::after {
 		display: table;
 		content: '';
 	}
 
-	&:after {
+	&::after {
 		clear: both;
 	}
 }

@@ -1,23 +1,23 @@
 @media print {
 	*,
-	*:before,
-	*:after {
+	*::before,
+	*::after {
 		background: transparent !important;
 		filter: none !important;
 		box-shadow: none !important;
-		color: black !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+		color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
 		text-shadow: none !important;
 	}
 
 	a,
 	a:visited {
-		color: black !important;
+		color: #000 !important;
 		text-decoration: underline;
 	}
 
 	pre,
 	blockquote {
-		border: 1px solid black;
+		border: 1px solid #000;
 		page-break-inside: avoid;
 	}
 
@@ -85,10 +85,6 @@
 		display: none !important;
 	}
 
-	.hide-print {
-		display: none !important;
-	}
-
 	img {
 		page-break-inside: avoid;
 		page-break-after: avoid;
@@ -112,11 +108,11 @@
 
 	.entry-title,
 	.entry-content {
-		a[href]:after {
+		a[href]::after {
 			content: ' (' attr(href) ')';
 		}
 
-		abbr[title]:after {
+		abbr[title]::after {
 			content: ' (' attr(title) ')';
 		}
 
@@ -125,8 +121,8 @@
 	     * or use the `javascript:` pseudo protocol
 	     */
 
-		a[href^='#']:after,
-		a[href^='javascript:']:after {
+		a[href^='#']::after,
+		a[href^='javascript:']::after {
 			content: '';
 		}
 	}

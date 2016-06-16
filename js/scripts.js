@@ -1,6 +1,9 @@
 // Avoid `console` errors in browsers that lack a console.
 // http://html5boilerplate.com/
 (function() {
+
+	"use strict";
+
 	var method;
 	var noop = function () {};
 	var methods = [

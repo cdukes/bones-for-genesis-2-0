@@ -37,29 +37,6 @@ add_theme_support( 'genesis-accessibility', array('404-page', 'drop-down-menu', 
 add_theme_support( 'genesis-responsive-viewport' );
 
 /*
- * Add support for custom backgrounds.
- *
- * @since 2.0.2
- */
-// add_theme_support( 'custom-background' );
-
-/*
- * Add support for a custom header.
- *
- * @since 2.0.9
- */
-// add_theme_support(
-// 	'custom-header',
-// 	array(
-// 		'width'           => 600,
-// 		'height'          => 160,
-// 		'header-selector' => '.site-title a',
-// 		'header-text'     => false,
-// 		'flex-height'     => true,
-// 	)
-// );
-
-/*
  * Add Genesis post format support.
  *
  * @since 2.0.9
@@ -77,7 +54,11 @@ add_theme_support( 'genesis-responsive-viewport' );
 // ));
 // add_theme_support( 'genesis-post-format-images' );
 
-//* Add support for after entry widget
+/**
+ * Add support for after entry widget.
+ *
+ * @since 2.3.33
+ */
 // add_theme_support( 'genesis-after-entry-widget-area' );
 
 /**
@@ -228,3 +209,17 @@ function bfg_maybe_disable_genesis_seo() {
  */
 // add_filter( 'genesis_pre_get_option_semantic_headings', '__return_true' );
 
+/*
+ * Set child theme text domain
+ *
+ * @since 2.3.33
+ */
+// add_action( 'after_setup_theme', 'bfg_load_child_theme_textdomain' );
+function bfg_load_child_theme_textdomain() {
+
+	load_child_theme_textdomain(
+		CHILD_THEME_TEXT_DOMAIN,
+		get_stylesheet_directory() . '/languages'
+	);
+
+}
