@@ -62,18 +62,19 @@ input[type='search'] {
 	align-items: center;
 
 	input[type='submit'] {
+		flex: 0 0 auto;
 		margin-left: .25em;
 	}
 }
 
 .search-form {
 	input[type='search'] {
-		flex: 1;
+		flex: 1 1 auto;
 	}
 }
 
 .post-password-form {
 	input[type='password'] {
-		flex: 1;
+		flex: 1 1 auto;
 	}
 }

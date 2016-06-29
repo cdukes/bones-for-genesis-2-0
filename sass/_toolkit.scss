@@ -1,8 +1,10 @@
 // Use with @extend to make reponsive modules
 %wrap {
 	margin: 0 auto;
-	//width: 100%;				// Site should always expand to browser width...
-	//max-width: $site-width;	// ...unless the browser is larger than this
+	padding-right: .5em;
+	padding-left: .5em;
+	max-width: $site-width + 1em;
+	width: 100%;
 }
 
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/

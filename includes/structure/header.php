@@ -114,7 +114,7 @@ function bfg_load_assets() {
 
 	// Override WP default self-hosted jQuery with version from Google's CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js';
+	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
 	add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
@@ -134,31 +134,6 @@ function bfg_load_assets() {
 
 }
 
-add_filter( 'script_loader_tag', 'bfg_ie_script_conditionals', 10, 3 );
-/**
- * Conditionally load jQuery v1 on old IE.
- *
- * @since 2.3.1
- */
-function bfg_ie_script_conditionals( $tag, $handle, $src ) {
-
-	if( 'jquery' === $handle ) {
-		$output = '<!--[if !IE]> -->' . "\n" . $tag . '<!-- <![endif]-->' . "\n";
-		$output .= '<!--[if gt IE 8]>' . "\n" . $tag . '<![endif]-->' . "\n";
-
-		$use_production_assets = genesis_get_option('bfg_production_on');
-		$use_production_assets = !empty($use_production_assets);
-		$src                   = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
-		$fallback_script       = '<script type="text/javascript" src="' . $src . '"></script>';
-		$output .= '<!--[if lte IE 8]>' . "\n" . $fallback_script . '<![endif]-->' . "\n";
-	} else {
-		$output = $tag;
-	}
-
-	return $output;
-
-}
-
 /*
  * jQuery local fallback, if Google CDN is unreachable
  *
@@ -172,7 +147,24 @@ function bfg_jquery_local_fallback( $src, $handle = null ) {
 	static $add_jquery_fallback = false;
 
 	if( $add_jquery_fallback ) {
-		echo '<script>window.jQuery || document.write(\'<script src="' . includes_url() . 'js/jquery/jquery.js"><\/script>\')</script>' . "\n";
+		$use_production_assets = genesis_get_option('bfg_production_on');
+		$use_production_assets = !empty($use_production_assets);
+
+		$assets_version = genesis_get_option('bfg_assets_version');
+		$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+
+		$stylesheet_dir = get_stylesheet_directory_uri();
+
+		$fallback_src = $use_production_assets ? '/build/js/jquery.min.js' : '/build/js/jquery.js';
+
+		$fallback_src = add_query_arg(
+			array(
+				'ver' => $assets_version,
+			),
+			$stylesheet_dir . $fallback_src
+		);
+
+		echo '<script>window.jQuery || document.write(\'<script src="' . $fallback_src . '"><\/script>\')</script>' . "\n";
 		$add_jquery_fallback = false;
 	}
 

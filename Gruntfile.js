@@ -129,6 +129,15 @@ module.exports = function(grunt) {
 			}
 		},
 
+		copy: {
+			build: {
+				files: {
+					'build/js/jquery.js': 'bower_components/jquery/dist/jquery.js',
+					'build/js/jquery.min.js': 'bower_components/jquery/dist/jquery.min.js'
+				}
+			}
+		},
+
 		autoprefixer: {
 			options: {
 				cascade: true
@@ -206,6 +215,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -219,7 +229,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-postcss');
 
-	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'imagemin', 'autoprefixer', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'postcss', 'sass', 'grunticon', 'jshint', 'concat', 'uglify', 'imagemin', 'autoprefixer', 'csso']);
+	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'copy', 'imagemin', 'autoprefixer', 'watch']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'postcss', 'sass', 'grunticon', 'jshint', 'concat', 'uglify',  'copy', 'imagemin', 'autoprefixer', 'csso']);
 
 };

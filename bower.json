@@ -12,6 +12,7 @@
     "include-media-export": "*",
     "include-media": "*",
     "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
+    "jquery": "*",
     "jquery-placeholder": "*",
     "jquery.fitvids": "davatron5000/FitVids.js",
     "js-cookie": "js-cookie/js-cookie",

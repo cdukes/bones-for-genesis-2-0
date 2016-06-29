@@ -127,6 +127,14 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.34 (June 28, 2016)
+- Upgrade `jQuery` version to 3.0.0
+- Add `jQuery` to bower and use this version for non-CDN fallback, instead of WP's version
+- Remove IE-specific code
+- Add `.gallery` scaffold SCSS
+- Add wrapper default padding
+- Use full `flex` syntax
+
 ### 2.3.33 (June 15, 2016)
 - Use [Stylelint](https://github.com/stylelint/stylelint) for better SCSS consistency
 - Force strict JS

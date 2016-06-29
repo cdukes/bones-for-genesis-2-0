@@ -84,3 +84,26 @@ img.alignright,
 .wp-video {
 	margin: 0 0 $spacer;
 }
+
+.gallery {
+	overflow: hidden;
+}
+
+.gallery-item {
+	float: left;
+	margin: 0 0 $spacer;
+}
+
+$columns: 0;
+@while $columns <= 9 {
+	$columns: $columns + 1;
+	.gallery-columns-#{$columns} {
+		.gallery-item {
+			width: (100% / $columns);
+
+			&:nth-child(#{$columns}n+1) {
+				clear: left;
+			}
+		}
+	}
+}
