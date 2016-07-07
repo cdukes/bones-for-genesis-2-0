@@ -15,6 +15,7 @@ remove_action( 'wp_head', 'wp_generator' );								// WP Version
 remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
 // remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
 remove_action( 'wp_head', 'feed_links_extra', 3 ); 						// Remove comment feed links
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlink
 
 // Remove WP-API <head> material
 // See: https://wordpress.stackexchange.com/questions/211467/remove-json-api-links-in-header-html

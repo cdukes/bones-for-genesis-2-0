@@ -40,7 +40,7 @@ function bfg_login_headertitle() {
 function bfg_replace_login_logo() {
 
 	?><style type="text/css">
-		.login h1 a {
+		body.login h1 a {
 			background-image: url(<?php echo get_stylesheet_directory_uri() ?>/build/images/login-logo.svg);
 
 			/* Adjust to the dimensions of your logo. WP Default: 80px 80px */

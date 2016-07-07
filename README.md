@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.35 (July 7, 2016)
+- `pre_get_posts` is an action, not a filter
+- Higher specificity on `bfg_replace_login_logo()`
+- Remove `wp_shortlink_wp_head()`
+- Add `bfg_add_tinymce_plugins()` (disabled by default)
+
 ### 2.3.34 (June 28, 2016)
 - Upgrade `jQuery` version to 3.0.0
 - Add `jQuery` to bower and use this version for non-CDN fallback, instead of WP's version

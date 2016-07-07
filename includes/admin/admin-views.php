@@ -141,6 +141,34 @@ function bfg_add_editor_style() {
 
 }
 
+// add_filter( 'mce_external_plugins', 'bfg_add_tinymce_plugins' );
+/*
+ * Add a plugin script for TinyMCE
+ *
+ * @since 2.3.35
+ */
+function bfg_add_tinymce_plugins( $plugin_array ) {
+
+	$use_production_assets = genesis_get_option('bfg_production_on');
+	$use_production_assets = !empty($use_production_assets);
+
+	$assets_version = genesis_get_option('bfg_assets_version');
+	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+
+	$src = $use_production_assets ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
+	$src = add_query_arg(
+		array(
+			'ver' => $assets_version,
+		),
+		$src
+	);
+
+	$plugin_array['bfg_admin'] = get_stylesheet_directory_uri() . $src;
+
+	return $plugin_array;
+
+}
+
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 /**
  * Modifies the TinyMCE settings array.

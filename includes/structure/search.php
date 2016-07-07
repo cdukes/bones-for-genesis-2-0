@@ -50,7 +50,7 @@ function bfg_redirect_single_search_result() {
 
 }
 
-// add_filter( 'pre_get_posts', 'bfg_only_search_posts' );
+// add_action( 'pre_get_posts', 'bfg_only_search_posts' );
 /**
  * Limit searching to just posts, excluding pages and CPTs.
  *
@@ -60,10 +60,11 @@ function bfg_redirect_single_search_result() {
  */
 function bfg_only_search_posts( $query ) {
 
+	if( is_admin() )
+		return;
+
 	if( $query->is_search ) {
 		$query->set( 'post_type', 'post' );
 	}
-
-	return $query;
 
 }
