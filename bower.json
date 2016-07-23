@@ -11,12 +11,10 @@
     "colors-sass": "mrmrs/colors-sass",
     "include-media-export": "*",
     "include-media": "*",
-    "iOS-Orientationchange-Fix": "scottjehl/iOS-Orientationchange-Fix",
-    "jquery": "*",
-    "jquery-placeholder": "*",
     "jquery.fitvids": "davatron5000/FitVids.js",
+    "jquery": "*",
     "js-cookie": "js-cookie/js-cookie",
     "normalize-scss": "*",
-    "svgeezy": "*"
+    "vanilla-fitvids": "rosszurowski/vanilla-fitvids"
   }
 }

@@ -96,11 +96,8 @@ module.exports = function(grunt) {
 			build: {
 				src: [
 					'bower_components/include-media-export/include-media.js',
-					'bower_components/iOS-Orientationchange-Fix/ios-orientationchange-fix.js',
-					'bower_components/jquery-placeholder/jquery.placeholder.js',
-					'bower_components/jquery.fitvids/jquery.fitvids.js',
 					'bower_components/js-cookie/src/js.cookie.js',
-					'bower_components/svgeezy/svgeezy.js',
+					'bower_components/vanilla-fitvids/dist/fitvids.js',
 					'build/svgs/grunticon.loader.js',
 					'js/scripts.js'
 				],

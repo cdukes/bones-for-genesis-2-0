@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.36 (July 23, 2016)
+- Remove scripts not needed on modern browsers
+- Replace `FitVids.js` with `vanilla-fitvids`
+
 ### 2.3.35 (July 7, 2016)
 - `pre_get_posts` is an action, not a filter
 - Higher specificity on `bfg_replace_login_logo()`
