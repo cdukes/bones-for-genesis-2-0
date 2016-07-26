@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.3+ and WordPress 4.4+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.3+ and WordPress 4.6+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.37 (July 26, 2016)
+- Use [brand-colors](https://github.com/reimertz/brand-colors)
+- Use [postcss-color-rgba-fallback](https://github.com/postcss/postcss-color-rgba-fallback)
+- Use WP 4.6's `wp_resource_hints` filter
+- Remove code deregistering WP's Open Sans font
+- Use WP 4.6's font stack in `_variables.scss`
+
 ### 2.3.36 (July 23, 2016)
 - Remove scripts not needed on modern browsers
 - Replace `FitVids.js` with `vanilla-fitvids`

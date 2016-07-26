@@ -18,6 +18,7 @@
     "grunt-newer": "*",
     "grunt-notify": "*",
     "grunt-postcss": "*",
+    "postcss-color-rgba-fallback": "*",
     "postcss-reporter": "*",
     "postcss-scss": "*",
     "stylelint": "*",

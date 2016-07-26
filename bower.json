@@ -8,6 +8,7 @@
     "tests"
   ],
   "dependencies": {
+    "brand-colors": "reimertz/brand-colors",
     "colors-sass": "mrmrs/colors-sass",
     "include-media-export": "*",
     "include-media": "*",

@@ -23,17 +23,27 @@ module.exports = function(grunt) {
 		},
 
 		postcss: {
-			build: {
+			scss: {
 				options: {
 					syntax: require('postcss-scss'),
 					processors: [
 						require('stylelint')({
 							configFile: 'sass/.stylelintrc'
 						}),
-						require('postcss-reporter')({ clearMessages: true })
+						require('postcss-reporter')({
+							clearMessages: true
+						})
 					]
 				},
 				src: 'sass/**/*.scss'
+			},
+			css: {
+				options: {
+					processors: [
+						require('postcss-color-rgba-fallback')()
+					]
+				},
+				src: 'build/**/*.css'
 			}
 		},
 
@@ -227,6 +237,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 
 	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'copy', 'imagemin', 'autoprefixer', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'postcss', 'sass', 'grunticon', 'jshint', 'concat', 'uglify',  'copy', 'imagemin', 'autoprefixer', 'csso']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'postcss:scss', 'sass', 'grunticon', 'jshint', 'concat', 'uglify',  'copy', 'imagemin', 'autoprefixer', 'postcss:css', 'csso']);
 
 };

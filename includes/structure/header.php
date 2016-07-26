@@ -48,7 +48,7 @@ function bfg_do_doctype() {
 
 }
 
-add_action( 'wp_head', 'bfg_fetch_dns', 1 );
+add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 /**
  * Prefetch the DNS for external resource domains. Better browser support than preconnect.
  *
@@ -56,15 +56,14 @@ add_action( 'wp_head', 'bfg_fetch_dns', 1 );
  *
  * @since 2.3.19
  */
-function bfg_fetch_dns() {
+function bfg_resource_hints( $hints, $relation_type ) {
 
-	$hrefs = array(
-		'//ajax.googleapis.com',
-		// '//fonts.googleapis.com'
-	);
+	if( 'dns-prefetch' === $relation_type ) {
+		$hints[] = '//ajax.googleapis.com';
+		// $hints[] = '//fonts.googleapis.com';
+	}
 
-	foreach( $hrefs as $href )
-		echo '<link rel="dns-prefetch" href="' . $href . '">' . "\n";
+	return $hints;
 
 }
 
@@ -91,11 +90,6 @@ function bfg_load_assets() {
 	// Main theme stylesheet
 	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $assets_version );
-
-	// Disable the 'Open Sans' loaded by the admin bar
-	// https://wordpress.org/support/topic/remove-open-sans-and-add-custom-fonts
-	wp_deregister_style( 'open-sans' );
-	wp_register_style( 'open-sans', false );
 
 	// Google Fonts
 	// Consider async loading: https://github.com/typekit/webfontloader
