@@ -12,7 +12,6 @@
     "colors-sass": "mrmrs/colors-sass",
     "include-media-export": "*",
     "include-media": "*",
-    "jquery.fitvids": "davatron5000/FitVids.js",
     "jquery": "*",
     "js-cookie": "js-cookie/js-cookie",
     "normalize-scss": "*",

@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.38 (August 7, 2016)
+- Remove `jquery.fitvids` from `bower.json`
+- Use `grunt-sass` instead of `grunt-contrib-sass` (faster than Ruby)
+- Add `bfg_enable_svg_uploads()` (disabled by default)
+- Add filter for `genesis_pre_get_option_site_layout()` to `layout.php` (disabled by default)
+- Add `search.php` to override Genesis's
+
 ### 2.3.37 (July 26, 2016)
 - Use [brand-colors](https://github.com/reimertz/brand-colors)
 - Use [postcss-color-rgba-fallback](https://github.com/postcss/postcss-color-rgba-fallback)

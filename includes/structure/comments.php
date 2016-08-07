@@ -23,4 +23,3 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 2.0.16
  */
 // remove_action( 'genesis_after_entry', 'genesis_get_comments_template' );
-

@@ -56,6 +56,21 @@ function bfg_disable_self_pings( &$links ) {
  */
 // add_image_size( 'desktop-size', 1024, 768, array( 'left', 'top' ) ); // Crop positions are: top, left, right, bottom, center
 
+// add_filter( 'upload_mimes', 'bfg_enable_svg_uploads', 10, 1 );
+/**
+ * Enabled SVG uploads. Note that this could be a security issue, see: https://bjornjohansen.no/svg-in-wordpress.
+ *
+ * @since 2.3.38
+ */
+function bfg_enable_svg_uploads( $mimes ) {
+
+	$mimes['svg']  = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
+
+	return $mimes;
+
+}
+
 // add_filter( 'image_size_names_choose', 'bfg_image_size_names_choose' );
 /**
  * Add new image sizes to media size selection menu.
