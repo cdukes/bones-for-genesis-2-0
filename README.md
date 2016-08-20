@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.39 (August 20, 2016)
+- Add SCSS to hide the WP admin bar on mobile (disabled by default)
+- Allow `favicon.ico` to be loaded from the `images` folder
+
 ### 2.3.38 (August 7, 2016)
 - Remove `jquery.fitvids` from `bower.json`
 - Use `grunt-sass` instead of `grunt-contrib-sass` (faster than Ruby)

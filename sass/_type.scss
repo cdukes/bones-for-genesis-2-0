@@ -11,6 +11,16 @@ body {
 	font-variant-ligatures: common-ligatures;
 }
 
+@include media('<=admin-bar') {
+	#wpadminbar {
+		// display: none !important;
+	}
+
+	html.html-tag {
+		// margin-top: 0 !important;
+	}
+}
+
 ::selection {
 	// text-shadow: none;
 }
