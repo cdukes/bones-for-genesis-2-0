@@ -127,6 +127,13 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.40 (September 7, 2016)
+- Add PostCSS modules: `postcss-flexbugs-fixes`, `postcss-import`, `postcss-easings`
+- Remove Grunt modules: `csslint`, `grunticon`, `stylelint`
+- Switch to PostCSS's `autoprefixer`, since `grunt-autoprefixer` is deprecated
+- Turn off `flexbox` for `autoprefixer` by default
+- Use `normalize.css` instead of `normalize.scss`
+
 ### 2.3.39 (August 20, 2016)
 - Add SCSS to hide the WP admin bar on mobile (disabled by default)
 - Allow `favicon.ico` to be loaded from the `images` folder

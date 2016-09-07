@@ -14,7 +14,7 @@
     "include-media": "*",
     "jquery": "*",
     "js-cookie": "js-cookie/js-cookie",
-    "normalize-scss": "*",
+    "normalize-css": "necolas/normalize.css",
     "vanilla-fitvids": "rosszurowski/vanilla-fitvids"
   }
 }

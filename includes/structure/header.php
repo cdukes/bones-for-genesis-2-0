@@ -116,15 +116,6 @@ function bfg_load_assets() {
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
-	wp_localize_script(
-		'bfg',
-		'grunticon_paths',
-		array(
-			'svg'      => $stylesheet_dir . '/build/svgs/icons.data.svg.css',
-			'png'      => $stylesheet_dir . '/build/svgs/icons.data.png.css',
-			'fallback' => $stylesheet_dir . '/build/svgs/icons.fallback.css',
-		)
-	);
 	// wp_localize_script( 'bfg', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 }

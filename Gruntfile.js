@@ -27,12 +27,7 @@ module.exports = function(grunt) {
 				options: {
 					syntax: require('postcss-scss'),
 					processors: [
-						require('stylelint')({
-							configFile: 'sass/.stylelintrc'
-						}),
-						require('postcss-reporter')({
-							clearMessages: true
-						})
+						require('postcss-flexbugs-fixes')
 					]
 				},
 				src: 'sass/**/*.scss'
@@ -40,7 +35,14 @@ module.exports = function(grunt) {
 			css: {
 				options: {
 					processors: [
-						require('postcss-color-rgba-fallback')()
+						require('postcss-import'),
+						require('postcss-color-rgba-fallback'),
+						require('postcss-easings'),
+						require('postcss-focus'),
+						require('autoprefixer')({
+							cascade: true,
+							flexbox: false
+						}),
 					]
 				},
 				src: 'build/**/*.css'
@@ -49,7 +51,6 @@ module.exports = function(grunt) {
 
 		sass: {
 			options: {
-				compass: true,
 				style: 'expanded',
 				precision: 3,
 				sourcemap: 'none'
@@ -59,32 +60,6 @@ module.exports = function(grunt) {
 					'build/css/style.css': 'sass/style.scss',
 					'build/css/admin.css': 'sass/admin.scss'
 				}
-			}
-		},
-
-		csslint: {
-			build: {
-				options: {
-					csslintrc: 'sass/.csslintrc'
-				},
-				src: [
-					'build/css/style.css',
-					'build/css/admin.css'
-				]
-			}
-		},
-
-		grunticon: {
-			options: {
-				compressPNG: true
-			},
-			build: {
-				files: [{
-					expand: true,
-					cwd: 'svgs/',
-					src: ['*.svg', '*.png'],
-					dest: 'build/svgs/'
-				}]
 			}
 		},
 
@@ -108,7 +83,6 @@ module.exports = function(grunt) {
 					'bower_components/include-media-export/include-media.js',
 					'bower_components/js-cookie/src/js.cookie.js',
 					'bower_components/vanilla-fitvids/dist/fitvids.js',
-					'build/svgs/grunticon.loader.js',
 					'js/scripts.js'
 				],
 				dest: 'build/js/scripts.js',
@@ -141,18 +115,6 @@ module.exports = function(grunt) {
 				files: {
 					'build/js/jquery.js': 'bower_components/jquery/dist/jquery.js',
 					'build/js/jquery.min.js': 'bower_components/jquery/dist/jquery.min.js'
-				}
-			}
-		},
-
-		autoprefixer: {
-			options: {
-				cascade: true
-			},
-			build: {
-				files: {
-					'build/css/style.css': ['build/css/style.css'],
-					'build/css/admin.css': ['build/css/admin.css']
 				}
 			}
 		},
@@ -194,7 +156,7 @@ module.exports = function(grunt) {
 
 			css: {
 				files: ['sass/**/*.scss'],
-				tasks: ['sass', 'autoprefixer'],
+				tasks: ['sass', 'postcss:css'],
 				options: {
 					spawn: false
 				}
@@ -206,24 +168,14 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
-			},
-
-			svgs: {
-				files: ['svgs/**/*'],
-				tasks: ['newer:grunticon'],
-				options: {
-					spawn: false
-				}
 			}
 		}
 
 	});
 
-	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-sass');
@@ -231,12 +183,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-csscomb');
 	grunt.loadNpmTasks('grunt-csso');
-	grunt.loadNpmTasks('grunt-grunticon');
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-postcss');
 
-	grunt.registerTask('default', ['clean', 'sass', 'grunticon', 'concat', 'copy', 'imagemin', 'autoprefixer', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'postcss:scss', 'sass', 'grunticon', 'jshint', 'concat', 'uglify',  'copy', 'imagemin', 'autoprefixer', 'postcss:css', 'csso']);
+	grunt.registerTask('default', ['clean', 'sass', 'concat', 'copy', 'imagemin', 'watch']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'concat', 'uglify', 'copy', 'imagemin', 'postcss:css', 'csso']);
 
 };

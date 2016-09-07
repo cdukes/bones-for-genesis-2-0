@@ -35,8 +35,4 @@
 	// Enable FitVids on the content area
 	fitvids('.content');
 
-	// Grunticon
-	if( typeof grunticon === 'function')
-		grunticon([grunticon_paths.svg, grunticon_paths.png, grunticon_paths.fallback]);
-
 })( window.jQuery );
