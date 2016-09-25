@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.41 (September 25, 2016)
+- Minor PHP spacing/style changes
+- Remove `bfg_ie_font_face_fix()`
+
 ### 2.3.40 (September 7, 2016)
 - Add PostCSS modules: `postcss-flexbugs-fixes`, `postcss-import`, `postcss-easings`
 - Remove Grunt modules: `csslint`, `grunticon`, `stylelint`

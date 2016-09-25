@@ -48,35 +48,3 @@ function bfg_disable_pointer_events_on_scroll() {
 	echo preg_replace( '/\s+/', ' ', $output ) . "\n";
 
 }
-
-// add_action( 'wp_footer', 'bfg_ie_font_face_fix', 99 );
-/**
- * Forces the main stylesheet to reload on document ready for IE8 and below.
- * This redraws any @font-face fonts, fixing the IE8 font loading bug.
- *
- * See: http://stackoverflow.com/questions/9809351/ie8-css-font-face-fonts-only-working-for-before-content-on-over-and-sometimes
- *
- * @since 2.0.13
- */
-function bfg_ie_font_face_fix() {
-
-	ob_start();
-	?><!--[if lt IE 9]>
-		<script>
-			jQuery(document).ready(function($) {
-				var head = document.getElementsByTagName('head')[0],
-					style = document.createElement('style');
-				style.type = 'text/css';
-				style.styleSheet.cssText = ':before,:after{content:none !important;}';
-				head.appendChild(style);
-				setTimeout(function(){
-					head.removeChild(style);
-				}, 0);
-			});
-		</script>
-	<![endif]-->
-	<?php
-	$output = ob_get_clean();
-	echo preg_replace( '/\s+/', ' ', $output ) . "\n";
-
-}

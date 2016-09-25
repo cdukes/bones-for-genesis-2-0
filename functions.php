@@ -11,7 +11,7 @@ define( 'CHILD_THEME_URL', 'http://bonesforgenesis.com/' );
 define( 'CHILD_THEME_TEXT_DOMAIN', 'bfg' );
 
 // Developer Tools
-require_once CHILD_DIR . '/includes/developer-tools.php';		// DO NOT USE THESE ON A LIVE SITE
+require_once CHILD_DIR . '/includes/developer-tools.php';
 
 // Genesis
 require_once CHILD_DIR . '/includes/genesis.php';				// Customizations to Genesis-specific functions
@@ -37,4 +37,3 @@ require_once CHILD_DIR . '/includes/structure/sidebar.php';
 
 // Shame
 require_once CHILD_DIR . '/includes/shame.php';					// For new code snippets that haven't been sorted and commented yet
-

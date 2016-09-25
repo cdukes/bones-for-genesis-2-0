@@ -186,7 +186,7 @@ function bfg_remove_xmlrpc_pingback_ping( $methods ) {
 
 	return $methods;
 
-};
+}
 
 /*
  * Disable XML-RPC

@@ -231,4 +231,3 @@ function bfg_load_favicons() {
  */
 // remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 // remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
-
