@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.42 (October 15, 2016)
+- Remove `svgs` folder
+- Update `%visuallyhidden` CSS
+
 ### 2.3.41 (September 25, 2016)
 - Minor PHP spacing/style changes
 - Remove `bfg_ie_font_face_fix()`

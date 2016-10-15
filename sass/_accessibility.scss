@@ -1,24 +1,13 @@
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 // https://raw.githubusercontent.com/copyblogger/genesis-sample/5afef88688b0f187733cea089fbb5bfc5ce2c351/style.css
+// https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe#.17fafly68
 %visuallyhidden {
 	position: absolute;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	margin: -1px;
-	padding: 0;
+	clip: rect(1px, 1px, 1px, 1px);
 	width: 1px;
 	height: 1px;
-	border: 0;
-	background: $white;
-	color: $black;
-
-	&:focus {
-		z-index: 100000;
-		display: block;
-		clip: auto;
-		width: auto;
-		height: auto;
-	}
+	white-space: nowrap;
 }
 
 .screen-reader-text,
