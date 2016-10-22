@@ -3,22 +3,34 @@ body {
 	// min-width: $site-width; // Prevents backgrounds on these elements from being truncated on smaller screens on fixed-width sites
 }
 
+html.admin-bar-showing {
+	margin-top: 2em;
+}
+
+* html.admin-bar-showing body {
+	margin-top: 2em;
+}
+
+@include media('<=admin-bar') {
+	html.admin-bar-showing {
+		margin-top: 0;
+	}
+
+	* html.admin-bar-showing body {
+		margin-top: 0;
+	}
+
+	#wpadminbar {
+		display: none !important;
+	}
+}
+
 body {
 	font-family: $sans;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
 	font-variant-ligatures: common-ligatures;
-}
-
-@include media('<=admin-bar') {
-	#wpadminbar {
-		// display: none !important;
-	}
-
-	html.html-tag {
-		// margin-top: 0 !important;
-	}
 }
 
 ::selection {

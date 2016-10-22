@@ -110,15 +110,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		copy: {
-			build: {
-				files: {
-					'build/js/jquery.js': 'bower_components/jquery/dist/jquery.js',
-					'build/js/jquery.min.js': 'bower_components/jquery/dist/jquery.min.js'
-				}
-			}
-		},
-
 		csso: {
 			options: {
 				report: 'min'
@@ -175,7 +166,6 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-sass');
@@ -187,7 +177,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-postcss');
 
-	grunt.registerTask('default', ['clean', 'sass', 'concat', 'copy', 'imagemin', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'concat', 'uglify', 'copy', 'imagemin', 'postcss:css', 'csso']);
+	grunt.registerTask('default', ['clean', 'sass', 'concat', 'imagemin', 'watch']);
+	grunt.registerTask('build', ['clean', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'concat', 'uglify', 'imagemin', 'postcss:css', 'csso']);
 
 };

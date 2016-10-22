@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.43 (October 22, 2016)
+- Add a `Content-Security-Policy` header (disabled by default)
+- Move inline admin bar styles to `_type.scss` and `_print.scss`
+- Remove avatar in admin bar
+- Remove jQuery fallback
+
 ### 2.3.42 (October 15, 2016)
 - Remove `svgs` folder
 - Update `%visuallyhidden` CSS

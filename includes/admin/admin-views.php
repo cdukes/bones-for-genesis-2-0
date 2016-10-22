@@ -3,6 +3,42 @@
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
+ * Remove admin bar inline CSS
+ *
+ * @since 2.3.43
+ */
+add_theme_support( 'admin-bar', array('callback' => '__return_false') );
+
+add_action(  'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
+function bfg_remove_admin_bar_inline_css() {
+
+	remove_action( 'wp_head', 'wp_admin_bar_header' );
+
+}
+
+/*
+ * Remove admin bar avatar
+ *
+ * See: https://gist.github.com/ocean90/1723233
+ *
+ * @since 2.3.43
+ */
+
+add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
+function bfg_hide_admin_bar_avatar() {
+
+	add_filter( 'pre_option_show_avatars', '__return_zero' );
+
+}
+
+add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
+function bfg_restore_avatars() {
+
+	remove_filter( 'pre_option_show_avatars', '__return_zero' );
+
+}
+
+/*
  * Only show the admin bar to users who can at least use Posts
  *
  * @since 2.0.0

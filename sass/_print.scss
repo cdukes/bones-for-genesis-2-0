@@ -9,6 +9,18 @@
 		text-shadow: none !important;
 	}
 
+	html.admin-bar-showing {
+		margin-top: 0;
+	}
+
+	* html.admin-bar-showing body {
+		margin-top: 0;
+	}
+
+	#wpadminbar {
+		display: none !important;
+	}
+
 	a,
 	a:visited {
 		color: #000 !important;
