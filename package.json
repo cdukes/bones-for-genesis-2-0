@@ -5,6 +5,7 @@
     "grunt": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",

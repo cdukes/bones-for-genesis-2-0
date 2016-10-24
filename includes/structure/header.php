@@ -141,11 +141,54 @@ function bfg_load_assets() {
 	wp_deregister_script( 'jquery' );
 	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
+	// add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
 	// wp_localize_script( 'bfg', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
+}
+
+/*
+ * jQuery local fallback, if Google CDN is unreachable
+ *
+ * See: https://github.com/roots/roots/blob/aa59cede7fbe2b853af9cf04e52865902d2ff1a9/lib/scripts.php#L37-L52
+ *
+ * @since 2.0.20
+ */
+// add_action( 'wp_head', 'bfg_jquery_local_fallback' );
+function bfg_jquery_local_fallback( $src, $handle = null ) {
+
+	static $add_jquery_fallback = false;
+
+	if( $add_jquery_fallback ) {
+		$use_production_assets = genesis_get_option('bfg_production_on');
+		$use_production_assets = !empty($use_production_assets);
+
+		$assets_version = genesis_get_option('bfg_assets_version');
+		$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+
+		$stylesheet_dir = get_stylesheet_directory_uri();
+
+		$fallback_src = $use_production_assets ? '/build/js/jquery.min.js' : '/build/js/jquery.js';
+
+		$fallback_src = add_query_arg(
+			array(
+				'ver' => $assets_version,
+			),
+			$stylesheet_dir . $fallback_src
+		);
+
+		echo '<script>window.jQuery || document.write(\'<script src="' . $fallback_src . '"><\/script>\')</script>' . "\n";
+		$add_jquery_fallback = false;
+	}
+
+	if( $handle === 'jquery' ) {
+		$add_jquery_fallback = true;
+	}
+
+	return $src;
 
 }
 
