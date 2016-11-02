@@ -39,6 +39,7 @@ module.exports = function(grunt) {
 						require('postcss-color-rgba-fallback'),
 						require('postcss-easings'),
 						require('postcss-focus'),
+						require('postcss-assets'),
 						require('autoprefixer')({
 							cascade: true,
 							flexbox: false
@@ -164,7 +165,7 @@ module.exports = function(grunt) {
 
 			images: {
 				files: ['images/**/*'],
-				tasks: ['newer:imagemin'],
+				tasks: ['newer:imagemin', 'sass', 'postcss:css'],
 				options: {
 					spawn: false
 				}
@@ -187,7 +188,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-postcss');
 
-	grunt.registerTask('default', ['clean', 'sass', 'concat', 'copy', 'imagemin', 'watch']);
-	grunt.registerTask('build', ['clean', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'concat', 'uglify', 'copy', 'imagemin', 'postcss:css', 'csso']);
+	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'concat', 'copy', 'watch']);
+	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'concat', 'uglify', 'copy', 'postcss:css', 'csso']);
 
 };

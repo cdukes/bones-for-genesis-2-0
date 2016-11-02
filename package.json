@@ -16,6 +16,7 @@
     "grunt-notify": "*",
     "grunt-postcss": "*",
     "grunt-sass": "*",
+    "postcss-assets": "*",
     "postcss-color-rgba-fallback": "*",
     "postcss-easings": "*",
     "postcss-flexbugs-fixes": "*",

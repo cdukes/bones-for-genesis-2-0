@@ -127,6 +127,9 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.45 (November 2, 2016)
+- PostCSS image inlining
+
 ### 2.3.44 (October 22, 2016)
 - Restore jQuery fallback, but disabled by default
 
