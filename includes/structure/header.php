@@ -139,14 +139,27 @@ function bfg_load_assets() {
 
 	// Override WP default self-hosted jQuery with version from Google's CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.js';
+	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
 	// add_filter( 'script_loader_src', 'bfg_jquery_local_fallback', 10, 2 );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
-	// wp_localize_script( 'bfg', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
+}
+
+add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
+/**
+ * Add the AJAX URL as a `data-*` attribute on `<body>`, instead of an inline script, for better CSP compatibility.
+ *
+ * @since 2.3.46
+ */
+function bfg_ajax_url_attribute( $atts ) {
+
+	$atts['data-ajax_url'] = admin_url( 'admin-ajax.php' );
+
+	return $atts;
 
 }
 

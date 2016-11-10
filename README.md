@@ -127,6 +127,10 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.46 (November 10, 2016)
+- Add AJAX URL as a `data-*` attribute on `<body>`, instead of an inline script, for better CSP compatibility (disabled by default)
+- More consistent `.btn` default styles
+
 ### 2.3.45 (November 2, 2016)
 - PostCSS image inlining
 
