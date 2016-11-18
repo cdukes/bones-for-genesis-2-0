@@ -2,7 +2,7 @@
 // http://html5boilerplate.com/
 (function() {
 
-	"use strict";
+	'use strict';
 
 	var method;
 	var noop = function () {};
@@ -27,7 +27,7 @@
 
 (function($) {
 
-	"use strict";
+	'use strict';
 
 	// Remove the 'no-js' <body> class
 	$('html').removeClass('no-js');
