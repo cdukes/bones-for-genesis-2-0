@@ -43,10 +43,10 @@ function bfg_replace_login_logo() {
 		body.login h1 a {
 			background-image: url(<?php echo get_stylesheet_directory_uri() ?>/build/images/login-logo.svg);
 
-			/* Adjust to the dimensions of your logo. WP Default: 80px 80px */
-			background-size: 80px 80px;
-			width: 80px;
-			height: 80px;
+			/* Adjust to the dimensions of your logo. WP Default: 84px 84px */
+			background-size: 84px 84px;
+			width: 84px;
+			height: 84px;
 		}
 	</style>
 	<?php

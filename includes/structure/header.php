@@ -33,6 +33,9 @@ remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 // add_action(  'wp', 'bfg_content_security_policy' );
 function bfg_content_security_policy() {
 
+	if( is_admin() )
+		return;
+
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
 

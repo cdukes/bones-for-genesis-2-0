@@ -247,12 +247,11 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  */
 function bfg_user_contactmethods( $fields ) {
 
-	// $fields['facebook'] = 'Facebook';												// Add Facebook
+	// $fields['facebook'] = 'Facebook';											// Add Facebook
 	// $fields['twitter'] = 'Twitter';												// Add Twitter
-	// $fields['linkedin'] = 'LinkedIn';												// Add LinkedIn
-	unset( $fields['aim'] );														// Remove AIM
-	unset( $fields['yim'] );														// Remove Yahoo IM
-	unset( $fields['jabber'] );														// Remove Jabber / Google Talk
+	// $fields['linkedin'] = 'LinkedIn';											// Add LinkedIn
+	unset( $fields['aim'], $fields['yim'], $fields['jabber'] );						// Remove AIM, Yahoo IM, and Jabber / Google Talk
+
 	return $fields;
 
 }
@@ -322,8 +321,7 @@ function bfg_hide_admin_help_button() {
 // add_filter( 'theme_page_templates', 'bfg_deregister_page_templates' );
 function bfg_deregister_page_templates( $templates ) {
 
-	unset($templates['page_archive.php']);
-	unset($templates['page_blog.php']);
+	unset($templates['page_archive.php'], $templates['page_blog.php']);
 
 	return $templates;
 

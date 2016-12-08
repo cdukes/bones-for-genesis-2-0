@@ -138,7 +138,7 @@ add_filter( 'the_password_form', 'bfg_password_form' );
 function bfg_password_form( $post = 0 ) {
 
 	$post       = get_post( $post );
-	$label      = 'pwbox-' . ( empty($post->ID) ? rand() : $post->ID );
+	$label      = 'pwbox-' . ( empty($post->ID) ? mt_rand() : $post->ID );
 	$output     = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
 		$autofocus = is_singular() ? 'autofocus' : '';
 		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="' . __( 'Password', CHILD_THEME_TEXT_DOMAIN ) . '" ' . $autofocus . '>';

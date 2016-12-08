@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.3+ and WordPress 4.6+.
+My fork of [eddiemachado's](https://github.com/eddiemachado/bones-genesis) Bones for Genesis. Built for Genesis 2.3+ and WordPress 4.7+.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 
@@ -127,6 +127,11 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.48 (December 8, 2016)
+- Update `PHP-CS-Fixer`
+- Update default WP login logo size
+- Don't apply `bfg_content_security_policy()` on header
+
 ### 2.3.47 (November 17, 2016)
 - Remove `bfg_jquery_local_fallback()` (again)
 - Run `postcss:css` in `grunt`
