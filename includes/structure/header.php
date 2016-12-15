@@ -151,6 +151,26 @@ function bfg_load_assets() {
 
 }
 
+// add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 2);
+/**
+ * Add a defer attribute to the designated <script> tags.
+ *
+ * See: http://calendar.perfplanet.com/2016/prefer-defer-over-async/
+ *
+ * @since 2.3.49
+ */
+function bfg_script_loader_tags( $tag, $handle ) {
+
+	switch( $handle ) {
+		case 'jquery':
+		case 'bfg':
+			return str_replace( ' src', ' defer src', $tag );
+	}
+
+	return $tag;
+
+}
+
 add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
 /**
  * Add the AJAX URL as a `data-*` attribute on `<body>`, instead of an inline script, for better CSP compatibility.

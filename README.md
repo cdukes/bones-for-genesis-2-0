@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.49 (December 15, 2016)
+- Remove `grunt-contrib-copy`
+- Remove `console` fallback from `scripts.js`
+- Always use `wp_safe_redirect()`
+- Add `bfg_script_loader_tags()` to enable `defer` attribute on `<script>` tags (disabled by default)
+
 ### 2.3.48 (December 8, 2016)
 - Update `PHP-CS-Fixer`
 - Update default WP login logo size
