@@ -381,3 +381,40 @@ function bfg_remove_meta_boxes() {
 	// remove_meta_box( 'submitdiv', 'page', 'side' );
 
 }
+
+/**
+ * Limit the number of items that can be shown at once on admin pages.
+ * Too many items will cause timeouts on most servers.
+ *
+ * @since 2.3.50
+ */
+function bfg_limit_items_per_page( $per_page ) {
+
+	return min( $per_page, 100 );
+
+}
+
+add_action( 'admin_init', 'bfg_setup_per_page_limits' );
+function bfg_setup_per_page_limits() {
+
+	$options = array(
+		'edit_comments_per_page',
+		'edit_page_per_page',
+		'edit_post_per_page',
+		'site_themes_network_per_page',
+		'site_users_network_per_page',
+		'sites_network_per_page',
+		'themes_network_per_page',
+		'users_network_per_page',
+		'users_per_page',
+	);
+
+	// 'edit_{$post_type}_per_page'
+	$post_types = get_post_types( array('_builtin' => false) );
+	foreach( $post_types as $post_type )
+		$options[] = 'edit_' . $post_type . '_per_page';
+
+	foreach( $options as $option )
+		add_filter( $option, 'bfg_limit_items_per_page' );
+
+}

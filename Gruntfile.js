@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 
 		csscomb: {
 			options: {
-				config: 'sass/.csscomb.json'
+				config: 'config/csscomb.json'
 			},
 			build: {
 				expand: true,

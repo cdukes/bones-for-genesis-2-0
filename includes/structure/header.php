@@ -49,7 +49,7 @@ function bfg_content_security_policy() {
 	frame-ancestors 'none';
 	img-src 'self';
 	script-src 'self' ajax.googleapis.com;
-	style-src 'self';
+	style-src 'self' fonts.googleapis.com;
 	<?php
 	$csp = ob_get_clean();
 

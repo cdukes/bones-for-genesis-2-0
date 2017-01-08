@@ -127,6 +127,11 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.50 (January 8, 2017)
+- Move config files to `config/`
+- Add `bfg_setup_per_page_limits()` to limit the maximum number of items displayed on admin list tables
+- Improve Google Fonts inclusion in `bfg_content_security_policy()`
+
 ### 2.3.49 (December 15, 2016)
 - Remove `grunt-contrib-copy`
 - Remove `console` fallback from `scripts.js`
