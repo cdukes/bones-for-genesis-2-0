@@ -73,8 +73,8 @@ function bfg_do_doctype() {
 
 ?>
 <!DOCTYPE html>
-<html class="no-js <?php echo is_admin_bar_showing() ? 'admin-bar-showing' : ''; ?>" <?php language_attributes( 'html' ); ?>>
-<head>
+<html class="<?php echo is_admin_bar_showing() ? 'admin-bar-showing' : ''; ?>" <?php language_attributes( 'html' ); ?>>
+<head <?php echo genesis_attr( 'head' ); ?>>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <?php
@@ -142,12 +142,12 @@ function bfg_load_assets() {
 
 	// Override WP default self-hosted jQuery with version from Google's CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js';
+	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $assets_version, true );
 
 }
 
@@ -162,7 +162,6 @@ function bfg_load_assets() {
 function bfg_script_loader_tags( $tag, $handle ) {
 
 	switch( $handle ) {
-		case 'jquery':
 		case 'bfg':
 			return str_replace( ' src', ' defer src', $tag );
 	}
@@ -237,6 +236,20 @@ function bfg_load_favicons() {
 		// Safari 9 pinned tab color
 		echo '<link rel="mask-icon" href="' . $favicon_build_path . '/favicon.svg" color="' . $color . '">';
 	}
+
+}
+
+add_filter( 'body_class', 'bfg_no_js_body_class' );
+/*
+ * Add a no-js class to the <body> tag
+ *
+ * @since 2.3.51
+ */
+function bfg_no_js_body_class( $classes ) {
+
+	$classes[] = 'no-js';
+
+	return $classes;
 
 }
 

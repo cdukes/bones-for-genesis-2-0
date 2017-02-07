@@ -66,10 +66,7 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
-				strict: true,
-				globals: {
-					jQuery: true
-				}
+				strict: true
 			},
 			build: {
 				files: {
@@ -101,7 +98,7 @@ module.exports = function(grunt) {
 		uglify: {
 			options: {
 				preserveComments: 'some',
-				sourceMap: true
+				sourceMap: false
 			},
 			build: {
 				files: {

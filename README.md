@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.51 (February 7, 2017)
+- Don't load jQuery by default
+- Add `no-js` class to `<body>`, instead of `<html>`
+- Use `jQuery` 2.x, instead of 3.x
+- Turn off source maps
+
 ### 2.3.50 (January 8, 2017)
 - Move config files to `config/`
 - Add `bfg_setup_per_page_limits()` to limit the maximum number of items displayed on admin list tables

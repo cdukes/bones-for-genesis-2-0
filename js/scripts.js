@@ -1,11 +1,11 @@
-(function($) {
+(function() {
 
 	'use strict';
 
 	// Remove the 'no-js' <body> class
-	$('html').removeClass('no-js');
+	document.body.classList.remove('no-js');
 
 	// Enable FitVids on the content area
 	fitvids('.content');
 
-})( window.jQuery );
+})();
