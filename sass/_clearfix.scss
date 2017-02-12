@@ -1,7 +1,7 @@
 // Float Clearing - from Genesis 2.2.2's style.css
 
 // http://nicolasgallagher.com/micro-clearfix-hack/
-%clearfix {
+@mixin clearfix {
 	zoom: 1;			// For IE
 
 	&::before,
@@ -29,5 +29,5 @@
 .site-inner,
 .widget,
 .wrap {
-	@extend %clearfix;
+	@include clearfix;
 }

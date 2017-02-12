@@ -1,5 +1,5 @@
 .genesis-nav-menu {
-	@extend %clearfix;
+	@include clearfix;
 	clear: both;
 	width: 100%;
 
@@ -17,8 +17,7 @@
 		display: inline-block;
 		text-align: left;
 
-		&:hover,
-		&:focus {
+		&:hover {
 			> .sub-menu {
 				left: auto;
 				opacity: 1;
@@ -39,7 +38,7 @@
 		position: absolute;
 		top: 100%;
 		left: -9999px;
-		z-index: 99;
+		z-index: 1;
 		opacity: 0;
 		transition: opacity .4s ease-in-out;
 

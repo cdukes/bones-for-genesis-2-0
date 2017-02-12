@@ -9,7 +9,7 @@
 }
 
 .comment-header {
-	@extend %clearfix;
+	@include clearfix;
 
 	.comment-author {
 	}
@@ -24,14 +24,14 @@
 
 .comment-respond {
 	.form-submit {
-		@extend %clearfix;
+		@include clearfix;
 	}
 }
 
 .comment-notes,
 .logged-in-as,
 .form-allowed-tags {
-	@extend %type;
+	@include type;
 }
 
 .comment-notes,

@@ -17,10 +17,12 @@
     "grunt-sass": "*",
     "postcss-assets": "*",
     "postcss-color-rgba-fallback": "*",
-    "postcss-easings": "*",
     "postcss-flexbugs-fixes": "*",
     "postcss-focus": "*",
+    "postcss-gradient-transparency-fix": "*",
     "postcss-import": "*",
-    "postcss-scss": "*"
+    "postcss-line-height-px-to-unitless": "*",
+    "postcss-scss": "*",
+    "postcss-will-change": "*"
   }
 }

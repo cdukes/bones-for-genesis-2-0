@@ -127,6 +127,12 @@ grunt
 - Disable some or all of the default Genesis theme option meta boxes (template, some disabled by default)
 
 ## Changelog
+### 2.3.52 (February 12, 2017)
+- Turn off source maps
+- Turn on `mb_str_functions`
+- Replace `@extend`s with `@include`s
+- Tweak `posts` plugins
+
 ### 2.3.51 (February 7, 2017)
 - Don't load jQuery by default
 - Add `no-js` class to `<body>`, instead of `<html>`

@@ -14,7 +14,7 @@
 }
 
 .content-sidebar-wrap {
-	@extend %clearfix;
+	@include clearfix;
 }
 
 .content {

@@ -41,15 +41,14 @@ a {
 	text-decoration: underline;
 	transition: all .15s ease-in-out;
 
-	&:hover,
-	&:focus {
+	&:hover {
 		text-decoration: none;
 	}
 }
 
 ol,
 ul {
-	@extend %unstyled-list;
+	@include unstyled-list;
 }
 
 p {

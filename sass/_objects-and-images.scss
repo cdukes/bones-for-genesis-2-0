@@ -72,7 +72,7 @@ img.alignright,
 }
 
 .wp-caption-text {
-	@extend %type;
+	@include type;
 	margin: 0;
 	text-align: center;
 }

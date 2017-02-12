@@ -45,6 +45,7 @@ return PhpCsFixer\Config::create()
 			'lowercase_cast'                              => true,
 			'lowercase_constants'                         => true,
 			'lowercase_keywords'                          => true,
+			'mb_str_functions'                            => true,
 			'method_argument_space'                       => true,
 			'method_separation'                           => true,
 			'modernize_types_casting'                     => true,

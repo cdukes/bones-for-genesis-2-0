@@ -1,5 +1,5 @@
 // Use with @extend to make reponsive modules
-%wrap {
+@mixin wrap {
 	margin: 0 auto;
 	padding-right: .5em;
 	padding-left: .5em;
@@ -8,7 +8,7 @@
 }
 
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
-%image-replacement {
+@mixin image-replacement {
 	overflow: hidden;
 	text-indent: 200%;
 	white-space: nowrap;
@@ -20,13 +20,13 @@
 	}
 }
 
-%unstyled-list {
+@mixin unstyled-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-%type {
+@mixin type {
 	margin-bottom: $spacer;
 	letter-spacing: .01rem;
 	line-height: 1.5;

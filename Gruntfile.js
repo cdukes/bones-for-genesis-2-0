@@ -27,7 +27,9 @@ module.exports = function(grunt) {
 				options: {
 					syntax: require('postcss-scss'),
 					processors: [
-						require('postcss-flexbugs-fixes')
+						require('postcss-flexbugs-fixes'),
+						require('postcss-line-height-px-to-unitless'),
+						require('postcss-gradient-transparency-fix')
 					]
 				},
 				src: 'sass/**/*.scss'
@@ -36,14 +38,14 @@ module.exports = function(grunt) {
 				options: {
 					processors: [
 						require('postcss-import'),
-						require('postcss-color-rgba-fallback'),
-						require('postcss-easings'),
-						require('postcss-focus'),
 						require('postcss-assets'),
+						require('postcss-color-rgba-fallback'),
+						require('postcss-focus'),
+						require('postcss-will-change'),
 						require('autoprefixer')({
 							cascade: true,
 							flexbox: false
-						}),
+						})
 					]
 				},
 				src: 'build/**/*.css'
@@ -53,8 +55,7 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 				style: 'expanded',
-				precision: 3,
-				sourcemap: 'none'
+				precision: 3
 			},
 			build: {
 				files: {
@@ -97,8 +98,7 @@ module.exports = function(grunt) {
 
 		uglify: {
 			options: {
-				preserveComments: 'some',
-				sourceMap: false
+				preserveComments: 'some'
 			},
 			build: {
 				files: {
