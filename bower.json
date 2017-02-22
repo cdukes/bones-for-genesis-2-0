@@ -12,7 +12,6 @@
     "colors-sass": "mrmrs/colors-sass",
     "include-media-export": "*",
     "include-media": "*",
-    "js-cookie": "js-cookie/js-cookie",
     "normalize-css": "necolas/normalize.css",
     "vanilla-fitvids": "rosszurowski/vanilla-fitvids"
   }

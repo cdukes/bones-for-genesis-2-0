@@ -80,7 +80,6 @@ module.exports = function(grunt) {
 			build: {
 				src: [
 					'bower_components/include-media-export/include-media.js',
-					'bower_components/js-cookie/src/js.cookie.js',
 					'bower_components/vanilla-fitvids/dist/fitvids.js',
 					'js/scripts.js'
 				],

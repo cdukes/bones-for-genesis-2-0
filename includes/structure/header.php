@@ -48,7 +48,7 @@ function bfg_content_security_policy() {
 	form-action 'self';
 	frame-ancestors 'none';
 	img-src 'self';
-	script-src 'self' ajax.googleapis.com;
+	script-src 'self' cdnjs.cloudflare.com;
 	style-src 'self' fonts.googleapis.com;
 	<?php
 	$csp = ob_get_clean();
@@ -92,7 +92,7 @@ add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 function bfg_resource_hints( $hints, $relation_type ) {
 
 	if( 'dns-prefetch' === $relation_type ) {
-		$hints[] = '//ajax.googleapis.com';
+		// $hints[] = '//cdnjs.cloudflare.com';
 		// $hints[] = '//fonts.googleapis.com';
 	}
 
@@ -133,17 +133,16 @@ function bfg_load_assets() {
  	// 	null
  	// );
 
- 	// Dequeue comment-reply if no active comments on page
-	if( ( is_single() || is_page() || is_attachment() ) && comments_open() & (int) get_option( 'thread_comments' ) === 1 && !is_front_page() ) {
-		wp_enqueue_script( 'comment-reply' );
-	} else {
-		wp_dequeue_script( 'comment-reply' );
-	}
-
-	// Override WP default self-hosted jQuery with version from Google's CDN
+	// Register some useful libraries from Cloudflare's CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js';
+	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
+
+	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js' : '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.js';
+	wp_register_script( 'js-cookie', $src, array(), null, true );
+
+	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.min.js' : '//cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.js';
+	wp_register_script( 'reqwest', $src, array(), null, true );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
