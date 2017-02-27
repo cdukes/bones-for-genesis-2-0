@@ -36,9 +36,6 @@ function bfg_content_security_policy() {
 	if( is_admin() )
 		return;
 
-	$use_production_assets = genesis_get_option('bfg_production_on');
-	$use_production_assets = !empty($use_production_assets);
-
 	ob_start();
 	?>
 	default-src 'none';
@@ -48,15 +45,14 @@ function bfg_content_security_policy() {
 	form-action 'self';
 	frame-ancestors 'none';
 	img-src 'self';
-	script-src 'self' cdnjs.cloudflare.com;
+	script-src 'self' cdnjs.cloudflare.com cdn.polyfill.io;
 	style-src 'self' fonts.googleapis.com;
 	<?php
 	$csp = ob_get_clean();
 
 	$csp = str_replace( "\n", ' ', $csp );
-	$csp = $use_production_assets ? 'Content-Security-Policy: ' . $csp : 'Content-Security-Policy-Report-Only: ' . $csp;
 
-	header( $csp );
+	header( 'Content-Security-Policy: ' . $csp );
 
 }
 
@@ -92,6 +88,7 @@ add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 function bfg_resource_hints( $hints, $relation_type ) {
 
 	if( 'dns-prefetch' === $relation_type ) {
+		// $hints[] = '//cdn.polyfill.io';
 		// $hints[] = '//cdnjs.cloudflare.com';
 		// $hints[] = '//fonts.googleapis.com';
 	}
@@ -133,6 +130,10 @@ function bfg_load_assets() {
  	// 	null
  	// );
 
+ 	// Register polyfill.io with default options, as an alternative to jQuery
+	$src = $use_production_assets ? '//cdn.polyfill.io/v2/polyfill.min.js' : 'https://cdn.polyfill.io/v2/polyfill.js';
+	wp_register_script( 'polyfill', $src, array(), null, true );
+
 	// Register some useful libraries from Cloudflare's CDN
 	wp_deregister_script( 'jquery' );
 	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
@@ -140,9 +141,6 @@ function bfg_load_assets() {
 
 	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js' : '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.js';
 	wp_register_script( 'js-cookie', $src, array(), null, true );
-
-	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.min.js' : '//cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.js';
-	wp_register_script( 'reqwest', $src, array(), null, true );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';

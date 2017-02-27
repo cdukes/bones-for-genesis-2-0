@@ -14,10 +14,6 @@
 }
 
 .entry-content {
-	p {
-		@include type;
-	}
-
 	ol,
 	ul {
 		@include type;
@@ -51,7 +47,7 @@
 	}
 
 	table {
-		margin-bottom: 1.5em;
+		margin-bottom: $spacer;
 	}
 }
 

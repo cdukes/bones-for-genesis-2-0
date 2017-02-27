@@ -1,3 +1,8 @@
+## 2.3.54 (February 28, 2017)
+- Register `polyfill.io` for improved browser compatibility
+- Cleanup some SASS variables and `@include`s
+- Remove `Content-Security-Policy-Report-Only` mode for `bfg_content_security_policy()`
+
 ## 2.3.53 (February 22, 2017)
 - Use Cloudflare's CDN instead of Google's for jQuery
 - Register `js-cookie` and `reqwest` from Cloudflare's CDN (not queued by default)
