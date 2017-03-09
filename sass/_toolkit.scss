@@ -27,7 +27,7 @@
 }
 
 @mixin type {
-	margin-bottom: $spacer;
+	margin: 0 0 $spacer;
 	letter-spacing: .01rem;
 	line-height: 1.5;
 

@@ -73,6 +73,7 @@ function bfg_do_doctype() {
 <head <?php echo genesis_attr( 'head' ); ?>>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
 <?php
 
 }

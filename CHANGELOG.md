@@ -1,3 +1,8 @@
+## 2.3.55 (March 9, 2017)
+- Set default paragraph styles 
+- Remove `font-smoothing`
+- Add `format-detection` meta
+
 ## 2.3.54 (February 28, 2017)
 - Register `polyfill.io` for improved browser compatibility
 - Cleanup some SASS variables and `@include`s

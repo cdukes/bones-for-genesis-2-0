@@ -27,8 +27,6 @@ html.admin-bar-showing {
 
 body {
 	font-family: $sans;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 
 	font-variant-ligatures: common-ligatures;
 }
@@ -52,7 +50,7 @@ ul {
 }
 
 p {
-	margin: 0;
+	@include type;
 }
 
 b,
