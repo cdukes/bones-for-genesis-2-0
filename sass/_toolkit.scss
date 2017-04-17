@@ -1,4 +1,4 @@
-// Use with @extend to make reponsive modules
+// Use with @include to make reponsive modules
 @mixin wrap {
 	margin: 0 auto;
 	padding-right: .5em;
@@ -21,6 +21,7 @@
 }
 
 @mixin unstyled-list {
+	overflow: initial;
 	margin: 0;
 	padding: 0;
 	list-style: none;

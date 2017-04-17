@@ -1,3 +1,11 @@
+## 2.3.56 (April 17, 2017)
+- Use `prettier` for JS formatting
+- Add `connect-src` CSP for Chrome for iOS fix
+- Add CSS styles to highlight some HTML content issues
+- Remove default `@extend` for buttons
+- Remove `bfg_do_breadcrumbs()` (Genesis will use Yoast SEO's breadcrumbs when they're enabled)
+- Set `X-Frame-Options: SAMEORIGIN` header
+
 ## 2.3.55 (March 9, 2017)
 - Set default paragraph styles 
 - Remove `font-smoothing`

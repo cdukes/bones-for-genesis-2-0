@@ -15,6 +15,7 @@
     "grunt-notify": "*",
     "grunt-postcss": "*",
     "grunt-sass": "*",
+    "grunt-shell": "*",
     "postcss-assets": "*",
     "postcss-color-rgba-fallback": "*",
     "postcss-flexbugs-fixes": "*",
@@ -23,6 +24,7 @@
     "postcss-import": "*",
     "postcss-line-height-px-to-unitless": "*",
     "postcss-scss": "*",
-    "postcss-will-change": "*"
+    "postcss-will-change": "*",
+    "prettier": "*"
   }
 }

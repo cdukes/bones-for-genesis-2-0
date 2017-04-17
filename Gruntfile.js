@@ -76,6 +76,12 @@ module.exports = function(grunt) {
 			}
 		},
 
+		shell: {
+			prettier: {
+				command: 'prettier --use-tabs --single-quote --parser=flow --write js/**/*.js'
+			}
+		},
+
 		concat: {
 			build: {
 				src: [
@@ -165,6 +171,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -175,6 +182,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 
 	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'concat', 'postcss:css', 'watch']);
-	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'concat', 'uglify', 'postcss:css', 'csso']);
+	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'shell', 'concat', 'uglify', 'postcss:css', 'csso']);
 
 };

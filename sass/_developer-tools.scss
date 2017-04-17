@@ -1,0 +1,25 @@
+// https://bitsofco.de/linting-html-using-css/
+
+// Inline styles
+*[style] {
+	border: .5em solid $red;
+}
+
+// Missing <a> hrefs
+a:not([href]),
+a[href='#'],
+a[href=''] {
+	border: .5em solid $red;
+}
+
+// Missing <img> alts
+img:not([alt]),
+img[alt=''] {
+	border: .5em solid $red;
+}
+
+// Empty interactive elements
+button:empty,
+a:empty {
+	border: .5em solid $red;
+}

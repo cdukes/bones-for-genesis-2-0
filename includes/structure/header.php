@@ -41,6 +41,7 @@ function bfg_content_security_policy() {
 	default-src 'none';
 	base-uri 'self';
 	block-all-mixed-content;
+	connect-src 'self';
 	font-src 'self' fonts.gstatic.com;
 	form-action 'self';
 	frame-ancestors 'none';
@@ -53,6 +54,21 @@ function bfg_content_security_policy() {
 	$csp = str_replace( "\n", ' ', $csp );
 
 	header( 'Content-Security-Policy: ' . $csp );
+
+}
+
+add_action( 'wp', 'bfg_send_frame_options_header' );
+/**
+ * Prevent other sites from embedding this one in an iFrame.
+ *
+ * @since 2.3.56
+ */
+function bfg_send_frame_options_header() {
+
+	if( is_admin() )
+		return;
+
+	send_frame_options_header();
 
 }
 

@@ -42,13 +42,6 @@ select {
 	text-overflow: ellipsis;
 }
 
-button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-	@extend .btn;
-}
-
 input[type='search'] {
 	box-sizing: border-box; // Overrides normalize.css
 

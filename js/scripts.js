@@ -1,5 +1,4 @@
 (function() {
-
 	'use strict';
 
 	// Remove the 'no-js' <body> class
@@ -7,5 +6,4 @@
 
 	// Enable FitVids on the content area
 	fitvids('.content');
-
 })();
