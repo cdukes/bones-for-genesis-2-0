@@ -46,7 +46,7 @@ function bfg_content_security_policy() {
 	form-action 'self';
 	frame-ancestors 'none';
 	img-src 'self';
-	script-src 'self' cdnjs.cloudflare.com cdn.polyfill.io;
+	script-src 'self' cdn.jsdelivr.net cdn.polyfill.io;
 	style-src 'self' fonts.googleapis.com;
 	<?php
 	$csp = ob_get_clean();
@@ -106,7 +106,7 @@ function bfg_resource_hints( $hints, $relation_type ) {
 
 	if( 'dns-prefetch' === $relation_type ) {
 		// $hints[] = '//cdn.polyfill.io';
-		// $hints[] = '//cdnjs.cloudflare.com';
+		// $hints[] = '//cdn.jsdelivr.net';
 		// $hints[] = '//fonts.googleapis.com';
 	}
 
@@ -115,7 +115,6 @@ function bfg_resource_hints( $hints, $relation_type ) {
 }
 
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-remove_action( 'wp_enqueue_scripts', 'genesis_register_scripts' );
 add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
 /**
  * Overrides the default Genesis stylesheet with child theme specific CSS and JS.
@@ -147,17 +146,21 @@ function bfg_load_assets() {
  	// 	null
  	// );
 
- 	// Register polyfill.io with default options, as an alternative to jQuery
+ 	// Register polyfill.io with default options
 	$src = $use_production_assets ? '//cdn.polyfill.io/v2/polyfill.min.js' : 'https://cdn.polyfill.io/v2/polyfill.js';
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
-	// Register some useful libraries from Cloudflare's CDN
+	// Use jQuery from a CDN
+	// Using jQuery 2.* because Gravity Forms breaks with 3.*
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
+	$src = $use_production_assets ? '//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js' : '//cdn.jsdelivr.net/jquery/2.2.4/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, true );
 
-	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js' : '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.js';
-	wp_register_script( 'js-cookie', $src, array(), null, true );
+	// Dequeue Genesis's scripts
+	wp_dequeue_script( 'html5shiv' );
+	wp_dequeue_script( 'skip-links'  );
+	wp_dequeue_script( 'superfish' );
+	wp_dequeue_script( 'superfish-args'  );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';

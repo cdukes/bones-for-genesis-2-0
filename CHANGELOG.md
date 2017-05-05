@@ -1,3 +1,7 @@
+## 2.3.57 (May 5, 2017)
+- Update `visuallyhidden` mixin
+- Update script handling for Genesis 2.5
+
 ## 2.3.56 (April 17, 2017)
 - Use `prettier` for JS formatting
 - Add `connect-src` CSP for Chrome for iOS fix
