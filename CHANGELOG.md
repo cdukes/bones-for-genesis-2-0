@@ -1,3 +1,7 @@
+## 2.3.58 (May 16, 2017)
+- Update code to remove recent comments widget styles
+- Add hook to remove the Genesis 'Archive Settings' fields for terms (disabled by default)
+ 
 ## 2.3.57 (May 5, 2017)
 - Update `visuallyhidden` mixin
 - Update script handling for Genesis 2.5

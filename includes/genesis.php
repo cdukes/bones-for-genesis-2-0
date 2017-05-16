@@ -159,6 +159,13 @@ function bfg_remove_layout_meta_boxes() {
  */
 remove_theme_support( 'genesis-archive-layouts' );
 
+/*
+ * Remove the Genesis 'Archive Settings' fields for terms
+ *
+ * @since 2.3.58
+ */
+// remove_action( 'admin_init', 'genesis_add_taxonomy_archive_options' );
+
 // add_action( 'init', 'bfg_remove_scripts_meta_boxes' );
 /**
  * Remove the Genesis 'Scripts' meta box for posts and/or pages.
