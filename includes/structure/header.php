@@ -57,18 +57,19 @@ function bfg_content_security_policy() {
 
 }
 
-add_action( 'wp', 'bfg_send_frame_options_header' );
+add_action( 'wp', 'bfg_security_headers' );
 /**
- * Prevent other sites from embedding this one in an iFrame.
+ * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
  *
  * @since 2.3.56
  */
-function bfg_send_frame_options_header() {
+function bfg_security_headers() {
 
 	if( is_admin() )
 		return;
 
 	send_frame_options_header();
+	header( 'X-Content-Type-Options: nosniff' );
 
 }
 

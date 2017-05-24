@@ -215,10 +215,11 @@ add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
  */
 function bfg_tiny_mce_before_init( $options ) {
 
-	$options['element_format']   = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
-	$options['schema']           = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
-	$options['block_formats']    = 'Paragraph=p;Header 2=h2;Header 3=h3;Header 4=h4;Blockquote=blockquote'; // Restrict the block formats available in TinyMCE. See: http://www.tinymce.com/wiki.php/Configuration:block_formats
-	$options['wp_autoresize_on'] = false;
+	$options['element_format']       = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
+	$options['schema']               = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
+	$options['block_formats']        = 'Paragraph=p;Header 2=h2;Header 3=h3;Header 4=h4;Blockquote=blockquote'; // Restrict the block formats available in TinyMCE. See: http://www.tinymce.com/wiki.php/Configuration:block_formats
+	$options['wp_autoresize_on']     = false;
+	$options['wordpress_adv_hidden'] = false;
 
 	return $options;
 

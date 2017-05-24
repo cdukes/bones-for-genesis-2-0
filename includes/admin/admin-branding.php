@@ -132,10 +132,10 @@ function bfg_remove_wp_icon_from_admin_bar() {
  */
 function bfg_admin_footer_text() {
 
-	$text = __( 'Built by <a href="%s" target="_blank">Cooper Dukes @INNEO</a>', CHILD_THEME_TEXT_DOMAIN );
+	$text = __( 'Built by <a href="%s" target="_blank">Cooper Dukes @CDBTech, LLC</a>', CHILD_THEME_TEXT_DOMAIN );
 	$text = sprintf(
 		$text,
-		'https://inneosg.com'
+		'https://cdbtech.com/'
 	);
 
 	return $text;

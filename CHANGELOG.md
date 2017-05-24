@@ -1,3 +1,7 @@
+## 20170524
+- Show kitchen sink by default
+- Include `X-Content-Type-Options` header
+
 ## 2.3.58 (May 16, 2017)
 - Update code to remove recent comments widget styles
 - Add hook to remove the Genesis 'Archive Settings' fields for terms (disabled by default)
