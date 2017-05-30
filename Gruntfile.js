@@ -49,6 +49,14 @@ module.exports = function(grunt) {
 					]
 				},
 				src: 'build/**/*.css'
+			},
+			mainOnly: {
+				options: {
+					processors: [
+						require('postcss-normalize')
+					]
+				},
+				src: 'build/**/style.css'
 			}
 		},
 
@@ -181,7 +189,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-postcss');
 
-	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'concat', 'postcss:css', 'watch']);
-	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'shell', 'concat', 'uglify', 'postcss:css', 'csso']);
+	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'concat', 'postcss:css', 'postcss:mainOnly', 'watch']);
+	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'shell', 'concat', 'uglify', 'postcss:css', 'postcss:mainOnly', 'csso']);
 
 };

@@ -1,6 +1,3 @@
-// CSS Imports (relative to build/css)
-@import '../../bower_components/normalize-css/normalize.css';
-
 // Colors
 @import '../bower_components/brand-colors/dist/latest/scss/brand-colors.latest.scss';
 @import '../bower_components/colors-sass/sass/variables';
@@ -9,9 +6,6 @@
 @import '../bower_components/include-media/dist/_include-media';
 @import 'variables';
 @import '../bower_components/include-media-export/dist/_include-media-export';
-
-// Development helper styles - should be removed for production
-@import 'developer-tools';
 
 // Clearfix & Toolkit
 @import 'clearfix';

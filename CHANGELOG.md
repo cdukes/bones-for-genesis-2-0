@@ -1,3 +1,10 @@
+## 20170530
+- Use `browserslist`
+- Use `postcss-normalize` instead of `normalize.css`
+- Remove `_developer-tools.scss`
+- Remove `bfg_get_image_sizes()`
+- Remove `bfg_downsize_uploaded_image()`
+
 ## 20170524
 - Show kitchen sink by default
 - Include `X-Content-Type-Options` header
