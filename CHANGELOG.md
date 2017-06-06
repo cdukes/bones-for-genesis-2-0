@@ -1,3 +1,7 @@
+## 20170606
+- Use `eslint-plugin-compat`
+- Move Bower dependencies to NPM
+
 ## 20170530
 - Use `browserslist`
 - Use `postcss-normalize` instead of `normalize.css`

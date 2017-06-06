@@ -2,6 +2,7 @@
   "name": "genesis-bfg",
   "devDependencies": {
     "autoprefixer": "*",
+    "eslint-plugin-compat": "*",
     "grunt": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
@@ -11,6 +12,7 @@
     "grunt-contrib-watch": "*",
     "grunt-csscomb": "*",
     "grunt-csso": "*",
+    "grunt-eslint": "*",
     "grunt-newer": "*",
     "grunt-notify": "*",
     "grunt-postcss": "*",
@@ -27,6 +29,13 @@
     "postcss-scss": "*",
     "postcss-will-change": "*",
     "prettier": "*"
+  },
+  "dependencies": {
+    "brand-colors": "*",
+    "colors-sass": "*",
+    "fitvids": "github:rosszurowski/vanilla-fitvids",
+    "include-media": "*",
+    "include-media-export": "*"
   },
   "browserslist": [
     "last 4 Chrome versions",
