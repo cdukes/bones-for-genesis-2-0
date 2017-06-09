@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 						})
 					]
 				},
-				src: 'build/**/*.css'
+				src: 'build/css/**/*.css'
 			},
 			mainOnly: {
 				options: {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 						require('postcss-normalize')
 					]
 				},
-				src: 'build/**/style.css'
+				src: 'build/css/style.css'
 			}
 		},
 
@@ -190,7 +190,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks("grunt-eslint");
+	grunt.loadNpmTasks('grunt-eslint');
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');

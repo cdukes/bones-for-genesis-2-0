@@ -155,7 +155,7 @@ function bfg_load_assets() {
 	// Using jQuery 2.* because Gravity Forms breaks with 3.*
 	wp_deregister_script( 'jquery' );
 	$src = $use_production_assets ? '//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js' : '//cdn.jsdelivr.net/jquery/2.2.4/jquery.js';
-	wp_register_script( 'jquery', $src, array(), null, true );
+	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
 	wp_dequeue_script( 'html5shiv' );

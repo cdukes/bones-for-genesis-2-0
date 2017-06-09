@@ -1,3 +1,9 @@
+## 20170608
+- Add filter to `secure_signon_cookie` (disabled by default)
+- Add support for unhooking the WP 3.8 media widgets
+- Register `jQuery` in the `<head>`
+- Force `<body>` `margin: 0;`
+
 ## 20170606
 - Use `eslint-plugin-compat`
 - Move Bower dependencies to NPM
