@@ -1,3 +1,8 @@
+## 20170614
+- Hide the WP welcome panel (disabled by default)
+- Add `text-decoration: none;` to `.btn`
+- Cleanup `.gitignore`
+
 ## 20170608
 - Add filter to `secure_signon_cookie` (disabled by default)
 - Add support for unhooking the WP 3.8 media widgets

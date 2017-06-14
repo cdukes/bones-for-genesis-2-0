@@ -50,6 +50,13 @@ function bfg_maybe_hide_admin_bar( $default ) {
 
 }
 
+/*
+ * Hide the WP welcome panel
+ *
+ * @since 20170614
+ */
+// remove_action( 'welcome_panel', 'wp_welcome_panel' );
+
 add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
 /**
  * Disable some or all of the default admin dashboard widgets.

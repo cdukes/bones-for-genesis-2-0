@@ -1,11 +1,7 @@
 # Project build files
 .sass-cache
 node_modules
-bower_components
 build
-preview.html
-grunticon.loader.js
-
 
 # OS X - https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
 .DS_Store
@@ -14,7 +10,6 @@ grunticon.loader.js
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -29,7 +24,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
 
 
 # WINDOWS - https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
