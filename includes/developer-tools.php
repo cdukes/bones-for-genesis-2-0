@@ -16,7 +16,7 @@ function bfg_clear_transients_node( $wp_admin_bar ) {
 	global $wpdb;
 
 	if( isset($_GET['clear-transients']) && 1 === (int) $_GET['clear-transients'] ) {
-		$wpdb->query( "DELETE FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%') OR `option_name` LIKE ('_transient_timeout_%')" );
+		$wpdb->query( "DELETE FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%') OR `option_name` LIKE ('_site_transient_%')" );
 		wp_cache_flush();
 	}
 

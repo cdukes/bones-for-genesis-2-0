@@ -75,7 +75,8 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
-				strict: true
+				strict: true,
+				laxbreak: true
 			},
 			build: {
 				files: {

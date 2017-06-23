@@ -1,3 +1,8 @@
+## 20170623
+- `Clear Transients` now also removed site transients.
+- Set `laxbreak` on `jshint`
+- Use `text-decoration-skip`
+
 ## 20170614
 - Hide the WP welcome panel (disabled by default)
 - Add `text-decoration: none;` to `.btn`
