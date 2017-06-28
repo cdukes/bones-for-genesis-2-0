@@ -53,7 +53,9 @@ module.exports = function(grunt) {
 			mainOnly: {
 				options: {
 					processors: [
-						require('postcss-normalize')
+						require('postcss-normalize')({
+							forceImport: true
+						})
 					]
 				},
 				src: 'build/css/style.css'
@@ -76,7 +78,8 @@ module.exports = function(grunt) {
 		jshint: {
 			options: {
 				strict: true,
-				laxbreak: true
+				laxbreak: true,
+				esversion: 6
 			},
 			build: {
 				files: {
@@ -102,23 +105,8 @@ module.exports = function(grunt) {
 			}
 		},
 
-		concat: {
-			build: {
-				src: [
-					'node_modules/include-media-export/include-media.js',
-					'node_modules/fitvids/dist/fitvids.js',
-					'js/scripts.js'
-				],
-				dest: 'build/js/scripts.js',
-				nonull: true
-			},
-			admin: {
-				src: [
-					'js/admin.js'
-				],
-				dest: 'build/js/admin.js',
-				nonull: true
-			}
+		webpack: {
+			build: require('./config/webpack.config')
 		},
 
 		uglify: {
@@ -162,7 +150,7 @@ module.exports = function(grunt) {
 		watch: {
 			js: {
 				files: ['js/**/*.js'],
-				tasks: ['concat'],
+				tasks: ['webpack'],
 				options: {
 					spawn: false
 				}
@@ -188,21 +176,21 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-eslint');
-	grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-csscomb');
 	grunt.loadNpmTasks('grunt-csso');
+	grunt.loadNpmTasks('grunt-eslint');
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('grunt-sass');
+	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-webpack');
 
-	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'concat', 'postcss:css', 'postcss:mainOnly', 'watch']);
-	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'eslint', 'shell', 'concat', 'uglify', 'postcss:css', 'postcss:mainOnly', 'csso']);
+	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'webpack', 'postcss:css', 'postcss:mainOnly', 'watch']);
+	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'eslint', 'shell', 'webpack', 'uglify', 'postcss:css', 'postcss:mainOnly', 'csso']);
 
 };

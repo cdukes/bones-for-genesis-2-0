@@ -1,3 +1,8 @@
+## 20170704
+- Use `Webpack` and `Babel`
+- `postcss-normalize` 4.0.0 compatibility
+- Include `X-XSS-Protection`
+
 ## 20170623
 - `Clear Transients` now also removed site transients.
 - Set `laxbreak` on `jshint`

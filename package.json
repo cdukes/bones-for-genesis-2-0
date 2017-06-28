@@ -2,10 +2,12 @@
   "name": "genesis-bfg",
   "devDependencies": {
     "autoprefixer": "*",
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-env": "*",
     "eslint-plugin-compat": "*",
     "grunt": "*",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
@@ -18,6 +20,7 @@
     "grunt-postcss": "*",
     "grunt-sass": "*",
     "grunt-shell": "*",
+    "grunt-webpack": "*",
     "postcss-assets": "*",
     "postcss-color-rgba-fallback": "*",
     "postcss-flexbugs-fixes": "*",
@@ -28,7 +31,8 @@
     "postcss-normalize": "*",
     "postcss-scss": "*",
     "postcss-will-change": "*",
-    "prettier": "*"
+    "prettier": "*",
+    "webpack": "*"
   },
   "dependencies": {
     "brand-colors": "*",

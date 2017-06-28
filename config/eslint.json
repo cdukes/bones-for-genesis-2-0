@@ -5,5 +5,9 @@
 	"plugins": ["compat"],
 	"rules": {
 		"compat/compat": 1
+	},
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
 	}
 }
