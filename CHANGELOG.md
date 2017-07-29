@@ -1,3 +1,12 @@
+## 20170729
+- Remove `bfg_cron_count_node()`
+- Remove `bfg_hidden_meta_boxes()`
+- Remove `bfg_media_manager_default_view()`
+- Remove `bfg_restrict_attachment_viewing()`
+- Remove `bfg_maybe_disable_genesis_seo()`
+- Add `exit;` after redirect in `bfg_redirect_single_search_result()`
+- Only modify message in `bfg_login_errors()` if error is an invalid username or password
+
 ## 20170704
 - Use `Webpack` and `Babel`
 - `postcss-normalize` 4.0.0 compatibility

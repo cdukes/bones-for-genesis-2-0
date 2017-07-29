@@ -45,6 +45,7 @@ function bfg_redirect_single_search_result() {
 
 		if( $wp_query->post_count === 1) {
 			wp_safe_redirect( get_permalink( $wp_query->posts['0']->ID ) );
+			exit;
 		}
 	}
 

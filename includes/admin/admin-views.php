@@ -106,72 +106,6 @@ function bfg_unregister_default_widgets() {
 
 }
 
-add_filter( 'default_hidden_meta_boxes', 'bfg_hidden_meta_boxes', 2 );
-/**
- * Change which meta boxes are hidden by default on the post and page edit screens.
- *
- * @since 2.0.0
- */
-function bfg_hidden_meta_boxes( $hidden ) {
-
-	global $current_screen;
-	if( 'post' === $current_screen->id ) {
-		$hidden = array('postexcerpt', 'trackbacksdiv', 'postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv');
-		// Other hideable post boxes: genesis_inpost_scripts_box, commentsdiv, categorydiv, tagsdiv, postimagediv
-	} elseif( 'page' === $current_screen->id ) {
-		$hidden = array('postcustom', 'commentstatusdiv', 'slugdiv', 'authordiv', 'postimagediv');
-		// Other hideable post boxes: genesis_inpost_scripts_box, pageparentdiv
-	}
-
-	return $hidden;
-
-}
-
-// add_action( 'admin_footer-post-new.php', 'bfg_media_manager_default_view' );
-// add_action( 'admin_footer-post.php', 'bfg_media_manager_default_view' );
-/**
- * Change the media manager default view to 'upload', instead of 'library'.
- *
- * See: http://wordpress.stackexchange.com/questions/96513/how-to-make-upload-filesselected-by-default-in-insert-media
- *
- * @since 2.0.11
- */
-function bfg_media_manager_default_view() {
-
-	?>
-	<script type="text/javascript">
-		jQuery(document).ready(function($){
-			wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
-		});
-	</script>
-	<?php
-
-}
-
-// add_filter( 'posts_where', 'bfg_restrict_attachment_viewing' );
-/**
- * Prevent authors and contributors from seeing media that isn't theirs.
- *
- * See: http://wordpress.org/support/topic/restrict-editors-from-viewing-media-that-others-have-uploaded
- *
- * @since 2.0.20
- */
-function bfg_restrict_attachment_viewing( $where ) {
-
-	global $current_user;
-	if(
-		is_admin() &&
-		!current_user_can('edit_others_posts') &&
-		isset($_POST['action']) &&
-		$_POST['action'] === 'query-attachments'
-	) {
-		$where .= ' AND post_author=' . $current_user->data->ID;
-	}
-
-	return $where;
-
-}
-
 // add_action( 'admin_init', 'bfg_add_editor_style' );
 /*
  * Add a stylesheet for TinyMCE
@@ -297,9 +231,19 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  *
  * @since 2.0.0
  */
-function bfg_login_errors() {
+function bfg_login_errors( $text ) {
 
-	return __( 'Invalid username or password.', CHILD_THEME_TEXT_DOMAIN );
+	global $errors;
+
+	$codes = $errors->get_error_codes();
+	if(
+		in_array('invalid_username', $codes, true) ||
+		in_array('incorrect_password', $codes, true)
+	) {
+		return __( 'Invalid username or password.', CHILD_THEME_TEXT_DOMAIN );
+	}
+
+	return $text;
 
 }
 
