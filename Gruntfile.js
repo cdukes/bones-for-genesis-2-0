@@ -62,19 +62,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		sass: {
-			options: {
-				style: 'expanded',
-				precision: 3
-			},
-			build: {
-				files: {
-					'build/css/style.css': 'sass/style.scss',
-					'build/css/admin.css': 'sass/admin.scss'
-				}
-			}
-		},
-
 		jshint: {
 			options: {
 				strict: true,
@@ -105,18 +92,29 @@ module.exports = function(grunt) {
 			}
 		},
 
-		webpack: {
-			build: require('./config/webpack.config')
+		imagemin: {
+			options: {
+				cache: false // Bug: https://github.com/gruntjs/grunt-contrib-imagemin/issues/140
+			},
+			build: {
+				files: [{
+					expand: true,
+					cwd: 'images/',
+					src: ['**/*.{png,jpg,gif,svg}'],
+					dest: 'build/images/'
+				}]
+			}
 		},
 
-		uglify: {
+		sass: {
 			options: {
-				preserveComments: 'some'
+				style: 'expanded',
+				precision: 3
 			},
 			build: {
 				files: {
-					'build/js/scripts.min.js': 'build/js/scripts.js',
-					'build/js/admin.min.js': 'build/js/admin.js'
+					'build/css/style.css': 'sass/style.scss',
+					'build/css/admin.css': 'sass/admin.scss'
 				}
 			}
 		},
@@ -133,17 +131,19 @@ module.exports = function(grunt) {
 			}
 		},
 
-		imagemin: {
+		webpack: {
+			build: require('./config/webpack.config')
+		},
+
+		uglify: {
 			options: {
-				cache: false // Bug: https://github.com/gruntjs/grunt-contrib-imagemin/issues/140
+				preserveComments: 'some'
 			},
 			build: {
-				files: [{
-					expand: true,
-					cwd: 'images/',
-					src: ['**/*.{png,jpg,gif,svg}'],
-					dest: 'build/images/'
-				}]
+				files: {
+					'build/js/scripts.min.js': 'build/js/scripts.js',
+					'build/js/admin.min.js': 'build/js/admin.js'
+				}
 			}
 		},
 
@@ -158,7 +158,7 @@ module.exports = function(grunt) {
 
 			css: {
 				files: ['sass/**/*.scss'],
-				tasks: ['sass', 'postcss:css'],
+				tasks: ['sass', 'postcss:css', 'postcss:mainOnly'],
 				options: {
 					spawn: false
 				}
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
 
 			images: {
 				files: ['images/**/*'],
-				tasks: ['newer:imagemin', 'sass', 'postcss:css'],
+				tasks: ['newer:imagemin', 'sass', 'postcss:css', 'postcss:mainOnly'],
 				options: {
 					spawn: false
 				}
@@ -190,7 +190,57 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-webpack');
 
-	grunt.registerTask('default', ['clean', 'imagemin', 'sass', 'webpack', 'postcss:css', 'postcss:mainOnly', 'watch']);
-	grunt.registerTask('build', ['clean', 'imagemin', 'csscomb', 'postcss:scss', 'sass', 'jshint', 'eslint', 'shell', 'webpack', 'uglify', 'postcss:css', 'postcss:mainOnly', 'csso']);
+	grunt.registerTask(
+		'default',
+		[
+			// Remove old files
+			'clean',
+
+			// Build images
+			'imagemin',
+
+			// Build CSS
+			'sass',
+			'postcss:css',
+			'postcss:mainOnly',
+
+			// Build JS
+			'webpack',
+
+			// Watch for changes
+			'watch'
+		]
+	);
+
+	grunt.registerTask(
+		'build',
+		[
+			// Remove old files
+			'clean',
+
+			// Cleanup CSS
+			'csscomb',
+			'postcss:scss',
+
+			// Cleanup JS
+			'jshint',
+			'eslint',
+			'shell',
+
+			// Build images
+			'imagemin',
+
+			// Build CSS
+			'sass',
+			'postcss:css',
+			'postcss:mainOnly',
+			'csso',
+
+			// Build JS
+			'webpack',
+			'uglify',
+		]
+	);
+
 
 };

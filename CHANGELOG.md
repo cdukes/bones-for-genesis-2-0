@@ -1,3 +1,6 @@
+## 20170804
+- Reorder Grunt tasks
+
 ## 20170729
 - Remove `bfg_cron_count_node()`
 - Remove `bfg_hidden_meta_boxes()`
