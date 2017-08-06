@@ -106,6 +106,36 @@ module.exports = function(grunt) {
 			}
 		},
 
+		svg_sprite: {
+			options: {
+				mode: {
+					symbol: {
+						inline: true,
+						sprite: 'icons.svg',
+						dest: '.'
+					},
+				},
+				shape: {
+					dimension: {
+						maxWidth: 100,
+						maxHeight: 100,
+						precision: 3
+					}
+				},
+				svg: {
+					xmlDeclaration: false,
+					doctypeDeclaration: false,
+					dimensionAttributes: false
+				}
+			},
+			build: {
+				expand: true,
+				cwd: 'svgs',
+				src: ['**/*.svg'],
+				dest: 'build/svgs'
+			},
+		},
+
 		sass: {
 			options: {
 				style: 'expanded',
@@ -170,6 +200,14 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
+			},
+
+			svgs: {
+				files: ['svgs/**/*.svg'],
+				tasks: ['svg_sprite'],
+				options: {
+					spawn: false
+				}
 			}
 		}
 
@@ -188,6 +226,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-svg-sprite');
 	grunt.loadNpmTasks('grunt-webpack');
 
 	grunt.registerTask(
@@ -198,6 +237,9 @@ module.exports = function(grunt) {
 
 			// Build images
 			'imagemin',
+
+			// Build SVGs
+			'svg_sprite',
 
 			// Build CSS
 			'sass',
@@ -229,6 +271,9 @@ module.exports = function(grunt) {
 
 			// Build images
 			'imagemin',
+
+			// Build SVGs
+			'svg_sprite',
 
 			// Build CSS
 			'sass',

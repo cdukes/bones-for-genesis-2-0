@@ -1,3 +1,6 @@
+## 20170806
+- Use `grunt-svg-sprite` for creating an SVG `<symbol>` sprite
+
 ## 20170804
 - Reorder Grunt tasks
 

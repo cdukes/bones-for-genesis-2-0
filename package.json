@@ -20,6 +20,7 @@
     "grunt-postcss": "*",
     "grunt-sass": "*",
     "grunt-shell": "*",
+    "grunt-svg-sprite": "*",
     "grunt-webpack": "*",
     "postcss-assets": "*",
     "postcss-color-rgba-fallback": "*",

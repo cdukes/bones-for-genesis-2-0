@@ -18,14 +18,19 @@
 		text-align: left;
 
 		&:hover {
-			> .sub-menu {
-				left: auto;
-				opacity: 1;
-			}
 		}
 
 		&.current-menu-item {
 			> a {
+			}
+		}
+
+		&.menu-item-has-children {
+			&:hover {
+				> .sub-menu {
+					left: auto;
+					opacity: 1;
+				}
 			}
 		}
 
