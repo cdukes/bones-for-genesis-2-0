@@ -1,3 +1,7 @@
+## 20170815
+- Add an async SVG icon sprite loader
+- Add support for conditional script loading (disabled by default)
+
 ## 20170806
 - Use `grunt-svg-sprite` for creating an SVG `<symbol>` sprite
 

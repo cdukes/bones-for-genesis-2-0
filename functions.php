@@ -27,6 +27,7 @@ require_once CHILD_DIR . '/includes/structure/archive.php';
 require_once CHILD_DIR . '/includes/structure/comments.php';
 require_once CHILD_DIR . '/includes/structure/footer.php';
 require_once CHILD_DIR . '/includes/structure/header.php';
+require_once CHILD_DIR . '/includes/structure/icons.php';
 require_once CHILD_DIR . '/includes/structure/layout.php';
 require_once CHILD_DIR . '/includes/structure/loops.php';
 require_once CHILD_DIR . '/includes/structure/menu.php';

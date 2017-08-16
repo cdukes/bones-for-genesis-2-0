@@ -77,7 +77,7 @@ function bfg_security_headers() {
 remove_action( 'genesis_doctype', 'genesis_do_doctype' );
 add_action( 'genesis_doctype', 'bfg_do_doctype' );
 /**
- * Overrides the default Genesis doctype with IE and JS identifier classes.
+ * Overrides the default Genesis doctype.
  *
  * See: http://html5boilerplate.com/
  *
@@ -168,21 +168,56 @@ function bfg_load_assets() {
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $assets_version, true );
 
+	$icon_src = add_query_arg(
+		array(
+			'v' => $assets_version,
+		),
+		$stylesheet_dir . '/build/svgs/icons.svg'
+	);
+
+	wp_localize_script( 'bfg', 'bfg_icons_src', $icon_src );
+
 }
 
-// add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 2);
+// add_action( 'wp_footer', 'bfg_inject_script', 1 );
 /**
- * Add a defer attribute to the designated <script> tags.
+ * Inject a JS script loader function.
  *
- * See: http://calendar.perfplanet.com/2016/prefer-defer-over-async/
+ * See: https://www.html5rocks.com/en/tutorials/speed/script-loading/
  *
- * @since 2.3.49
+ * @since 20170815
  */
-function bfg_script_loader_tags( $tag, $handle ) {
+function bfg_inject_script() {
+
+	?>
+	<script>
+		window.bfg_inject_script = function( src ) {
+			var script = document.createElement('script');
+			script.src = src;
+			script.async = false;
+			document.head.appendChild(script);
+		};
+	</script>
+	<?php
+
+}
+
+// add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 3);
+/**
+ * Overwrite the <script> tag on selected assets to use the JS loader.
+ *
+ * See: https://www.html5rocks.com/en/tutorials/speed/script-loading/
+ *
+ * @since 20170815
+ */
+function bfg_script_loader_tags( $tag, $handle, $src ) {
 
 	switch( $handle ) {
+		case 'polyfill':
+			// Only load polyfill.js if the browser doesn't meet your requirements
+			return '<script>if( !("fetch" in window) ) { bfg_inject_script("' . $src . '"); }</script>';
 		case 'bfg':
-			return str_replace( ' src', ' defer src', $tag );
+			return '<script>bfg_inject_script("' . $src . '");</script>';
 	}
 
 	return $tag;
@@ -239,9 +274,6 @@ function bfg_load_favicons() {
 	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
 	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_build_path . '/favicon-180.png">';
 
-	// Give IE <= 9 the old favicon.ico (16px X 16px)
-	echo '<!--[if IE]><link rel="shortcut icon" href="' . $favicon_path . '/favicon.ico"><![endif]-->';
-
 	// Use a 144px X 144px PNG for Windows tablets
 	echo '<meta name="msapplication-TileImage" content="' . $favicon_build_path . '/favicon-144.png">';
 
@@ -267,6 +299,7 @@ add_filter( 'body_class', 'bfg_no_js_body_class' );
 function bfg_no_js_body_class( $classes ) {
 
 	$classes[] = 'no-js';
+	$classes[] = 'no-svg';
 
 	return $classes;
 
