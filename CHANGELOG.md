@@ -1,3 +1,7 @@
+## 20170817
+- Change default CDN to Cloudflare (again)
+- [Add accessible :focus handling](https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2)
+
 ## 20170815
 - Add an async SVG icon sprite loader
 - Add support for conditional script loading (disabled by default)

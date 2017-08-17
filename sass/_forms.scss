@@ -1,3 +1,9 @@
+// https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+body.user-is-tabbing *:focus {
+	outline: 2px solid $blue !important;
+	outline: 5px auto -webkit-focus-ring-color !important;
+}
+
 input:focus,
 textarea:focus {
 	// outline: none;
@@ -16,6 +22,10 @@ textarea {
 	color: $black;
 	-webkit-appearance: none; // Removes the shadow on iOS
 	-moz-appearance: none;
+
+	&:focus {
+		outline: 1px solid $grey;
+	}
 }
 
 // Hide the spinner on input[type="number"] in Firefox
@@ -36,6 +46,10 @@ textarea {
 select {
 	width: 100%;
 	color: $black;
+
+	&:focus {
+		outline: 1px solid $grey;
+	}
 }
 
 ::placeholder {

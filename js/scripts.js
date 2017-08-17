@@ -12,3 +12,17 @@ import './_svgs.js';
 	// Enable FitVids on the content area
 	fitvids('.content');
 })();
+
+// https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+(function() {
+	'use strict';
+
+	function on_first_tab(e) {
+		if (e.keyCode === 9) {
+			document.body.classList.add('user-is-tabbing');
+			window.removeEventListener('keydown', on_first_tab);
+		}
+	}
+
+	window.addEventListener('keydown', on_first_tab);
+})();

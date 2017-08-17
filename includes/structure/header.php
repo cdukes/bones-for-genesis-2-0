@@ -46,7 +46,7 @@ function bfg_content_security_policy() {
 	form-action 'self';
 	frame-ancestors 'none';
 	img-src 'self';
-	script-src 'self' cdn.jsdelivr.net cdn.polyfill.io;
+	script-src 'self' cdnjs.cloudflare.com cdn.polyfill.io;
 	style-src 'self' fonts.googleapis.com;
 	<?php
 	$csp = ob_get_clean();
@@ -108,7 +108,7 @@ function bfg_resource_hints( $hints, $relation_type ) {
 
 	if( 'dns-prefetch' === $relation_type ) {
 		// $hints[] = '//cdn.polyfill.io';
-		// $hints[] = '//cdn.jsdelivr.net';
+		// $hints[] = '//cdnjs.cloudflare.com';
 		// $hints[] = '//fonts.googleapis.com';
 	}
 
@@ -155,7 +155,7 @@ function bfg_load_assets() {
 	// Use jQuery from a CDN
 	// Using jQuery 2.* because Gravity Forms breaks with 3.*
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js' : '//cdn.jsdelivr.net/jquery/2.2.4/jquery.js';
+	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
@@ -166,7 +166,7 @@ function bfg_load_assets() {
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $assets_version, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
 
 	$icon_src = add_query_arg(
 		array(
