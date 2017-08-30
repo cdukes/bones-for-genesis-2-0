@@ -1,3 +1,6 @@
+## 20170830
+- Fix `unstyled-list` styles
+
 ## 20170817
 - Change default CDN to Cloudflare (again)
 - [Add accessible :focus handling](https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2)
