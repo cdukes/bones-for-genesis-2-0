@@ -166,7 +166,7 @@ function bfg_load_assets() {
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $assets_version, true );
 
 	$icon_src = add_query_arg(
 		array(

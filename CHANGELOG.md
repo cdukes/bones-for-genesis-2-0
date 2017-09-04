@@ -1,3 +1,6 @@
+## 20170904
+- Remove `jquery` from script dependencies
+
 ## 20170830
 - Fix `unstyled-list` styles
 
