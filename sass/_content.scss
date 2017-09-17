@@ -28,13 +28,13 @@
 	}
 
 	ol {
-		li {
+		> li {
 			list-style-type: decimal;
 		}
 	}
 
 	ul {
-		li {
+		> li {
 			list-style-type: disc;
 		}
 	}
