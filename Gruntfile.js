@@ -165,6 +165,16 @@ module.exports = function(grunt) {
 			build: require('./config/webpack.config')
 		},
 
+		concat: {
+			scripts: {
+				src: [
+					'build/js/scripts.js',
+				],
+				dest: 'build/js/scripts.js',
+				nonull: true
+			},
+		},
+
 		uglify: {
 			options: {
 				preserveComments: 'some'
@@ -180,7 +190,7 @@ module.exports = function(grunt) {
 		watch: {
 			js: {
 				files: ['js/**/*.js'],
-				tasks: ['webpack'],
+				tasks: ['webpack', 'concat'],
 				options: {
 					spawn: false
 				}
@@ -214,6 +224,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -248,6 +259,7 @@ module.exports = function(grunt) {
 
 			// Build JS
 			'webpack',
+			'concat',
 
 			// Watch for changes
 			'watch'
@@ -283,6 +295,7 @@ module.exports = function(grunt) {
 
 			// Build JS
 			'webpack',
+			'concat',
 			'uglify',
 		]
 	);

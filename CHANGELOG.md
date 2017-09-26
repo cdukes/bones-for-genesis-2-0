@@ -1,3 +1,12 @@
+## 20170926
+- `max-width` on `<p>` tags
+- Include `grunt-contrib-concat`
+- Add `bfg_populate_acf_icon_options()`
+- Set `genesis-accessibility` defaults
+
+## 20170917
+- Adjust default `li` styles
+
 ## 20170904
 - Remove `jquery` from script dependencies
 
