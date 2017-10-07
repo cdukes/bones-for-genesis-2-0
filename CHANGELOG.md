@@ -1,3 +1,8 @@
+## 20171007
+- Remove default `letter-spacing`
+- User backticks by default, enforce with `eslint`
+- Include `lozad` by default
+
 ## 20170926
 - `max-width` on `<p>` tags
 - Include `grunt-contrib-concat`

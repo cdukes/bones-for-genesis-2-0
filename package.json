@@ -41,7 +41,8 @@
     "colors-sass": "*",
     "fitvids": "github:rosszurowski/vanilla-fitvids",
     "include-media": "*",
-    "include-media-export": "*"
+    "include-media-export": "*",
+    "lozad": "*"
   },
   "browserslist": [
     "last 4 Chrome versions",

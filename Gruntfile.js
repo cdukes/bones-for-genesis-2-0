@@ -77,7 +77,8 @@ module.exports = function(grunt) {
 
 		eslint: {
 			options: {
-				configFile: 'config/eslint.json'
+				configFile: 'config/eslint.json',
+				fix: true
 			},
 			build: {
 				files: {

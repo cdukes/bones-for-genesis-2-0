@@ -4,7 +4,8 @@
 	},
 	"plugins": ["compat"],
 	"rules": {
-		"compat/compat": 1
+		"compat/compat": 1,
+		"quotes": ["error", "backtick"]
 	},
 	"parserOptions": {
 		"ecmaVersion": 6,

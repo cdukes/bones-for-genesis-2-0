@@ -33,7 +33,6 @@
 @mixin type {
 	margin: 0 0 $spacer;
 	max-width: 65ch;
-	letter-spacing: .01rem;
 	line-height: 1.5;
 
 	&:last-child {

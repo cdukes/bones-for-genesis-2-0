@@ -7,10 +7,10 @@ import './_svgs.js';
 	'use strict';
 
 	// Remove the 'no-js' <body> class
-	document.body.classList.remove('no-js');
+	document.body.classList.remove(`no-js`);
 
 	// Enable FitVids on the content area
-	fitvids('.content');
+	fitvids(`.content`);
 })();
 
 // https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
@@ -19,10 +19,10 @@ import './_svgs.js';
 
 	function on_first_tab(e) {
 		if (e.keyCode === 9) {
-			document.body.classList.add('user-is-tabbing');
-			window.removeEventListener('keydown', on_first_tab);
+			document.body.classList.add(`user-is-tabbing`);
+			window.removeEventListener(`keydown`, on_first_tab);
 		}
 	}
 
-	window.addEventListener('keydown', on_first_tab);
+	window.addEventListener(`keydown`, on_first_tab);
 })();
