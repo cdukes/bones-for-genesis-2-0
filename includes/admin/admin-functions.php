@@ -10,15 +10,19 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function bfg_load_admin_assets() {
 
-	$stylesheet_dir        = get_stylesheet_directory_uri();
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
 
+	$assets_version = genesis_get_option('bfg_assets_version');
+	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+
+	$stylesheet_dir = get_stylesheet_directory_uri();
+
 	$src = $use_production_assets ? '/build/css/admin.min.css' : '/build/css/admin.css';
-	wp_enqueue_style( 'bfg-admin', $stylesheet_dir . $src, array(), null );
+	wp_enqueue_style( 'bfg-admin', $stylesheet_dir . $src, array(), $assets_version );
 
 	$src = $use_production_assets ? '/build/js/admin.min.js' : '/build/js/admin.js';
-	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array('jquery'), null, true );
+	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array('jquery'), $assets_version, true );
 
 }
 

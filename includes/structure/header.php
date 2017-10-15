@@ -160,9 +160,9 @@ function bfg_load_assets() {
 
 	// Dequeue Genesis's scripts
 	wp_dequeue_script( 'html5shiv' );
-	wp_dequeue_script( 'skip-links'  );
+	wp_dequeue_script( 'skip-links' );
 	wp_dequeue_script( 'superfish' );
-	wp_dequeue_script( 'superfish-args'  );
+	wp_dequeue_script( 'superfish-args' );
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';

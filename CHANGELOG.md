@@ -1,3 +1,6 @@
+## 20171015
+- Use versioning for admin assets
+
 ## 20171007
 - Remove default `letter-spacing`
 - User backticks by default, enforce with `eslint`
