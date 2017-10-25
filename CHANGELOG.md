@@ -1,3 +1,9 @@
+## 20171025
+- Include `polyfill.io` by default
+- Use deferred script loader by default
+- Update `@mixin visuallyhidden` attributes
+- Add `load_script` JS module, for simple on-demand script loading
+
 ## 20171015
 - Use versioning for admin assets
 

@@ -1,14 +1,16 @@
-// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-// https://raw.githubusercontent.com/copyblogger/genesis-sample/5afef88688b0f187733cea089fbb5bfc5ce2c351/style.css
-// https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe#.17fafly68
+// https://make.wordpress.org/core/2017/10/22/changes-to-the-screen-reader-text-css-class-in-wordpress-4-9/
 @mixin visuallyhidden {
-	position: absolute !important;
+	position: absolute;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
+	clip: rect(1px, 1px, 1px, 1px);
+	margin: -1px;
+	padding: 0;
 	width: 1px;
 	height: 1px;
 	border: 0;
 	word-wrap: normal !important;
+
+	clip-path: inset(50%);
 }
 
 .screen-reader-text,

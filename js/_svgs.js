@@ -1,3 +1,5 @@
+import load_script from './_loader.js';
+
 (function() {
 	'use strict';
 
@@ -32,9 +34,7 @@
 				document.body.insertBefore(div, document.body.childNodes[0]);
 
 				if (!supports_inline_svg()) {
-					bfg_inject_script(
-						`https://cdn.jsdelivr.net/gh/Keyamoon/svgxuse/svgxuse.min.js`
-					);
+					load_script(`svgxuse`);
 				}
 
 				document.body.classList.remove(`no-svg`);

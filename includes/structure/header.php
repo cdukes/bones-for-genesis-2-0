@@ -107,7 +107,7 @@ add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 function bfg_resource_hints( $hints, $relation_type ) {
 
 	if( 'dns-prefetch' === $relation_type ) {
-		// $hints[] = '//cdn.polyfill.io';
+		$hints[] = '//cdn.polyfill.io';
 		// $hints[] = '//cdnjs.cloudflare.com';
 		// $hints[] = '//fonts.googleapis.com';
 	}
@@ -149,7 +149,7 @@ function bfg_load_assets() {
  	// );
 
  	// Register polyfill.io with default options
-	$src = $use_production_assets ? '//cdn.polyfill.io/v2/polyfill.min.js' : 'https://cdn.polyfill.io/v2/polyfill.js';
+	$src = $use_production_assets ? '//cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6,fetch' : 'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.6,fetch';
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// Use jQuery from a CDN
@@ -166,7 +166,13 @@ function bfg_load_assets() {
 
 	// Main script file (in footer)
 	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $assets_version, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('polyfill'), $assets_version, true );
+
+	// Add scripts which can be used by the _loader.js module here
+	$on_demand_script_srcs = array(
+		'svgxuse' => $use_production_assets ? 'https://cdn.jsdelivr.net/gh/Keyamoon/svgxuse/svgxuse.min.js' : 'https://cdn.jsdelivr.net/gh/Keyamoon/svgxuse/svgxuse.js',
+	);
+	wp_localize_script( 'bfg', 'bfg_script_srcs', $on_demand_script_srcs );
 
 	$icon_src = add_query_arg(
 		array(
@@ -179,7 +185,7 @@ function bfg_load_assets() {
 
 }
 
-// add_action( 'wp_footer', 'bfg_inject_script', 1 );
+add_action( 'wp_footer', 'bfg_inject_script', 1 );
 /**
  * Inject a JS script loader function.
  *
@@ -202,7 +208,7 @@ function bfg_inject_script() {
 
 }
 
-// add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 3);
+add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 3);
 /**
  * Overwrite the <script> tag on selected assets to use the JS loader.
  *
