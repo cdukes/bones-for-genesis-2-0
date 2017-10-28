@@ -121,6 +121,11 @@ module.exports = function(grunt) {
 						maxWidth: 100,
 						maxHeight: 100,
 						precision: 3
+					},
+					id: {
+						generator: function(name) {
+							return 'icon-' + name.replace('.svg', '');
+						}
 					}
 				},
 				svg: {

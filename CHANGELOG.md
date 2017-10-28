@@ -1,3 +1,6 @@
+## 20171028
+- Prefix SVGs with `icon-` to avoid duplicate IDs
+
 ## 20171025
 - Include `polyfill.io` by default
 - Use deferred script loader by default

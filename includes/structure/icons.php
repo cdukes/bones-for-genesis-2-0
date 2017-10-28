@@ -31,6 +31,7 @@ function bfg_populate_acf_icon_options( $field ) {
 		return $field;
 
 	foreach( $matches[1] as $slug ) {
+		$slug                    = str_replace( 'icon-', '', $slug );
 		$label                   = str_replace('-', ' ', $slug);
 		$label                   = ucwords($label);
 		$field['choices'][$slug] = $label;
@@ -50,7 +51,7 @@ function bfg_populate_acf_icon_options( $field ) {
 function bfg_get_inline_icon( $slug ) {
 
 	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" role="img">';
-		$svg .= ' <use xlink:href="#' . esc_html( $slug ) . '"></use> ';
+		$svg .= ' <use xlink:href="#icon-' . esc_html( $slug ) . '"></use> ';
 	$svg .= '</svg>';
 
 	return $svg;
