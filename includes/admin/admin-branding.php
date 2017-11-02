@@ -41,7 +41,7 @@ function bfg_replace_login_logo() {
 
 	?><style type="text/css">
 		body.login h1 a {
-			background-image: url(<?php echo get_stylesheet_directory_uri() ?>/build/images/login-logo.svg);
+			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/build/images/login-logo.svg);
 
 			/* Adjust to the dimensions of your logo. WP Default: 84px 84px */
 			background-size: 84px 84px;
@@ -87,7 +87,7 @@ function bfg_wp_mail_from() {
  *
  * @since 2.2.24
  */
-function bfg_force_mandrill_payload_to_html( $message ) {
+function bfg_force_mandrill_payload_to_html($message) {
 
 	$message['html'] = wpautop($message['html']);
 
@@ -101,7 +101,7 @@ add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message'
  *
  * @since 2.2.24
  */
-function bfg_cleanup_retrieve_password_message( $message ) {
+function bfg_cleanup_retrieve_password_message($message) {
 
 	return preg_replace( '/<(.+?)>/', '$1', $message );
 

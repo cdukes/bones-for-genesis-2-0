@@ -8,7 +8,7 @@ add_filter( 'gallery_style', 'bfg_gallery_style' );
  *
  * @since 1.x
  */
-function bfg_gallery_style( $css ) {
+function bfg_gallery_style($css) {
 
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 
@@ -88,7 +88,7 @@ add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
  *
  * @since 2.0.0
  */
-function bfg_prev_link_text( $text ) {
+function bfg_prev_link_text($text) {
 
 	return html_entity_decode('&#10216;') . ' ';
 
@@ -101,7 +101,7 @@ add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
  *
  * @since 2.0.0
  */
-function bfg_next_link_text( $text ) {
+function bfg_next_link_text($text) {
 
 	return ' ' . html_entity_decode('&#10217;');
 
@@ -135,7 +135,7 @@ add_filter( 'edit_post_link', '__return_false' );
  * @since 2.2.18
  */
 add_filter( 'the_password_form', 'bfg_password_form' );
-function bfg_password_form( $post = 0 ) {
+function bfg_password_form($post = 0) {
 
 	$post       = get_post( $post );
 	$label      = 'pwbox-' . ( empty($post->ID) ? mt_rand() : $post->ID );
@@ -143,7 +143,7 @@ function bfg_password_form( $post = 0 ) {
 		$autofocus = is_singular() ? 'autofocus' : '';
 		$output .= '<input name="post_password" id="' . $label . '" type="password" size="20" placeholder="' . __( 'Password', CHILD_THEME_TEXT_DOMAIN ) . '" ' . $autofocus . '>';
 		$output .= '<input type="submit" name="' . __( 'Submit', CHILD_THEME_TEXT_DOMAIN ) . '" value="' . esc_attr__( 'Submit' ) . '">';
-	$output .= '</form>';
+	$output  .= '</form>';
 
 	return $output;
 

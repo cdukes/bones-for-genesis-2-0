@@ -14,7 +14,7 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacen
 remove_action( 'wp_head', 'wp_generator' );								// WP Version
 remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
 // remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
-remove_action( 'wp_head', 'feed_links_extra', 3 ); 						// Remove comment feed links
+remove_action( 'wp_head', 'feed_links_extra', 3 );						// Remove comment feed links
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlink
 
 // Remove WP-API <head> material
@@ -104,7 +104,7 @@ add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
  *
  * @since 2.3.19
  */
-function bfg_resource_hints( $hints, $relation_type ) {
+function bfg_resource_hints($hints, $relation_type) {
 
 	if( 'dns-prefetch' === $relation_type ) {
 		$hints[] = '//cdn.polyfill.io';
@@ -141,14 +141,14 @@ function bfg_load_assets() {
 
 	// Google Fonts
 	// Consider async loading: https://github.com/typekit/webfontloader
- 	// wp_enqueue_style(
- 	// 	'google-fonts',
- 	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
- 	// 	array(),
- 	// 	null
- 	// );
+	// wp_enqueue_style(
+	// 	'google-fonts',
+	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
+	// 	array(),
+	// 	null
+	// );
 
- 	// Register polyfill.io with default options
+	// Register polyfill.io with default options
 	$src = $use_production_assets ? '//cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6,fetch' : 'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.6,fetch';
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
@@ -216,7 +216,7 @@ add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 3);
  *
  * @since 20170815
  */
-function bfg_script_loader_tags( $tag, $handle, $src ) {
+function bfg_script_loader_tags($tag, $handle, $src) {
 
 	switch( $handle ) {
 		case 'polyfill':
@@ -236,7 +236,7 @@ add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
  *
  * @since 2.3.46
  */
-function bfg_ajax_url_attribute( $atts ) {
+function bfg_ajax_url_attribute($atts) {
 
 	$atts['data-ajax_url'] = admin_url( 'admin-ajax.php' );
 
@@ -302,7 +302,7 @@ add_filter( 'body_class', 'bfg_no_js_body_class' );
  *
  * @since 2.3.51
  */
-function bfg_no_js_body_class( $classes ) {
+function bfg_no_js_body_class($classes) {
 
 	$classes[] = 'no-js';
 	$classes[] = 'no-svg';

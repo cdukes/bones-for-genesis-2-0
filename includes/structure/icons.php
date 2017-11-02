@@ -8,7 +8,7 @@ add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
  *
  * @since 20170926
  */
-function bfg_populate_acf_icon_options( $field ) {
+function bfg_populate_acf_icon_options($field) {
 
 	if( !function_exists('get_current_screen') )
 		return $field;
@@ -48,11 +48,11 @@ function bfg_populate_acf_icon_options( $field ) {
  *
  * @since 20170815
  */
-function bfg_get_inline_icon( $slug ) {
+function bfg_get_inline_icon($slug) {
 
 	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" role="img">';
 		$svg .= ' <use xlink:href="#icon-' . esc_html( $slug ) . '"></use> ';
-	$svg .= '</svg>';
+	$svg  .= '</svg>';
 
 	return $svg;
 

@@ -34,7 +34,7 @@ add_action( 'pre_ping', 'bfg_disable_self_pings' );
  *
  * @since 2.0.0
  */
-function bfg_disable_self_pings( &$links ) {
+function bfg_disable_self_pings(&$links) {
 
 	foreach ( $links as $l => $link )
 		if ( 0 === mb_strpos( $link, home_url() ) )
@@ -66,7 +66,7 @@ function bfg_disable_self_pings( &$links ) {
  *
  * @since 2.3.38
  */
-function bfg_enable_svg_uploads( $mimes ) {
+function bfg_enable_svg_uploads($mimes) {
 
 	$mimes['svg']  = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
@@ -83,7 +83,7 @@ function bfg_enable_svg_uploads( $mimes ) {
  *
  * @since 2.0.0
  */
-function bfg_image_size_names_choose( $sizes ) {
+function bfg_image_size_names_choose($sizes) {
 
 	$sizes['desktop-size'] = __( 'Desktop', CHILD_THEME_TEXT_DOMAIN );
 
@@ -110,7 +110,7 @@ function bfg_image_size_names_choose( $sizes ) {
  * @since 2.2.3
  */
 add_filter( 'xmlrpc_methods', 'bfg_remove_xmlrpc_pingback_ping' );
-function bfg_remove_xmlrpc_pingback_ping( $methods ) {
+function bfg_remove_xmlrpc_pingback_ping($methods) {
 
 	unset($methods['pingback.ping']);
 

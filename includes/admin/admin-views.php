@@ -44,7 +44,7 @@ function bfg_restore_avatars() {
  * @since 2.0.0
  */
 add_filter( 'show_admin_bar', 'bfg_maybe_hide_admin_bar', 99 );
-function bfg_maybe_hide_admin_bar( $default ) {
+function bfg_maybe_hide_admin_bar($default) {
 
 	return current_user_can( 'edit_posts' ) ? $default : false;
 
@@ -128,7 +128,7 @@ function bfg_add_editor_style() {
  *
  * @since 2.3.35
  */
-function bfg_add_tinymce_plugins( $plugin_array ) {
+function bfg_add_tinymce_plugins($plugin_array) {
 
 	$use_production_assets = genesis_get_option('bfg_production_on');
 	$use_production_assets = !empty($use_production_assets);
@@ -158,7 +158,7 @@ add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
  *
  * @since 2.0.0
  */
-function bfg_tiny_mce_before_init( $options ) {
+function bfg_tiny_mce_before_init($options) {
 
 	$options['element_format']       = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
 	$options['schema']               = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
@@ -176,7 +176,7 @@ add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
  *
  * @since 2.0.15
  */
-function bfg_tinymce_buttons( $buttons ) {
+function bfg_tinymce_buttons($buttons) {
 
 	$buttons[] = 'wp_page';															// Post pagination
 	return $buttons;
@@ -191,7 +191,7 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  *
  * @since 2.0.0
  */
-function bfg_user_contactmethods( $fields ) {
+function bfg_user_contactmethods($fields) {
 
 	// $fields['facebook'] = 'Facebook';											// Add Facebook
 	// $fields['twitter'] = 'Twitter';												// Add Twitter
@@ -232,14 +232,13 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  *
  * @since 2.0.0
  */
-function bfg_login_errors( $text ) {
+function bfg_login_errors($text) {
 
 	global $errors;
 
 	$codes = $errors->get_error_codes();
 	if(
-		in_array('invalid_username', $codes, true) ||
-		in_array('incorrect_password', $codes, true)
+		in_array('invalid_username', $codes, true) || in_array('incorrect_password', $codes, true)
 	) {
 		return __( 'Invalid username or password.', CHILD_THEME_TEXT_DOMAIN );
 	}
@@ -275,7 +274,7 @@ function bfg_hide_admin_help_button() {
  * @since 2.2.8
  */
 // add_filter( 'theme_page_templates', 'bfg_deregister_page_templates' );
-function bfg_deregister_page_templates( $templates ) {
+function bfg_deregister_page_templates($templates) {
 
 	unset($templates['page_archive.php'], $templates['page_blog.php']);
 
@@ -289,7 +288,7 @@ add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
  *
  * @since 2.2.9
  */
-function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
+function bfg_admin_menu_plugins_node($wp_admin_bar) {
 
 	if( !current_user_can('install_plugins') )
 		return;
@@ -344,7 +343,7 @@ function bfg_remove_meta_boxes() {
  *
  * @since 2.3.50
  */
-function bfg_limit_items_per_page( $per_page ) {
+function bfg_limit_items_per_page($per_page) {
 
 	return min( $per_page, 100 );
 

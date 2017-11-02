@@ -16,7 +16,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 2.3.31
  */
 add_filter( 'wp_nav_menu_args', 'bfg_limit_menu_depth' );
-function bfg_limit_menu_depth( $args ) {
+function bfg_limit_menu_depth($args) {
 
 	if( !in_array($args['theme_location'], array('primary', 'secondary'), true) )
 		return $args;

@@ -11,7 +11,7 @@ add_filter( 'genesis_attr_sidebar-primary', 'bfg_unset_role_attribute' );
  *
  * See: https://validator.w3.org/
  */
-function bfg_unset_role_attribute( $attributes ) {
+function bfg_unset_role_attribute($attributes) {
 
 	if( isset($attributes['role']) )
 		unset($attributes['role']);

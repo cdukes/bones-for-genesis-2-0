@@ -24,7 +24,7 @@ function bfg_search_text() {
  *
  * @since 2.0.0
  */
-function bfg_search_button_text( $text ) {
+function bfg_search_button_text($text) {
 
 	return esc_attr( __( 'Click Here...', CHILD_THEME_TEXT_DOMAIN ) );
 
@@ -43,7 +43,7 @@ function bfg_redirect_single_search_result() {
 	if( is_search() ) {
 		global $wp_query;
 
-		if( $wp_query->post_count === 1) {
+		if( 1 === $wp_query->post_count) {
 			wp_safe_redirect( get_permalink( $wp_query->posts['0']->ID ) );
 			exit;
 		}
@@ -59,7 +59,7 @@ function bfg_redirect_single_search_result() {
  *
  * @since 2.0.18
  */
-function bfg_only_search_posts( $query ) {
+function bfg_only_search_posts($query) {
 
 	if( is_admin() )
 		return;

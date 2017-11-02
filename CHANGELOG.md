@@ -1,3 +1,6 @@
+## 20171102
+- Update `PHP-CS-Fixer` options (v2.8.0)
+
 ## 20171028
 - Prefix SVGs with `icon-` to avoid duplicate IDs
 

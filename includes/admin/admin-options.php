@@ -10,7 +10,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 2.0.0
  */
-function bfg_remove_theme_settings_metaboxes( $_genesis_theme_settings_pagehook ) {
+function bfg_remove_theme_settings_metaboxes($_genesis_theme_settings_pagehook) {
 
 	// remove_meta_box( 'genesis-theme-settings-version', $_genesis_theme_settings_pagehook, 'main' );			// Information
 	remove_meta_box( 'genesis-theme-settings-feeds', $_genesis_theme_settings_pagehook, 'main' );				// Custom Feeds
@@ -31,7 +31,7 @@ add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
  *
  * @since 2.3.0
  */
-function bfg_theme_settings_defaults( $defaults ) {
+function bfg_theme_settings_defaults($defaults) {
 
 	$defaults['bfg_production_on']         = false;
 	$defaults['bfg_assets_version']        = null;
@@ -76,7 +76,7 @@ add_action( 'genesis_theme_settings_metaboxes', 'bfg_theme_settings_metaboxes' )
  *
  * @since 2.3.0
  */
-function bfg_theme_settings_metaboxes( $pagehook ) {
+function bfg_theme_settings_metaboxes($pagehook) {
 
 	add_meta_box(
 		'bfg-environment-settings',
