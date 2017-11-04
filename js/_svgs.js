@@ -1,3 +1,5 @@
+/* globals bfg_icons_src */
+
 import load_script from './_loader.js';
 
 (function() {

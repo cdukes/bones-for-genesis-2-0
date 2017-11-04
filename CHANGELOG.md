@@ -1,3 +1,9 @@
+## 20171104
+- Remove `JSHint`
+- Setup `ESLint` options
+- Add support for `Vue`
+- Move `Babel` config to `package.json`
+
 ## 20171102
 - Update `PHP-CS-Fixer` options (v2.8.0)
 

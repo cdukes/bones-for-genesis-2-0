@@ -10,13 +10,20 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
+				loader: 'vue-loader',
+				options: {
+					loaders: {
+						js: 'babel-loader'
+					}
+				}
+			},
+			{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
 				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['env']
-					}
+					loader: 'babel-loader'
 				}
 			}
 		]

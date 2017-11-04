@@ -62,19 +62,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		jshint: {
-			options: {
-				strict: true,
-				laxbreak: true,
-				esversion: 6
-			},
-			build: {
-				files: {
-					src: ['js/**/*.js']
-				}
-			}
-		},
-
 		eslint: {
 			options: {
 				configFile: 'config/eslint.json',
@@ -82,7 +69,7 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
-					src: ['js/**/*.js']
+					src: ['js/**/*.js', 'js/**/*.vue']
 				}
 			}
 		},
@@ -195,7 +182,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			js: {
-				files: ['js/**/*.js'],
+				files: ['js/**/*.js', 'js/**/*.vue'],
 				tasks: ['webpack', 'concat'],
 				options: {
 					spawn: false
@@ -232,7 +219,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-csscomb');
@@ -283,7 +269,6 @@ module.exports = function(grunt) {
 			'postcss:scss',
 
 			// Cleanup JS
-			'jshint',
 			'eslint',
 			'shell',
 
