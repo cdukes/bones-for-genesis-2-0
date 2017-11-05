@@ -10,18 +10,18 @@ window.bfg_scripts_events_queue = window.bfg_scripts_events_queue || {};
 	'use strict';
 
 	function on_load(e) {
-		var el = e.currentTarget,
+		let el = e.currentTarget,
 			handle = el.dataset.handle;
 
 		bfg_scripts_loaded.push(handle);
 
-		for (var i = 0; i < bfg_scripts_events_queue[handle].length; i++) {
+		for (let i = 0; i < bfg_scripts_events_queue[handle].length; i++) {
 			bfg_scripts_events_queue[handle][i]();
 		}
 	}
 
 	function load_script(handle, event) {
-		var script;
+		let script;
 
 		// Abort if handle isn't set in bfg_script_srcs
 		if (!bfg_script_srcs.hasOwnProperty(handle)) {

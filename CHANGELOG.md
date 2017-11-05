@@ -1,3 +1,7 @@
+## 20171105
+- Refine `ESLint` options
+- Run `ESLint` 
+
 ## 20171104
 - Remove `JSHint`
 - Setup `ESLint` options

@@ -7,7 +7,7 @@ import load_script from './_loader.js';
 
 	// Test for inline SVG support, based on Modernizr
 	function supports_inline_svg() {
-		var div = document.createElement(`div`);
+		let div = document.createElement(`div`);
 		div.innerHTML = `<svg/>`;
 		return (
 			(typeof SVGRect !== `undefined` &&
@@ -19,14 +19,14 @@ import load_script from './_loader.js';
 	function setup() {
 		fetch(bfg_icons_src)
 			.then(function(response) {
-				if (200 !== response.status) {
+				if (response.status !== 200) {
 					throw `File not found`;
 				}
 
 				return response.text();
 			})
 			.then(function(response) {
-				var div = document.createElement(`div`);
+				let div = document.createElement(`div`);
 				div.innerHTML = response;
 				div.style.position = `absolute`;
 				div.style.width = 0;

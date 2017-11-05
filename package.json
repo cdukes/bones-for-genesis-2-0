@@ -57,6 +57,8 @@
     "IE 11"
   ],
   "babel": {
-	"presets": ["env"]
+    "presets": [
+      "env"
+    ]
   }
 }
