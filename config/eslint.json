@@ -83,6 +83,7 @@
 		"semi": "error",
 		"space-before-blocks": "error",
 		"space-before-function-paren": ["error", "never"],
+		"strict": ["error", "safe"],
 		"template-curly-spacing": "error",
 		"template-tag-spacing": ["error", "always"],
 		"wrap-regex": "error",

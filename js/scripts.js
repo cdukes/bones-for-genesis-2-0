@@ -4,8 +4,6 @@ import fitvids from '../node_modules/fitvids/dist/fitvids.js';
 import './_svgs.js';
 
 (function() {
-	'use strict';
-
 	// Remove the 'no-js' <body> class
 	document.body.classList.remove(`no-js`);
 
@@ -15,8 +13,6 @@ import './_svgs.js';
 
 // https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
 (function() {
-	'use strict';
-
 	function on_first_tab(e) {
 		if (e.keyCode === 9) {
 			document.body.classList.add(`user-is-tabbing`);

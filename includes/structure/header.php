@@ -170,7 +170,7 @@ function bfg_load_assets() {
 
 	// Add scripts which can be used by the _loader.js module here
 	$on_demand_script_srcs = array(
-		'svgxuse' => $use_production_assets ? 'https://cdn.jsdelivr.net/gh/Keyamoon/svgxuse/svgxuse.min.js' : 'https://cdn.jsdelivr.net/gh/Keyamoon/svgxuse/svgxuse.js',
+		'svgxuse' => $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
 	);
 	wp_localize_script( 'bfg', 'bfg_script_srcs', $on_demand_script_srcs );
 

@@ -7,8 +7,6 @@ window.bfg_scripts_loaded = window.bfg_scripts_loaded || [];
 window.bfg_scripts_events_queue = window.bfg_scripts_events_queue || {};
 
 (function() {
-	'use strict';
-
 	function on_load(e) {
 		let el = e.currentTarget,
 			handle = el.dataset.handle;

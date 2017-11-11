@@ -1,3 +1,7 @@
+## 20171111
+- use `cdnjs.com`'s `svgxuse`
+- Set `ESLint` `use strict` rule
+
 ## 20171105
 - Refine `ESLint` options
 - Run `ESLint` 

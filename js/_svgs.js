@@ -3,8 +3,6 @@
 import load_script from './_loader.js';
 
 (function() {
-	'use strict';
-
 	// Test for inline SVG support, based on Modernizr
 	function supports_inline_svg() {
 		let div = document.createElement(`div`);
