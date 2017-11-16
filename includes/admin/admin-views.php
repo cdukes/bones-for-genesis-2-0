@@ -94,6 +94,7 @@ function bfg_unregister_default_widgets() {
 	// unregister_widget( 'WP_Widget_Categories' );
 	// unregister_widget( 'WP_Widget_Custom_HTML' );
 	// unregister_widget( 'WP_Widget_Media_Audio' );
+	// unregister_widget( 'WP_Widget_Media_Gallery' );
 	// unregister_widget( 'WP_Widget_Media_Image' );
 	// unregister_widget( 'WP_Widget_Media_Video' );
 	unregister_widget( 'WP_Widget_Meta' );

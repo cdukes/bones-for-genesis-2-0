@@ -1,3 +1,6 @@
+## 20171116
+- Add template to remove the new `WP_Widget_Media_Gallery`
+
 ## 20171111
 - use `cdnjs.com`'s `svgxuse`
 - Set `ESLint` `use strict` rule
