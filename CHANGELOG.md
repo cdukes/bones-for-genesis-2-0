@@ -1,3 +1,8 @@
+## 20171207
+- Enable `cdnjs.cloudflare.com` resource hint by default
+- Cleanup `webpack.config.js` loaders
+- Disable `ordered_class_elements` validation by default
+
 ## 20171116
 - Add template to remove the new `WP_Widget_Media_Gallery`
 

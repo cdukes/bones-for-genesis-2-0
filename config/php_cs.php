@@ -104,7 +104,7 @@ return PhpCsFixer\Config::create()
 			'not_operator_with_space'                     => false,
 			'not_operator_with_successor_space'           => false,
 			'object_operator_without_whitespace'          => true,
-			'ordered_class_elements'                      => true,
+			'ordered_class_elements'                      => false,
 			'ordered_imports'                             => true,
 			'phpdoc_align'                                => true,
 			'phpdoc_annotation_without_dot'               => true,

@@ -108,7 +108,7 @@ function bfg_resource_hints($hints, $relation_type) {
 
 	if( 'dns-prefetch' === $relation_type ) {
 		$hints[] = '//cdn.polyfill.io';
-		// $hints[] = '//cdnjs.cloudflare.com';
+		$hints[] = '//cdnjs.cloudflare.com';
 		// $hints[] = '//fonts.googleapis.com';
 	}
 

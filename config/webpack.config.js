@@ -12,10 +12,9 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader',
-				loader: 'vue-loader',
 				options: {
 					loaders: {
-						js: 'babel-loader'
+						js: 'babel-loader?presets[]=env'
 					}
 				}
 			},
@@ -23,7 +22,10 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /(node_modules)/,
 				use: {
-					loader: 'babel-loader'
+					loader: 'babel-loader',
+					options: {
+						presets: ['env']
+					}
 				}
 			}
 		]
