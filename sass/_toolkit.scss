@@ -32,7 +32,6 @@
 
 @mixin type {
 	margin: 0 0 $spacer;
-	max-width: 65ch;
 	line-height: 1.5;
 
 	&:last-child {

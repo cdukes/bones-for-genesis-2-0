@@ -237,6 +237,9 @@ function bfg_login_errors($text) {
 
 	global $errors;
 
+	if( empty($errors) )
+		return $text;
+
 	$codes = $errors->get_error_codes();
 	if(
 		in_array('invalid_username', $codes, true) || in_array('incorrect_password', $codes, true)

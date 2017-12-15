@@ -1,3 +1,9 @@
+## 20171215
+- Remove `max-width` on `@mixin type` (Conflicts with WP's image injection in TinyMCE)
+- Fix potential issue with `bfg_login_errors()`
+- Use `rem`s for `$spacer`
+- Remove layout `float`s
+
 ## 20171207
 - Enable `cdnjs.cloudflare.com` resource hint by default
 - Cleanup `webpack.config.js` loaders
