@@ -86,6 +86,7 @@
 		"strict": ["error", "safe"],
 		"template-curly-spacing": "error",
 		"template-tag-spacing": ["error", "always"],
+		"vue/html-indent": ["error", "tab"],
 		"wrap-regex": "error",
 		"yoda": "error"
 	},

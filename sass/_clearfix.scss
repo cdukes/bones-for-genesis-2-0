@@ -1,12 +1,15 @@
 // Float Clearing - from Genesis 2.2.2's style.css
 
 // http://nicolasgallagher.com/micro-clearfix-hack/
+// https://stackoverflow.com/questions/34857848/is-there-a-way-to-use-the-clearfix-hack-alongside-flexbox
 @mixin clearfix {
 	zoom: 1;			// For IE
 
 	&::before,
 	&::after {
 		display: table;
+		flex-basis: 0;	// Safari flexbox fix
+		order: 1;		// Safari flexbox fix
 		content: '';
 	}
 

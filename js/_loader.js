@@ -58,7 +58,12 @@ window.bfg_scripts_events_queue = window.bfg_scripts_events_queue || {};
 			bfg_scripts_events_queue[handle].push(event);
 		}
 
-		script.src = bfg_script_srcs[handle];
+		if (bfg_script_srcs[handle].sri) {
+			script.integrity = bfg_script_srcs[handle].sri;
+			script.crossOrigin = `anonymous`;
+		}
+
+		script.src = bfg_script_srcs[handle].src;
 	}
 
 	module.exports = load_script;

@@ -1,3 +1,13 @@
+## 20180107
+- Include `composer.json` with `roave/security-advisories`
+- Update `eslint.json`'s Vue rules
+- Remove `X-UA-Compatible`
+- Add SRI support for CDN scripts
+- Add Safari flex box fix to `@mixin clearfix`
+- Increase `.btn` `line-height` to fix text clipping issues with certain fonts
+- Remove `bfg_content_security_policy()`
+- Use `rel="noopener"` with `target="_blank"`
+
 ## 20171215
 - Remove `max-width` on `@mixin type` (Conflicts with WP's image injection in TinyMCE)
 - Fix potential issue with `bfg_login_errors()`

@@ -22,41 +22,6 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlin
 remove_action( 'wp_head', 'rest_output_link_wp_head' );
 remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 
-/*
- * Set a Content-Security-Policy header to help prevent XSS attacks
- *
- * See: https://www.smashingmagazine.com/2016/09/content-security-policy-your-future-best-friend/http://html5boilerplate.com/
- * See: http://githubengineering.com/githubs-csp-journey/
- *
- * @since 2.3.43
- */
-// add_action(  'wp', 'bfg_content_security_policy' );
-function bfg_content_security_policy() {
-
-	if( is_admin() )
-		return;
-
-	ob_start();
-	?>
-	default-src 'none';
-	base-uri 'self';
-	block-all-mixed-content;
-	connect-src 'self';
-	font-src 'self' fonts.gstatic.com;
-	form-action 'self';
-	frame-ancestors 'none';
-	img-src 'self';
-	script-src 'self' cdnjs.cloudflare.com cdn.polyfill.io;
-	style-src 'self' fonts.googleapis.com;
-	<?php
-	$csp = ob_get_clean();
-
-	$csp = str_replace( "\n", ' ', $csp );
-
-	header( 'Content-Security-Policy: ' . $csp );
-
-}
-
 add_action( 'wp', 'bfg_security_headers' );
 /**
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
@@ -90,7 +55,6 @@ function bfg_do_doctype() {
 <html class="<?php echo is_admin_bar_showing() ? 'admin-bar-showing' : ''; ?>" <?php language_attributes( 'html' ); ?>>
 <head <?php echo genesis_attr( 'head' ); ?>>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="format-detection" content="telephone=no">
 <?php
 
@@ -143,19 +107,19 @@ function bfg_load_assets() {
 	// Consider async loading: https://github.com/typekit/webfontloader
 	// wp_enqueue_style(
 	// 	'google-fonts',
-	// 	'//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
+	// 	'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
 	// 	array(),
 	// 	null
 	// );
 
 	// Register polyfill.io with default options
-	$src = $use_production_assets ? '//cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6,fetch' : 'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.6,fetch';
+	$src = $use_production_assets ? 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6,fetch' : 'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.6,fetch';
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// Use jQuery from a CDN
 	// Using jQuery 2.* because Gravity Forms breaks with 3.*
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
+	$src = $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
@@ -170,7 +134,10 @@ function bfg_load_assets() {
 
 	// Add scripts which can be used by the _loader.js module here
 	$on_demand_script_srcs = array(
-		'svgxuse' => $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
+		'svgxuse' => array(
+			'src' => $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
+			'sri' => $use_production_assets ? 'sha256-+xblFIDxgSu6OfR6TdLhVHZzVrhw8eXiVk8PRi9ACY8=' : 'sha256-TU+njGBu7T1DrfKgOBEH7kCKsl7UEvUNzpZaeUNNGi8=',
+		),
 	);
 	wp_localize_script( 'bfg', 'bfg_script_srcs', $on_demand_script_srcs );
 
