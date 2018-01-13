@@ -37,6 +37,11 @@ function bfg_security_headers() {
 	header( 'X-Content-Type-Options: nosniff' );
 	header( 'X-XSS-Protection: 1; mode=block' );
 
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+	// header( 'Referrer-Policy: same-origin' );
+
+	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet (example not included here to avoid accidental activation)
+
 }
 
 remove_action( 'genesis_doctype', 'genesis_do_doctype' );
@@ -205,7 +210,12 @@ add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
  */
 function bfg_ajax_url_attribute($atts) {
 
-	$atts['data-ajax_url'] = admin_url( 'admin-ajax.php' );
+	$atts['data-ajax_url'] = add_query_arg(
+		array(
+			'action' => ':action',
+		),
+		admin_url( 'admin-ajax.php' )
+	);
 
 	return $atts;
 
@@ -236,7 +246,7 @@ function bfg_load_favicons() {
 
 	$stylesheet_dir     = get_stylesheet_directory_uri();
 	$favicon_path       = $stylesheet_dir . '/images/favicons';
-	$favicon_build_path = $stylesheet_dir . '/build/images/favicons';
+	$favicon_build_path = $stylesheet_dir . '/build/images';
 
 	// Set to false to disable, otherwise set to a hex color
 	$color = false;

@@ -8,8 +8,6 @@
 	&::before,
 	&::after {
 		display: table;
-		flex-basis: 0;	// Safari flexbox fix
-		order: 1;		// Safari flexbox fix
 		content: '';
 	}
 

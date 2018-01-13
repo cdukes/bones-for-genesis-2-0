@@ -26,7 +26,6 @@ html.admin-bar-showing {
 }
 
 body {
-	margin: 0;
 	font-family: $sans;
 
 	font-variant-ligatures: common-ligatures;
@@ -60,20 +59,6 @@ strong {
 	font-weight: 700;
 }
 
-abbr {
-	letter-spacing: .1em;
-}
-
-pre {
-	overflow: scroll;
-	white-space: pre;
-}
-
-code {
-	overflow: hidden;
-	word-wrap: break-word;
-}
-
 iframe {
 	border: none;
 }
@@ -81,7 +66,7 @@ iframe {
 hr {
 	clear: both;
 	margin: $spacer 0;
-	border: 0;
+	border: none;
 	border-collapse: collapse;
 	border-top: 1px solid $grey;
 }

@@ -7,6 +7,10 @@
 		"eslint:recommended",
 		"plugin:vue/recommended"
 	],
+	"globals": {
+		"module": true,
+		"require": true
+	},
 	"rules": {
 		"array-bracket-spacing": "error",
 		"arrow-body-style": ["error", "as-needed"],

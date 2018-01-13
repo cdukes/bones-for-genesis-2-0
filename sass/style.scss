@@ -1,3 +1,6 @@
+// Normalize
+@import '../../node_modules/normalize.css/normalize.css';
+
 // Colors
 @import '../node_modules/brand-colors/dist/latest/scss/brand-colors.latest.scss';
 @import '../node_modules/colors-sass/sass/variables';
@@ -24,7 +27,6 @@ html {
 }
 
 // Sitewide Styles
-@import 'grid';
 @import 'layout';
 @import 'type';
 @import 'headings';

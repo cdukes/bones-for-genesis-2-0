@@ -1,17 +1,15 @@
 .btn {
 	display: inline-block;
 	padding: 0;
-	width: auto;
 	border: none;
 	border-radius: 0;
 	background-color: transparent;
 	text-align: center;
 	text-decoration: none;
-	white-space: nowrap;
-	font-size: 1em;
-	line-height: 1.2;
+	line-height: 1.15;
 	cursor: pointer;
 	transition: all .15s ease-in-out;
+
 	-webkit-appearance: none;
 	-moz-appearance: none;
 

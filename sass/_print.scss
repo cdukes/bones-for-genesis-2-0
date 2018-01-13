@@ -3,10 +3,10 @@
 	*::before,
 	*::after {
 		background: transparent !important;
-		filter: none !important;
 		box-shadow: none !important;
 		color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
 		text-shadow: none !important;
+		filter: none !important;
 	}
 
 	html.admin-bar-showing {

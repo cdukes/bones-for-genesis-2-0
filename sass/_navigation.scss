@@ -1,12 +1,7 @@
 .genesis-nav-menu {
-	@include clearfix;
-	clear: both;
-	width: 100%;
-
 	// Applied to all menu <li>s
 	.menu-item {
 		a {
-			position: relative;
 			display: block;
 		}
 	}
@@ -49,7 +44,6 @@
 
 		> .menu-item {
 			> a {
-				position: relative;
 			}
 		}
 

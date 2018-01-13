@@ -1,3 +1,13 @@
+## 20180113
+- Update `csscomb.json` settings
+- Undo "Add Safari flex box fix to `@mixin clearfix`"
+- Migrate from `Grunt` to `nom` scripts
+- Include `normalize.css` instead of `postcss-normalize`
+- Remove `_grid.scss`
+- Remove `postcss-color-rgba-fallback`
+- Add additional security header options (disabled by default)
+- Include `_ajax.js` module
+
 ## 20180107
 - Include `composer.json` with `roave/security-advisories`
 - Update `eslint.json`'s Vue rules
