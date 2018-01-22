@@ -1,3 +1,6 @@
+## 20180122
+- Config tweaks
+
 ## 20180113
 - Update `csscomb.json` settings
 - Undo "Add Safari flex box fix to `@mixin clearfix`"

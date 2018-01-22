@@ -8,8 +8,8 @@
 		"plugin:vue/recommended"
 	],
 	"globals": {
-		"module": true,
-		"require": true
+		"module": false,
+		"require": false
 	},
 	"rules": {
 		"array-bracket-spacing": "error",
