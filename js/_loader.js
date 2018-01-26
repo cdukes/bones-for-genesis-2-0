@@ -1,4 +1,4 @@
-/* globals module, bfg_script_srcs, bfg_scripts_loading, bfg_scripts_loaded, bfg_scripts_events_queue */
+/* globals bfg_script_srcs, bfg_scripts_loading, bfg_scripts_loaded, bfg_scripts_events_queue */
 
 // Make sure all globals are set, but don't overwrite if they are
 window.bfg_script_srcs = window.bfg_script_srcs || {};

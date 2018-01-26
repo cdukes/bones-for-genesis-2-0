@@ -1,3 +1,6 @@
+## 201801262
+- Update `uglify-js`
+
 ## 20180126
 - Enable `secure_signon_cookie` by default
 - Require `composer` by default

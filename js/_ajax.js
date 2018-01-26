@@ -1,5 +1,3 @@
-/* globals module */
-
 /**
  * Sends an AJAX request to WP's admin-ajax.php endpoint
  * @param {Object} config - The configuration details for this request.
