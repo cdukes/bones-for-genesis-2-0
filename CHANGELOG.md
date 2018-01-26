@@ -1,3 +1,7 @@
+## 20180126
+- Enable `secure_signon_cookie` by default
+- Require `composer` by default
+
 ## 20180125
 - Readme
 

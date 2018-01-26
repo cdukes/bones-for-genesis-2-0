@@ -148,4 +148,4 @@ function bfg_remove_files_on_upgrade() {
  *
  * @since 20170608
  */
-// add_filter( 'secure_signon_cookie', '__return_true' );
+add_filter( 'secure_signon_cookie', '__return_true' );

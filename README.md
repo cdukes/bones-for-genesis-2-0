@@ -13,7 +13,7 @@ You'll need [Node.js](http://nodejs.org/).
 ```
 git clone https://github.com/cdukes/bones-for-genesis-2-0.git genesis-bfg
 cd genesis-bfg
-npm install
+composer install && npm install
 ```
 
 Watch:

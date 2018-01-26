@@ -10,6 +10,9 @@ define( 'CHILD_THEME_NAME', 'Bones for Genesis 2.0' );
 define( 'CHILD_THEME_URL', 'http://bonesforgenesis.com/' );
 define( 'CHILD_THEME_TEXT_DOMAIN', 'bfg' );
 
+// Composer
+require_once CHILD_DIR . '/vendor/autoload.php';
+
 // Developer Tools
 require_once CHILD_DIR . '/includes/developer-tools.php';
 

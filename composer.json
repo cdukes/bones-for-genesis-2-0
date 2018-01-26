@@ -1,5 +1,4 @@
 {
-    "name": "cdukes/bones-for-genesis-2-0",
     "require": {
         "roave/security-advisories": "dev-master"
     }
