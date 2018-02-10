@@ -21,6 +21,13 @@ function bfg_gallery_style($css) {
  */
 // add_post_type_support( 'page', 'excerpt' );
 
+/*
+ * Allow pages to have <footer>s.
+ *
+ * @since 20180210
+ */
+// add_post_type_support( 'page', 'genesis-entry-meta-after-content' );
+
 add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
 /**
  * Customize the excerpt text, when using the <!--more--> tag.

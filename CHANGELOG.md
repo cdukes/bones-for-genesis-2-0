@@ -1,3 +1,7 @@
+## 20180210
+- Remove default `.clearfix` uses
+- Allow pages to have <footer>s (disabled by default)
+
 ## 201801262
 - Update `uglify-js`
 

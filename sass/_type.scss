@@ -40,6 +40,9 @@ a {
 	text-decoration: underline;
 	transition: all .15s ease-in-out;
 
+	&:visited {
+	}
+
 	&:hover {
 		text-decoration: none;
 	}
