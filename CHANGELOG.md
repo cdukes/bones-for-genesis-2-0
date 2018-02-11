@@ -1,3 +1,6 @@
+## 20180211
+- Fix `postcss` config
+
 ## 20180210
 - Remove default `.clearfix` uses
 - Allow pages to have <footer>s (disabled by default)
