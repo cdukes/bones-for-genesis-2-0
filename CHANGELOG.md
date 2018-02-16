@@ -1,3 +1,6 @@
+## 20180216
+- Prevent non-symbol IDs from populating on `bfg_populate_acf_icon_options()`
+
 ## 20180211
 - Fix `postcss` config
 

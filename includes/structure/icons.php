@@ -10,6 +10,8 @@ add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
  */
 function bfg_populate_acf_icon_options($field) {
 
+	$field['choices'] = array();
+
 	if( !function_exists('get_current_screen') )
 		return $field;
 
@@ -25,13 +27,12 @@ function bfg_populate_acf_icon_options($field) {
 	$field['choices'] = array();
 
 	$css = file_get_contents($path);
-	preg_match_all( '/id="(.+?)"/', $css, $matches );
+	preg_match_all( '/id="icon-(.+?)"/', $css, $matches );
 
 	if( empty($matches[1]) )
 		return $field;
 
 	foreach( $matches[1] as $slug ) {
-		$slug                    = str_replace( 'icon-', '', $slug );
 		$label                   = str_replace('-', ' ', $slug);
 		$label                   = ucwords($label);
 		$field['choices'][$slug] = $label;
