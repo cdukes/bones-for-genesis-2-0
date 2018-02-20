@@ -1,10 +1,6 @@
 // Normalize
 @import '../../node_modules/normalize.css/normalize.css';
 
-// Colors
-@import '../node_modules/brand-colors/dist/latest/scss/brand-colors.latest.scss';
-@import '../node_modules/colors-sass/sass/variables';
-
 // Variables & Mixins - variables must be imported after include-media, so that breakpoints aren't overwritten
 @import '../node_modules/include-media/dist/_include-media';
 @import 'variables';

@@ -1,3 +1,6 @@
+## 20180220
+- Reorganize CSS
+
 ## 20180216
 - Prevent non-symbol IDs from populating on `bfg_populate_acf_icon_options()`
 

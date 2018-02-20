@@ -13,6 +13,9 @@ $breakpoints: ( zero: (1 * 16px), phone: (35 * 16px), portrait: (48 * 16px), adm
 /*********************
 COLORS
 *********************/
+@import '../node_modules/brand-colors/dist/latest/scss/brand-colors.latest.scss';
+@import '../node_modules/colors-sass/sass/variables';
+
 $grey: $gray;
 $black: #000;
 
@@ -20,4 +23,5 @@ $black: #000;
 TYPOGRAPHY - http://cssfontstack.com/
 *********************/
 // https://medium.com/@mwichary/system-shock-6b1dc6d6596f
-$sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+// http://markdotto.com/2018/02/07/github-system-fonts/
+$sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';

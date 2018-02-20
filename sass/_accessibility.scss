@@ -1,18 +1,3 @@
-// https://make.wordpress.org/core/2017/10/22/changes-to-the-screen-reader-text-css-class-in-wordpress-4-9/
-@mixin visuallyhidden {
-	position: absolute;
-	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
-	margin: -1px;
-	padding: 0;
-	width: 1px;
-	height: 1px;
-	border: 0;
-	word-wrap: normal !important;
-
-	clip-path: inset(50%);
-}
-
 .screen-reader-text,
 .screen-reader-text span,
 .screen-reader-shortcut {
