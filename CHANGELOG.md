@@ -1,3 +1,6 @@
+## 20180222
+- Fix `fetch()` issue in `_ajax.js`
+
 ## 20180220
 - Reorganize CSS
 

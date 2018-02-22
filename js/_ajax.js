@@ -24,7 +24,7 @@
 			document.body.dataset.ajax_url.replace(`:action`, action),
 			{
 				method: `POST`,
-				credentials: include_credentials ? `same-origin` : false,
+				credentials: include_credentials ? `same-origin` : `omit`,
 				headers: {
 					'Content-Type': `application/json`
 				},
