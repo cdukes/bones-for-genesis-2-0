@@ -1,3 +1,6 @@
+## 20180223
+- Use browser font defaults
+
 ## 20180222
 - Fix `fetch()` issue in `_ajax.js`
 
