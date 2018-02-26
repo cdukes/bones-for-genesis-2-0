@@ -1,11 +1,17 @@
+const path = require('path');
+
 module.exports = {
 	entry: {
 		scripts: `./js/scripts.js`,
 		admin: `./js/admin.js`
 	},
 	output: {
-		filename: `build/js/[name].js`,
-		chunkFilename: `build/js/[id].js`
+		path: path.resolve(__dirname, `../build`),
+		filename: `js/[name].js`,
+		chunkFilename: `js/[id].js`
+	},
+	optimization: {
+		minimize: false
 	},
 	module: {
 		rules: [

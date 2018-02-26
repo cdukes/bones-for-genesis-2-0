@@ -190,6 +190,8 @@ add_filter('script_loader_tag', 'bfg_script_loader_tags', 10, 3);
  */
 function bfg_script_loader_tags($tag, $handle, $src) {
 
+	$tag = str_replace(" type='text/javascript'", '', $tag);
+
 	switch( $handle ) {
 		case 'polyfill':
 			// Only load polyfill.js if the browser doesn't meet your requirements

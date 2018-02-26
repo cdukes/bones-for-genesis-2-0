@@ -1,3 +1,7 @@
+## 20180226
+- Update for Webpack 4
+- Strip `type='text/javascript'` from `<script>` tags
+
 ## 20180223
 - Use browser font defaults
 
