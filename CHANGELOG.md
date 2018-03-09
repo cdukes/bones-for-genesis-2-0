@@ -1,3 +1,7 @@
+## 20180309
+- Trigger error if browser can't `fetch()`
+- Genesis 2.6.0 compatibility
+
 ## 20180226
 - Update for Webpack 4
 - Strip `type='text/javascript'` from `<script>` tags

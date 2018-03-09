@@ -14,6 +14,7 @@ function bfg_remove_theme_settings_metaboxes($_genesis_theme_settings_pagehook) 
 
 	// remove_meta_box( 'genesis-theme-settings-version', $_genesis_theme_settings_pagehook, 'main' );			// Information
 	remove_meta_box( 'genesis-theme-settings-feeds', $_genesis_theme_settings_pagehook, 'main' );				// Custom Feeds
+	remove_meta_box( 'genesis-theme-settings-adsense', $_genesis_theme_settings_pagehook, 'main' ); 			// Google AdSense
 	// remove_meta_box( 'genesis-theme-settings-layout', $_genesis_theme_settings_pagehook, 'main' );			// Default Layout
 	remove_meta_box( 'genesis-theme-settings-header', $_genesis_theme_settings_pagehook, 'main' );				// Header
 	remove_meta_box( 'genesis-theme-settings-nav', $_genesis_theme_settings_pagehook, 'main' );					// Navigation

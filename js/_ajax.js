@@ -19,6 +19,18 @@
 			on_complete
 		} = config;
 
+		if( !(`fetch` in window) ) {
+			if (on_error) {
+				on_error(`Failed to fetch`);
+			}
+
+			if (on_complete) {
+				on_complete(`Failed to fetch`);
+			}
+
+			return;
+		}
+
 		fetch(
 			// The admin-ajax.php URL template is saved as a <body> data- value, in includes/structure/header.php
 			document.body.dataset.ajax_url.replace(`:action`, action),
