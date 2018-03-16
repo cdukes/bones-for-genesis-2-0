@@ -24,8 +24,6 @@ function bfg_populate_acf_icon_options($field) {
 	if( !file_exists( $path ) )
 		return $field;
 
-	$field['choices'] = array();
-
 	$css = file_get_contents($path);
 	preg_match_all( '/id="icon-(.+?)"/', $css, $matches );
 

@@ -1,3 +1,7 @@
+## 20180315
+- Throw error on `compat/compat` failure. Whitelist included `fetch()` calls
+- CSS tweaks
+
 ## 20180309
 - Trigger error if browser can't `fetch()`
 - Genesis 2.6.0 compatibility

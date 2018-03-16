@@ -19,7 +19,7 @@
 		"block-scoped-var": "error",
 		"block-spacing": "error",
 		"comma-dangle": "error",
-		"compat/compat": 1,
+		"compat/compat": "error",
 		"computed-property-spacing": "error",
 		"consistent-return": "error",
 		"curly": "error",

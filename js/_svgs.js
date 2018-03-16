@@ -1,3 +1,5 @@
+/* eslint compat/compat:1 */
+
 /* globals bfg_icons_src */
 
 import load_script from './_loader.js';
@@ -15,6 +17,10 @@ import load_script from './_loader.js';
 	}
 
 	function setup() {
+		if( !(`fetch` in window) ) {
+			return;
+		}
+
 		fetch(bfg_icons_src)
 			.then(function(response) {
 				if (response.status !== 200) {
