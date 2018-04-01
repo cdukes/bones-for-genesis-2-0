@@ -1,3 +1,7 @@
+## 20180401
+- Add `<header>` to 404 template
+- Update `.gitignore`
+
 ## 20180315
 - Throw error on `compat/compat` failure. Whitelist included `fetch()` calls
 - CSS tweaks

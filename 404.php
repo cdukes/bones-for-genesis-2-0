@@ -16,13 +16,17 @@ function bfg_404() {
 
 	global $wp_query;
 
-	echo '<article class="entry">';
+	?>
+	<article class="entry">
 
-		printf( '<h1 class="entry-title">%s</h1>', apply_filters( 'genesis_404_entry_title', __( 'Not found, error 404', CHILD_THEME_TEXT_DOMAIN ) ) );
+		<header class="entry-header">
 
-		echo '<div class="entry-content">';
+			<?php printf( '<h1 class="entry-title">%s</h1>', apply_filters( 'genesis_404_entry_title', __( 'Not found, error 404', CHILD_THEME_TEXT_DOMAIN ) ) ); ?>
 
-			?>
+		</header>
+
+		<div class="entry-content">
+
 			<p><?php echo __( "Let's help you find what you came here for:", CHILD_THEME_TEXT_DOMAIN ); ?></p>
 
 			<?php
@@ -62,11 +66,11 @@ function bfg_404() {
 					?>
 				</li>
 			</ol>
-			<?php
 
-		echo '</div>';
+		</div>
 
-	echo '</article>';
+	</article>
+	<?php
 
 }
 

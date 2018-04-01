@@ -1,4 +1,5 @@
 # Project build files
+.php_cs.cache
 .sass-cache
 node_modules
 build
