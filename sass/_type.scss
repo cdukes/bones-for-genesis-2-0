@@ -26,7 +26,10 @@ html.admin-bar-showing {
 }
 
 body {
+	color: $black;
 	font-family: $sans;
+
+	fill: $black;
 }
 
 ::selection {

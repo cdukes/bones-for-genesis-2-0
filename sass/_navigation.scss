@@ -51,3 +51,23 @@
 		}
 	}
 }
+
+// Trigger a display change for hovers on mobile, to allow the subnav to display without changing the current URL
+@include media('<=landscape') {
+	.genesis-nav-menu {
+		> .menu-item {
+			&.menu-item-has-children {
+				&:hover {
+					> .sub-menu {
+						display: block;
+					}
+				}
+			}
+		}
+
+		// Sublevels
+		.sub-menu {
+			display: none;
+		}
+	}
+}

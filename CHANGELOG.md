@@ -1,3 +1,9 @@
+## 20180406
+- Set default `color` and `fill`
+- Trigger a display change for hovers on mobile, to allow the subnav to display without changing the current URL
+- Remove `overflow: hidden;` for `.entry-title`
+- Add `bfg_wpseo_breadcrumb_separator()` to allow setting the separator to a theme icon (disabled by default)
+
 ## 20180401
 - Add `<header>` to 404 template
 - Update `.gitignore`
