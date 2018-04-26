@@ -33,7 +33,7 @@ function bfg_security_headers() {
 	if( is_admin() )
 		return;
 
-	send_frame_options_header();
+	header( 'X-Frame-Options: DENY' );
 	header( 'X-Content-Type-Options: nosniff' );
 	header( 'X-XSS-Protection: 1; mode=block' );
 
