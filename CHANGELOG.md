@@ -1,3 +1,6 @@
+## 20180426
+- Minor style and hook template changes
+
 ## 20180406
 - Set default `color` and `fill`
 - Trigger a display change for hovers on mobile, to allow the subnav to display without changing the current URL

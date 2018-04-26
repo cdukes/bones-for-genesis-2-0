@@ -2,6 +2,15 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/*
+ * Remove the footer
+ *
+ * @since 20180426
+ */
+// remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
+// remove_action( 'genesis_footer', 'genesis_do_footer' );
+// remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
+
 // add_filter( 'genesis_footer_output', 'bfg_footer_creds_text' );
 /**
  * Custom footer 'creds' text.

@@ -47,6 +47,7 @@ input[type='search']::-webkit-search-results-button {
 }
 
 textarea {
+	display: block;
 	resize: vertical; // Allow only vertical resizing of textareas.
 }
 

@@ -295,7 +295,9 @@ function bfg_no_js_body_class($classes) {
  *
  * @since 2.0.9
  */
+// remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 // remove_action( 'genesis_header', 'genesis_do_header' );
+// remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 
 /*
  * Remove the site title and/or description
