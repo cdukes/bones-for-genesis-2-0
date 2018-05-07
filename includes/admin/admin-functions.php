@@ -49,7 +49,12 @@ function bfg_disable_self_pings(&$links) {
  *
  * @since 2.0.14
  */
-// add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
+// add_filter( 'jpeg_quality', 'bfg_set_jpeg_quality' );
+function bfg_set_jpeg_quality() {
+
+	return 80;
+
+}
 
 /**
  * Add new image sizes.

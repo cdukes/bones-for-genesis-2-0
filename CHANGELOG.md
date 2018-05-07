@@ -1,3 +1,7 @@
+## 20180507
+- Update `vue-loader`
+- Remove `create_function()`
+
 ## 20180426
 - Minor style and hook template changes
 

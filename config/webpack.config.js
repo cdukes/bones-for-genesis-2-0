@@ -1,4 +1,5 @@
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
 	entry: {
@@ -13,6 +14,9 @@ module.exports = {
 	optimization: {
 		minimize: false
 	},
+	plugins: [
+		new VueLoaderPlugin()
+	],
 	module: {
 		rules: [
 			{
