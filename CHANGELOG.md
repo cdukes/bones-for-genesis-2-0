@@ -1,3 +1,10 @@
+## 20180604
+- Hide WP version in additional places
+- Update jQuery CDN version
+- Prevent login with username (disabled by default)
+- Prevent non-SSL HTTP origins (disabled by default)
+- Add admin menu tool to delete orphaned metadata
+
 ## 20180507
 - Update `vue-loader`
 - Remove `create_function()`

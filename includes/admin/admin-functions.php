@@ -154,3 +154,31 @@ function bfg_remove_files_on_upgrade() {
  * @since 20170608
  */
 add_filter( 'secure_signon_cookie', '__return_true' );
+
+/*
+ * Prevent login with username (email only)
+ *
+ * @since 20180604
+ */
+// remove_filter( 'authenticate', 'wp_authenticate_username_password', 20 );
+
+/*
+ * Prevent non-SSL HTTP origins
+ *
+ * @since 20180604
+ */
+// add_filter( 'allowed_http_origins', 'bfg_allowed_http_origins' );
+function bfg_allowed_http_origins($allowed_origins) {
+
+	$whitelisted_origins = array();
+	foreach( $allowed_origins as $origin ) {
+		$url = parse_url($origin);
+		if( 'https' !== $url['scheme'] )
+			continue;
+
+		$whitelisted_origins[] = $origin;
+	}
+
+	return $whitelisted_origins;
+
+}

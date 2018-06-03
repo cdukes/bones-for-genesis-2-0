@@ -21,18 +21,29 @@ function bfg_clear_transients_node($wp_admin_bar) {
 		add_action( 'admin_notices', 'bfg_transients_cleared_notice' );
 	}
 
-	$count = $wpdb->query( "SELECT `option_name` FROM `$wpdb->options` WHERE `option_name` LIKE ('_transient_%')" );
+	if( isset($_GET['clear-orphans']) && 1 === (int) $_GET['clear-orphans'] ) {
+		$wpdb->query( "DELETE pm FROM `$wpdb->postmeta` pm LEFT JOIN `$wpdb->posts` wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;" );
+		// $wpdb->query( "DELETE um FROM `$wpdb->usermeta` um LEFT JOIN `$wpdb->users` wp ON wp.ID = um.user_id WHERE wp.ID IS NULL;" );
+		add_action( 'admin_notices', 'bfg_orphans_cleared_notice' );
+	}
 
-	$label = __( 'Clear Transients', CHILD_THEME_TEXT_DOMAIN );
-	$args  = array(
+	$args = array(
 		'id'     => 'clear-transients',
-		'title'  => !empty($count) ? $label . ' (' . $count . ')' : $label,
+		'title'  => __( 'Clear Transients', CHILD_THEME_TEXT_DOMAIN ),
 		'parent' => 'site-name',
 		'href'   => get_admin_url() . '?clear-transients=1',
 	);
 
 	$wp_admin_bar->add_node( $args );
 
+	$args = array(
+		'id'     => 'clear-orphans',
+		'title'  => __( 'Clear Orphaned Metadata', CHILD_THEME_TEXT_DOMAIN ),
+		'parent' => 'site-name',
+		'href'   => get_admin_url() . '?clear-orphans=1',
+	);
+
+	$wp_admin_bar->add_node( $args );
 }
 
 /**
@@ -45,6 +56,21 @@ function bfg_transients_cleared_notice() {
 	?>
 	<div class="updated">
 		<p>Transients have been deleted.</p>
+	</div>
+	<?php
+
+}
+
+/**
+ * Show an admin notice when orphans are cleared.
+ *
+ * @since 20180604
+ */
+function bfg_orphans_cleared_notice() {
+
+	?>
+	<div class="updated">
+		<p>Orphaned metadata has been deleted.</p>
 	</div>
 	<?php
 

@@ -12,6 +12,7 @@ remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );				// Parent rel link
 remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start post rel link
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacent post rel link
 remove_action( 'wp_head', 'wp_generator' );								// WP Version
+add_filter( 'the_generator', '__return_false' ); 						// WP Version (other locations)
 remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
 // remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
 remove_action( 'wp_head', 'feed_links_extra', 3 );						// Remove comment feed links
@@ -122,9 +123,8 @@ function bfg_load_assets() {
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// Use jQuery from a CDN
-	// Using jQuery 2.* because Gravity Forms breaks with 3.*
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js';
+	$src = $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
