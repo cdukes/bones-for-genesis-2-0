@@ -1,3 +1,8 @@
+## 20180626
+- Don't use `dataset` on `<script>` tags. (Breaks in IE10)
+- Use `genesis_site_layout` instead of `genesis_pre_get_option_site_layout`
+- Add a warning to `header( 'Referrer-Policy: same-origin' );`
+
 ## 20180604
 - Hide WP version in additional places
 - Update jQuery CDN version

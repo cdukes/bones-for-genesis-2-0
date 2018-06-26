@@ -39,6 +39,7 @@ function bfg_security_headers() {
 	header( 'X-XSS-Protection: 1; mode=block' );
 
 	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+	// May break services that use a referrer check, such as typography.com and Google's APIs
 	// header( 'Referrer-Policy: same-origin' );
 
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet (example not included here to avoid accidental activation)

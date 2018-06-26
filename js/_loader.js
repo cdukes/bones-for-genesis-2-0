@@ -9,7 +9,7 @@ window.bfg_scripts_events_queue = window.bfg_scripts_events_queue || {};
 (function() {
 	function on_load(e) {
 		let el = e.currentTarget,
-			handle = el.dataset.handle;
+			handle = el.getAttribute(`data-handle`);
 
 		bfg_scripts_loaded.push(handle);
 
@@ -47,7 +47,7 @@ window.bfg_scripts_events_queue = window.bfg_scripts_events_queue || {};
 		// Otherwise, start loading and build queue
 		script = document.createElement(`script`);
 		script.async = false;
-		script.dataset.handle = handle;
+		script.setAttribute(`data-handle`, handle);
 		document.head.appendChild(script);
 		script.onload = on_load;
 
