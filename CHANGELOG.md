@@ -1,3 +1,6 @@
+## 20180712
+- Enable `grid` for `autoprefixer`
+
 ## 20180626
 - Don't use `dataset` on `<script>` tags. (Breaks in IE10)
 - Use `genesis_site_layout` instead of `genesis_pre_get_option_site_layout`
