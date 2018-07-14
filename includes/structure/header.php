@@ -277,8 +277,8 @@ function bfg_load_favicons() {
 }
 
 add_filter( 'body_class', 'bfg_no_js_body_class' );
-/*
- * Add a no-js class to the <body> tag
+/**
+ * Add a no-js class to the <body> tag.
  *
  * @since 2.3.51
  */

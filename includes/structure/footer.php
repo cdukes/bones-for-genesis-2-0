@@ -2,8 +2,8 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
- * Remove the footer
+/**
+ * Remove the footer.
  *
  * @since 20180426
  */

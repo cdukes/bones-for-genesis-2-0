@@ -1,3 +1,6 @@
+## 20180714
+- Update `PHP-CS-Fixer` options (v2.12.2)
+
 ## 20180712
 - Enable `grid` for `autoprefixer`
 

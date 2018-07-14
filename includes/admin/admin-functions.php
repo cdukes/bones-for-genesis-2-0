@@ -155,15 +155,15 @@ function bfg_remove_files_on_upgrade() {
  */
 add_filter( 'secure_signon_cookie', '__return_true' );
 
-/*
- * Prevent login with username (email only)
+/**
+ * Prevent login with username (email only).
  *
  * @since 20180604
  */
 // remove_filter( 'authenticate', 'wp_authenticate_username_password', 20 );
 
-/*
- * Prevent non-SSL HTTP origins
+/**
+ * Prevent non-SSL HTTP origins.
  *
  * @since 20180604
  */

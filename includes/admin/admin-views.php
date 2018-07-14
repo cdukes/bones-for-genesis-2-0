@@ -109,8 +109,8 @@ function bfg_unregister_default_widgets() {
 }
 
 // add_action( 'admin_init', 'bfg_add_editor_style' );
-/*
- * Add a stylesheet for TinyMCE
+/**
+ * Add a stylesheet for TinyMCE.
  *
  * @since 2.0.0
  */
@@ -124,8 +124,8 @@ function bfg_add_editor_style() {
 }
 
 // add_filter( 'mce_external_plugins', 'bfg_add_tinymce_plugins' );
-/*
- * Add a plugin script for TinyMCE
+/**
+ * Add a plugin script for TinyMCE.
  *
  * @since 2.3.35
  */

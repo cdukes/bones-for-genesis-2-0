@@ -36,7 +36,7 @@ add_theme_support( 'genesis-accessibility', array('404-page', 'headings', 'scree
  */
 add_theme_support( 'genesis-responsive-viewport' );
 
-/*
+/**
  * Add Genesis post format support.
  *
  * @since 2.0.9
@@ -159,8 +159,8 @@ function bfg_remove_layout_meta_boxes() {
  */
 remove_theme_support( 'genesis-archive-layouts' );
 
-/*
- * Remove the Genesis 'Archive Settings' fields for terms
+/**
+ * Remove the Genesis 'Archive Settings' fields for terms.
  *
  * @since 2.3.58
  */
@@ -179,8 +179,8 @@ function bfg_remove_scripts_meta_boxes() {
 
 }
 
-/*
- * Remove the Genesis user meta boxes
+/**
+ * Remove the Genesis user meta boxes.
  *
  * @since 2.3.30
  */
@@ -189,15 +189,15 @@ function bfg_remove_scripts_meta_boxes() {
 // remove_action( 'show_user_profile', 'genesis_user_archive_fields' );
 // remove_action( 'edit_user_profile', 'genesis_user_archive_fields' );
 
-/*
- * Use HTML5 semantic headings
+/**
+ * Use HTML5 semantic headings.
  *
  * @since 2.3.4
  */
 // add_filter( 'genesis_pre_get_option_semantic_headings', '__return_true' );
 
-/*
- * Set child theme text domain
+/**
+ * Set child theme text domain.
  *
  * @since 2.3.33
  */
