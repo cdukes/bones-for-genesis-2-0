@@ -7,8 +7,7 @@ module.exports = {
 		require(`postcss-will-change`),
 		require(`autoprefixer`)({
 			cascade: true,
-			flexbox: false,
-			grid: true
+			flexbox: false
 		})
 	]
 };

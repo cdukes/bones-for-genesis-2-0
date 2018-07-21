@@ -1,3 +1,7 @@
+## 20180721
+- Enable `--restructure-off` on `csso`
+- Disable `grid` for `autoprefixer`
+
 ## 20180714
 - Update `PHP-CS-Fixer` options (v2.12.2)
 
