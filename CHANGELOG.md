@@ -1,3 +1,10 @@
+## 20180726
+- Disable `node` in `webpack.config.js`, to prevent `eval`s from being injected into production code
+- Disable performance hints in `webpack.config.js`, since they don't account for `uglify`
+- Include several helper function to make `Gravity Forms` more manageable (all disabled by default)
+- Enable `bfg_allowed_http_origins()` by default
+- Use `em` for default spacer, not `rem`
+
 ## 20180721
 - Enable `--restructure-off` on `csso`
 - Disable `grid` for `autoprefixer`

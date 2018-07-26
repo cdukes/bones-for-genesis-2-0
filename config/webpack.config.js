@@ -39,5 +39,9 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	performance: {
+		hints: false
+	},
+	node: false
 };

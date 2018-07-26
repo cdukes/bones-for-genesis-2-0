@@ -29,6 +29,7 @@ require_once CHILD_DIR . '/includes/admin/admin-options.php';	// For adding/edit
 require_once CHILD_DIR . '/includes/structure/archive.php';
 require_once CHILD_DIR . '/includes/structure/comments.php';
 require_once CHILD_DIR . '/includes/structure/footer.php';
+require_once CHILD_DIR . '/includes/structure/gravity-forms.php';
 require_once CHILD_DIR . '/includes/structure/header.php';
 require_once CHILD_DIR . '/includes/structure/icons.php';
 require_once CHILD_DIR . '/includes/structure/layout.php';
