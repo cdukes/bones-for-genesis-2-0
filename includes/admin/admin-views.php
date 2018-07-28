@@ -80,14 +80,31 @@ function bfg_remove_dashboard_widgets() {
 
 }
 
-add_action('widgets_init', 'bfg_unregister_default_widgets');
+add_action('widgets_init', 'bfg_unregister_widgets');
 /**
- * Disable some or all of the default widgets.
+ * Disable some or all widgets.
  *
  * @since 2.0.0
  */
-function bfg_unregister_default_widgets() {
+function bfg_unregister_widgets() {
 
+	global $wp_widget_factory;
+
+	// Unregister all widgets, except for the whitelisted ones
+	// This method will also unregister widgets added by plugins
+	// $whitelisted_widgets = array('WP_Nav_Menu_Widget', 'WP_Widget_Custom_HTML', 'WP_Widget_Text');
+
+	// $widgets = array_keys( $wp_widget_factory->widgets );
+	// foreach( $widgets as $widget ) {
+	// 	if( in_array($widget, $whitelisted_widgets, true) )
+	// 		continue;
+	//
+	// 	unregister_widget( $widget );
+	// }
+
+	// ...or unregister individual widgets
+
+	// Default widgets
 	// unregister_widget( 'WP_Nav_Menu_Widget' );
 	// unregister_widget( 'WP_Widget_Archives' );
 	// unregister_widget( 'WP_Widget_Calendar' );
@@ -105,6 +122,11 @@ function bfg_unregister_default_widgets() {
 	// unregister_widget( 'WP_Widget_Search' );
 	// unregister_widget( 'WP_Widget_Tag_Cloud' );
 	// unregister_widget( 'WP_Widget_Text' );
+
+	// Genesis Widgets
+	// unregister_widget( 'Genesis_Featured_Page' );
+	// unregister_widget( 'Genesis_User_Profile_Widget' );
+	// unregister_widget( 'Genesis_Featured_Post' );
 
 }
 

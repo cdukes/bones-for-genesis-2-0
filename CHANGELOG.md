@@ -1,3 +1,9 @@
+## 20180728
+- Organize `functions.php` as a singleton
+- Add a class for `page_custom.php`'s display logic
+- Add an abstract class for page helper functions
+- Add support for unregistering all widgets, except for a whitelist
+
 ## 20180726
 - Disable `node` in `webpack.config.js`, to prevent `eval`s from being injected into production code
 - Disable performance hints in `webpack.config.js`, since they don't account for `uglify`
