@@ -1,3 +1,7 @@
+## 20180730
+- Add code to disable `Gravity Form` view counting (disabled by default
+- Remove `:focus` overrides
+
 ## 20180728
 - Organize `functions.php` as a singleton
 - Add a class for `page_custom.php`'s display logic

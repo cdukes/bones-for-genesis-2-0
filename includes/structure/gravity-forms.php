@@ -3,6 +3,13 @@
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
+ * Disable view counting.
+ *
+ * @since 20180730
+ */
+// add_filter( 'gform_disable_view_counter', '__return_true' );
+
+/**
  * Remove all 'tabindex' attributes from Gravity Forms.
  *
  * @since 20180726
@@ -28,9 +35,6 @@ function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $for
  * @since 20180726
  */
 function bfg_gform_filter_select_field_html($html, $field) {
-
-	if( 'select' !== $field->type )
-		return $html;
 
 	$html = str_replace( '<select', '<div class="styled-select"><select', $html );
 
