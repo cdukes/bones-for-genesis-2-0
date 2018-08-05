@@ -1,3 +1,7 @@
+## 20180805
+- Remove `bfg_force_mandrill_payload_to_html()`
+- Prevent GF filters from firing in the admin panel
+
 ## 20180730
 - Add code to disable `Gravity Form` view counting (disabled by default
 - Remove `:focus` overrides

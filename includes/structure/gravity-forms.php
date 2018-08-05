@@ -24,6 +24,9 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $form_id) {
 
+	if( is_admin() )
+		return $content;
+
 	return str_replace( "rows='10'", "rows='8'", $content );
 
 }
@@ -35,6 +38,9 @@ function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $for
  * @since 20180726
  */
 function bfg_gform_filter_select_field_html($html, $field) {
+
+	if( is_admin() )
+		return $html;
 
 	$html = str_replace( '<select', '<div class="styled-select"><select', $html );
 
@@ -49,6 +55,9 @@ function bfg_gform_filter_select_field_html($html, $field) {
  * @since 20180726
  */
 function bfg_gform_filter_submit_button_tag($button_input, $form) {
+
+	if( is_admin() )
+		return $button_input;
 
 	$count = preg_match( '/value=\'(.+?)\'/', $button_input, $matches );
 	if( $count !== 1 )

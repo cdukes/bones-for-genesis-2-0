@@ -79,22 +79,6 @@ function bfg_wp_mail_from() {
 
 }
 
-// add_filter( 'mandrill_payload', 'bfg_force_mandrill_payload_to_html' );
-/**
- * Mandrill sends all emails as HTML. Wrap all plaintext content in <p> tags.
- *
- * See: http://wordpress.org/support/topic/plaintext-emails-converted-to-html-remove-newlines
- *
- * @since 2.2.24
- */
-function bfg_force_mandrill_payload_to_html($message) {
-
-	$message['html'] = wpautop($message['html']);
-
-	return $message;
-
-}
-
 add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message' );
 /**
  * Remove the brackets from the retreive PW link, since they get hidden on HTML.
