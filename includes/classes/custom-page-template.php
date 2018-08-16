@@ -38,6 +38,7 @@ class BFG_Custom_Page_Template extends BFG_Abstract_Page_Template {
 		// Save the post_id as a class property, for easy access
 		$this->post_id = $this->post->ID;
 
+		// remove_action( 'genesis_before_header', 'genesis_skip_links', 5 );
 		add_action( 'genesis_entry_content', array($this, 'display_content') );
 
 	}

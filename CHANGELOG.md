@@ -1,3 +1,6 @@
+## 20180816
+- Add developer tool to clear `Image Processing Queue` queue
+
 ## 20180805
 - Remove `bfg_force_mandrill_payload_to_html()`
 - Prevent GF filters from firing in the admin panel
