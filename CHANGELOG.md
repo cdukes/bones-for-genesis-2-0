@@ -1,3 +1,7 @@
+## 20180906
+- Fix `genesis_header` dequeue template
+- Update `webpack`
+
 ## 20180816
 - Add developer tool to clear `Image Processing Queue` queue
 

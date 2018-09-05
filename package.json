@@ -8,10 +8,10 @@
 		"normalize.css": "*"
 	},
 	"devDependencies": {
+		"@babel/core": "*",
+		"@babel/preset-env": "*",
 		"autoprefixer": "*",
-		"babel-core": "*",
 		"babel-loader": "*",
-		"babel-preset-env": "*",
 		"csscomb": "*",
 		"csso-cli": "*",
 		"eslint": "*",
