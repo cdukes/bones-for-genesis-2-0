@@ -10,80 +10,76 @@
  * @return {Function} config.on_error - Function to call if request is unsuccessful, as determined by the server's response code (or a failed request). Passes the error string.
  * @return {Function} config.on_complete - Function to call when request is completed, regardless of success or failure. Passes the JSON-decoded response or error string.
  */
-(function() {
-	function ajax(config) {
-		let {
-			action,
-			include_credentials,
-			data,
-			on_success,
-			on_error,
-			on_complete
-		} = config;
+export function ajax(config) {
+	let {
+		action,
+		include_credentials,
+		data,
+		on_success,
+		on_error,
+		on_complete
+	} = config;
 
-		if( !(`fetch` in window) ) {
-			if (on_error) {
-				on_error(`Failed to fetch`);
-			}
-
-			if (on_complete) {
-				on_complete(`Failed to fetch`);
-			}
-
-			return;
+	if( !(`fetch` in window) ) {
+		if (on_error) {
+			on_error(`Failed to fetch`);
 		}
 
-		fetch(
-			// The admin-ajax.php URL template is saved as a <body> data- value, in includes/structure/header.php
-			document.body.dataset.ajax_url.replace(`:action`, action),
-			{
-				method: `POST`,
-				credentials: include_credentials ? `same-origin` : `omit`,
-				headers: {
-					'Content-Type': `application/json`
-				},
-				body: JSON.stringify(data)
-			}
-		)
-			.then(function(response) {
-				// You should use wp_send_json_success( object ) and wp_send_json_error( string )
+		if (on_complete) {
+			on_complete(`Failed to fetch`);
+		}
 
-				// If status code is <200 or >299, throw an error with the response
-				// This is likely a network issue
-				if (response.status < 200 || response.status > 299) {
-					throw Error(response);
-				}
-
-				return response.json();
-			})
-			.then(function(response) {
-				// If response.success is false, throw an error with the response data (string)
-				if (!response.success) {
-					throw Error(response.data);
-				}
-
-				// Otherwise, trigger the success function, if set
-				if (on_success) {
-					on_success(response.data);
-				}
-
-				return response;
-			})
-			.catch(function(response) {
-				// Trigger the error function, if set, for a bad status code, a network/fetch failure, or a JSON decoding issue
-				if (on_error) {
-					on_error(response);
-				}
-
-				return response;
-			})
-			.then(function(response) {
-				// Trigger the complete function, if set
-				if (on_complete) {
-					on_complete(response);
-				}
-			});
+		return;
 	}
 
-	module.exports = ajax;
-})();
+	fetch(
+		// The admin-ajax.php URL template is saved as a <body> data- value, in includes/structure/header.php
+		document.body.dataset.ajax_url.replace(`:action`, action),
+		{
+			method: `POST`,
+			credentials: include_credentials ? `same-origin` : `omit`,
+			headers: {
+				'Content-Type': `application/json`
+			},
+			body: JSON.stringify(data)
+		}
+	)
+		.then(function(response) {
+			// You should use wp_send_json_success( object ) and wp_send_json_error( string )
+
+			// If status code is <200 or >299, throw an error with the response
+			// This is likely a network issue
+			if (response.status < 200 || response.status > 299) {
+				throw Error(response);
+			}
+
+			return response.json();
+		})
+		.then(function(response) {
+			// If response.success is false, throw an error with the response data (string)
+			if (!response.success) {
+				throw Error(response.data);
+			}
+
+			// Otherwise, trigger the success function, if set
+			if (on_success) {
+				on_success(response.data);
+			}
+
+			return response;
+		})
+		.catch(function(response) {
+			// Trigger the error function, if set, for a bad status code, a network/fetch failure, or a JSON decoding issue
+			if (on_error) {
+				on_error(response);
+			}
+
+			return response;
+		})
+		.then(function(response) {
+			// Trigger the complete function, if set
+			if (on_complete) {
+				on_complete(response);
+			}
+		});
+}

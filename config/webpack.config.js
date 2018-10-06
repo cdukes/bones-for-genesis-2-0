@@ -21,11 +21,9 @@ module.exports = {
 		rules: [
 			{
 				test: /\.vue$/,
-				loader: `vue-loader`,
-				options: {
-					loaders: {
-						js: `babel-loader?presets[]=env`
-					}
+				exclude: /(node_modules)/,
+				use: {
+					loader: `vue-loader`
 				}
 			},
 			{

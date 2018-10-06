@@ -18,6 +18,8 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 add_filter( 'wp_nav_menu_args', 'bfg_limit_menu_depth' );
 function bfg_limit_menu_depth($args) {
 
+	$args['item_spacing'] = 'discard';
+
 	if( !in_array($args['theme_location'], array('primary', 'secondary'), true) )
 		return $args;
 

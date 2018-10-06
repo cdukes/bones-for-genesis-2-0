@@ -1,3 +1,7 @@
+## 20181006
+- Update JS modules syntax
+- `discard` `item_spacing` in `wp_nav_menu()`
+
 ## 20180906
 - Fix `genesis_header` dequeue template
 - Update `webpack`
