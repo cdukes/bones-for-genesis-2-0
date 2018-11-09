@@ -40,7 +40,7 @@ function bfg_security_headers() {
 
 	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 	// May break services that use a referrer check, such as typography.com and Google's APIs
-	// header( 'Referrer-Policy: same-origin' );
+	// header( 'Referrer-Policy: origin-when-cross-origin' );
 
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet (example not included here to avoid accidental activation)
 
@@ -105,6 +105,9 @@ function bfg_load_assets() {
 	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
+
+	// Remove Gutenberg styles
+	wp_dequeue_style( 'wp-block-library' );
 
 	// Main theme stylesheet
 	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';

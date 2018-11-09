@@ -19,6 +19,7 @@ add_filter( 'wp_nav_menu_args', 'bfg_limit_menu_depth' );
 function bfg_limit_menu_depth($args) {
 
 	$args['item_spacing'] = 'discard';
+	$args['container']    = false;
 
 	if( !in_array($args['theme_location'], array('primary', 'secondary'), true) )
 		return $args;

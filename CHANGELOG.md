@@ -1,3 +1,9 @@
+## 20181109
+- Remove `eslint.json` globals
+- Set `Referrer-Policy` default value, to avoid issues with services that check referrers (font CDNs, Google Maps API, etc)
+- Dequeue `Gutenberg` frontend CSS by default
+- Remove wrapping `div` on `wp_nav_menu` by default
+
 ## 20181006
 - Update JS modules syntax
 - `discard` `item_spacing` in `wp_nav_menu()`
