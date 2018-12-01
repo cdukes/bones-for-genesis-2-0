@@ -19,6 +19,21 @@ COLORS
 $grey: $gray;
 $black: #000;
 
+// https://news.ycombinator.com/item?id=18422086
+$palettes: (
+	grey: (
+		light: #eee,
+		base: #ccc,
+		dark: #aaa,
+	)
+);
+
+@function palette($palette, $tone: 'base') {
+	@return map-get(map-get($palettes, $palette), $tone);
+}
+
+// Usage: palette(grey, "light");
+
 /*********************
 TYPOGRAPHY - http://cssfontstack.com/
 *********************/

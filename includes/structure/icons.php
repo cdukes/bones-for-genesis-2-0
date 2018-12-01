@@ -56,3 +56,18 @@ function bfg_get_inline_icon($slug) {
 	return $svg;
 
 }
+
+add_shortcode( 'bfg_icon', 'bfg_icon' );
+/**
+ * Shortcode version of bfg_get_inline_icon().
+ *
+ * @since 20181201
+ */
+function bfg_icon($atts, $content = '') {
+
+	if( empty($atts['slug']) )
+		return;
+
+	return bfg_get_inline_icon($atts['slug']);
+
+}

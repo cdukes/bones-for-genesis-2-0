@@ -1,3 +1,10 @@
+## 20181201
+- Move BFG options to ACF `Site Options`
+- Define `BFG_PRODUCTION` and `BFG_VERSION`
+- Force `error_reporting()` off in production
+- Add `palette()` SCSS function for color management
+- Add `[bfg_icon]` shortcode
+
 ## 20181109
 - Remove `eslint.json` globals
 - Set `Referrer-Policy` default value, to avoid issues with services that check referrers (font CDNs, Google Maps API, etc)

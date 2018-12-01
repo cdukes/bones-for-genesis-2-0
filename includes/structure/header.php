@@ -98,20 +98,14 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
  */
 function bfg_load_assets() {
 
-	$use_production_assets = genesis_get_option('bfg_production_on');
-	$use_production_assets = !empty($use_production_assets);
-
-	$assets_version = genesis_get_option('bfg_assets_version');
-	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
-
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
 	// Remove Gutenberg styles
 	wp_dequeue_style( 'wp-block-library' );
 
 	// Main theme stylesheet
-	$src = $use_production_assets ? '/build/css/style.min.css' : '/build/css/style.css';
-	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $assets_version );
+	$src = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
+	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), BFG_VERSION );
 
 	// Google Fonts
 	// Consider async loading: https://github.com/typekit/webfontloader
@@ -123,12 +117,12 @@ function bfg_load_assets() {
 	// );
 
 	// Register polyfill.io with default options
-	$src = $use_production_assets ? 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6,fetch' : 'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.6,fetch';
+	$src = BFG_PRODUCTION ? 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default-3.6,fetch' : 'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.6,fetch';
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// Use jQuery from a CDN
 	wp_deregister_script( 'jquery' );
-	$src = $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js';
+	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
@@ -138,21 +132,21 @@ function bfg_load_assets() {
 	wp_dequeue_script( 'superfish-args' );
 
 	// Main script file (in footer)
-	$src = $use_production_assets ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('polyfill'), $assets_version, true );
+	$src = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('polyfill'), BFG_VERSION, true );
 
 	// Add scripts which can be used by the _loader.js module here
 	$on_demand_script_srcs = array(
 		'svgxuse' => array(
-			'src' => $use_production_assets ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
-			'sri' => $use_production_assets ? 'sha256-+xblFIDxgSu6OfR6TdLhVHZzVrhw8eXiVk8PRi9ACY8=' : 'sha256-TU+njGBu7T1DrfKgOBEH7kCKsl7UEvUNzpZaeUNNGi8=',
+			'src' => BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
+			'sri' => BFG_PRODUCTION ? 'sha256-+xblFIDxgSu6OfR6TdLhVHZzVrhw8eXiVk8PRi9ACY8=' : 'sha256-TU+njGBu7T1DrfKgOBEH7kCKsl7UEvUNzpZaeUNNGi8=',
 		),
 	);
 	wp_localize_script( 'bfg', 'bfg_script_srcs', $on_demand_script_srcs );
 
 	$icon_src = add_query_arg(
 		array(
-			'v' => $assets_version,
+			'v' => BFG_VERSION,
 		),
 		$stylesheet_dir . '/build/svgs/icons.svg'
 	);

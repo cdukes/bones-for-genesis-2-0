@@ -138,9 +138,7 @@ function bfg_unregister_widgets() {
  */
 function bfg_add_editor_style() {
 
-	$use_production_assets = genesis_get_option('bfg_production_on');
-	$use_production_assets = !empty($use_production_assets);
-	$src                   = $use_production_assets ? '/build/css/editor-style.min.css' : '/build/css/editor-style.css';
+	$src = BFG_PRODUCTION ? '/build/css/editor-style.min.css' : '/build/css/editor-style.css';
 	add_editor_style( get_stylesheet_directory_uri() . $src );
 
 }
@@ -153,16 +151,10 @@ function bfg_add_editor_style() {
  */
 function bfg_add_tinymce_plugins($plugin_array) {
 
-	$use_production_assets = genesis_get_option('bfg_production_on');
-	$use_production_assets = !empty($use_production_assets);
-
-	$assets_version = genesis_get_option('bfg_assets_version');
-	$assets_version = !empty($assets_version) ? absint($assets_version) : null;
-
-	$src = $use_production_assets ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
+	$src = BFG_PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
 	$src = add_query_arg(
 		array(
-			'ver' => $assets_version,
+			'ver' => BFG_VERSION,
 		),
 		$src
 	);

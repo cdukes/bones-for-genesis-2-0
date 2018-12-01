@@ -39,6 +39,21 @@ final class BFG {
 		define( 'CHILD_THEME_URL', 'https://github.com/cdukes/bones-for-genesis-2-0' );
 		define( 'CHILD_THEME_TEXT_DOMAIN', 'bfg' );
 
+		$use_production_assets = get_option('options__bfg_is_production');
+		$use_production_assets = !empty($use_production_assets);
+		define( 'BFG_PRODUCTION', $use_production_assets );
+
+		$assets_version = get_option('options__bfg_version');
+		$assets_version = !empty($assets_version) ? absint($assets_version) : null;
+		define( 'BFG_VERSION', $assets_version );
+
+		// Never show errors on production
+		// https://stackoverflow.com/questions/9242903/php-hide-all-errors
+		if( BFG_PRODUCTION ) {
+			error_reporting(0);
+			ini_set('display_errors', 0);
+		}
+
 	}
 
 	/**
