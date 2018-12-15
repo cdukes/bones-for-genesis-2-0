@@ -1,3 +1,9 @@
+## 20181215
+- Update `vue` options in `eslint.json`
+- Improve SVG icon accessibility
+- Update `csso` CLI
+- Run `npm audit` on `build`
+
 ## 20181201
 - Move BFG options to ACF `Site Options`
 - Define `BFG_PRODUCTION` and `BFG_VERSION`

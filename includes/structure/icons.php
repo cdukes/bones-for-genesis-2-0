@@ -45,11 +45,23 @@ function bfg_populate_acf_icon_options($field) {
 /**
  * Helper function for inserting inline SVGs.
  *
+ * See: https://www.24a11y.com/2018/accessible-svg-icons-with-inline-sprites/
+ *
  * @since 20170815
  */
-function bfg_get_inline_icon($slug) {
+function bfg_get_inline_icon($slug, $label = '') {
 
-	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" role="img">';
+	if( !empty($label) ) {
+		$label_id = uniqid('svg-label-');
+		$aria = 'aria-labelledby="' . $label_id . '"';
+	} else {
+		$aria = 'aria-hidden="true" focusable="false"';
+	}
+
+	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" ' . $aria . ' role="img">';
+		if( !empty($label) )
+			$svg .= ' <title id="' . $label_id . '">' . sanitize_text_field($label) . '</title> ';
+
 		$svg .= ' <use xlink:href="#icon-' . esc_html( $slug ) . '"></use> ';
 	$svg  .= '</svg>';
 

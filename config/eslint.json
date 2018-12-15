@@ -86,7 +86,10 @@
 		"strict": ["error", "safe"],
 		"template-curly-spacing": "error",
 		"template-tag-spacing": ["error", "always"],
+		"vue/component-name-in-template-casing": ["error", "kebab-case"],
 		"vue/html-indent": ["error", "tab"],
+		"vue/name-property-casing": ["error", "kebab-case"],
+		"vue/prop-name-casing": ["error", "snake_case"],
 		"wrap-regex": "error",
 		"yoda": "error"
 	},
