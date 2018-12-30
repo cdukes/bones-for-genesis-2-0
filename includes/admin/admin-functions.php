@@ -27,6 +27,8 @@ add_action( 'pre_ping', 'bfg_disable_self_pings' );
  * See: http://wp-snippets.com/disable-self-trackbacks/
  *
  * @since 2.0.0
+ *
+ * @param mixed $links
  */
 function bfg_disable_self_pings(&$links) {
 

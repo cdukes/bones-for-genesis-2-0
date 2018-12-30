@@ -53,7 +53,7 @@ function bfg_get_inline_icon($slug, $label = '') {
 
 	if( !empty($label) ) {
 		$label_id = uniqid('svg-label-');
-		$aria = 'aria-labelledby="' . $label_id . '"';
+		$aria     = 'aria-labelledby="' . $label_id . '"';
 	} else {
 		$aria = 'aria-hidden="true" focusable="false"';
 	}

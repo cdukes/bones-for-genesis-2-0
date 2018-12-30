@@ -10,8 +10,7 @@ textarea {
 	border-radius: 0;		 // Removes the border radius on iOS
 	color: $black;
 
-	-webkit-appearance: none; // Removes the shadow on iOS
-	-moz-appearance: none;
+	appearance: none;
 }
 
 // Hide the spinner on input[type="number"] in Firefox

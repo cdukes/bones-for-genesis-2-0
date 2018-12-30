@@ -1,3 +1,9 @@
+## 20181230
+- `appearance` CSS
+- Update `.htaccess` 
+- Only run `babel` on `npm run build`
+- Use `system-ui` font value
+
 ## 20181215
 - Update `vue` options in `eslint.json`
 - Improve SVG icon accessibility
