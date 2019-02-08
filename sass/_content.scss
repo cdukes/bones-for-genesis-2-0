@@ -13,38 +13,7 @@
 }
 
 .entry-content {
-	ol,
-	ul {
-		@include type;
-		overflow: hidden;
-		padding-left: 2.5em;
-
-		ol,
-		ul {
-			margin-bottom: .5em;
-			padding-left: 1.5em;
-			font-size: 1em;
-		}
-	}
-
-	ol {
-		> li {
-			list-style-type: decimal;
-		}
-	}
-
-	ul {
-		> li {
-			list-style-type: disc;
-		}
-	}
-
-	blockquote {
-		margin: 0;
-
-		p {
-		}
-	}
+	@include entry-content;
 }
 
 .more-link {

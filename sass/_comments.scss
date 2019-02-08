@@ -19,7 +19,7 @@
 }
 
 .comment-content {
-	@extend .entry-content;
+	@include entry-content;
 }
 
 .comment-respond {

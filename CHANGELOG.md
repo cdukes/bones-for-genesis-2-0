@@ -1,3 +1,8 @@
+## 20190208
+- Remove all `SASS` `@extend`s
+- Use `eslint`'s `sort-imports`
+- Update `bfg_remove_dashboard_widgets()` options
+
 ## 20181230
 - `appearance` CSS
 - Update `.htaccess` 

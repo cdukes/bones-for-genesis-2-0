@@ -81,6 +81,7 @@
 		"quotes": ["error", "backtick"],
 		"radix": "error",
 		"semi": "error",
+		"sort-imports": ["error", { "ignoreCase": true } ],
 		"space-before-blocks": "error",
 		"space-before-function-paren": ["error", "never"],
 		"strict": ["error", "safe"],

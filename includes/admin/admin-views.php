@@ -67,16 +67,11 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
  */
 function bfg_remove_dashboard_widgets() {
 
-	// remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );				// Right Now
-	// remove_meta_box( 'dashboard_activity', 'dashboard', 'core' );				// Activity
-	// remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core' );			// Comments
-	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );				// Incoming Links
-	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );					// Plugins
-	// remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );				// Quick Press
-	// remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );			// Recent Drafts
-	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );					// WordPress Blog
-	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );					// Other WordPress News
-	remove_meta_box( 'yoast_db_widget', 'dashboard', 'normal' );					// WordPress SEO by Yoast
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );			// At a Glance
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'core' );			// Activity
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );		// Quick Draft
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );			// WordPress Events and News
+	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );	// Yoast SEO Posts Overview
 
 }
 
