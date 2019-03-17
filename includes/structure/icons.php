@@ -1,6 +1,6 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed direcperk
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
 /**

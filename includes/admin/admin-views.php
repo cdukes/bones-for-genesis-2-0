@@ -57,6 +57,29 @@ function bfg_maybe_hide_admin_bar($default) {
  */
 // remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
+/*
+ * Remove the profile color scheme picker
+ *
+ * @since 20190301
+ */
+// remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+add_action( 'admin_init', 'bfg_hide_update_nags' );
+/**
+ * Remove update nags for non-admins.
+ *
+ * @since 20190301
+ */
+function bfg_hide_update_nags() {
+
+	if( current_user_can('update_core') )
+		return;
+
+	remove_action( 'admin_notices', 'update_nag', 3  );
+	remove_action( 'admin_notices', 'maintenance_nag', 10 );
+
+}
+
 add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
 /**
  * Disable some or all of the default admin dashboard widgets.

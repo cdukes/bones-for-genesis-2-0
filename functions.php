@@ -9,6 +9,7 @@ final class BFG {
 
 	private static $classes = array(
 		'custom-page-template',
+		'head',
 	);
 
 	/**

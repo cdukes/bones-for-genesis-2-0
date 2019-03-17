@@ -1,3 +1,10 @@
+## 20190317
+- Add `instant.page` support (disabled by default)
+- Add `bfg_inject_preload()`
+- Add hook to remove `admin_color_scheme_picker()` (disabled by default)
+- Add `bfg_hide_update_nags()`
+- Move `<head>`-related code to new `BFG_Head` class
+
 ## 20190208
 - Remove all `SASS` `@extend`s
 - Use `eslint`'s `sort-imports`
