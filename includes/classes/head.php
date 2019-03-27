@@ -26,7 +26,7 @@ class BFG_Head {
 
 		// Favicons
 		remove_action( 'wp_head', 'genesis_load_favicon' );
-		// add_filter( 'genesis_pre_load_favicon', 'bfg_pre_load_favicon' );
+		// add_filter( 'genesis_pre_load_favicon', array($this, 'pre_load_favicon') );
 		// add_action( 'wp_head', array($this, 'load_favicons') );
 
 	}
@@ -205,8 +205,8 @@ class BFG_Head {
 		wp_register_script( 'polyfill', $src, array(), null, true );
 
 		// instant.page
-		// wp_enqueue_script( 'instant.page', $src, array(), null, true );
 		$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/1.2.2/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/1.2.2/instantpage.js';
+		// wp_enqueue_script( 'instant.page', $src, array(), null, true );
 
 		// Use jQuery from a CDN
 		wp_deregister_script( 'jquery' );

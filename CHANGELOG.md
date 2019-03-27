@@ -1,3 +1,6 @@
+## 20190327
+- Remove empty files
+
 ## 20190317
 - Add `instant.page` support (disabled by default)
 - Add `bfg_inject_preload()`

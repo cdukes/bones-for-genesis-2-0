@@ -81,7 +81,6 @@ final class BFG {
 		require_once CHILD_DIR . '/includes/admin/admin-options.php';	// For adding/editing theme options to Genesis
 
 		// Structure (corresponds to Genesis's lib/structure)
-		require_once CHILD_DIR . '/includes/structure/archive.php';
 		require_once CHILD_DIR . '/includes/structure/comments.php';
 		require_once CHILD_DIR . '/includes/structure/footer.php';
 		require_once CHILD_DIR . '/includes/structure/gravity-forms.php';
