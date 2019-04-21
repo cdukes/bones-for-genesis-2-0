@@ -7,6 +7,11 @@ class BFG_Head {
 
 		$this->cleanup();
 
+		// Remove <script> type attribute
+		// For when you really want to pass validator.w3.org
+		// add_filter( 'wp_head', array($this, 'open_remove_type_attr'), 1 );
+		// add_filter( 'wp_footer', array($this, 'close_remove_type_attr'), 999 );
+
 		// Headers
 		add_action( 'wp', array($this, 'security_headers') );
 
@@ -53,6 +58,30 @@ class BFG_Head {
 		// See: https://wordpress.stackexchange.com/questions/211467/remove-json-api-links-in-header-html
 		remove_action( 'wp_head', 'rest_output_link_wp_head' );
 		remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+
+	}
+
+	/**
+	 * Start OB for <script type="..."> removal.
+	 *
+	 * @since 20190421
+	 */
+	public function open_remove_type_attr() {
+
+		ob_start();
+
+	}
+
+	/**
+	 * Remove <script> type attribute.
+	 *
+	 * @since 20190421
+	 */
+	public function close_remove_type_attr() {
+
+		$html = ob_get_clean();
+		$html = str_replace(" type='text/javascript'", '', $html);
+		echo $html;
 
 	}
 

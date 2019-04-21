@@ -5,7 +5,8 @@
 		"fitvids": "*",
 		"include-media": "*",
 		"include-media-export": "*",
-		"normalize.css": "*"
+		"normalize.css": "*",
+		"rfs": "*"
 	},
 	"devDependencies": {
 		"@babel/core": "*",
@@ -27,6 +28,8 @@
 		"postcss-will-change": "*",
 		"rimraf": "*",
 		"svg-sprite": "*",
+		"ts-loader": "*",
+		"typescript": "*",
 		"uglify-js": "*",
 		"vue-loader": "*",
 		"vue-template-compiler": "*",

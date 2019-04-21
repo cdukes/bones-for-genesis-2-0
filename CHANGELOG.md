@@ -1,3 +1,8 @@
+## 20190421
+- Add [Responsive Font Size](https://github.com/twbs/rfs) support (`postcss`)
+- Add `open_remove_type_attr()` and `close_remove_type_attr()` to remove `type='text/javascript'` using output buffering, for better [HTML5 validation](https://validator.w3.org/) (disabled by default)
+- Add `Typescript` support
+
 ## 20190327
 - Remove empty files
 
