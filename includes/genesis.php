@@ -36,6 +36,13 @@ add_theme_support( 'genesis-accessibility', array('404-page', 'headings', 'scree
  */
 add_theme_support( 'genesis-responsive-viewport' );
 
+/*
+ * Remove Genesis Import/Export support
+ *
+ * @since 20190503
+ */
+remove_theme_support( 'genesis-import-export-menu' );
+
 /**
  * Add Genesis post format support.
  *

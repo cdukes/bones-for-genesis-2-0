@@ -1,3 +1,8 @@
+## 20190503
+- Update theme options for [Genesis 2.10](https://studiopress.blog/genesis-2-10/)
+- Remove `genesis-import-export-menu` support
+- Remove `Genesis Plugins` submenu
+
 ## 20190421
 - Add [Responsive Font Size](https://github.com/twbs/rfs) support (`postcss`)
 - Add `open_remove_type_attr()` and `close_remove_type_attr()` to remove `type='text/javascript'` using output buffering, for better [HTML5 validation](https://validator.w3.org/) (disabled by default)

@@ -5,8 +5,7 @@
 		"fitvids": "*",
 		"include-media": "*",
 		"include-media-export": "*",
-		"normalize.css": "*",
-		"rfs": "*"
+		"normalize.css": "*"
 	},
 	"devDependencies": {
 		"@babel/core": "*",
@@ -26,6 +25,7 @@
 		"postcss-focus": "*",
 		"postcss-import": "*",
 		"postcss-will-change": "*",
+		"rfs": "*",
 		"rimraf": "*",
 		"svg-sprite": "*",
 		"ts-loader": "*",

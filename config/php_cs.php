@@ -31,10 +31,10 @@ return PhpCsFixer\Config::create()
 			'class_definition'            => false,
 			'class_keyword_remove'        => true,
 			'combine_consecutive_issets'  => true,
-			'combine_consecutive_unsets'  => true,
-			'comment_to_phpdoc'           => true,
-			'compact_nullable_typehint'   => true,
-			'concat_space'                => array(
+			// 'combine_consecutive_unsets'  => true,
+			'comment_to_phpdoc'         => true,
+			'compact_nullable_typehint' => true,
+			'concat_space'              => array(
 				'spacing' => 'one',
 			),
 			'date_time_immutable'     => true,
