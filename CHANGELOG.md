@@ -1,3 +1,7 @@
+## 20190513
+- Update `login_headertitle` to `login_headertext`
+- Add `bfg_disable_genesis_schema()` (disabled by default)
+
 ## 20190503
 - Update theme options for [Genesis 2.10](https://studiopress.blog/genesis-2-10/)
 - Remove `genesis-import-export-menu` support

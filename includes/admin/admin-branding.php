@@ -14,13 +14,13 @@ function bfg_login_headerurl() {
 
 }
 
-add_filter( 'login_headertitle', 'bfg_login_headertitle' );
+add_filter( 'login_headertext', 'bfg_login_headertext' );
 /**
  * Makes the login screen's logo title attribute your site title, instead of 'WordPress'.
  *
  * @since 2.0.0
  */
-function bfg_login_headertitle() {
+function bfg_login_headertext() {
 
 	return get_bloginfo( 'name' );
 
