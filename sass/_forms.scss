@@ -42,6 +42,7 @@ select {
 
 ::placeholder {
 	text-overflow: ellipsis;
+	opacity: 1; // For consistency in Firefox
 }
 
 input[type='search'] {

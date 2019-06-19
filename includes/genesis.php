@@ -28,15 +28,6 @@ add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'ga
 add_theme_support( 'genesis-accessibility', array('404-page', 'headings', 'screen-reader-text', 'skip-links', 'search-form') );
 
 /*
- * Adds <meta> tags for mobile responsiveness.
- *
- * See: http://www.briangardner.com/code/add-viewport-meta-tag/
- *
- * @since 2.0.0
- */
-add_theme_support( 'genesis-responsive-viewport' );
-
-/*
  * Remove Genesis Import/Export support
  *
  * @since 20190503

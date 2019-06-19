@@ -224,7 +224,7 @@ class BFG_Head {
 		// Consider async loading: https://github.com/typekit/webfontloader
 		// wp_enqueue_style(
 		// 	'google-fonts',
-		// 	'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
+		// 	'https://fonts.googleapis.com/css?display=swap&family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
 		// 	array(),
 		// 	null
 		// );

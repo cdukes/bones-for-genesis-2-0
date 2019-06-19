@@ -1,3 +1,13 @@
+## 20190618
+- `Genesis 3.0` compatibility
+- Remove `404.php`
+- Remove `search.php`
+- Remove `genesis_adsense` and `genesis_color_scheme` option hooks
+- Remove `theme_page_templates`  filter
+- Include `display=swap` by default in `google-fonts`
+- Remove `genesis-responsive-viewport` (Supported by default in `Genesis 3.0`)
+- Add default `opacity` to `::placeholder`
+
 ## 20190513
 - Update `login_headertitle` to `login_headertext`
 - Add `bfg_disable_genesis_schema()` (disabled by default)

@@ -16,12 +16,6 @@ function bfg_customizer_theme_settings_config($config) {
 	// Headers
 	unset($config['genesis']['sections']['genesis_header']);
 
-	// Google AdSense
-	unset($config['genesis']['sections']['genesis_adsense']);
-
-	// Color Scheme
-	unset($config['genesis']['sections']['genesis_color_scheme']);
-
 	// Site Layout
 	unset($config['genesis']['sections']['genesis_layout']);
 
