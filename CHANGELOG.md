@@ -1,3 +1,9 @@
+## 20190627
+- Disable `scroll-behavior` by default (inconsistent behavior between browsers and with `smooth-scroll`)
+- Upgrade to `ESLint 6`
+- Update `eslint.json` rules
+- On unsuccessful `_ajax.js` request, call `on_error()` function of throwing an `Error`
+
 ## 20190618
 - `Genesis 3.0` compatibility
 - Remove `404.php`

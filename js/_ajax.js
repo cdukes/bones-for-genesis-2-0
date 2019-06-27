@@ -1,4 +1,4 @@
-/* eslint compat/compat:1 */
+/* eslint compat/compat:0 */
 
 /**
  * Sends an AJAX request to WP's admin-ajax.php endpoint
@@ -11,7 +11,7 @@
  * @return {Function} config.on_complete - Function to call when request is completed, regardless of success or failure. Passes the JSON-decoded response or error string.
  */
 export function ajax(config) {
-	let {
+	const {
 		action,
 		include_credentials,
 		data,
@@ -38,13 +38,11 @@ export function ajax(config) {
 		{
 			method: `POST`,
 			credentials: include_credentials ? `same-origin` : `omit`,
-			headers: {
-				'Content-Type': `application/json`
-			},
+			headers: { 'Content-Type': `application/json` },
 			body: JSON.stringify(data)
 		}
 	)
-		.then(function(response) {
+		.then(response => {
 			// You should use wp_send_json_success( object ) and wp_send_json_error( string )
 
 			// If status code is <200 or >299, throw an error with the response
@@ -55,10 +53,14 @@ export function ajax(config) {
 
 			return response.json();
 		})
-		.then(function(response) {
-			// If response.success is false, throw an error with the response data (string)
+		.then(response => {
+			// If response.success is false, trigger the failure function
 			if (!response.success) {
-				throw Error(response.data);
+				if (on_error) {
+					on_error(response);
+				}
+
+				return response;
 			}
 
 			// Otherwise, trigger the success function, if set
@@ -68,15 +70,15 @@ export function ajax(config) {
 
 			return response;
 		})
-		.catch(function(response) {
-			// Trigger the error function, if set, for a bad status code, a network/fetch failure, or a JSON decoding issue
+		.catch(response => {
+			// Trigger the error function, if set, for a network/fetch failure or a JSON decoding issue
 			if (on_error) {
 				on_error(response);
 			}
 
 			return response;
 		})
-		.then(function(response) {
+		.then(response => {
 			// Trigger the complete function, if set
 			if (on_complete) {
 				on_complete(response);

@@ -1,4 +1,4 @@
-/* eslint compat/compat:1 */
+/* eslint compat/compat:0 */
 
 /* globals bfg_icons_src */
 
@@ -7,7 +7,7 @@ import { load_script } from './_loader.js';
 (function() {
 	// Test for inline SVG support, based on Modernizr
 	function supports_inline_svg() {
-		let div = document.createElement(`div`);
+		const div = document.createElement(`div`);
 		div.innerHTML = `<svg/>`;
 		return (
 			(typeof SVGRect !== `undefined` &&
@@ -22,15 +22,15 @@ import { load_script } from './_loader.js';
 		}
 
 		fetch(bfg_icons_src)
-			.then(function(response) {
+			.then(response => {
 				if (response.status !== 200) {
-					throw `File not found`;
+					throw Error(`File not found`);
 				}
 
 				return response.text();
 			})
-			.then(function(response) {
-				let div = document.createElement(`div`);
+			.then(response => {
+				const div = document.createElement(`div`);
 				div.innerHTML = response;
 				div.style.position = `absolute`;
 				div.style.width = 0;

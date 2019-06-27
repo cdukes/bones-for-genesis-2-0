@@ -7,7 +7,7 @@ window.bfg_scripts_loaded = window.bfg_scripts_loaded || [];
 window.bfg_scripts_events_queue = window.bfg_scripts_events_queue || {};
 
 function on_load(e) {
-	let el = e.currentTarget,
+	const el = e.currentTarget,
 		handle = el.getAttribute(`data-handle`);
 
 	bfg_scripts_loaded.push(handle);
@@ -18,8 +18,6 @@ function on_load(e) {
 }
 
 export function load_script(handle, event) {
-	let script;
-
 	// Abort if handle isn't set in bfg_script_srcs
 	if (!bfg_script_srcs.hasOwnProperty(handle)) {
 		return;
@@ -44,7 +42,7 @@ export function load_script(handle, event) {
 	}
 
 	// Otherwise, start loading and build queue
-	script = document.createElement(`script`);
+	const script = document.createElement(`script`);
 	script.async = false;
 	script.setAttribute(`data-handle`, handle);
 	document.head.appendChild(script);
