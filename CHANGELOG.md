@@ -1,8 +1,13 @@
+## 20190711
+- Update `eslint.json` rules
+- On unsuccessful `_ajax.js` request, call `on_error()` function with `response.data` instead of throwing an `Error`
+- Include `smooth-scroll` (disabled by default)
+
 ## 20190627
 - Disable `scroll-behavior` by default (inconsistent behavior between browsers and with `smooth-scroll`)
 - Upgrade to `ESLint 6`
 - Update `eslint.json` rules
-- On unsuccessful `_ajax.js` request, call `on_error()` function of throwing an `Error`
+- On unsuccessful `_ajax.js` request, call `on_error()` function instead of throwing an `Error`
 
 ## 20190618
 - `Genesis 3.0` compatibility

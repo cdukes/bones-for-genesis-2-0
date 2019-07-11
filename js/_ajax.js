@@ -38,7 +38,9 @@ export function ajax(config) {
 		{
 			method: `POST`,
 			credentials: include_credentials ? `same-origin` : `omit`,
-			headers: { 'Content-Type': `application/json` },
+			headers: {
+				'Content-Type': `application/json`
+			},
 			body: JSON.stringify(data)
 		}
 	)
@@ -57,7 +59,7 @@ export function ajax(config) {
 			// If response.success is false, trigger the failure function
 			if (!response.success) {
 				if (on_error) {
-					on_error(response);
+					on_error(response.data);
 				}
 
 				return response;

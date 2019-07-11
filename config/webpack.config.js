@@ -12,7 +12,9 @@ module.exports = (env, argv) => {
 			filename: `js/[name].js`,
 			chunkFilename: `js/[id].js`
 		},
-		optimization: { minimize: false },
+		optimization: {
+			minimize: false
+		},
 		plugins: [
 			new VueLoaderPlugin()
 		],
@@ -22,17 +24,23 @@ module.exports = (env, argv) => {
 					test: /\.tsx?$/,
 					use: {
 						loader: `ts-loader`,
-						options: { transpileOnly: `production` !== argv.mode }
+						options: {
+							transpileOnly: `production` !== argv.mode
+						}
 					}
 				},
 				{
 					test: /\.vue$/,
 					exclude: /(node_modules)/,
-					use: { loader: `vue-loader` }
+					use: {
+						loader: `vue-loader`
+					}
 				}
 			]
 		},
-		performance: { hints: false },
+		performance: {
+			hints: false
+		},
 		node: false
 	};
 
@@ -43,7 +51,9 @@ module.exports = (env, argv) => {
 				exclude: /(node_modules)/,
 				use: {
 					loader: `babel-loader`,
-					options: { presets: [`@babel/preset-env`] }
+					options: {
+						presets: [`@babel/preset-env`]
+					}
 				}
 			}
 		);
