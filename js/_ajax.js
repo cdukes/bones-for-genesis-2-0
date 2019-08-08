@@ -1,3 +1,5 @@
+/* globals ajaxurl */
+
 /* eslint compat/compat:0 */
 
 /**
@@ -20,21 +22,27 @@ export function ajax(config) {
 		on_complete
 	} = config;
 
-	if( !(`fetch` in window) ) {
+	if( !(`fetch` in window) || !(`URLSearchParams` in window) ) {
 		if (on_error) {
-			on_error(`Failed to fetch`);
+			on_error(`Unable to fetch data. Please reload the page and try again.`);
 		}
 
 		if (on_complete) {
-			on_complete(`Failed to fetch`);
+			on_error(`Unable to fetch data. Please reload the page and try again.`);
 		}
 
 		return;
 	}
 
+
+	let url = typeof ajaxurl === `string` ? ajaxurl : document.body.dataset.ajax_url;
+
+	let params = new URLSearchParams();
+	params.set(`action`, action);
+
 	fetch(
 		// The admin-ajax.php URL template is saved as a <body> data- value, in includes/structure/header.php
-		document.body.dataset.ajax_url.replace(`:action`, action),
+		`${url}?${params.toString()}`,
 		{
 			method: `POST`,
 			credentials: include_credentials ? `same-origin` : `omit`,

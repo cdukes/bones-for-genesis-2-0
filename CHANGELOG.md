@@ -1,3 +1,7 @@
+## 20190808
+- Use `URLSearchParams()` to build `ajax()` action URL
+- Run `aslint` on `config/`
+
 ## 20190711
 - Update `eslint.json` rules
 - On unsuccessful `_ajax.js` request, call `on_error()` function with `response.data` instead of throwing an `Error`

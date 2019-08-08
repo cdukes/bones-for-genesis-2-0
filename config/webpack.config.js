@@ -1,3 +1,5 @@
+/* globals module, require, __dirname */
+
 const path = require(`path`),
 	{ VueLoaderPlugin } = require(`vue-loader`);
 

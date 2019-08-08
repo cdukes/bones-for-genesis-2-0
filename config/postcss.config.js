@@ -1,3 +1,5 @@
+/* globals module, require */
+
 module.exports = {
 	map: false,
 	plugins: [
