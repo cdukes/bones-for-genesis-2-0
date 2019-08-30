@@ -1,3 +1,14 @@
+## 20190830
+- Use `namespace`, instead of function prefixes
+- Upgrade libraries - `polyfill.io`, `jQuery`, `instant.page`
+- Set `eslint` `ecmaVersion` to `10`
+- Use `babel-eslint`
+- Use `preconnect` resource hint
+- Fix AJAX URL
+- Remove `disable_genesis_schema()` (Functionality is supported natively in Genesis 3.1)
+- Update `customizer_theme_settings_config()` options for Genesis 3.1
+- Don't `preconnect` to `cdn.polyfill.io`
+
 ## 20190808
 - Use `URLSearchParams()` to build `ajax()` action URL
 - Run `aslint` on `config/`

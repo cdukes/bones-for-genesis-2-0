@@ -155,7 +155,8 @@
 		"yoda": "error"
 	},
 	"parserOptions": {
-		"ecmaVersion": 6,
+		"parser": "babel-eslint",
+		"ecmaVersion": 10,
 		"sourceType": "module"
 	}
 }

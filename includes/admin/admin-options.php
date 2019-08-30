@@ -1,14 +1,16 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG;
 
-// add_filter( 'genesis_customizer_theme_settings_config', 'bfg_customizer_theme_settings_config' );
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+// add_filter( 'genesis_customizer_theme_settings_config', __NAMESPACE__ . '\\customizer_theme_settings_config' );
 /**
  * Remove some or all of the options metaboxes in Dashboard > Genesis > Theme Settings.
  *
  * @since 2.0.0
  */
-function bfg_customizer_theme_settings_config($config) {
+function customizer_theme_settings_config($config) {
 
 	// Updates
 	unset($config['genesis']['sections']['genesis_updates']);
@@ -28,6 +30,9 @@ function bfg_customizer_theme_settings_config($config) {
 	// Content Archives
 	unset($config['genesis']['sections']['genesis_archives']);
 
+	// Footer
+	unset($config['genesis']['sections']['genesis_footer']);
+
 	// Header/Footer Scripts
 	unset($config['genesis']['sections']['genesis_scripts']);
 
@@ -35,13 +40,13 @@ function bfg_customizer_theme_settings_config($config) {
 
 }
 
-add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
+add_filter( 'genesis_theme_settings_defaults', __NAMESPACE__ . '\\theme_settings_defaults' );
 /**
  * Set default values for custom theme options.
  *
  * @since 2.3.0
  */
-function bfg_theme_settings_defaults($defaults) {
+function theme_settings_defaults($defaults) {
 
 	$defaults['content_archive']           = 'excerpts';
 	$defaults['content_archive_thumbnail'] = 1;
@@ -57,5 +62,5 @@ function bfg_theme_settings_defaults($defaults) {
  *
  * @since 20181201
  */
-if( function_exists('acf_add_options_page') )
+if( \function_exists('acf_add_options_page') )
 	acf_add_options_page('Site Options');

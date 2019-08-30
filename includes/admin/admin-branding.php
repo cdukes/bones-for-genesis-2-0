@@ -1,32 +1,34 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG;
 
-add_filter( 'login_headerurl', 'bfg_login_headerurl' );
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+add_filter( 'login_headerurl', __NAMESPACE__ . '\\login_headerurl' );
 /**
  * Makes the login screen's logo link to your homepage, instead of to WordPress.org.
  *
  * @since 2.0.0
  */
-function bfg_login_headerurl() {
+function login_headerurl() {
 
 	return home_url();
 
 }
 
-add_filter( 'login_headertext', 'bfg_login_headertext' );
+add_filter( 'login_headertext', __NAMESPACE__ . '\\login_headertext' );
 /**
  * Makes the login screen's logo title attribute your site title, instead of 'WordPress'.
  *
  * @since 2.0.0
  */
-function bfg_login_headertext() {
+function login_headertext() {
 
 	return get_bloginfo( 'name' );
 
 }
 
-// add_action( 'login_enqueue_scripts', 'bfg_replace_login_logo' );
+// add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\\replace_login_logo' );
 /**
  * Replaces the login screen's WordPress logo with the 'login-logo.png' in your child theme images folder.
  *
@@ -37,7 +39,7 @@ function bfg_login_headertext() {
  *
  * @since 2.0.0
  */
-function bfg_replace_login_logo() {
+function replace_login_logo() {
 
 	?><style type="text/css">
 		body.login h1 a {
@@ -53,19 +55,19 @@ function bfg_replace_login_logo() {
 
 }
 
-add_filter( 'wp_mail_from_name', 'bfg_mail_from_name' );
+add_filter( 'wp_mail_from_name', __NAMESPACE__ . '\\mail_from_name' );
 /**
  * Makes WordPress-generated emails appear 'from' your WordPress site name, instead of from 'WordPress'.
  *
  * @since 2.0.0
  */
-function bfg_mail_from_name() {
+function mail_from_name() {
 
 	return get_option( 'blogname' );
 
 }
 
-// add_filter( 'wp_mail_from', 'bfg_wp_mail_from' );
+// add_filter( 'wp_mail_from', __NAMESPACE__ . '\\wp_mail_from' );
 /**
  * Makes WordPress-generated emails appear 'from' your WordPress admin email address.
  *
@@ -73,25 +75,25 @@ function bfg_mail_from_name() {
  *
  * @since 2.0.0
  */
-function bfg_wp_mail_from() {
+function wp_mail_from() {
 
 	return get_option( 'admin_email' );
 
 }
 
-add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message' );
+add_filter( 'retrieve_password_message', __NAMESPACE__ . '\\cleanup_retrieve_password_message' );
 /**
  * Remove the brackets from the retreive PW link, since they get hidden on HTML.
  *
  * @since 2.2.24
  */
-function bfg_cleanup_retrieve_password_message($message) {
+function cleanup_retrieve_password_message($message) {
 
-	return preg_replace( '/<(.+?)>/', '$1', $message );
+	return \preg_replace( '/<(.+?)>/', '$1', $message );
 
 }
 
-add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
+add_action( 'wp_before_admin_bar_render', __NAMESPACE__ . '\\remove_wp_icon_from_admin_bar' );
 /**
  * Removes the WP icon from the admin bar.
  *
@@ -99,14 +101,14 @@ add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
  *
  * @since 2.0.0
  */
-function bfg_remove_wp_icon_from_admin_bar() {
+function remove_wp_icon_from_admin_bar() {
 
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('wp-logo');
 
 }
 
-// add_filter( 'admin_footer_text', 'bfg_admin_footer_text' );
+// add_filter( 'admin_footer_text', __NAMESPACE__ . '\\admin_footer_text' );
 /**
  * Modify the admin footer text.
  *
@@ -114,11 +116,11 @@ function bfg_remove_wp_icon_from_admin_bar() {
  *
  * @since 2.0.0
  */
-function bfg_admin_footer_text() {
+function admin_footer_text() {
 
 	$text = __( 'Built by <a href="%s" target="_blank" rel="noopener">Cooper Dukes @CDBTech, LLC</a>', CHILD_THEME_TEXT_DOMAIN );
 
-	return sprintf(
+	return \sprintf(
 		$text,
 		'https://cdbtech.com/'
 	);

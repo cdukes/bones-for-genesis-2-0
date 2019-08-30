@@ -1,3 +1,5 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG;
+
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly

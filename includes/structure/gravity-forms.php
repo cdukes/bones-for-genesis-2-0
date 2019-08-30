@@ -1,6 +1,8 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG;
+
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Disable view counting.
@@ -16,56 +18,56 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 // add_filter( 'gform_tabindex', '__return_false' );
 
-// add_filter( 'gform_field_content', 'bfg_gform_filter_textarea_rows', 10, 5 );
+// add_filter( 'gform_field_content', __NAMESPACE__ . '\\gform_filter_textarea_rows', 10, 5 );
 /**
  * Change the 'rows' attribute for Gravity Forms <textarea>s.
  *
  * @since 20180726
  */
-function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $form_id) {
+function gform_filter_textarea_rows($content, $field, $value, $lead_id, $form_id) {
 
 	if( is_admin() )
 		return $content;
 
-	return str_replace( "rows='10'", "rows='8'", $content );
+	return \str_replace( "rows='10'", "rows='8'", $content );
 
 }
 
-// add_filter( 'gform_field_content', 'bfg_gform_filter_select_field_html', 10, 2 );
+// add_filter( 'gform_field_content', __NAMESPACE__ . '\\gform_filter_select_field_html', 10, 2 );
 /**
  * Wrap Gravity Forms <select>s with a <div> and SVG icon.
  *
  * @since 20180726
  */
-function bfg_gform_filter_select_field_html($html, $field) {
+function gform_filter_select_field_html($html, $field) {
 
 	if( is_admin() )
 		return $html;
 
-	$html = str_replace( '<select', '<div class="styled-select"><select', $html );
+	$html = \str_replace( '<select', '<div class="styled-select"><select', $html );
 
-	return str_replace( '</select>', '</select>' . bfg_get_inline_icon('angle-down') . '</div>', $html );
+	return \str_replace( '</select>', '</select>' . get_inline_icon('angle-down') . '</div>', $html );
 
 }
 
-// add_filter( 'gform_submit_button', 'bfg_gform_filter_submit_button_tag', 10, 2 );
+// add_filter( 'gform_submit_button', __NAMESPACE__ . '\\gform_filter_submit_button_tag', 10, 2 );
 /**
  * Switch the Gravity Forms <input type="submit"> button to a <button type="submit">, for easier styling.
  *
  * @since 20180726
  */
-function bfg_gform_filter_submit_button_tag($button_input, $form) {
+function gform_filter_submit_button_tag($button_input, $form) {
 
 	if( is_admin() )
 		return $button_input;
 
-	$count = preg_match( '/value=\'(.+?)\'/', $button_input, $matches );
+	$count = \preg_match( '/value=\'(.+?)\'/', $button_input, $matches );
 	if( $count !== 1 )
 		return $button_input;
 
-	$button_input = str_replace( '<input', '<button', $button_input );
-	$button_input = str_replace( ' />', '>', $button_input );
-	$button_input = str_replace( 'gform_button', 'gform_button btn', $button_input );
+	$button_input = \str_replace( '<input', '<button', $button_input );
+	$button_input = \str_replace( ' />', '>', $button_input );
+	$button_input = \str_replace( 'gform_button', 'gform_button btn', $button_input );
 
 	// Also remove inline JS
 	// $button_input = preg_replace( '/onclick=\'(.+?)\'/', '', $button_input );
@@ -79,7 +81,7 @@ function bfg_gform_filter_submit_button_tag($button_input, $form) {
 }
 
 /*
- * Remove Gravity Forms inline <script> tags. To remove all GF JS, remove the submit JS in 'bfg_gform_filter_submit_button_tag' and consider deregistering jQuery
+ * Remove Gravity Forms inline <script> tags. To remove all GF JS, remove the submit JS in 'gform_filter_submit_button_tag' and consider deregistering jQuery
  *
  * @since 20180726
  */

@@ -1,6 +1,8 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG;
+
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
  * Remove the primary and secondary menus
@@ -15,13 +17,13 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 2.3.31
  */
-add_filter( 'wp_nav_menu_args', 'bfg_limit_menu_depth' );
-function bfg_limit_menu_depth($args) {
+add_filter( 'wp_nav_menu_args', __NAMESPACE__ . '\\limit_menu_depth' );
+function limit_menu_depth($args) {
 
 	$args['item_spacing'] = 'discard';
 	$args['container']    = false;
 
-	if( !in_array($args['theme_location'], array('primary', 'secondary'), true) )
+	if( !\in_array($args['theme_location'], array('primary', 'secondary'), true) )
 		return $args;
 
 	$args['depth'] = 2;

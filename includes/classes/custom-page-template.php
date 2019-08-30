@@ -1,6 +1,8 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG\CustomTemplateStarter;
+
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Starter class for a custom template template.
@@ -8,29 +10,12 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 20180728
  */
-class BFG_Custom_Page_Template extends BFG_Abstract_Page_Template {
+class Custom_Page extends \BFG\Abstract_Page_Template {
 	protected $post;
 
 	protected $post_id;
 
-	public function __construct() {
-
-		// Delay template routing until the 'wp' action, so that the WP conditional functions are accessible
-		add_action( 'wp', array($this, 'init') );
-
-	}
-
-	public function init() {
-
-		global $post;
-
-		// Stop if not a single page
-		if( !is_singular( 'page' ) )
-			return;
-
-		// Stop if not the target page template
-		if( 'page_templates/page_custom.php' !== get_page_template_slug() )
-			return;
+	public function __construct($post) {
 
 		// Save global $post as a class property, to avoid calling the global later, and for use in the template abstract
 		$this->post = $post;
@@ -46,9 +31,29 @@ class BFG_Custom_Page_Template extends BFG_Abstract_Page_Template {
 	public function display_content() {
 
 		// Custom template content
-		// See BFG_Abstract_Page_Template for helper methods
+		// See Abstract_Page_Template for helper methods
 
 	}
 }
 
-return new BFG_Custom_Page_Template();
+add_action( 'wp', __NAMESPACE__ . '\\init' );
+/**
+ * Delay template routing until the 'wp' action, so that the WP conditional functions are accessible.
+ *
+ * @since 20180728
+ */
+function init() {
+
+	global $post;
+
+	// Stop if not a single page
+	if( !is_singular( 'page' ) )
+		return;
+
+	// Stop if not the target page template
+	if( 'page_templates/page_custom.php' !== get_page_template_slug() )
+		return;
+
+	new Custom_Page($post);
+
+}

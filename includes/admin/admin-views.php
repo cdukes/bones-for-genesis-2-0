@@ -1,6 +1,8 @@
 <?php
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace BFG;
+
+if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
  * Remove admin bar inline CSS
@@ -9,8 +11,8 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 add_theme_support( 'admin-bar', array('callback' => '__return_false') );
 
-add_action(  'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
-function bfg_remove_admin_bar_inline_css() {
+add_action(  'admin_bar_init', __NAMESPACE__ . '\\remove_admin_bar_inline_css' );
+function remove_admin_bar_inline_css() {
 
 	remove_action( 'wp_head', 'wp_admin_bar_header' );
 
@@ -24,15 +26,15 @@ function bfg_remove_admin_bar_inline_css() {
  * @since 2.3.43
  */
 
-add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
-function bfg_hide_admin_bar_avatar() {
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\\hide_admin_bar_avatar', 0 );
+function hide_admin_bar_avatar() {
 
 	add_filter( 'pre_option_show_avatars', '__return_zero' );
 
 }
 
-add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
-function bfg_restore_avatars() {
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\\restore_avatars', 10 );
+function restore_avatars() {
 
 	remove_filter( 'pre_option_show_avatars', '__return_zero' );
 
@@ -43,8 +45,8 @@ function bfg_restore_avatars() {
  *
  * @since 2.0.0
  */
-add_filter( 'show_admin_bar', 'bfg_maybe_hide_admin_bar', 99 );
-function bfg_maybe_hide_admin_bar($default) {
+add_filter( 'show_admin_bar', __NAMESPACE__ . '\\maybe_hide_admin_bar', 99 );
+function maybe_hide_admin_bar($default) {
 
 	return current_user_can( 'edit_posts' ) ? $default : false;
 
@@ -64,13 +66,13 @@ function bfg_maybe_hide_admin_bar($default) {
  */
 // remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
-add_action( 'admin_init', 'bfg_hide_update_nags' );
+add_action( 'admin_init', __NAMESPACE__ . '\\hide_update_nags' );
 /**
  * Remove update nags for non-admins.
  *
  * @since 20190301
  */
-function bfg_hide_update_nags() {
+function hide_update_nags() {
 
 	if( current_user_can('update_core') )
 		return;
@@ -80,7 +82,7 @@ function bfg_hide_update_nags() {
 
 }
 
-add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
+add_action( 'admin_menu', __NAMESPACE__ . '\\remove_dashboard_widgets' );
 /**
  * Disable some or all of the default admin dashboard widgets.
  *
@@ -88,7 +90,7 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
  *
  * @since 1.x
  */
-function bfg_remove_dashboard_widgets() {
+function remove_dashboard_widgets() {
 
 	remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );			// At a Glance
 	remove_meta_box( 'dashboard_activity', 'dashboard', 'core' );			// Activity
@@ -98,13 +100,13 @@ function bfg_remove_dashboard_widgets() {
 
 }
 
-add_action('widgets_init', 'bfg_unregister_widgets');
+add_action('widgets_init', __NAMESPACE__ . '\\unregister_widgets');
 /**
  * Disable some or all widgets.
  *
  * @since 2.0.0
  */
-function bfg_unregister_widgets() {
+function unregister_widgets() {
 
 	global $wp_widget_factory;
 
@@ -148,42 +150,42 @@ function bfg_unregister_widgets() {
 
 }
 
-// add_action( 'admin_init', 'bfg_add_editor_style' );
+// add_action( 'admin_init', __NAMESPACE__ . '\\add_editor_style' );
 /**
  * Add a stylesheet for TinyMCE.
  *
  * @since 2.0.0
  */
-function bfg_add_editor_style() {
+function add_editor_style() {
 
-	$src = BFG_PRODUCTION ? '/build/css/editor-style.min.css' : '/build/css/editor-style.css';
+	$src = PRODUCTION ? '/build/css/editor-style.min.css' : '/build/css/editor-style.css';
 	add_editor_style( get_stylesheet_directory_uri() . $src );
 
 }
 
-// add_filter( 'mce_external_plugins', 'bfg_add_tinymce_plugins' );
+// add_filter( 'mce_external_plugins', __NAMESPACE__ . '\\add_tinymce_plugins' );
 /**
  * Add a plugin script for TinyMCE.
  *
  * @since 2.3.35
  */
-function bfg_add_tinymce_plugins($plugin_array) {
+function add_tinymce_plugins($plugin_array) {
 
-	$src = BFG_PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
+	$src = PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
 	$src = add_query_arg(
 		array(
-			'ver' => BFG_VERSION,
+			'ver' => VERSION,
 		),
 		$src
 	);
 
-	$plugin_array['bfg_admin'] = get_stylesheet_directory_uri() . $src;
+	$plugin_array[__NAMESPACE__ . '\\admin'] = get_stylesheet_directory_uri() . $src;
 
 	return $plugin_array;
 
 }
 
-add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
+add_filter( 'tiny_mce_before_init', __NAMESPACE__ . '\\tiny_mce_before_init' );
 /**
  * Modifies the TinyMCE settings array.
  *
@@ -191,7 +193,7 @@ add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
  *
  * @since 2.0.0
  */
-function bfg_tiny_mce_before_init($options) {
+function tiny_mce_before_init($options) {
 
 	$options['element_format']       = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
 	$options['schema']               = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
@@ -203,20 +205,20 @@ function bfg_tiny_mce_before_init($options) {
 
 }
 
-add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
+add_filter( 'mce_buttons', __NAMESPACE__ . '\\tinymce_buttons' );
 /**
  * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/.
  *
  * @since 2.0.15
  */
-function bfg_tinymce_buttons($buttons) {
+function tinymce_buttons($buttons) {
 
 	$buttons[] = 'wp_page';															// Post pagination
 	return $buttons;
 
 }
 
-add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
+add_filter( 'user_contactmethods', __NAMESPACE__ . '\\user_contactmethods' );
 /**
  * Updates the user profile contact method fields for today's popular sites.
  *
@@ -224,7 +226,7 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  *
  * @since 2.0.0
  */
-function bfg_user_contactmethods($fields) {
+function user_contactmethods($fields) {
 
 	// $fields['facebook'] = 'Facebook';											// Add Facebook
 	// $fields['twitter'] = 'Twitter';												// Add Twitter
@@ -235,13 +237,13 @@ function bfg_user_contactmethods($fields) {
 
 }
 
-add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
+add_action( 'admin_menu', __NAMESPACE__ . '\\remove_dashboard_menus', 12 );
 /**
  * Remove default admin dashboard menus.
  *
  * @since 2.0.0
  */
-function bfg_remove_dashboard_menus() {
+function remove_dashboard_menus() {
 
 	// remove_menu_page('index.php'); // Dashboard tab
 	// remove_menu_page('edit.php'); // Posts
@@ -258,7 +260,7 @@ function bfg_remove_dashboard_menus() {
 
 }
 
-add_filter( 'login_errors', 'bfg_login_errors' );
+add_filter( 'login_errors', __NAMESPACE__ . '\\login_errors' );
 /**
  * Prevent the failed login notice from specifying whether the username or the password is incorrect.
  *
@@ -266,7 +268,7 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  *
  * @since 2.0.0
  */
-function bfg_login_errors($text) {
+function login_errors($text) {
 
 	global $errors;
 
@@ -275,7 +277,7 @@ function bfg_login_errors($text) {
 
 	$codes = $errors->get_error_codes();
 	if(
-		in_array('invalid_username', $codes, true) || in_array('incorrect_password', $codes, true)
+		\in_array('invalid_username', $codes, true) || \in_array('incorrect_password', $codes, true)
 	) {
 		return __( 'Invalid username or password.', CHILD_THEME_TEXT_DOMAIN );
 	}
@@ -284,7 +286,7 @@ function bfg_login_errors($text) {
 
 }
 
-add_action( 'admin_head', 'bfg_hide_admin_help_button' );
+add_action( 'admin_head', __NAMESPACE__ . '\\hide_admin_help_button' );
 /**
  * Hide the top-right help pull-down button by adding some CSS to the admin <head>.
  *
@@ -292,7 +294,7 @@ add_action( 'admin_head', 'bfg_hide_admin_help_button' );
  *
  * @since 2.0.0
  */
-function bfg_hide_admin_help_button() {
+function hide_admin_help_button() {
 
 	?><style type="text/css">
 		#contextual-help-link-wrap {
@@ -303,13 +305,13 @@ function bfg_hide_admin_help_button() {
 
 }
 
-add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\\admin_menu_plugins_node' );
 /**
  * Add a plugins link to the appearance admin bar menu.
  *
  * @since 2.2.9
  */
-function bfg_admin_menu_plugins_node($wp_admin_bar) {
+function admin_menu_plugins_node($wp_admin_bar) {
 
 	if( !current_user_can('install_plugins') )
 		return;
@@ -325,13 +327,13 @@ function bfg_admin_menu_plugins_node($wp_admin_bar) {
 
 }
 
-add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
+add_action( 'do_meta_boxes', __NAMESPACE__ . '\\remove_meta_boxes' );
 /**
  * Remove WP default meta boxes. You should always unhook 'Custom Fields', since it can be a large query.
  *
  * @since 2.3.30
  */
-function bfg_remove_meta_boxes() {
+function remove_meta_boxes() {
 
 	// Post
 	// remove_meta_box( 'authordiv', 'post', 'normal' );
@@ -364,14 +366,14 @@ function bfg_remove_meta_boxes() {
  *
  * @since 2.3.50
  */
-function bfg_limit_items_per_page($per_page) {
+function limit_items_per_page($per_page) {
 
-	return min( $per_page, 100 );
+	return \min( $per_page, 100 );
 
 }
 
-add_action( 'admin_init', 'bfg_setup_per_page_limits' );
-function bfg_setup_per_page_limits() {
+add_action( 'admin_init', __NAMESPACE__ . '\\setup_per_page_limits' );
+function setup_per_page_limits() {
 
 	$options = array(
 		'edit_comments_per_page',
@@ -391,6 +393,6 @@ function bfg_setup_per_page_limits() {
 		$options[] = 'edit_' . $post_type . '_per_page';
 
 	foreach( $options as $option )
-		add_filter( $option, 'bfg_limit_items_per_page' );
+		add_filter( $option, __NAMESPACE__ . '\\limit_items_per_page' );
 
 }

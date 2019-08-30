@@ -12,6 +12,7 @@
 		"@babel/core": "*",
 		"@babel/preset-env": "*",
 		"autoprefixer": "*",
+		"babel-eslint": "*",
 		"babel-loader": "*",
 		"csscomb": "*",
 		"csso-cli": "*",
