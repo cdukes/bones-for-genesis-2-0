@@ -13,6 +13,13 @@ if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 
 /*
+ * Remove menu item IDs
+ *
+ * @since 201909112.3.31
+ */
+// add_filter( 'nav_menu_item_id', '__return_false' );
+
+/*
  * Limit menu depth
  *
  * @since 2.3.31

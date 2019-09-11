@@ -2,6 +2,8 @@
 
 /* eslint compat/compat:0 */
 
+import URLSearchParams from '@ungap/url-search-params';
+
 /**
  * Sends an AJAX request to WP's admin-ajax.php endpoint
  * @param {Object} config - The configuration details for this request.
@@ -22,7 +24,7 @@ export function ajax(config) {
 		on_complete
 	} = config;
 
-	if( !(`fetch` in window) || !(`URLSearchParams` in window) ) {
+	if( !(`fetch` in window) ) {
 		if (on_error) {
 			on_error(`Unable to fetch data. Please reload the page and try again.`);
 		}
@@ -33,7 +35,6 @@ export function ajax(config) {
 
 		return;
 	}
-
 
 	let url = typeof ajaxurl === `string` ? ajaxurl : document.body.dataset.ajax_url;
 

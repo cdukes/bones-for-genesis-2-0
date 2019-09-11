@@ -1,3 +1,7 @@
+## 20190911
+- Use polyfill for `URLSearchParams`
+- Add filter to remove menu item IDs (disabled by default)
+
 ## 20190830
 - Use `namespace`, instead of function prefixes
 - Upgrade libraries - `polyfill.io`, `jQuery`, `instant.page`
