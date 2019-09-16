@@ -1,7 +1,7 @@
 Bones for Genesis 2.0
 ==============
 
-Built for Genesis 2.* and WordPress 4.*.
+Built for Genesis 3.* and WordPress 5.*.
 
 A starting point for new Genesis projects. This is a starter child theme, not a dependency. Clone it. Fork it. Hack it for your own projects. Build cool things on the web.
 

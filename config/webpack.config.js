@@ -11,11 +11,11 @@ module.exports = (env, argv) => {
 		},
 		output: {
 			path: path.resolve(__dirname, `../build`),
-			filename: `js/[name].js`,
-			chunkFilename: `js/[id].js`
+			filename: `production` === argv.mode ? `js/[name].min.js` : `js/[name].js`,
+			chunkFilename: `production` === argv.mode ? `js/[id].min.js` : `js/[id].js`
 		},
 		optimization: {
-			minimize: false
+			minimize: `production` === argv.mode
 		},
 		plugins: [
 			new VueLoaderPlugin()

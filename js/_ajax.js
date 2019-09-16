@@ -2,8 +2,6 @@
 
 /* eslint compat/compat:0 */
 
-import URLSearchParams from '@ungap/url-search-params';
-
 /**
  * Sends an AJAX request to WP's admin-ajax.php endpoint
  * @param {Object} config - The configuration details for this request.

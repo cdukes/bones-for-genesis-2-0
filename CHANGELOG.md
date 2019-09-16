@@ -1,3 +1,8 @@
+## 20190916
+- Remove polyfill for `URLSearchParams`
+- Add `prefer-regex-literals` to `eslint`
+- Minify in `webpack`, not with `uglify`
+
 ## 20190911
 - Use polyfill for `URLSearchParams`
 - Add filter to remove menu item IDs (disabled by default)
