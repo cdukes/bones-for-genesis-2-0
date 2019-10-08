@@ -1,3 +1,8 @@
+## 20191101
+- Use Dart `sass`
+- Use Webpack `aliases` for common JS partials
+- Remove `open_remove_type_attr()` and `close_remove_type_attr()` - use `add_theme_support` instead
+
 ## 20190916
 - Remove polyfill for `URLSearchParams`
 - Add `prefer-regex-literals` to `eslint`

@@ -14,6 +14,12 @@ module.exports = (env, argv) => {
 			filename: `production` === argv.mode ? `js/[name].min.js` : `js/[name].js`,
 			chunkFilename: `production` === argv.mode ? `js/[id].min.js` : `js/[id].js`
 		},
+		resolve: {
+			alias: {
+				ajax$: path.resolve(__dirname, `../js/_partials/_ajax.js`),
+				loader$: path.resolve(__dirname, `../js/_partials/_loader.js`)
+			}
+		},
 		optimization: {
 			minimize: `production` === argv.mode
 		},

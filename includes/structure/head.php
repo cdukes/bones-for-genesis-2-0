@@ -25,35 +25,6 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlin
 remove_action( 'wp_head', 'rest_output_link_wp_head' );
 remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 
-// Remove <script> type attribute
-// For when you really want to pass validator.w3.org
-
-// add_filter( 'wp_head', __NAMESPACE__ . '\\open_remove_type_attr', 1 );
-/**
- * Start OB for <script type="..."> removal.
- *
- * @since 20190421
- */
-function open_remove_type_attr() {
-
-	\ob_start();
-
-}
-
-// add_filter( 'wp_footer', __NAMESPACE__ . '\\close_remove_type_attr', 999 );
-/**
- * Remove <script> type attribute.
- *
- * @since 20190421
- */
-function close_remove_type_attr() {
-
-	$html = \ob_get_clean();
-	$html = \str_replace(" type='text/javascript'", '', $html);
-	echo $html;
-
-}
-
 add_action( 'wp', __NAMESPACE__ . '\\security_headers' );
 /**
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.

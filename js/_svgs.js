@@ -2,7 +2,7 @@
 
 /* globals bfg_icons_src */
 
-import { load_script } from './_loader.js';
+import { load_script } from 'loader';
 
 (function() {
 	// Test for inline SVG support, based on Modernizr
