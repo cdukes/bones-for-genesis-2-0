@@ -30,8 +30,6 @@
 		"rimraf": "*",
 		"sass": "*",
 		"svg-sprite": "*",
-		"ts-loader": "*",
-		"typescript": "*",
 		"vue-loader": "*",
 		"vue-template-compiler": "*",
 		"watch": "*",

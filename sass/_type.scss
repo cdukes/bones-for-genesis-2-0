@@ -28,6 +28,8 @@ html.admin-bar-showing {
 body {
 	color: $black;
 	font-family: $sans;
+	// -moz-osx-font-smoothing: grayscale;
+	// -webkit-font-smoothing: antialiased;
 	// scroll-behavior: smooth;
 	// overscroll-behavior: contain;
 

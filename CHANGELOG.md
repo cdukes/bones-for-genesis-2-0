@@ -1,3 +1,7 @@
+## 20191107
+- Remove `typescript` config
+- Add `.btn` `:disabled` style
+
 ## 20191101
 - Use Dart `sass`
 - Use Webpack `aliases` for common JS partials

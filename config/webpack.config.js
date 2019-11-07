@@ -29,15 +29,6 @@ module.exports = (env, argv) => {
 		module: {
 			rules: [
 				{
-					test: /\.tsx?$/,
-					use: {
-						loader: `ts-loader`,
-						options: {
-							transpileOnly: `production` !== argv.mode
-						}
-					}
-				},
-				{
 					test: /\.vue$/,
 					exclude: /(node_modules)/,
 					use: {

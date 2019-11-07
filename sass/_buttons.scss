@@ -14,4 +14,8 @@
 
 	&:hover {
 	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 }
