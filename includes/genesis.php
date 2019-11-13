@@ -55,6 +55,13 @@ remove_theme_support( 'genesis-import-export-menu' );
 // add_theme_support( 'genesis-post-format-images' );
 
 /**
+ * Add support for lazy loading.
+ *
+ * @since 20191113
+ */
+// add_theme_support( 'genesis-lazy-load-images' );
+
+/**
  * Add support for after entry widget.
  *
  * @since 2.3.33

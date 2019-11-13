@@ -1,3 +1,6 @@
+## 20191113
+- `Genesis 3.2` updates
+
 ## 20191107
 - Remove `typescript` config
 - Add `.btn` `:disabled` style

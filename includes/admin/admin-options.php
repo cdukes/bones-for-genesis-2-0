@@ -27,6 +27,9 @@ function customizer_theme_settings_config($config) {
 	// Comments and Trackbacks
 	unset($config['genesis']['sections']['genesis_comments']);
 
+	// Singular Content
+	unset($config['genesis']['sections']['genesis_single']);
+
 	// Content Archives
 	unset($config['genesis']['sections']['genesis_archives']);
 
