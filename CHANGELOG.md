@@ -1,3 +1,12 @@
+## 20191214
+- Add support for SVG favicon
+- Remove `postcss-import`
+- Remove `postcss-assets`
+- Remove `postcss-will-change`
+- Compile `.scss` files with `webpack`
+- Remove `imagemin`
+- Cleanup `.gitignore`
+
 ## 20191113
 - `Genesis 3.2` updates
 

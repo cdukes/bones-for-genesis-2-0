@@ -302,6 +302,9 @@ function load_favicons() {
 	// Set to false to disable, otherwise set to a hex color
 	$color = false;
 
+	// Use an SVG if supported
+	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_build_path . '/favicon.svg" sizes="512x512">';
+
 	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
 	echo '<link rel="icon" type="image/png" href="' . $favicon_build_path . '/favicon-192.png" sizes="192x192">';
 

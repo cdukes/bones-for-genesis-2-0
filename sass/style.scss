@@ -1,10 +1,10 @@
 // Normalize
-@import '../../node_modules/normalize.css/normalize.css';
+@import '~normalize.css/normalize';
 
 // Variables & Mixins - variables must be imported after include-media, so that breakpoints aren't overwritten
-@import '../node_modules/include-media/dist/_include-media';
+@import '~include-media/dist/_include-media';
 @import 'variables';
-@import '../node_modules/include-media-export/dist/_include-media-export';
+@import '~include-media-export/dist/_include-media-export';
 
 // Clearfix & Toolkit
 @import 'clearfix';

@@ -1,13 +1,17 @@
 /* globals module, require, __dirname */
 
 const path = require(`path`),
-	{ VueLoaderPlugin } = require(`vue-loader`);
+	{ VueLoaderPlugin } = require(`vue-loader`),
+	MiniCssExtractPlugin = require(`mini-css-extract-plugin`);
 
 module.exports = (env, argv) => {
 	const config = {
 		entry: {
 			scripts: `./js/scripts.js`,
-			admin: `./js/admin.js`
+			admin: `./js/admin.js`,
+
+			'style-css': `./sass/style.scss`,
+			'admin-css': `./sass/admin.scss`
 		},
 		output: {
 			path: path.resolve(__dirname, `../build`),
@@ -24,7 +28,14 @@ module.exports = (env, argv) => {
 			minimize: `production` === argv.mode
 		},
 		plugins: [
-			new VueLoaderPlugin()
+			new VueLoaderPlugin(),
+			new MiniCssExtractPlugin({
+				moduleFilename: ({ name }) => {
+					let slug = name.replace(`-css`, ``);
+
+					return `production` === argv.mode ? `css/${slug}.min.css` : `css/${slug}.css`;
+				}
+			})
 		],
 		module: {
 			rules: [
@@ -34,13 +45,35 @@ module.exports = (env, argv) => {
 					use: {
 						loader: `vue-loader`
 					}
+				},
+				{
+					test: /\.(sa|sc|c)ss$/,
+					use: [
+						{
+							loader: MiniCssExtractPlugin.loader
+						},
+						{
+							loader: `css-loader`,
+							options: {
+								url: false
+							}
+						},
+						{
+							loader: `postcss-loader`,
+							options: {
+								config: {
+									path: `config/`
+								}
+							}
+						},
+						`sass-loader`
+					]
 				}
 			]
 		},
-		performance: {
-			hints: false
-		},
-		node: false
+		node: false,
+		watch: `production` !== argv.mode,
+		stats: `errors-warnings`
 	};
 
 	if( `production` === argv.mode ) {

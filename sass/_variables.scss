@@ -13,8 +13,8 @@ $breakpoints: ( zero: (1 * 16px), phone: (35 * 16px), portrait: (48 * 16px), adm
 /*********************
 COLORS
 *********************/
-@import '../node_modules/brand-colors/dist/latest/scss/brand-colors.latest.scss';
-@import '../node_modules/colors-sass/sass/variables';
+@import '~brand-colors/dist/latest/scss/brand-colors.latest.scss';
+@import '~colors-sass/sass/variables';
 
 $grey: $gray;
 $black: #000;
