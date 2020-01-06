@@ -80,7 +80,7 @@ module.exports = (env, argv) => {
 		config.module.rules.push(
 			{
 				test: /\.js$/,
-				exclude: /(node_modules)/,
+				exclude: /(node_modules|admin)/,
 				use: {
 					loader: `babel-loader`,
 					options: {

@@ -1,3 +1,7 @@
+## 20200105
+- Don't run `babel` on admin JS files
+- Use `browserslist` `defaults` setting
+
 ## 20191214
 - Add support for SVG favicon
 - Remove `postcss-import`

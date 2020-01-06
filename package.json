@@ -53,13 +53,6 @@
 		"watch": "run-p watch:* -s"
 	},
 	"browserslist": [
-		"last 4 Chrome versions",
-		"last 2 ChromeAndroid versions",
-		"last 2 Safari versions",
-		"last 2 iOS versions",
-		"last 4 Firefox versions",
-		"Firefox ESR",
-		"last 2 Edge versions",
-		"IE 11"
+		"defaults"
 	]
 }
