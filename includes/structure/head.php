@@ -295,24 +295,23 @@ function pre_load_favicon() {
  */
 function load_favicons() {
 
-	$stylesheet_dir     = get_stylesheet_directory_uri();
-	$favicon_path       = $stylesheet_dir . '/images/favicons';
-	$favicon_build_path = $stylesheet_dir . '/build/images';
+	$stylesheet_dir = get_stylesheet_directory_uri();
+	$favicon_path   = $stylesheet_dir . '/images/favicons';
 
 	// Set to false to disable, otherwise set to a hex color
 	$color = false;
 
 	// Use an SVG if supported
-	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_build_path . '/favicon.svg" sizes="512x512">';
+	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg" sizes="512x512">';
 
 	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
-	echo '<link rel="icon" type="image/png" href="' . $favicon_build_path . '/favicon-192.png" sizes="192x192">';
+	echo '<link rel="icon" type="image/png" href="' . $favicon_path . '/favicon-192.png" sizes="192x192">';
 
 	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
-	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_build_path . '/favicon-180.png">';
+	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_path . '/favicon-180.png">';
 
 	// Use a 144px X 144px PNG for Windows tablets
-	echo '<meta name="msapplication-TileImage" content="' . $favicon_build_path . '/favicon-144.png">';
+	echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-144.png">';
 
 	if( false !== $color ) {
 		// Windows icon background color
@@ -322,7 +321,7 @@ function load_favicons() {
 		echo '<meta name="theme-color" content="' . $color . '">';
 
 		// Safari 9 pinned tab color
-		echo '<link rel="mask-icon" href="' . $favicon_build_path . '/favicon.svg" color="' . $color . '">';
+		echo '<link rel="mask-icon" href="' . $favicon_path . '/favicon.svg" color="' . $color . '">';
 	}
 
 }

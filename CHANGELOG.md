@@ -1,3 +1,6 @@
+## 20200120
+- Update old `/build/images/` references
+
 ## 20200105
 - Don't run `babel` on admin JS files
 - Use `browserslist` `defaults` setting
