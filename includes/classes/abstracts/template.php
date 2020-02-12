@@ -61,4 +61,36 @@ class Abstract_Page_Template {
 		echo '<a href="' . esc_url( $button_url ) . '" class="btn">' . \trim( $button_text ) . '</a>';
 
 	}
+
+	protected function display_image($key, $width, $height, $parent = false) {
+
+		$image_id = $this->get_value($key, $parent);
+		if( empty($image_id) )
+			return;
+
+		$mime_type = get_post_mime_type($image_id);
+		switch($mime_type) {
+			case 'image/svg+xml':
+				$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+
+				?>
+				<img src="<?php echo wp_get_attachment_url( $image_id ); ?>" alt="<?php echo esc_attr($alt); ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+				<?php
+				break;
+			default:
+				if( \function_exists('ipq_get_theme_image') ) {
+					echo ipq_get_theme_image(
+						$image_id,
+						array(
+							array($width, $height, true),
+						)
+					);
+				} else {
+					echo wp_get_attachment_image( $image_id, array($width, $height) );
+				}
+
+				break;
+		}
+
+	}
 }

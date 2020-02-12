@@ -1,3 +1,8 @@
+## 20200212
+- Enable `prefer-const` 
+- Add `display_image()` method to `Abstract_Page_Template`
+- Force `<option>` color
+
 ## 20200120
 - Update old `/build/images/` references
 

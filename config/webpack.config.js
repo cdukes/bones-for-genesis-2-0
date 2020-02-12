@@ -31,7 +31,7 @@ module.exports = (env, argv) => {
 			new VueLoaderPlugin(),
 			new MiniCssExtractPlugin({
 				moduleFilename: ({ name }) => {
-					let slug = name.replace(`-css`, ``);
+					const slug = name.replace(`-css`, ``);
 
 					return `production` === argv.mode ? `css/${slug}.min.css` : `css/${slug}.css`;
 				}

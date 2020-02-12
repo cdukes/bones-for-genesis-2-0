@@ -114,6 +114,7 @@
 		"operator-linebreak": "error",
 		"padded-blocks": ["error", "never"],
 		"prefer-arrow-callback": "error",
+		"prefer-const": "error",
 		"prefer-numeric-literals": "error",
 		"prefer-object-spread": "error",
 		"prefer-promise-reject-errors": "error",

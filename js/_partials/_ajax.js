@@ -34,9 +34,9 @@ export function ajax(config) {
 		return;
 	}
 
-	let url = typeof ajaxurl === `string` ? ajaxurl : document.body.dataset.ajax_url;
+	const url = typeof ajaxurl === `string` ? ajaxurl : document.body.dataset.ajax_url;
 
-	let params = new URLSearchParams();
+	const params = new URLSearchParams();
 	params.set(`action`, action);
 
 	fetch(

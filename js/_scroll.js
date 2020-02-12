@@ -1,7 +1,7 @@
 import SmoothScroll from 'smooth-scroll';
 
 (function() {
-	let ss = new SmoothScroll(
+	const ss = new SmoothScroll(
 		`a[href*="#"]`,
 		{
 			speed: 150,
@@ -12,8 +12,8 @@ import SmoothScroll from 'smooth-scroll';
 	);
 
 	if( location.hash.length > 1 ) {
-		let selector = location.hash.replace(`#`, ``);
-		let el = document.getElementById(selector);
+		const selector = location.hash.replace(`#`, ``);
+		const el = document.getElementById(selector);
 
 		if( el ) {
 			ss.animateScroll(
