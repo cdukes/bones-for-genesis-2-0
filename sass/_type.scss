@@ -32,8 +32,11 @@ body {
 	// -webkit-font-smoothing: antialiased;
 	// scroll-behavior: smooth;
 	// overscroll-behavior: contain;
+	// scroll-margin-top
 
-	fill: $black;
+	svg {
+		fill: currentColor;
+	}
 }
 
 ::selection {

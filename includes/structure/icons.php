@@ -1,20 +1,18 @@
 <?php
 
-namespace BFG;
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-add_filter( 'acf/load_field/name=icon', __NAMESPACE__ . '\\populate_acf_icon_options' );
+add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
 /**
  * Populates icon options for ACF field 'icon'.
  *
  * @since 20170926
  */
-function populate_acf_icon_options($field) {
+function bfg_populate_acf_icon_options($field) {
 
 	$field['choices'] = array();
 
-	if( !\function_exists('get_current_screen') )
+	if( !function_exists('get_current_screen') )
 		return $field;
 
 	// Skip if ACF edit screen
@@ -23,22 +21,22 @@ function populate_acf_icon_options($field) {
 		return $field;
 
 	$path = CHILD_DIR . '/build/svgs/icons.svg';
-	if( !\file_exists( $path ) )
+	if( !file_exists( $path ) )
 		return $field;
 
-	$css = \file_get_contents($path);
-	\preg_match_all( '/id="icon-(.+?)"/', $css, $matches );
+	$css = file_get_contents($path);
+	preg_match_all( '/id="icon-(.+?)"/', $css, $matches );
 
 	if( empty($matches[1]) )
 		return $field;
 
 	foreach( $matches[1] as $slug ) {
-		$label                   = \str_replace('-', ' ', $slug);
-		$label                   = \ucwords($label);
+		$label                   = str_replace('-', ' ', $slug);
+		$label                   = ucwords($label);
 		$field['choices'][$slug] = $label;
 	}
 
-	\natcasesort($field['choices']);
+	natcasesort($field['choices']);
 
 	return $field;
 
@@ -51,10 +49,10 @@ function populate_acf_icon_options($field) {
  *
  * @since 20170815
  */
-function get_inline_icon($slug, $label = '') {
+function bfg_get_inline_icon($slug, $label = '') {
 
 	if( !empty($label) ) {
-		$label_id = \uniqid('svg-label-');
+		$label_id = uniqid('svg-label-');
 		$aria     = 'aria-labelledby="' . $label_id . '"';
 	} else {
 		$aria = 'aria-hidden="true" focusable="false"';
@@ -71,17 +69,17 @@ function get_inline_icon($slug, $label = '') {
 
 }
 
-add_shortcode( SLUG . '_icon', __NAMESPACE__ . '\\icon' );
+add_shortcode( 'bfg_icon', 'bfg_icon' );
 /**
- * Shortcode version of get_inline_icon().
+ * Shortcode version of bfg_get_inline_icon().
  *
  * @since 20181201
  */
-function icon($atts, $content = '') {
+function bfg_icon($atts, $content = '') {
 
 	if( empty($atts['slug']) )
 		return;
 
-	return get_inline_icon($atts['slug']);
+	return bfg_get_inline_icon($atts['slug']);
 
 }

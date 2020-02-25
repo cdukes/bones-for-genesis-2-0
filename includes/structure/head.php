@@ -1,8 +1,6 @@
 <?php
 
-namespace BFG;
-
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
  * Cleanup <head>.
@@ -25,20 +23,20 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlin
 remove_action( 'wp_head', 'rest_output_link_wp_head' );
 remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 
-add_action( 'wp', __NAMESPACE__ . '\\security_headers' );
+add_action( 'wp', 'bfg_security_headers' );
 /**
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
  *
  * @since 2.3.56
  */
-function security_headers() {
+function bfg_security_headers() {
 
 	if( is_admin() )
 		return;
 
-	\header( 'X-Frame-Options: DENY' );
-	\header( 'X-Content-Type-Options: nosniff' );
-	\header( 'X-XSS-Protection: 1; mode=block' );
+	header( 'X-Frame-Options: DENY' );
+	header( 'X-Content-Type-Options: nosniff' );
+	header( 'X-XSS-Protection: 1; mode=block' );
 
 	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 	// May break services that use a referrer check, such as typography.com and Google's APIs
@@ -49,7 +47,7 @@ function security_headers() {
 }
 
 remove_action( 'genesis_doctype', 'genesis_do_doctype' );
-add_action( 'genesis_doctype', __NAMESPACE__ . '\\doctype' );
+add_action( 'genesis_doctype', 'bfg_doctype' );
 /**
  * Overrides the default Genesis doctype.
  *
@@ -57,7 +55,7 @@ add_action( 'genesis_doctype', __NAMESPACE__ . '\\doctype' );
  *
  * @since 2.2.4
  */
-function doctype() {
+function bfg_doctype() {
 
 	?>
 	<!DOCTYPE html>
@@ -69,7 +67,7 @@ function doctype() {
 
 }
 
-add_filter( 'wp_resource_hints', __NAMESPACE__ . '\\resource_hints', 10, 2 );
+add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 /**
  * Prefetch the DNS for external resource domains. Better browser support than preconnect.
  *
@@ -77,9 +75,9 @@ add_filter( 'wp_resource_hints', __NAMESPACE__ . '\\resource_hints', 10, 2 );
  *
  * @since 2.3.19
  */
-function resource_hints($hints, $relation_type) {
+function bfg_resource_hints($hints, $relation_type) {
 
-	if( \in_array($relation_type, array('dns-prefetch', 'preconnect'), true) ) {
+	if( in_array($relation_type, array('dns-prefetch', 'preconnect'), true) ) {
 		// $hints[] = 'https://cdn.polyfill.io';
 		$hints[] = 'https://cdnjs.cloudflare.com';
 		// $hints[] = 'https://fonts.googleapis.com';
@@ -90,7 +88,7 @@ function resource_hints($hints, $relation_type) {
 
 }
 
-add_action( 'wp_head', __NAMESPACE__ . '\\inject_preload', 2 );
+add_action( 'wp_head', 'bfg_inject_preload', 2 );
 /**
  * Add <link rel="preload">s for queued scripts.
  *
@@ -99,7 +97,7 @@ add_action( 'wp_head', __NAMESPACE__ . '\\inject_preload', 2 );
  *
  * @since 20190301
  */
-function inject_preload() {
+function bfg_inject_preload() {
 
 	global $wp_scripts, $wp_version;
 
@@ -115,7 +113,7 @@ function inject_preload() {
 
 		$ver = null;
 		if( $script->ver !== null ) {
-			if( \mb_strlen($script->ver) > 0 ) {
+			if( mb_strlen($script->ver) > 0 ) {
 				$ver = $script->ver;
 			} else {
 				$ver = $wp_version;
@@ -137,7 +135,7 @@ function inject_preload() {
 	// Preload icons.svg as `fetch`, since it's loaded via JS
 	$href = add_query_arg(
 		array(
-			'v' => VERSION,
+			'v' => BFG_VERSION,
 		),
 		get_stylesheet_directory_uri() . '/build/svgs/icons.svg'
 	);
@@ -150,7 +148,7 @@ function inject_preload() {
 
 // Scripts + Styles
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\load_assets' );
+add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
 /**
  * Overrides the default Genesis stylesheet with child theme specific CSS and JS.
  *
@@ -158,7 +156,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\load_assets' );
  *
  * @since 2.0.0
  */
-function load_assets() {
+function bfg_load_assets() {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
@@ -166,8 +164,8 @@ function load_assets() {
 	wp_dequeue_style( 'wp-block-library' );
 
 	// Main theme stylesheet
-	$src = PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
-	wp_enqueue_style( SLUG, $stylesheet_dir . $src, array(), VERSION );
+	$src = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
+	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), BFG_VERSION );
 
 	// Google Fonts
 	// Consider async loading: https://github.com/typekit/webfontloader
@@ -179,16 +177,16 @@ function load_assets() {
 	// );
 
 	// Register polyfill.io with default options
-	$src = PRODUCTION ? 'https://polyfill.io/v3/polyfill.min.js?features=default%2Cfetch' : 'https://polyfill.io/v3/polyfill.js?features=default%2Cfetch';
+	$src = BFG_PRODUCTION ? 'https://polyfill.io/v3/polyfill.min.js?features=default%2Cfetch' : 'https://polyfill.io/v3/polyfill.js?features=default%2Cfetch';
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// instant.page
-	$src = PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/2.0.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/2.0.0/instantpage.js';
+	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/2.0.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/2.0.0/instantpage.js';
 	// wp_enqueue_script( 'instant.page', $src, array(), null, true );
 
 	// Use jQuery from a CDN
 	wp_deregister_script( 'jquery' );
-	$src = PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js';
+	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
@@ -198,30 +196,30 @@ function load_assets() {
 	wp_dequeue_script( 'superfish-args' );
 
 	// Main script file (in footer)
-	$src = PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( SLUG, $stylesheet_dir . $src, array('polyfill'), VERSION, true );
+	$src = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('polyfill'), BFG_VERSION, true );
 
 	// Add scripts which can be used by the _loader.js module here
 	$on_demand_script_srcs = array(
 		'svgxuse' => array(
-			'src' => PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
-			'sri' => PRODUCTION ? 'sha256-+xblFIDxgSu6OfR6TdLhVHZzVrhw8eXiVk8PRi9ACY8=' : 'sha256-TU+njGBu7T1DrfKgOBEH7kCKsl7UEvUNzpZaeUNNGi8=',
+			'src' => BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
+			'sri' => BFG_PRODUCTION ? 'sha256-+xblFIDxgSu6OfR6TdLhVHZzVrhw8eXiVk8PRi9ACY8=' : 'sha256-TU+njGBu7T1DrfKgOBEH7kCKsl7UEvUNzpZaeUNNGi8=',
 		),
 	);
-	wp_localize_script( SLUG, SLUG . '_script_srcs', $on_demand_script_srcs );
+	wp_localize_script( 'bfg', 'bfg_script_srcs', $on_demand_script_srcs );
 
 	$icon_src = add_query_arg(
 		array(
-			'v' => VERSION,
+			'v' => BFG_VERSION,
 		),
 		$stylesheet_dir . '/build/svgs/icons.svg'
 	);
 
-	wp_localize_script( SLUG, SLUG . '_icons_src', $icon_src );
+	wp_localize_script( 'bfg', 'bfg_icons_src', $icon_src );
 
 }
 
-add_action( 'wp_footer', __NAMESPACE__ . '\\inject_script', 1 );
+add_action( 'wp_footer', 'bfg_inject_script', 1 );
 /**
  * Inject a JS script loader function.
  *
@@ -229,11 +227,11 @@ add_action( 'wp_footer', __NAMESPACE__ . '\\inject_script', 1 );
  *
  * @since 20170815
  */
-function inject_script() {
+function bfg_inject_script() {
 
 	?>
 	<script>
-		window.<?php echo SLUG; ?>_inject_script = function( src ) {
+		window.bfg_inject_script = function( src ) {
 			var script = document.createElement('script');
 			script.src = src;
 			script.async = false;
@@ -244,7 +242,7 @@ function inject_script() {
 
 }
 
-add_filter( 'script_loader_tag', __NAMESPACE__ . '\\script_loader_tags', 10, 3);
+add_filter( 'script_loader_tag', 'bfg_script_loader_tags', 10, 3);
 /**
  * Overwrite the <script> tag on selected assets to use the JS loader.
  *
@@ -252,19 +250,19 @@ add_filter( 'script_loader_tag', __NAMESPACE__ . '\\script_loader_tags', 10, 3);
  *
  * @since 20170815
  */
-function script_loader_tags($tag, $handle, $src) {
+function bfg_script_loader_tags($tag, $handle, $src) {
 
-	$tag = \str_replace(" type='text/javascript'", '', $tag);
+	$tag = str_replace(" type='text/javascript'", '', $tag);
 
 	switch( $handle ) {
 		case 'polyfill':
 			// Only load polyfill.js if the browser doesn't meet your requirements
-			return '<script>if( !("fetch" in window) ) { ' . SLUG . '_inject_script("' . $src . '"); }</script>';
+			return '<script>if( !("fetch" in window) ) { bfg_inject_script("' . $src . '"); }</script>';
 		case 'instant.page':
 			// Only load instant.page in modern browsers
-			return '<script>if( "fetch" in window ) { ' . SLUG . '_inject_script("' . $src . '"); }</script>';
-		case SLUG:
-			return '<script>' . SLUG . '_inject_script("' . $src . '");</script>';
+			return '<script>if( "fetch" in window ) { bfg_inject_script("' . $src . '"); }</script>';
+		case 'bfg':
+			return '<script>bfg_inject_script("' . $src . '");</script>';
 	}
 
 	return $tag;
@@ -273,19 +271,19 @@ function script_loader_tags($tag, $handle, $src) {
 
 // Favicons
 remove_action( 'wp_head', 'genesis_load_favicon' );
-// add_filter( 'genesis_pre_load_favicon', __NAMESPACE__ . '\\pre_load_favicon' );
+// add_filter( 'genesis_pre_load_favicon', 'bfg_pre_load_favicon' );
 /**
  * Simple favicon override to specify your favicon's location.
  *
  * @since 2.0.0
  */
-function pre_load_favicon() {
+function bfg_pre_load_favicon() {
 
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
 
 }
 
-// add_action( 'wp_head', __NAMESPACE__ . '\\load_favicons' );
+// add_action( 'wp_head', 'bfg_load_favicons' );
 /**
  * Show the best favicon, within reason.
  *
@@ -293,7 +291,7 @@ function pre_load_favicon() {
  *
  * @since 2.0.4
  */
-function load_favicons() {
+function bfg_load_favicons() {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
 	$favicon_path   = $stylesheet_dir . '/images/favicons';

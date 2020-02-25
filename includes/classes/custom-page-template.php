@@ -1,8 +1,6 @@
 <?php
 
-namespace BFG\CustomTemplateStarter;
-
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Starter class for a custom template template.
@@ -10,7 +8,7 @@ if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 20180728
  */
-class Custom_Page extends \BFG\Abstract_Page_Template {
+class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 	protected $post;
 
 	protected $post_id;
@@ -36,13 +34,13 @@ class Custom_Page extends \BFG\Abstract_Page_Template {
 	}
 }
 
-add_action( 'wp', __NAMESPACE__ . '\\init' );
+add_action( 'wp', 'bfg_init_custom_page' );
 /**
  * Delay template routing until the 'wp' action, so that the WP conditional functions are accessible.
  *
  * @since 20180728
  */
-function init() {
+function bfg_init_custom_page() {
 
 	global $post;
 
@@ -54,6 +52,6 @@ function init() {
 	if( 'page_templates/page_custom.php' !== get_page_template_slug() )
 		return;
 
-	new Custom_Page($post);
+	new BFG_Custom_Page($post);
 
 }

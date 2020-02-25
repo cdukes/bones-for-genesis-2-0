@@ -1,10 +1,8 @@
 <?php
 
-namespace BFG;
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-class Abstract_Page_Template {
+class BFG_Abstract_Page_Template {
 	private function get_value($key, $parent) {
 
 		if( false === $parent ) {
@@ -24,7 +22,7 @@ class Abstract_Page_Template {
 		if( empty($value) )
 			return;
 
-		echo '<' . $tag . '>' . \trim($value) . '</' . $tag . '>';
+		echo '<' . $tag . '>' . trim($value) . '</' . $tag . '>';
 
 	}
 
@@ -46,7 +44,7 @@ class Abstract_Page_Template {
 		if( empty($value) )
 			return;
 
-		echo get_inline_icon($value);
+		echo bfg_get_inline_icon($value);
 
 	}
 
@@ -58,7 +56,7 @@ class Abstract_Page_Template {
 		if( empty($button_text) || empty($button_url) )
 			return;
 
-		echo '<a href="' . esc_url( $button_url ) . '" class="btn">' . \trim( $button_text ) . '</a>';
+		echo '<a href="' . esc_url( $button_url ) . '" class="btn">' . trim( $button_text ) . '</a>';
 
 	}
 
@@ -78,7 +76,7 @@ class Abstract_Page_Template {
 				<?php
 				break;
 			default:
-				if( \function_exists('ipq_get_theme_image') ) {
+				if( function_exists('ipq_get_theme_image') ) {
 					echo ipq_get_theme_image(
 						$image_id,
 						array(

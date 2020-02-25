@@ -84,7 +84,8 @@ return PhpCsFixer\Config::create()
 			'native_constant_invocation'             => true,
 			'native_function_casing'                 => true,
 			'native_function_invocation'             => array(
-				'scope' => 'namespaced',
+				'scope'  => 'namespaced',
+				'strict' => true,
 			),
 			'new_with_braces'                             => true,
 			'no_alias_functions'                          => true,

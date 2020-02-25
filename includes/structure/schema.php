@@ -1,11 +1,9 @@
 <?php
 
-namespace BFG;
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-add_filter( 'genesis_attr_search-form', __NAMESPACE__ . '\\unset_role_attribute' );
-add_filter( 'genesis_attr_sidebar-primary', __NAMESPACE__ . '\\unset_role_attribute' );
+add_filter( 'genesis_attr_search-form', 'bfg_unset_role_attribute' );
+add_filter( 'genesis_attr_sidebar-primary', 'bfg_unset_role_attribute' );
 /**
  * Remove unnecessary role attributes.
  *
@@ -13,7 +11,7 @@ add_filter( 'genesis_attr_sidebar-primary', __NAMESPACE__ . '\\unset_role_attrib
  *
  * See: https://validator.w3.org/
  */
-function unset_role_attribute($attributes) {
+function bfg_unset_role_attribute($attributes) {
 
 	if( isset($attributes['role']) )
 		unset($attributes['role']);

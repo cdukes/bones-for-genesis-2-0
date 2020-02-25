@@ -1,8 +1,6 @@
 <?php
 
-namespace BFG;
-
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
  * Remove the Genesis redirect on theme upgrade
@@ -83,8 +81,8 @@ remove_theme_support( 'genesis-import-export-menu' );
 // add_theme_support(
 // 	'genesis-style-selector',
 // 	array(
-// 		SLUG . '-red' => 'Red',
-// 		SLUG . '-orange' => 'Orange'
+// 		'bfg-red' => 'Red',
+// 		'bfg-orange' => 'Orange'
 // 	)
 // );
 
@@ -132,13 +130,13 @@ remove_theme_support( 'genesis-import-export-menu' );
 // 	)
 // );
 
-// add_action( 'init', __NAMESPACE__ . '\\remove_layout_meta_boxes' );
+// add_action( 'init', 'bfg_remove_layout_meta_boxes' );
 /**
  * Remove the Genesis 'Layout Settings' meta box for posts and/or pages.
  *
  * @since 2.0.0
  */
-function remove_layout_meta_boxes() {
+function bfg_remove_layout_meta_boxes() {
 
 	remove_post_type_support( 'post', 'genesis-layouts' );							// Posts
 	remove_post_type_support( 'page', 'genesis-layouts' );							// Pages
@@ -159,13 +157,13 @@ remove_theme_support( 'genesis-archive-layouts' );
  */
 // remove_action( 'admin_init', 'genesis_add_taxonomy_archive_options' );
 
-// add_action( 'init', __NAMESPACE__ . '\\remove_scripts_meta_boxes' );
+// add_action( 'init', 'bfg_remove_scripts_meta_boxes' );
 /**
  * Remove the Genesis 'Scripts' meta box for posts and/or pages.
  *
  * @since 2.0.12
  */
-function remove_scripts_meta_boxes() {
+function bfg_remove_scripts_meta_boxes() {
 
 	remove_post_type_support( 'post', 'genesis-scripts' );							// Posts
 	remove_post_type_support( 'page', 'genesis-scripts' );							// Pages
@@ -194,8 +192,8 @@ function remove_scripts_meta_boxes() {
  *
  * @since 2.3.33
  */
-// add_action( 'after_setup_theme', 'load_child_theme_textdomain' );
-function load_child_theme_textdomain() {
+// add_action( 'after_setup_theme', 'bfg_load_child_theme_textdomain' );
+function bfg_load_child_theme_textdomain() {
 
 	load_child_theme_textdomain(
 		CHILD_THEME_TEXT_DOMAIN,

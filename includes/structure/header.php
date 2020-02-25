@@ -1,16 +1,14 @@
 <?php
 
-namespace BFG;
+if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( !\defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-add_filter( 'genesis_attr_body', __NAMESPACE__ . '\\ajax_url_attribute' );
+add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
 /**
  * Add the AJAX URL as a `data-*` attribute on `<body>`, instead of an inline script, for better CSP compatibility.
  *
  * @since 2.3.46
  */
-function ajax_url_attribute($atts) {
+function bfg_ajax_url_attribute($atts) {
 
 	$atts['data-ajax_url'] = admin_url( 'admin-ajax.php' );
 
@@ -18,13 +16,13 @@ function ajax_url_attribute($atts) {
 
 }
 
-add_filter( 'body_class', __NAMESPACE__ . '\\no_js_body_class' );
+add_filter( 'body_class', 'bfg_no_js_body_class' );
 /**
  * Add a no-js class to the <body> tag.
  *
  * @since 2.3.51
  */
-function no_js_body_class($classes) {
+function bfg_no_js_body_class($classes) {
 
 	$classes[] = 'no-js';
 	$classes[] = 'no-svg';

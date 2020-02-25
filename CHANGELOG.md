@@ -1,3 +1,8 @@
+## 20200225
+- Revert "Use `namespace`, instead of function prefixes"
+- Use `strict` `native_function_invocation`
+- Default to `fill: currentColor;` on `svg`s
+
 ## 20200212
 - Enable `prefer-const` 
 - Add `display_image()` method to `Abstract_Page_Template`
