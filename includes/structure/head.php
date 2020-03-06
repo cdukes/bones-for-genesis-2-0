@@ -181,8 +181,8 @@ function bfg_load_assets() {
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// instant.page
-	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/2.0.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/2.0.0/instantpage.js';
-	// wp_enqueue_script( 'instant.page', $src, array(), null, true );
+	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/3.0.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/3.0.0/instantpage.js';
+	wp_enqueue_script( 'instant.page', $src, array(), null, true );
 
 	// Use jQuery from a CDN
 	wp_deregister_script( 'jquery' );
@@ -235,6 +235,7 @@ function bfg_inject_script() {
 			var script = document.createElement('script');
 			script.src = src;
 			script.async = false;
+			script.crossOrigin = `anonymous`;
 			document.head.appendChild(script);
 		};
 	</script>

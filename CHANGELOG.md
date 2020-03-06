@@ -1,3 +1,9 @@
+## 20200306
+- Update `eslint.json` rules
+- Clear orphaned user meta, in addition to post meta
+- Update `instant.page` version (load by default)
+- `bfg_inject_script()` with crossOrigin = 'anonymous'`
+
 ## 20200225
 - Revert "Use `namespace`, instead of function prefixes"
 - Use `strict` `native_function_invocation`
