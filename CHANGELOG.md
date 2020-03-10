@@ -1,3 +1,6 @@
+## 20200310
+- Update `eslint.json` rules
+
 ## 20200306
 - Update `eslint.json` rules
 - Clear orphaned user meta, in addition to post meta
