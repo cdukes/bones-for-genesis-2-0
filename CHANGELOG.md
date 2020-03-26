@@ -1,3 +1,6 @@
+## 20200326
+- Add hooks to remove Genesis header/footer scripts (disabled by default)
+
 ## 20200310
 - Update `eslint.json` rules
 

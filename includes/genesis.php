@@ -171,6 +171,15 @@ function bfg_remove_scripts_meta_boxes() {
 }
 
 /**
+ * Remove the Genesis 'Scripts' hooks
+ * WARNING: Removes both scripts added from the post editor, and from the theme customizer.
+ *
+ * @since 20200326
+ */
+// remove_action( 'wp_head', 'genesis_header_scripts' );
+// remove_action( 'wp_footer', 'genesis_footer_scripts' );
+
+/**
  * Remove the Genesis user meta boxes.
  *
  * @since 2.3.30
