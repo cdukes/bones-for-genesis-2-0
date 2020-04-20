@@ -30,7 +30,7 @@
 	pre,
 	blockquote {
 		border: 1px solid #000;
-		page-break-inside: avoid;
+		break-inside: avoid;
 	}
 
 	/*
@@ -44,7 +44,7 @@
 
 	tr,
 	img {
-		page-break-inside: avoid;
+		break-inside: avoid;
 	}
 
 	img {
@@ -68,8 +68,8 @@
 	h4,
 	h5,
 	h6 {
-		page-break-inside: avoid;
-		page-break-after: avoid;
+		break-inside: avoid;
+		break-after: avoid;
 		orphans: 3;
 		widows: 3;
 	}
@@ -98,8 +98,8 @@
 	}
 
 	img {
-		page-break-inside: avoid;
-		page-break-after: avoid;
+		break-inside: avoid;
+		break-after: avoid;
 	}
 
 	.content {
@@ -109,13 +109,13 @@
 	blockquote,
 	pre,
 	table {
-		page-break-inside: avoid;
+		break-inside: avoid;
 	}
 
 	dl,
 	ol,
 	ul {
-		page-break-before: avoid;
+		break-before: avoid;
 	}
 
 	.entry-title,

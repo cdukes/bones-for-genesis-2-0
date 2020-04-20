@@ -27,8 +27,6 @@ add_action( 'pre_ping', 'bfg_disable_self_pings' );
  * See: http://wp-snippets.com/disable-self-trackbacks/
  *
  * @since 2.0.0
- *
- * @param mixed $links
  */
 function bfg_disable_self_pings(&$links) {
 
@@ -51,6 +49,13 @@ function bfg_set_jpeg_quality() {
 	return 80;
 
 }
+
+/**
+ * Disable srcset.
+ *
+ * @since 20200420
+ */
+// add_filter( 'wp_calculate_image_srcset', '__return_false' );
 
 /**
  * Add new image sizes.
@@ -176,5 +181,19 @@ function bfg_allowed_http_origins($allowed_origins) {
 	}
 
 	return $whitelisted_origins;
+
+}
+
+/**
+ * Disable recovery mode emails.
+ *
+ * @since 20200420
+ */
+// add_filter( 'recovery_mode_email', 'bfg_disable_recovery_mode_emails', 10, 2 );
+function bfg_disable_recovery_mode_emails($email, $url) {
+
+	$email['to'] = '';
+
+	return $email;
 
 }

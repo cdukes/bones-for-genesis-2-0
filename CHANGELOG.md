@@ -1,3 +1,10 @@
+## 20200420
+- Use `scroll-margin-top` when admin bar is visible
+- Replace `page-break-*` with `break-*`
+- Add hook to disable `wp_calculate_image_srcset` (disabled by default)
+- Add hook to disable recovery mode emails (disabled by default)
+- Remove customizer favicon UI and hooks
+
 ## 20200326
 - Add hooks to remove Genesis header/footer scripts (disabled by default)
 

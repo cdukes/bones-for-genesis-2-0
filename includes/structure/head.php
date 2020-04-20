@@ -284,7 +284,39 @@ function bfg_pre_load_favicon() {
 
 }
 
+add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
+/**
+ * Remove the site icon customizer field.
+ *
+ * @since 20200420
+ */
+function bfg_remove_site_icon_customizer($wp_customize) {
+
+	$wp_customize->remove_control('site_icon');
+
+}
+
+/*
+ * Remove the site icon <head> display
+ *
+ * @since 20200420
+ */
+remove_action( 'wp_head', 'wp_site_icon', 99 );
+
+/*
+ * Remove the site icon admin <head> display
+ *
+ * @since 20200420
+ */
+add_action( 'admin_head', 'bfg_remove_admin_site_icon', 8 );
+function bfg_remove_admin_site_icon() {
+
+	remove_action( 'admin_head', 'wp_site_icon' );
+
+}
+
 // add_action( 'wp_head', 'bfg_load_favicons' );
+// add_action( 'admin_head', 'bfg_load_favicons' );
 /**
  * Show the best favicon, within reason.
  *
