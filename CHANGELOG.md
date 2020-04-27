@@ -1,3 +1,6 @@
+## 20200427
+- JS syntax fix
+
 ## 20200420
 - Use `scroll-margin-top` when admin bar is visible
 - Replace `page-break-*` with `break-*`

@@ -235,7 +235,7 @@ function bfg_inject_script() {
 			var script = document.createElement('script');
 			script.src = src;
 			script.async = false;
-			script.crossOrigin = `anonymous`;
+			script.crossOrigin = 'anonymous';
 			document.head.appendChild(script);
 		};
 	</script>
