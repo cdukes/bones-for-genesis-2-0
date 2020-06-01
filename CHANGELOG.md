@@ -1,3 +1,6 @@
+## 20200601
+- Disable admin email verification
+
 ## 20200427
 - JS syntax fix
 

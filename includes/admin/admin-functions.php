@@ -197,3 +197,10 @@ function bfg_disable_recovery_mode_emails($email, $url) {
 	return $email;
 
 }
+
+/*
+ * Disable admin email verification
+ *
+ * @since 20200601
+ */
+add_filter( 'admin_email_check_interval', '__return_false' );

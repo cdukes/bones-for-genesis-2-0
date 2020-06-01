@@ -15,8 +15,8 @@ module.exports = (env, argv) => {
 		},
 		output: {
 			path: path.resolve(__dirname, `../build`),
-			filename: `production` === argv.mode ? `js/[name].min.js` : `js/[name].js`,
-			chunkFilename: `production` === argv.mode ? `js/[id].min.js` : `js/[id].js`
+			filename: argv.mode === `production` ? `js/[name].min.js` : `js/[name].js`,
+			chunkFilename: argv.mode === `production` ? `js/[id].min.js` : `js/[id].js`
 		},
 		resolve: {
 			alias: {
@@ -25,7 +25,7 @@ module.exports = (env, argv) => {
 			}
 		},
 		optimization: {
-			minimize: `production` === argv.mode
+			minimize: argv.mode === `production`
 		},
 		plugins: [
 			new VueLoaderPlugin(),
@@ -33,7 +33,7 @@ module.exports = (env, argv) => {
 				moduleFilename: ({ name }) => {
 					const slug = name.replace(`-css`, ``);
 
-					return `production` === argv.mode ? `css/${slug}.min.css` : `css/${slug}.css`;
+					return argv.mode === `production` ? `css/${slug}.min.css` : `css/${slug}.css`;
 				}
 			})
 		],
@@ -72,11 +72,11 @@ module.exports = (env, argv) => {
 			]
 		},
 		node: false,
-		watch: `production` !== argv.mode,
+		watch: argv.mode !== `production`,
 		stats: `errors-warnings`
 	};
 
-	if( `production` === argv.mode ) {
+	if( argv.mode === `production` ) {
 		config.module.rules.push(
 			{
 				test: /\.js$/,
