@@ -1,3 +1,6 @@
+## 20200610
+- Polyfill `URLSearchParams`
+
 ## 20200601
 - Disable admin email verification
 

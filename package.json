@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"@ungap/url-search-params": "*",
 		"brand-colors": "*",
 		"colors-sass": "*",
 		"fitvids": "*",
