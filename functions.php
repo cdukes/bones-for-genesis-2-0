@@ -35,8 +35,6 @@ final class BFG {
 	 */
 	private function define_constants() {
 
-		define( 'CHILD_THEME_NAME', 'Bones for Genesis 2.0' );
-		define( 'CHILD_THEME_URL', 'https://github.com/cdukes/bones-for-genesis-2-0' );
 		define( 'CHILD_THEME_TEXT_DOMAIN', 'bfg' );
 
 		$use_production_assets = get_option('options__bfg_is_production');

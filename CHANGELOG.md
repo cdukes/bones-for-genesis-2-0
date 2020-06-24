@@ -1,3 +1,9 @@
+## 20200624
+- Restrict use of `for...of` JS loops (due to `babel` compile size)
+- Remove unneeded PHP definitions from `functions.php`
+- Remove `smooth-scroll`
+- Use `scroll-behavior: smooth;` by default
+
 ## 20200610
 - Polyfill `URLSearchParams`
 

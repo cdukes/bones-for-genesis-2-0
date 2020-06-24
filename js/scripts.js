@@ -1,4 +1,3 @@
-// import './_scroll.js';
 import './_svgs.js';
 
 // import im from 'include-media-export/include-media.js';

@@ -6,8 +6,7 @@
 		"fitvids": "*",
 		"include-media": "*",
 		"include-media-export": "*",
-		"normalize.css": "*",
-		"smooth-scroll": "*"
+		"normalize.css": "*"
 	},
 	"devDependencies": {
 		"@babel/core": "*",
