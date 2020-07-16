@@ -212,6 +212,7 @@ add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
 function bfg_tinymce_buttons($buttons) {
 
 	$buttons[] = 'wp_page';															// Post pagination
+
 	return $buttons;
 
 }

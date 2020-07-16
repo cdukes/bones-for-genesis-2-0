@@ -88,6 +88,60 @@ function bfg_resource_hints($hints, $relation_type) {
 
 }
 
+/**
+ * Build a list of self-hosted fonts, used to resource hints and inline @font-face style.
+ *
+ * @since 20200716
+ */
+function bfg_get_fonts() {
+
+	// Array key is the name of the file in /fonts/, without an extension
+	// .woff and .woff2 variations should be included in /fonts/
+	// Only enable preload for high priority font variations, such as body text
+
+	return array(
+		'roboto-400' => array(
+			'preload' => false,
+			'family'  => 'Roboto',
+			'style'   => 'normal',
+			'weight'  => 400,
+		),
+	);
+
+}
+
+/**
+ * Inject inline @font-face CSS at the top of <head>.
+ *
+ * @since 20200716
+ */
+// add_action( 'wp_head', 'bfg_inject_fonts', 1 );
+function bfg_inject_fonts() {
+
+	$stylesheet_dir = get_stylesheet_directory_uri();
+
+	?>
+	<style>
+		<?php
+		foreach( bfg_get_fonts() as $slug => $font ) {
+			?>
+			@font-face {
+				font-family: '<?php echo $font['family']; ?>';
+				src: local('<?php echo $font['family']; ?>'),
+					 url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2') format('woff2'),
+					 url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff') format('woff');
+				font-weight: <?php echo $font['weight']; ?>;
+				font-style: <?php echo $font['style']; ?>;
+				font-display: swap;
+			}
+			<?php
+		}
+		?>
+	</style>
+	<?php
+
+}
+
 add_action( 'wp_head', 'bfg_inject_preload', 2 );
 /**
  * Add <link rel="preload">s for queued scripts.
@@ -101,7 +155,8 @@ function bfg_inject_preload() {
 
 	global $wp_scripts, $wp_version;
 
-	$site_url = get_bloginfo( 'url' );
+	$site_url       = get_bloginfo( 'url' );
+	$stylesheet_dir = get_stylesheet_directory_uri();
 
 	$wp_scripts->all_deps( $wp_scripts->queue );
 	foreach( $wp_scripts->to_do as $handle ) {
@@ -143,6 +198,16 @@ function bfg_inject_preload() {
 	?>
 	<link rel="preload" href="<?php echo $href; ?>" as="fetch" crossorigin />
 	<?php
+
+	// Fonts
+	foreach( bfg_get_fonts() as $slug => $font ) {
+		if( !$font['preload'] )
+			continue;
+
+		?>
+		<link rel="preload" href="<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2" as="font" type="font/woff2" crossorigin>
+		<?php
+	}
 
 }
 

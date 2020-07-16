@@ -16,7 +16,7 @@ remove_action( 'genesis_upgrade', 'genesis_upgrade_redirect' );
  *
  * @since 2.0.0
  */
-add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'gallery', 'search-form', 'script', 'style') );
+add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'gallery', 'navigation-widgets', 'search-form', 'script', 'style') );
 
 /*
  * Genesis 2.2 accessibility features

@@ -39,6 +39,28 @@
 	}
 }
 
+@mixin btn {
+	display: inline-block;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.15;
+	cursor: pointer;
+	transition: all .15s ease-in-out;
+
+	appearance: none;
+
+	&:hover {
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
 @mixin type {
 	margin: 0 0 $spacer;
 	line-height: 1.5;

@@ -1,3 +1,8 @@
+## 20200716
+- Add scaffold code for self-hosted fonts (disabled by default)
+- Support WP 5.5 `navigation-widgets` [accessibility](https://make.wordpress.org/core/2020/07/09/accessibility-improvements-to-widgets-outputting-lists-of-links-in-5-5/)
+- Move `.btn` CSS to a mixin
+
 ## 20200624
 - Restrict use of `for...of` JS loops (due to `babel` compile size)
 - Remove unneeded PHP definitions from `functions.php`
