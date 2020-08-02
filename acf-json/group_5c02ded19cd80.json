@@ -3,25 +3,6 @@
     "title": "Site \/\/ Options",
     "fields": [
         {
-            "key": "field_5c02dee4a3360",
-            "label": "Production",
-            "name": "_bfg_is_production",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_5c02def908f0f",
             "label": "Version",
             "name": "_bfg_version",
@@ -60,5 +41,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1543692042
+    "modified": 1596391629
 }

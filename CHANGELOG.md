@@ -1,3 +1,10 @@
+## 20200811
+- Remove `crossorigin` on same-origin assets
+- Update `jQuery` and `instant.page`
+- Support WordPress 5.5 lazy loading images
+- Support `wp_get_environment_type()`
+- Include HSTS example
+
 ## 20200716
 - Add scaffold code for self-hosted fonts (disabled by default)
 - Support WP 5.5 `navigation-widgets` [accessibility](https://make.wordpress.org/core/2020/07/09/accessibility-improvements-to-widgets-outputting-lists-of-links-in-5-5/)

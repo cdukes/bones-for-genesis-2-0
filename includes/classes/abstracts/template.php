@@ -72,7 +72,7 @@ class BFG_Abstract_Page_Template {
 				$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
 				?>
-				<img src="<?php echo wp_get_attachment_url( $image_id ); ?>" alt="<?php echo esc_attr($alt); ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+				<img src="<?php echo wp_get_attachment_url( $image_id ); ?>" alt="<?php echo esc_attr($alt); ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" <?php echo wp_lazy_loading_enabled( 'img', 'wp_get_attachment_image' ) ? 'loading="lazy"' : ''; ?>>
 				<?php
 				break;
 			default:

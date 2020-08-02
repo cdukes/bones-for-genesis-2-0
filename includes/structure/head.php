@@ -42,7 +42,8 @@ function bfg_security_headers() {
 	// May break services that use a referrer check, such as typography.com and Google's APIs
 	// header( 'Referrer-Policy: origin-when-cross-origin' );
 
-	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet (example not included here to avoid accidental activation)
+	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
+	// header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
 
 }
 
@@ -183,7 +184,7 @@ function bfg_inject_preload() {
 		);
 
 		?>
-		<link rel="preload" href="<?php echo $href; ?>" as="script" />
+		<link rel="preload" href="<?php echo $href; ?>" as="script">
 		<?php
 	}
 
@@ -196,7 +197,7 @@ function bfg_inject_preload() {
 	);
 
 	?>
-	<link rel="preload" href="<?php echo $href; ?>" as="fetch" crossorigin />
+	<link rel="preload" href="<?php echo $href; ?>" as="fetch">
 	<?php
 
 	// Fonts
@@ -205,7 +206,7 @@ function bfg_inject_preload() {
 			continue;
 
 		?>
-		<link rel="preload" href="<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2" as="font" type="font/woff2">
 		<?php
 	}
 
@@ -246,12 +247,12 @@ function bfg_load_assets() {
 	wp_register_script( 'polyfill', $src, array(), null, true );
 
 	// instant.page
-	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/3.0.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/3.0.0/instantpage.js';
+	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.js';
 	wp_enqueue_script( 'instant.page', $src, array(), null, true );
 
 	// Use jQuery from a CDN
 	wp_deregister_script( 'jquery' );
-	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js';
+	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js';
 	wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
@@ -300,7 +301,6 @@ function bfg_inject_script() {
 			var script = document.createElement('script');
 			script.src = src;
 			script.async = false;
-			script.crossOrigin = 'anonymous';
 			document.head.appendChild(script);
 		};
 	</script>

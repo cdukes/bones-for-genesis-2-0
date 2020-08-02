@@ -37,8 +37,7 @@ final class BFG {
 
 		define( 'CHILD_THEME_TEXT_DOMAIN', 'bfg' );
 
-		$use_production_assets = get_option('options__bfg_is_production');
-		$use_production_assets = !empty($use_production_assets);
+		$use_production_assets = wp_get_environment_type() === 'production';
 		define( 'BFG_PRODUCTION', $use_production_assets );
 
 		$assets_version = get_option('options__bfg_version');

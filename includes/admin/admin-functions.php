@@ -58,6 +58,13 @@ function bfg_set_jpeg_quality() {
 // add_filter( 'wp_calculate_image_srcset', '__return_false' );
 
 /**
+ * Disable lazy loading.
+ *
+ * @since 20200811
+ */
+// add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+
+/**
  * Add new image sizes.
  *
  * See: http://wptheming.com/2014/04/features-wordpress-3-9/
@@ -204,3 +211,17 @@ function bfg_disable_recovery_mode_emails($email, $url) {
  * @since 20200601
  */
 add_filter( 'admin_email_check_interval', '__return_false' );
+
+/*
+ * Disable auto-update email notifications for plugins.
+ *
+ * @since 20200811
+ */
+add_filter( 'auto_plugin_update_send_email', '__return_false' );
+
+/*
+ * Disable auto-update email notifications for themes.
+ *
+ * @since 20200811
+ */
+add_filter( 'auto_theme_update_send_email', '__return_false' );
