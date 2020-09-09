@@ -69,3 +69,24 @@ function bfg_only_search_posts($query) {
 	}
 
 }
+
+add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2 );
+/**
+ * Make the search form submit a <button>.
+ *
+ * @since 20200826
+ */
+function bfg_search_form_submit($false, $args) {
+
+	ob_start();
+	?>
+	<button
+		type="submit"
+		class="btn"
+	>
+		<?php echo $args['params']['value']; ?>
+	</button>
+	<?php
+	return ob_get_clean();
+
+}

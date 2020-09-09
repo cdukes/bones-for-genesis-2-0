@@ -1,3 +1,7 @@
+## 20200909
+- Update `postcss-loader` config
+- Swap search <input> submit for a <button>
+
 ## 20200811
 - Remove `crossorigin` on same-origin assets
 - Update `jQuery` and `instant.page`
