@@ -8,7 +8,7 @@ textarea {
 	max-width: 100%;
 	width: 100%;
 	border-radius: 0;		 // Removes the border radius on iOS
-	color: $black;
+	color: $text;
 
 	appearance: none;
 }
@@ -37,7 +37,7 @@ textarea {
 
 select {
 	width: 100%;
-	color: $black;
+	color: $text;
 
 	option {
 		color: $black;

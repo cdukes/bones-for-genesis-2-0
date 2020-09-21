@@ -21,6 +21,7 @@
 		"eslint-plugin-vue": "*",
 		"mini-css-extract-plugin": "*",
 		"npm-run-all": "*",
+		"postcss": "*",
 		"postcss-focus": "*",
 		"postcss-loader": "*",
 		"rfs": "*",

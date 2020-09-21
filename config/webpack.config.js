@@ -62,7 +62,21 @@ module.exports = (env, argv) => {
 							loader: `postcss-loader`,
 							options: {
 								postcssOptions: {
-									config: `config/`
+									plugins: [
+										[
+											`postcss-focus`
+										],
+										[
+											`rfs`
+										],
+										[
+											`autoprefixer`,
+											{
+												cascade: true,
+												flexbox: false
+											}
+										]
+									]
 								}
 							}
 						},

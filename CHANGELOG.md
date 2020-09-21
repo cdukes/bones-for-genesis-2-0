@@ -1,3 +1,7 @@
+## 20200921
+- PostCSS 8 updates
+- Add `$text` SCSS variable
+
 ## 20200909
 - Update `postcss-loader` config
 - Swap search <input> submit for a <button>
