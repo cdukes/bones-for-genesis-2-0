@@ -39,14 +39,6 @@ body {
 	}
 }
 
-@include media('>admin-bar') {
-	body {
-		&.admin-bar {
-			scroll-margin-top: 2em;
-		}
-	}
-}
-
 ::selection {
 	// text-shadow: none;
 }

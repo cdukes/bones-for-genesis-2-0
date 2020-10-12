@@ -2,7 +2,7 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class BFG_Abstract_Page_Template {
+abstract class BFG_Abstract_Page_Template {
 	private function get_value($key, $parent) {
 
 		if( false === $parent ) {

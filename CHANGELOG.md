@@ -1,3 +1,9 @@
+## 20201012
+- Update `eslint.json` rules
+- Update `webpack.config.js`
+- Update `php_cs.php` rules
+- Remove `scroll-margin-top`
+
 ## 20200921
 - PostCSS 8 updates
 - Add `$text` SCSS variable
@@ -58,7 +64,7 @@
 - Default to `fill: currentColor;` on `svg`s
 
 ## 20200212
-- Enable `prefer-const` 
+- Enable `prefer-const`
 - Add `display_image()` method to `Abstract_Page_Template`
 - Force `<option>` color
 
@@ -166,7 +172,7 @@
 
 ## 20181230
 - `appearance` CSS
-- Update `.htaccess` 
+- Update `.htaccess`
 - Only run `babel` on `npm run build`
 - Use `system-ui` font value
 
@@ -344,7 +350,7 @@
 
 ## 20171105
 - Refine `ESLint` options
-- Run `ESLint` 
+- Run `ESLint`
 
 ## 20171104
 - Remove `JSHint`
@@ -449,7 +455,7 @@
 ## 2.3.58 (May 16, 2017)
 - Update code to remove recent comments widget styles
 - Add hook to remove the Genesis 'Archive Settings' fields for terms (disabled by default)
- 
+
 ## 2.3.57 (May 5, 2017)
 - Update `visuallyhidden` mixin
 - Update script handling for Genesis 2.5
@@ -463,7 +469,7 @@
 - Set `X-Frame-Options: SAMEORIGIN` header
 
 ## 2.3.55 (March 9, 2017)
-- Set default paragraph styles 
+- Set default paragraph styles
 - Remove `font-smoothing`
 - Add `format-detection` meta
 
@@ -602,7 +608,7 @@
 ## 2.3.30 (April 26, 2016)
 - Add archive SCSS template
 - Enable JS source maps
-- Add `bfg_remove_meta_boxes` - partially disabled by default 
+- Add `bfg_remove_meta_boxes` - partially disabled by default
 - Remove the Genesis user meta boxes - disabled by default
 
 ## 2.3.29 (April 3, 2016)
@@ -636,7 +642,7 @@
 - Use `.form-table` for admin options
 - Disable the 'Open Sans' loaded by the admin bar
 - Add option to remove the Genesis 'Layout Settings' meta box for terms (Disabled by default)
-- Use [include-media](https://github.com/eduardoboucas/include-media) and [include-media-export](https://github.com/eduardoboucas/include-media-export) to unify SCSS and JS breakpoints 
+- Use [include-media](https://github.com/eduardoboucas/include-media) and [include-media-export](https://github.com/eduardoboucas/include-media-export) to unify SCSS and JS breakpoints
 
 ## 2.3.22 (November 22, 2015)
 - CSS tweaks
@@ -665,7 +671,7 @@
 - Accessibility updates for Genesis 2.2
 - Other CSS tweaks
 - Remove Gravity Forms-specific JS + CSS
-- Check for `window.addEventListener` before running `bfg_disable_pointer_events_on_scroll()`, for better IE8 compatibility 
+- Check for `window.addEventListener` before running `bfg_disable_pointer_events_on_scroll()`, for better IE8 compatibility
 - Remove unnecessary role attributes
 
 ## 2.3.16 (August 19, 2015)
@@ -841,7 +847,7 @@
 
 ## 2.2.14 (July 11, 2014)
 - Set all package versions in `package.json` to `*`, so that NPM will download the latest versions, then update the file with that info, on `npm update --save-dev`
-- Set Bower to always pull the latest versions of its dependencies 
+- Set Bower to always pull the latest versions of its dependencies
 - Removed `grunt-svgmin`, since `grunt-contrib-imagemin` now supports SVGs
 - Added `grunt-newer`, so that only changed images will be optimized when Grunt is watching for changes
 - No longer create a `style.prefixed.css` file. Replace `style.css` with the prefixed version

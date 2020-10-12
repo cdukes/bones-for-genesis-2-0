@@ -209,6 +209,7 @@
 		"vue/no-deprecated-slot-scope-attribute": "error",
 		"vue/no-empty-pattern": "error",
 		"vue/no-irregular-whitespace": "error",
+		"vue/no-mutating-props": "off",
 		"vue/no-reserved-component-names": "error",
 		"vue/no-restricted-syntax": "error",
 		"vue/no-static-inline-styles": "error",
