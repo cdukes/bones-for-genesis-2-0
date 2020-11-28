@@ -2,7 +2,6 @@
 	"dependencies": {
 		"@ungap/url-search-params": "*",
 		"brand-colors": "*",
-		"colors-sass": "*",
 		"fitvids": "*",
 		"include-media": "*",
 		"include-media-export": "*",
@@ -47,7 +46,7 @@
 		"build:webpack": "npm run eslint && npm run webpack-production",
 		"build:images": "run-p svg_sprite",
 		"build:php": "php-cs-fixer fix --config=config/php_cs.php .",
-		"build": "run-p build:* -s && npm audit",
+		"build": "run-p build:* -s",
 		"prewatch": "npm run clean -s",
 		"watch:webpack": "npm run webpack-development",
 		"watch:svgs": "watch 'npm run svg_sprite' svgs",

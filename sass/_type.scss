@@ -3,6 +3,16 @@ body {
 	// min-width: $site-width; // Prevents backgrounds on these elements from being truncated on smaller screens on fixed-width sites
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
 html.admin-bar-showing {
 	margin-top: 2em;
 }
@@ -78,5 +88,5 @@ hr {
 	margin: $spacer 0;
 	border: none;
 	border-collapse: collapse;
-	border-top: 1px solid $grey;
+	border-top: 1px solid palette(grey, 'light');
 }

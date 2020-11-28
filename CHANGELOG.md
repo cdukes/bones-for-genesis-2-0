@@ -1,3 +1,8 @@
+## 20201128
+- Disable `fitvids` by default
+- Remove `colors-sass`
+- Disable `npm audit`
+
 ## 20201012
 - Update `eslint.json` rules
 - Update `webpack.config.js`

@@ -14,10 +14,9 @@ $breakpoints: ( zero: (1 * 16px), phone: (35 * 16px), portrait: (48 * 16px), adm
 COLORS
 *********************/
 @import '~brand-colors/dist/latest/scss/brand-colors.latest.scss';
-@import '~colors-sass/sass/variables';
 
-$grey: $gray;
 $black: #000;
+$white: #fff;
 $text: $black;
 
 // https://news.ycombinator.com/item?id=18422086
@@ -33,7 +32,7 @@ $palettes: (
 	@return map-get(map-get($palettes, $palette), $tone);
 }
 
-// Usage: palette(grey, "light");
+// Usage: palette(grey, 'light');
 
 /*********************
 TYPOGRAPHY - http://cssfontstack.com/
