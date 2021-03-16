@@ -191,12 +191,12 @@ function bfg_allowed_http_origins($allowed_origins) {
 
 }
 
-/**
+/*
  * Disable recovery mode emails.
  *
  * @since 20200420
  */
-// add_filter( 'recovery_mode_email', 'bfg_disable_recovery_mode_emails', 10, 2 );
+add_filter( 'recovery_mode_email', 'bfg_disable_recovery_mode_emails', 10, 2 );
 function bfg_disable_recovery_mode_emails($email, $url) {
 
 	$email['to'] = '';

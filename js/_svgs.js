@@ -11,8 +11,7 @@ import { load_script } from 'loader';
 		div.innerHTML = `<svg/>`;
 		return (
 			(typeof SVGRect !== `undefined` &&
-				div.firstChild &&
-				div.firstChild.namespaceURI) === `http://www.w3.org/2000/svg`
+				div.firstChild?.namespaceURI) === `http://www.w3.org/2000/svg`
 		);
 	}
 

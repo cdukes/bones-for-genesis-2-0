@@ -1,3 +1,7 @@
+## 20210316
+- Update `favicon` requirements
+- Enable `bfg_disable_recovery_mode_emails()` by default
+
 ## 20201128
 - Disable `fitvids` by default
 - Remove `colors-sass`

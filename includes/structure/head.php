@@ -385,7 +385,7 @@ function bfg_remove_admin_site_icon() {
 /**
  * Show the best favicon, within reason.
  *
- * See: http://www.jonathantneal.com/blog/understand-the-favicon/
+ * See: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
  *
  * @since 2.0.4
  */
@@ -393,9 +393,6 @@ function bfg_load_favicons() {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
 	$favicon_path   = $stylesheet_dir . '/images/favicons';
-
-	// Set to false to disable, otherwise set to a hex color
-	$color = false;
 
 	// Use an SVG if supported
 	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg" sizes="512x512">';
@@ -405,19 +402,5 @@ function bfg_load_favicons() {
 
 	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
 	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_path . '/favicon-180.png">';
-
-	// Use a 144px X 144px PNG for Windows tablets
-	echo '<meta name="msapplication-TileImage" content="' . $favicon_path . '/favicon-144.png">';
-
-	if( false !== $color ) {
-		// Windows icon background color
-		echo '<meta name="msapplication-TileColor" content="' . $color . '">';
-
-		// Chrome for Android taskbar color
-		echo '<meta name="theme-color" content="' . $color . '">';
-
-		// Safari 9 pinned tab color
-		echo '<link rel="mask-icon" href="' . $favicon_path . '/favicon.svg" color="' . $color . '">';
-	}
 
 }
