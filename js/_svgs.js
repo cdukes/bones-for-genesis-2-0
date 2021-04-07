@@ -1,6 +1,6 @@
 /* eslint compat/compat:0 */
 
-/* globals bfg_icons_src */
+/* globals bfg_icons */
 
 import { load_script } from 'loader';
 
@@ -20,7 +20,7 @@ import { load_script } from 'loader';
 			return;
 		}
 
-		fetch(bfg_icons_src)
+		fetch(bfg_icons.src)
 			.then(response => {
 				if (response.status !== 200) {
 					throw Error(`File not found`);

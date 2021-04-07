@@ -1,3 +1,8 @@
+## 20210407
+- Fix `wp_localize_script()` usage for WP 5.7
+- Add `--cache` to `eslint`
+- Require `input[type="submit"]` on search form
+
 ## 20210316
 - Update `favicon` requirements
 - Enable `bfg_disable_recovery_mode_emails()` by default

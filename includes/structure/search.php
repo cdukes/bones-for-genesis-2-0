@@ -70,6 +70,20 @@ function bfg_only_search_posts($query) {
 
 }
 
+add_filter( 'genesis_attr_search-form-input', 'bfg_search_form_input', 10, 3 );
+/**
+ * Make the search form input required, to prevent accidental empty search submits.
+ *
+ * @since 20210407
+ */
+function bfg_search_form_input($attributes, $context, $args) {
+
+	$attributes['required'] = true;
+
+	return $attributes;
+
+}
+
 add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2 );
 /**
  * Make the search form submit a <button>.

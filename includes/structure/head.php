@@ -281,7 +281,13 @@ function bfg_load_assets() {
 		$stylesheet_dir . '/build/svgs/icons.svg'
 	);
 
-	wp_localize_script( 'bfg', 'bfg_icons_src', $icon_src );
+	wp_localize_script(
+		'bfg',
+		'bfg_icons',
+		array(
+			'src' => $icon_src,
+		)
+	);
 
 }
 
