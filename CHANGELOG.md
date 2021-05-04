@@ -1,3 +1,7 @@
+## 20210504
+- Update `PHP-CS-Fixer` options (v3)
+- Add `crossorigin="anonymous"` to icons prefetch
+
 ## 20210407
 - Fix `wp_localize_script()` usage for WP 5.7
 - Add `--cache` to `eslint`

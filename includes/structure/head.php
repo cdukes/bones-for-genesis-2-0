@@ -162,7 +162,7 @@ function bfg_inject_preload() {
 	$wp_scripts->all_deps( $wp_scripts->queue );
 	foreach( $wp_scripts->to_do as $handle ) {
 		// Don't preload polyfill, since it's unlikely to be needed on modern browsers
-		if( 'polyfill' === $handle )
+		if( $handle === 'polyfill' )
 			continue;
 
 		$script = $wp_scripts->registered[$handle];
@@ -197,7 +197,7 @@ function bfg_inject_preload() {
 	);
 
 	?>
-	<link rel="preload" href="<?php echo $href; ?>" as="fetch">
+	<link rel="preload" href="<?php echo $href; ?>" as="fetch" crossorigin="anonymous">
 	<?php
 
 	// Fonts

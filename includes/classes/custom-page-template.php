@@ -49,7 +49,7 @@ function bfg_init_custom_page() {
 		return;
 
 	// Stop if not the target page template
-	if( 'page_templates/page_custom.php' !== get_page_template_slug() )
+	if( get_page_template_slug() !== 'page_templates/page_custom.php' )
 		return;
 
 	new BFG_Custom_Page($post);

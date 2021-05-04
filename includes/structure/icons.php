@@ -17,7 +17,7 @@ function bfg_populate_acf_icon_options($field) {
 
 	// Skip if ACF edit screen
 	$screen = get_current_screen();
-	if( !empty($screen->id) && 'acf-field-group' === $screen->id )
+	if( !empty($screen->id) && $screen->id === 'acf-field-group' )
 		return $field;
 
 	$path = CHILD_DIR . '/build/svgs/icons.svg';

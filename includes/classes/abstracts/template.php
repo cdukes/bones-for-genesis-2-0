@@ -5,7 +5,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 abstract class BFG_Abstract_Page_Template {
 	private function get_value($key, $parent) {
 
-		if( false === $parent ) {
+		if( $parent === false ) {
 			$value = get_post_meta( $this->post_id, $key, true );
 		} else {
 			$value = $parent[$key];

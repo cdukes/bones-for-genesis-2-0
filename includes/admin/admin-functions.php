@@ -31,7 +31,7 @@ add_action( 'pre_ping', 'bfg_disable_self_pings' );
 function bfg_disable_self_pings(&$links) {
 
 	foreach ( $links as $l => $link )
-		if ( 0 === mb_strpos( $link, home_url() ) )
+		if ( mb_strpos( $link, home_url() ) === 0 )
 			unset($links[$l]);
 
 }
@@ -181,7 +181,7 @@ function bfg_allowed_http_origins($allowed_origins) {
 	$whitelisted_origins = array();
 	foreach( $allowed_origins as $origin ) {
 		$url = parse_url($origin);
-		if( 'https' !== $url['scheme'] )
+		if( $url['scheme'] !== 'https' )
 			continue;
 
 		$whitelisted_origins[] = $origin;
