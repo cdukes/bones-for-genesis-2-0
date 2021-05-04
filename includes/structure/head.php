@@ -206,7 +206,7 @@ function bfg_inject_preload() {
 			continue;
 
 		?>
-		<link rel="preload" href="<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2" as="font" type="font/woff2">
+		<link rel="preload" href="<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<?php
 	}
 

@@ -118,7 +118,7 @@ return $config
 			'function_typehint_space'                          => true,
 			'implode_call'                                     => true,
 			'lambda_not_used_import'                           => true,
-			'method_argument_space'                            => true,
+			'method_argument_space'                            => array('on_multiline' => 'ignore'),
 			'native_function_invocation'                       => array('scope' => 'namespaced'),
 			'no_spaces_after_function_name'                    => true,
 			'no_unreachable_default_argument_value'            => true,
