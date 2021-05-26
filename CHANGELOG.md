@@ -1,3 +1,7 @@
+## 20210526
+- Use SASS `math.div`
+- Set default `serif` fonts
+
 ## 20210504
 - Update `PHP-CS-Fixer` options (v3)
 - Add `crossorigin="anonymous"` to icons prefetch

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 embed,
 iframe,
 img,
@@ -97,7 +99,7 @@ $columns: 0;
 	$columns: $columns + 1;
 	.gallery-columns-#{$columns} {
 		.gallery-item {
-			width: (100% / $columns);
+			width: math.div(100%, $columns);
 
 			&:nth-child(#{$columns}n+1) {
 				clear: left;
