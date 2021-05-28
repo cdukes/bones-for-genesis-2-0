@@ -19,7 +19,7 @@ function bfg_gallery_style($css) {
  *
  * @since 2.2.5
  */
-// add_post_type_support( 'page', 'excerpt' );
+add_post_type_support( 'page', 'excerpt' );
 
 /*
  * Allow pages to have <footer>s.
@@ -113,13 +113,6 @@ function bfg_next_link_text($text) {
 	return ' ' . html_entity_decode('&#10217;');
 
 }
-
-/*
- * Remove the post title
- *
- * @since 2.0.9
- */
-// remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 
 /*
  * Remove the post edit links (maybe you just want to use the admin bar)

@@ -41,23 +41,6 @@ function bfg_customizer_theme_settings_config($config) {
 
 }
 
-add_filter( 'genesis_theme_settings_defaults', 'bfg_theme_settings_defaults' );
-/**
- * Set default values for custom theme options.
- *
- * @since 2.3.0
- */
-function bfg_theme_settings_defaults($defaults) {
-
-	$defaults['content_archive']           = 'excerpts';
-	$defaults['content_archive_thumbnail'] = 1;
-	$defaults['image_size']                = 'thumbnail';
-	$defaults['trackbacks_posts']          = 0;
-
-	return $defaults;
-
-}
-
 /*
  * Add ACF site options admin menu
  *

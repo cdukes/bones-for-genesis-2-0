@@ -34,15 +34,11 @@ html {
 @import 'header';
 @import 'navigation';
 @import 'content';
-@import 'comments';
 @import 'sidebars';
 @import 'footer';
 
 // Templates
 @import 'archives';
-
-// Print
-@import 'print';
 
 // Shame - For new style snippets that haven't been sorted and commented yet
 @import 'shame';

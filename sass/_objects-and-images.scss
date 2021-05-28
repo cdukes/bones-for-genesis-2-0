@@ -13,14 +13,6 @@ img {
 	height: auto;
 }
 
-// Remove the gap between images, videos, audio and canvas and the bottom of their containers: h5bp.com/i/440
-audio,
-canvas,
-img,
-video {
-	vertical-align: middle;
-}
-
 figure {
 	margin: 0;
 }
@@ -83,27 +75,4 @@ img.alignright,
 .wp-playlist,
 .wp-video {
 	margin: 0 0 $spacer;
-}
-
-.gallery {
-	overflow: hidden;
-}
-
-.gallery-item {
-	float: left;
-	margin: 0 0 $spacer;
-}
-
-$columns: 0;
-@while $columns <= 9 {
-	$columns: $columns + 1;
-	.gallery-columns-#{$columns} {
-		.gallery-item {
-			width: math.div(100%, $columns);
-
-			&:nth-child(#{$columns}n+1) {
-				clear: left;
-			}
-		}
-	}
 }

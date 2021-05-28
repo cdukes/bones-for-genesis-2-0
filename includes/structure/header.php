@@ -25,7 +25,6 @@ add_filter( 'body_class', 'bfg_no_js_body_class' );
 function bfg_no_js_body_class($classes) {
 
 	$classes[] = 'no-js';
-	$classes[] = 'no-svg';
 
 	return $classes;
 

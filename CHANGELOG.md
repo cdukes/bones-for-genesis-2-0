@@ -1,3 +1,26 @@
+## 20210528
+- Remove unused functions
+    - `bfg_redirect_single_search_result()`
+    - `bfg_only_search_posts()`
+    - `bfg_theme_settings_defaults()`
+    - `bfg_disable_self_pings()`
+    - `bfg_set_jpeg_quality()`
+    - `bfg_image_size_names_choose()`
+    - `bfg_remove_xmlrpc_pingback_ping()`
+- Remove unused boilerplate code
+- Remove `IE11` support
+    - Remove polyfills
+    - Remove `babel`
+    - Remove `format-detection`
+    - Remove script loader
+- Remove browser-specific CSS
+- Remove unused CSS
+- Deregister `jquery` by default
+- Remove nav menu item IDs by default
+- Add excerpts to pages by default
+- Embed SVGs directly in HTML
+- Only suppress errors if `WP_DEBUG` isn't set
+
 ## 20210526
 - Use SASS `math.div`
 - Set default `serif` fonts

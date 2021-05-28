@@ -15,7 +15,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 201909112.3.31
  */
-// add_filter( 'nav_menu_item_id', '__return_false' );
+add_filter( 'nav_menu_item_id', '__return_false' );
 
 /*
  * Limit menu depth

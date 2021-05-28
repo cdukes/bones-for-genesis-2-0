@@ -20,8 +20,7 @@ module.exports = (env, argv) => {
 		},
 		resolve: {
 			alias: {
-				ajax$: path.resolve(__dirname, `../js/_partials/_ajax.js`),
-				loader$: path.resolve(__dirname, `../js/_partials/_loader.js`)
+				ajax$: path.resolve(__dirname, `../js/_partials/_ajax.js`)
 			}
 		},
 		optimization: {
@@ -89,21 +88,6 @@ module.exports = (env, argv) => {
 		watch: argv.mode !== `production`,
 		stats: `errors-warnings`
 	};
-
-	if( argv.mode === `production` ) {
-		config.module.rules.push(
-			{
-				test: /\.js$/,
-				exclude: /(node_modules|admin)/,
-				use: {
-					loader: `babel-loader`,
-					options: {
-						presets: [`@babel/preset-env`]
-					}
-				}
-			}
-		);
-	}
 
 	return config;
 };

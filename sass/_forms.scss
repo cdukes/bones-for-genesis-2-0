@@ -7,27 +7,9 @@ input[type='number'],
 textarea {
 	max-width: 100%;
 	width: 100%;
-	border-radius: 0;		 // Removes the border radius on iOS
 	color: $text;
 
 	appearance: none;
-}
-
-// Hide the spinner on input[type="number"] in Firefox
-input[type='number'] {
-	// -moz-appearance:textfield;
-}
-
-// Hide the spinner on input[type="number"] in Chrome/Safari
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	// -webkit-appearance: none;
-}
-
-// Hide the search clear button in Chrome/Safari
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-results-button {
-	// display: none;
 }
 
 textarea {
@@ -46,18 +28,10 @@ select {
 
 ::placeholder {
 	text-overflow: ellipsis;
-	opacity: 1; // For consistency in Firefox
 }
 
 input[type='search'] {
 	box-sizing: border-box; // Overrides normalize.css
-
-	// Remove IE clear button
-	&::-ms-clear {
-		display: none;
-		width: 0;
-		height: 0;
-	}
 }
 
 .search-form,

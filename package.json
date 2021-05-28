@@ -1,6 +1,5 @@
 {
 	"dependencies": {
-		"@ungap/url-search-params": "*",
 		"brand-colors": "*",
 		"fitvids": "*",
 		"include-media": "*",
@@ -8,11 +7,7 @@
 		"normalize.css": "*"
 	},
 	"devDependencies": {
-		"@babel/core": "*",
-		"@babel/preset-env": "*",
 		"autoprefixer": "*",
-		"babel-eslint": "*",
-		"babel-loader": "*",
 		"css-loader": "*",
 		"csscomb": "*",
 		"eslint": "*",
@@ -53,6 +48,7 @@
 		"watch": "run-p watch:* -s"
 	},
 	"browserslist": [
-		"defaults"
+		">1%",
+		"not op_mini all"
 	]
 }

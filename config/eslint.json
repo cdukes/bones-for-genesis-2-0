@@ -232,8 +232,10 @@
 		"yoda": "error"
 	},
 	"parserOptions": {
-		"parser": "babel-eslint",
-		"ecmaVersion": 10,
+		"env": {
+            "browser": true,
+            "es2021": true
+        },
 		"sourceType": "module"
 	}
 }

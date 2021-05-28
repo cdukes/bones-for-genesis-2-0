@@ -63,7 +63,6 @@ function bfg_doctype() {
 	<html class="<?php echo is_admin_bar_showing() ? 'admin-bar-showing' : ''; ?>" <?php language_attributes( 'html' ); ?>>
 	<head <?php echo genesis_attr( 'head' ); ?>>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="format-detection" content="telephone=no">
 	<?php
 
 }
@@ -79,7 +78,6 @@ add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 function bfg_resource_hints($hints, $relation_type) {
 
 	if( in_array($relation_type, array('dns-prefetch', 'preconnect'), true) ) {
-		// $hints[] = 'https://cdn.polyfill.io';
 		$hints[] = 'https://cdnjs.cloudflare.com';
 		// $hints[] = 'https://fonts.googleapis.com';
 		// $hints[] = 'https://fonts.gstatic.com';
@@ -147,9 +145,6 @@ add_action( 'wp_head', 'bfg_inject_preload', 2 );
 /**
  * Add <link rel="preload">s for queued scripts.
  *
- * Don't preload the polyfill script, since there's little overlap
- * between browsers that need it and that support preload
- *
  * @since 20190301
  */
 function bfg_inject_preload() {
@@ -161,10 +156,6 @@ function bfg_inject_preload() {
 
 	$wp_scripts->all_deps( $wp_scripts->queue );
 	foreach( $wp_scripts->to_do as $handle ) {
-		// Don't preload polyfill, since it's unlikely to be needed on modern browsers
-		if( $handle === 'polyfill' )
-			continue;
-
 		$script = $wp_scripts->registered[$handle];
 
 		$ver = null;
@@ -187,18 +178,6 @@ function bfg_inject_preload() {
 		<link rel="preload" href="<?php echo $href; ?>" as="script">
 		<?php
 	}
-
-	// Preload icons.svg as `fetch`, since it's loaded via JS
-	$href = add_query_arg(
-		array(
-			'v' => BFG_VERSION,
-		),
-		get_stylesheet_directory_uri() . '/build/svgs/icons.svg'
-	);
-
-	?>
-	<link rel="preload" href="<?php echo $href; ?>" as="fetch" crossorigin="anonymous">
-	<?php
 
 	// Fonts
 	foreach( bfg_get_fonts() as $slug => $font ) {
@@ -233,19 +212,6 @@ function bfg_load_assets() {
 	$src = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), BFG_VERSION );
 
-	// Google Fonts
-	// Consider async loading: https://github.com/typekit/webfontloader
-	// wp_enqueue_style(
-	// 	'google-fonts',
-	// 	'https://fonts.googleapis.com/css?display=swap&family=Open+Sans:300,400,700%7CLato',		// Open Sans (light, normal, and bold) and Lato regular, for example
-	// 	array(),
-	// 	null
-	// );
-
-	// Register polyfill.io with default options
-	$src = BFG_PRODUCTION ? 'https://polyfill.io/v3/polyfill.min.js?features=default%2Cfetch' : 'https://polyfill.io/v3/polyfill.js?features=default%2Cfetch';
-	wp_register_script( 'polyfill', $src, array(), null, true );
-
 	// instant.page
 	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.js';
 	wp_enqueue_script( 'instant.page', $src, array(), null, true );
@@ -253,7 +219,7 @@ function bfg_load_assets() {
 	// Use jQuery from a CDN
 	wp_deregister_script( 'jquery' );
 	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js';
-	wp_register_script( 'jquery', $src, array(), null, false );
+	// wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
 	wp_dequeue_script( 'html5shiv' );
@@ -263,31 +229,7 @@ function bfg_load_assets() {
 
 	// Main script file (in footer)
 	$src = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array('polyfill'), BFG_VERSION, true );
-
-	// Add scripts which can be used by the _loader.js module here
-	$on_demand_script_srcs = array(
-		'svgxuse' => array(
-			'src' => BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.js',
-			'sri' => BFG_PRODUCTION ? 'sha256-+xblFIDxgSu6OfR6TdLhVHZzVrhw8eXiVk8PRi9ACY8=' : 'sha256-TU+njGBu7T1DrfKgOBEH7kCKsl7UEvUNzpZaeUNNGi8=',
-		),
-	);
-	wp_localize_script( 'bfg', 'bfg_script_srcs', $on_demand_script_srcs );
-
-	$icon_src = add_query_arg(
-		array(
-			'v' => BFG_VERSION,
-		),
-		$stylesheet_dir . '/build/svgs/icons.svg'
-	);
-
-	wp_localize_script(
-		'bfg',
-		'bfg_icons',
-		array(
-			'src' => $icon_src,
-		)
-	);
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), BFG_VERSION, true );
 
 }
 
@@ -327,9 +269,6 @@ function bfg_script_loader_tags($tag, $handle, $src) {
 	$tag = str_replace(" type='text/javascript'", '', $tag);
 
 	switch( $handle ) {
-		case 'polyfill':
-			// Only load polyfill.js if the browser doesn't meet your requirements
-			return '<script>if( !("fetch" in window) ) { bfg_inject_script("' . $src . '"); }</script>';
 		case 'instant.page':
 			// Only load instant.page in modern browsers
 			return '<script>if( "fetch" in window ) { bfg_inject_script("' . $src . '"); }</script>';
