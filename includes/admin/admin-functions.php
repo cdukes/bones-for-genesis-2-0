@@ -12,11 +12,13 @@ function bfg_load_admin_assets() {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
-	$src = BFG_PRODUCTION ? '/build/css/admin.min.css' : '/build/css/admin.css';
-	wp_enqueue_style( 'bfg-admin', $stylesheet_dir . $src, array(), BFG_VERSION );
+	$src     = BFG_PRODUCTION ? '/build/css/admin.min.css' : '/build/css/admin.css';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	wp_enqueue_style( 'bfg-admin', $stylesheet_dir . $src, array(), $version );
 
-	$src = BFG_PRODUCTION ? '/build/js/admin.min.js' : '/build/js/admin.js';
-	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array('jquery'), BFG_VERSION, true );
+	$src     = BFG_PRODUCTION ? '/build/js/admin.min.js' : '/build/js/admin.js';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array('jquery'), $version, true );
 
 }
 

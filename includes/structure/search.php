@@ -64,3 +64,21 @@ function bfg_search_form_submit($false, $args) {
 	return ob_get_clean();
 
 }
+
+add_action( 'do_robots', 'bfg_block_bots_from_search' );
+/**
+ * Block bots from crawling robots.txt
+ *
+ * See: https://www.relevanssi.com/knowledge-base/spam-search-blocking/
+ *
+ * @since 20210702
+ */
+function rlv_block_botbfg_block_bots_from_searchs_robots_txt() {
+
+	?>
+User-agent: *
+Disallow: /search/
+Disallow: /?s=
+	<?php
+
+}

@@ -20,17 +20,21 @@ function bfg_populate_acf_icon_options($field) {
 	if( !empty($screen->id) && $screen->id === 'acf-field-group' )
 		return $field;
 
-	$path = CHILD_DIR . '/build/svgs/icons.svg';
-	if( !file_exists( $path ) )
+	$path = CHILD_DIR . '/svgs/';
+	if( !file_exists($path) )
 		return $field;
 
-	$css = file_get_contents($path);
-	preg_match_all( '/id="icon-(.+?)"/', $css, $matches );
+	$files = scandir($path);
+	foreach( $files as $file ) {
+		$parts = pathinfo($file);
+		if( empty($parts['extension']) )
+			continue;
 
-	if( empty($matches[1]) )
-		return $field;
+		if( $parts['extension'] !== 'svg' )
+			continue;
 
-	foreach( $matches[1] as $slug ) {
+		$slug = $parts['filename'];
+
 		$label                   = str_replace('-', ' ', $slug);
 		$label                   = ucwords($label);
 		$field['choices'][$slug] = $label;

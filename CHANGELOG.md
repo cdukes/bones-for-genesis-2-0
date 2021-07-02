@@ -1,3 +1,13 @@
+## 20210702
+- Remove `animation: fadein 1s;`
+- Pin `vue` to version `2`
+- Use `filemtime` for asset versioning
+- Block robots from search
+- Remove `bfg_inject_script()`. Use `defer` instead
+- Remove `svg-sprite`
+- Remove `eslint-plugin-compat`
+- Remove `postcss-focus`
+
 ## 20210528
 - Remove unused functions
     - `bfg_redirect_single_search_result()`

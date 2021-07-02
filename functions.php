@@ -40,10 +40,6 @@ final class BFG {
 		$use_production_assets = wp_get_environment_type() === 'production';
 		define( 'BFG_PRODUCTION', $use_production_assets );
 
-		$assets_version = get_option('options__bfg_version');
-		$assets_version = !empty($assets_version) ? absint($assets_version) : null;
-		define( 'BFG_VERSION', $assets_version );
-
 		// Never show errors on production
 		// https://stackoverflow.com/questions/9242903/php-hide-all-errors
 		if( BFG_PRODUCTION && !defined('WP_DEBUG') ) {

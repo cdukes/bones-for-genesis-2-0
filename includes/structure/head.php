@@ -209,8 +209,9 @@ function bfg_load_assets() {
 	wp_dequeue_style( 'wp-block-library' );
 
 	// Main theme stylesheet
-	$src = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
-	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), BFG_VERSION );
+	$src     = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $version );
 
 	// instant.page
 	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.js';
@@ -228,31 +229,9 @@ function bfg_load_assets() {
 	wp_dequeue_script( 'superfish-args' );
 
 	// Main script file (in footer)
-	$src = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), BFG_VERSION, true );
-
-}
-
-add_action( 'wp_footer', 'bfg_inject_script', 1 );
-/**
- * Inject a JS script loader function.
- *
- * See: https://www.html5rocks.com/en/tutorials/speed/script-loading/
- *
- * @since 20170815
- */
-function bfg_inject_script() {
-
-	?>
-	<script>
-		window.bfg_inject_script = function( src ) {
-			var script = document.createElement('script');
-			script.src = src;
-			script.async = false;
-			document.head.appendChild(script);
-		};
-	</script>
-	<?php
+	$src     = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, true );
 
 }
 
@@ -266,14 +245,12 @@ add_filter( 'script_loader_tag', 'bfg_script_loader_tags', 10, 3);
  */
 function bfg_script_loader_tags($tag, $handle, $src) {
 
-	$tag = str_replace(" type='text/javascript'", '', $tag);
-
 	switch( $handle ) {
 		case 'instant.page':
-			// Only load instant.page in modern browsers
-			return '<script>if( "fetch" in window ) { bfg_inject_script("' . $src . '"); }</script>';
 		case 'bfg':
-			return '<script>bfg_inject_script("' . $src . '");</script>';
+			$tag = str_replace('<script ', '<script defer ', $tag);
+
+			return $tag;
 	}
 
 	return $tag;

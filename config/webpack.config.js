@@ -63,9 +63,6 @@ module.exports = (env, argv) => {
 								postcssOptions: {
 									plugins: [
 										[
-											`postcss-focus`
-										],
-										[
 											`rfs`
 										],
 										[

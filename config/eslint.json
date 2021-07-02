@@ -2,7 +2,6 @@
 	"env": {
 		"browser": true
 	},
-	"plugins": ["compat"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:vue/recommended"
@@ -23,7 +22,6 @@
 		"comma-dangle": "error",
 		"comma-spacing": "error",
 		"comma-style": "error",
-		"compat/compat": "error",
 		"computed-property-spacing": "error",
 		"consistent-this": ["error", "self"],
 		"curly": "error",

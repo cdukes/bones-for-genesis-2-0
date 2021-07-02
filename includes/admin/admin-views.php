@@ -169,10 +169,12 @@ function bfg_add_editor_style() {
  */
 function bfg_add_tinymce_plugins($plugin_array) {
 
-	$src = BFG_PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
+	$src     = BFG_PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+
 	$src = add_query_arg(
 		array(
-			'ver' => BFG_VERSION,
+			'ver' => $version,
 		),
 		$src
 	);
