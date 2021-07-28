@@ -78,6 +78,18 @@ function bfg_gform_filter_submit_button_tag($button_input, $form) {
 
 }
 
+// add_filter( 'gform_form_validation_errors_markup', 'bfg_gform_form_validation_errors_markup', 10, 2 );
+/*
+ * Replace validation errors <h2> with <p>
+ *
+ * @since 20210728
+ */
+function bfg_gform_form_validation_errors_markup($html, $form) {
+
+	return str_replace('h2', 'p', $html);
+
+}
+
 /*
  * Remove Gravity Forms inline <script> tags. To remove all GF JS, remove the submit JS in 'bfg_gform_filter_submit_button_tag' and consider deregistering jQuery
  *

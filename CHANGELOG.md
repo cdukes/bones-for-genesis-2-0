@@ -1,3 +1,9 @@
+## 20210728
+- HTML fix on `<svg>` icons
+- Replace Gravity Forms alidation errors <h2> with <p> (disabled by default)
+- Remove `clearfix` on site containers
+- Add `webP` support (disabled by default)
+
 ## 20210702
 - Remove `animation: fadein 1s;`
 - Pin `vue` to version `2`

@@ -59,7 +59,7 @@ function bfg_get_inline_icon($slug) {
 
 	$svg = file_get_contents($path);
 
-	return str_replace( '<svg ', '<svg class="icon icon-' . $slug . '"', $svg );
+	return str_replace( '<svg ', '<svg class="icon icon-' . $slug . '" ', $svg );
 
 }
 

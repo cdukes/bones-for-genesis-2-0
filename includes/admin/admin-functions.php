@@ -22,6 +22,20 @@ function bfg_load_admin_assets() {
 
 }
 
+add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
+/*
+ * Use webP images
+ *
+ * @since 20210728
+ */
+function bfg_image_editor_output_format($formats) {
+
+	$formats['image/jpg'] = 'image/webp';
+
+	return $formats;
+
+}
+
 // add_filter( 'upload_mimes', 'bfg_enable_svg_uploads', 10, 1 );
 /**
  * Enabled SVG uploads. Note that this could be a security issue, see: https://bjornjohansen.no/svg-in-wordpress.
