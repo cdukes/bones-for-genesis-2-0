@@ -1,10 +1,10 @@
 /* globals module, require, __dirname */
 
-const path = require(`path`),
-	{ VueLoaderPlugin } = require(`vue-loader`),
-	MiniCssExtractPlugin = require(`mini-css-extract-plugin`);
+const path = require( `path` ),
+	{ VueLoaderPlugin } = require( `vue-loader` ),
+	MiniCssExtractPlugin = require( `mini-css-extract-plugin` );
 
-module.exports = (env, argv) => {
+module.exports = ( env, argv ) => {
 	const config = {
 		entry: {
 			scripts: `./js/scripts.js`,
@@ -14,13 +14,13 @@ module.exports = (env, argv) => {
 			'admin-css': `./sass/admin.scss`
 		},
 		output: {
-			path: path.resolve(__dirname, `../build`),
+			path: path.resolve( __dirname, `../build` ),
 			filename: argv.mode === `production` ? `js/[name].min.js` : `js/[name].js`,
 			chunkFilename: argv.mode === `production` ? `js/[id].min.js` : `js/[id].js`
 		},
 		resolve: {
 			alias: {
-				ajax$: path.resolve(__dirname, `../js/_partials/_ajax.js`)
+				ajax$: path.resolve( __dirname, `../js/_partials/_ajax.js` )
 			}
 		},
 		optimization: {
@@ -28,13 +28,13 @@ module.exports = (env, argv) => {
 		},
 		plugins: [
 			new VueLoaderPlugin(),
-			new MiniCssExtractPlugin({
+			new MiniCssExtractPlugin( {
 				filename: pathData => {
-					const slug = pathData.chunk.name.replace(`-css`, ``);
+					const slug = pathData.chunk.name.replace( `-css`, `` );
 
 					return argv.mode === `production` ? `css/${slug}.min.css` : `css/${slug}.css`;
 				}
-			})
+			} )
 		],
 		module: {
 			rules: [

@@ -5,7 +5,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if( !class_exists( 'BFG' ) ) {
 
 final class BFG {
-	private static $instance = null;
+	private static $instance;
 
 	private static $classes = array(
 		'custom-page-template',

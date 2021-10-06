@@ -1,3 +1,6 @@
+## 20211006
+- Set `space-in-parens`
+
 ## 20210728
 - HTML fix on `<svg>` icons
 - Replace Gravity Forms alidation errors <h2> with <p> (disabled by default)
