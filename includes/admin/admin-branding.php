@@ -61,7 +61,11 @@ add_filter( 'wp_mail_from_name', 'bfg_mail_from_name' );
  */
 function bfg_mail_from_name() {
 
-	return get_option( 'blogname' );
+	$from = get_bloginfo( 'name' );
+	$from = str_replace( '&#039;', '', $from );
+	$from = str_replace( '&amp;', 'and', $from );
+
+	return preg_replace( '/[^a-zA-Z0-9 ]/', '', $from );
 
 }
 

@@ -23,6 +23,10 @@ select {
 
 	option {
 		color: $black;
+
+		&:disabled {
+			color: rgba($black, .5);
+		}
 	}
 }
 

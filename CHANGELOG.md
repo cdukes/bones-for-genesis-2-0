@@ -1,3 +1,7 @@
+## 20211129
+- Style disabled <option>s
+- Fix `wp_mail_from_name` encoding
+
 ## 20211006
 - Set `space-in-parens`
 
