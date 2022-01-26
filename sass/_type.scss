@@ -1,5 +1,8 @@
 html {
+	margin-top: var(--wp-admin--admin-bar--height, 0px);
+
 	scroll-behavior: smooth;
+	scroll-padding-top: var(--wp-admin--admin-bar--height, 0px);
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
@@ -8,25 +11,9 @@ html {
 	}
 }
 
-html.admin-bar-showing {
-	margin-top: 2em;
-}
-
-* html.admin-bar-showing body {
-	margin-top: 2em;
-}
-
-@include media('<=admin-bar') {
-	html.admin-bar-showing {
-		margin-top: 0;
-	}
-
-	* html.admin-bar-showing body {
-		margin-top: 0;
-	}
-
-	#wpadminbar {
-		display: none !important;
+@media screen and (max-width: 600px) {
+	html {
+		--wp-admin--admin-bar--height: calc(0px);
 	}
 }
 
@@ -77,9 +64,9 @@ iframe {
 }
 
 hr {
-	clear: both;
 	margin: $spacer 0;
+	clear: both;
 	border: none;
-	border-collapse: collapse;
 	border-top: 1px solid palette(grey, 'light');
+	border-collapse: collapse;
 }

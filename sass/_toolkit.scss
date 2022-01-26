@@ -1,10 +1,10 @@
 // Use with @include to make reponsive modules
 @mixin wrap {
+	width: 100%;
+	max-width: $site-width + 1.5em;
 	margin: 0 auto;
 	padding-right: .75em;
 	padding-left: .75em;
-	max-width: $site-width + 1.5em;
-	width: 100%;
 }
 
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
@@ -16,23 +16,22 @@
 
 // https://make.wordpress.org/core/2017/10/22/changes-to-the-screen-reader-text-css-class-in-wordpress-4-9/
 @mixin visuallyhidden {
-	position: absolute;
-	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
-	margin: -1px;
-	padding: 0;
+	word-wrap: normal !important;
+	position: absolute;
 	width: 1px;
 	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
 	border: 0;
-	word-wrap: normal !important;
-
 	clip-path: inset(50%);
 }
 
 @mixin unstyled-list {
-	overflow: initial;
 	margin: 0;
 	padding: 0;
+	overflow: initial;
 
 	li {
 		list-style-type: none;
@@ -41,17 +40,16 @@
 
 @mixin btn {
 	display: inline-block;
+	appearance: none;
 	padding: 0;
 	border: none;
 	border-radius: 0;
 	background-color: transparent;
+	line-height: 1.15;
 	text-align: center;
 	text-decoration: none;
-	line-height: 1.15;
 	cursor: pointer;
 	transition: all .15s ease-in-out;
-
-	appearance: none;
 
 	&:hover {
 	}
@@ -74,8 +72,8 @@
 	ol,
 	ul {
 		@include type;
-		overflow: hidden;
 		padding-left: 2.5em;
+		overflow: hidden;
 
 		ol,
 		ul {

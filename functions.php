@@ -83,7 +83,6 @@ final class BFG {
 		require_once CHILD_DIR . '/includes/structure/loops.php';
 		require_once CHILD_DIR . '/includes/structure/menu.php';
 		require_once CHILD_DIR . '/includes/structure/post.php';
-		require_once CHILD_DIR . '/includes/structure/schema.php';
 		require_once CHILD_DIR . '/includes/structure/search.php';
 		require_once CHILD_DIR . '/includes/structure/sidebar.php';
 

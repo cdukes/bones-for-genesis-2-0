@@ -5,11 +5,10 @@ input[type='email'],
 input[type='url'],
 input[type='number'],
 textarea {
-	max-width: 100%;
-	width: 100%;
-	color: $text;
-
 	appearance: none;
+	width: 100%;
+	max-width: 100%;
+	color: $text;
 }
 
 textarea {

@@ -47,26 +47,6 @@ function bfg_security_headers() {
 
 }
 
-remove_action( 'genesis_doctype', 'genesis_do_doctype' );
-add_action( 'genesis_doctype', 'bfg_doctype' );
-/**
- * Overrides the default Genesis doctype.
- *
- * See: http://html5boilerplate.com/
- *
- * @since 2.2.4
- */
-function bfg_doctype() {
-
-	?>
-	<!DOCTYPE html>
-	<html class="<?php echo is_admin_bar_showing() ? 'admin-bar-showing' : ''; ?>" <?php language_attributes( 'html' ); ?>>
-	<head <?php echo genesis_attr( 'head' ); ?>>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<?php
-
-}
-
 add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 /**
  * Prefetch the DNS for external resource domains. Better browser support than preconnect.

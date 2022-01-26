@@ -1,3 +1,10 @@
+## 20220126
+- Remove `bfg_unset_role_attribute()`
+- Remove `.admin-bar-showing` class. Use WP 5.9's `--wp-admin--admin-bar--height` instead
+- Replace `csscomb` with `css-declaration-sorter`
+- Remove `brand-colors`
+- Add `omit_threshold` to control image lazy loading in `Abstract_Page_Template`
+
 ## 20211129
 - Style disabled <option>s
 - Fix `wp_mail_from_name` encoding
