@@ -58,7 +58,7 @@ add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
 function bfg_resource_hints($hints, $relation_type) {
 
 	if( in_array($relation_type, array('dns-prefetch', 'preconnect'), true) ) {
-		$hints[] = 'https://cdnjs.cloudflare.com';
+		// $hints[] = 'https://cdnjs.cloudflare.com';
 		// $hints[] = 'https://fonts.googleapis.com';
 		// $hints[] = 'https://fonts.gstatic.com';
 	}
@@ -193,13 +193,9 @@ function bfg_load_assets() {
 	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $version );
 
-	// instant.page
-	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.js';
-	wp_enqueue_script( 'instant.page', $src, array(), null, true );
-
 	// Use jQuery from a CDN
 	wp_deregister_script( 'jquery' );
-	$src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js';
+	// $src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js';
 	// wp_register_script( 'jquery', $src, array(), null, false );
 
 	// Dequeue Genesis's scripts
@@ -226,7 +222,6 @@ add_filter( 'script_loader_tag', 'bfg_script_loader_tags', 10, 3);
 function bfg_script_loader_tags($tag, $handle, $src) {
 
 	switch( $handle ) {
-		case 'instant.page':
 		case 'bfg':
 			$tag = str_replace('<script ', '<script defer ', $tag);
 

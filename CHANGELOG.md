@@ -1,3 +1,7 @@
+## 20220208
+- Use a self-hosted version of `instant.page`
+- Dont' prefetch `cdnjs.cloudflare.com` by default
+
 ## 20220126
 - Remove `bfg_unset_role_attribute()`
 - Remove `.admin-bar-showing` class. Use WP 5.9's `--wp-admin--admin-bar--height` instead

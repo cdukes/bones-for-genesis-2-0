@@ -3,6 +3,7 @@
 		"fitvids": "*",
 		"include-media": "*",
 		"include-media-export": "*",
+		"instant.page": "*",
 		"normalize.css": "*"
 	},
 	"devDependencies": {
