@@ -1,3 +1,7 @@
+## 20220226
+- Remove `bfg_remove_files_on_upgrade()`, since it breaks WP core integrity checks
+- Remoed unused script dependencies
+
 ## 20220208
 - Use a self-hosted version of `instant.page`
 - Dont' prefetch `cdnjs.cloudflare.com` by default

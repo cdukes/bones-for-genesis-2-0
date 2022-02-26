@@ -138,6 +138,9 @@ function bfg_inject_preload() {
 	foreach( $wp_scripts->to_do as $handle ) {
 		$script = $wp_scripts->registered[$handle];
 
+		if( empty($script->src) )
+			continue;
+
 		$ver = null;
 		if( $script->ver !== null ) {
 			if( mb_strlen($script->ver) > 0 ) {
@@ -193,13 +196,13 @@ function bfg_load_assets() {
 	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $version );
 
-	// Use jQuery from a CDN
+	// Deregister jQuery
 	wp_deregister_script( 'jquery' );
-	// $src = BFG_PRODUCTION ? 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js';
-	// wp_register_script( 'jquery', $src, array(), null, false );
+
+	// Deregister wp-a11y (loaded by Gravity Forms)
+	// wp_deregister_script( 'wp-a11y' );
 
 	// Dequeue Genesis's scripts
-	wp_dequeue_script( 'html5shiv' );
 	wp_dequeue_script( 'skip-links' );
 	wp_dequeue_script( 'superfish' );
 	wp_dequeue_script( 'superfish-args' );

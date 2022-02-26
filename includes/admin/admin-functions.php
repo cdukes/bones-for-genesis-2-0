@@ -61,22 +61,6 @@ function bfg_enable_svg_uploads($mimes) {
 if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;
 
 /*
- * Automatically remove readme.html (and optionally xmlrpc.php) after a WP core update
- *
- * @since 2.2.26
- */
-add_action( '_core_updated_successfully', 'bfg_remove_files_on_upgrade' );
-function bfg_remove_files_on_upgrade() {
-
-	if( file_exists(ABSPATH . 'readme.html') )
-		unlink(ABSPATH . 'readme.html');
-
-	if( file_exists(ABSPATH . 'xmlrpc.php') )
-		unlink(ABSPATH . 'xmlrpc.php');
-
-}
-
-/*
  * Force secure cookie
  *
  * @since 20170608
