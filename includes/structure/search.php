@@ -73,7 +73,7 @@ add_action( 'do_robots', 'bfg_block_bots_from_search' );
  *
  * @since 20210702
  */
-function rlv_block_botbfg_block_bots_from_searchs_robots_txt() {
+function bfg_block_bots_from_search() {
 
 	?>
 User-agent: *

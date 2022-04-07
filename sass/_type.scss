@@ -11,12 +11,6 @@ html {
 	}
 }
 
-@media screen and (max-width: 600px) {
-	html {
-		--wp-admin--admin-bar--height: calc(0px);
-	}
-}
-
 body {
 	color: $text;
 	font-family: $sans;

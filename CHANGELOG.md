@@ -1,3 +1,7 @@
+## 20220407
+- Fix PHP error on `bfg_block_bots_from_search()`
+- Remove `--wp-admin--admin-bar--height` override
+
 ## 20220226
 - Remove `bfg_remove_files_on_upgrade()`, since it breaks WP core integrity checks
 - Remoed unused script dependencies
