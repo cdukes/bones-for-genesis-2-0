@@ -175,6 +175,7 @@ function bfg_inject_preload() {
 }
 
 // Scripts + Styles
+remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
 /**
@@ -190,6 +191,8 @@ function bfg_load_assets() {
 
 	// Remove Gutenberg styles
 	wp_dequeue_style( 'wp-block-library' );
+	// wp_dequeue_style( 'wp-block-library-theme' );
+	// wp_dequeue_style( 'global-styles' );
 
 	// Main theme stylesheet
 	$src     = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';

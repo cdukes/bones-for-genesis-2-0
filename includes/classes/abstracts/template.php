@@ -43,7 +43,7 @@ abstract class BFG_Abstract_Page_Template {
 		if( empty($value) )
 			return;
 
-		echo apply_filters('the_content', $value);
+		echo wpautop($value);
 
 	}
 

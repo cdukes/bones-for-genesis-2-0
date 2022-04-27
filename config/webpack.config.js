@@ -62,7 +62,6 @@ module.exports = ( env, argv ) => {
 							options: {
 								postcssOptions: {
 									plugins: {
-										rfs: {},
 										autoprefixer: {
 											cascade: true,
 											flexbox: false

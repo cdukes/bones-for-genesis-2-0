@@ -1,7 +1,25 @@
+@use "sass:math";
+
 /*********************
 SIZES
 *********************/
+
+// https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+@function rfs($min, $max) {
+	$min_width: math.div(375, 16);
+	$max_width: math.div(1280, 16);
+
+	$slope: math.div($max - $min, $max_width - $min_width);
+	$y: -$min_width * $slope + $min;
+
+	$v: clamp(#{$min}rem, #{$y}rem + #{$slope * 100}vw, #{$max}rem);
+
+	@return $v;
+}
+
 $spacer: 1.5em;
+$spacer-block: rfs(2, 2.5);
+$spacer-section: rfs(3, 5);
 $site-width: 60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites
 
 /*********************

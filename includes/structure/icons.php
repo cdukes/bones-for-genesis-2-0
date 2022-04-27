@@ -53,13 +53,23 @@ function bfg_populate_acf_icon_options($field) {
  */
 function bfg_get_inline_icon($slug) {
 
-	$path = CHILD_DIR . '/svgs/' . $slug . '.svg';
-	if( !file_exists($path) )
-		return;
+	$stylesheet_dir = get_stylesheet_directory_uri();
 
-	$svg = file_get_contents($path);
+	$src     = '/build/svgs/icons.svg';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
 
-	return str_replace( '<svg ', '<svg class="icon icon-' . $slug . '" ', $svg );
+	$src = add_query_arg(
+		array(
+			'v' => $version,
+		),
+		$stylesheet_dir . $src
+	);
+
+	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" focusable="false">';
+		$svg .= '<use href="' . $src . '#icon-' . esc_html( $slug ) . '"></use>';
+	$svg  .= '</svg>';
+
+	return $svg;
 
 }
 

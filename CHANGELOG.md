@@ -1,14 +1,21 @@
+## 20220504
+- Replace `rfs` with a custom implementation
+- Load SVGs from external spritesheet
+- Don't run `the_content` filter in `BFG_Abstract_Page_Template::display_text()`
+- Include empty `theme.json` to disable unused frontend SVGs and CSS variables
+- Remove injected WP styles
+
 ## 20220407
 - Fix PHP error on `bfg_block_bots_from_search()`
 - Remove `--wp-admin--admin-bar--height` override
 
 ## 20220226
 - Remove `bfg_remove_files_on_upgrade()`, since it breaks WP core integrity checks
-- Remoed unused script dependencies
+- Removed unused script dependencies
 
 ## 20220208
 - Use a self-hosted version of `instant.page`
-- Dont' prefetch `cdnjs.cloudflare.com` by default
+- Don't prefetch `cdnjs.cloudflare.com` by default
 
 ## 20220126
 - Remove `bfg_unset_role_attribute()`
@@ -26,7 +33,7 @@
 
 ## 20210728
 - HTML fix on `<svg>` icons
-- Replace Gravity Forms alidation errors <h2> with <p> (disabled by default)
+- Replace Gravity Forms validation errors <h2> with <p> (disabled by default)
 - Remove `clearfix` on site containers
 - Add `webP` support (disabled by default)
 
