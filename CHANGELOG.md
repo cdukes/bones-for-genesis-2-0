@@ -1,3 +1,10 @@
+## 20220518
+- Add `bfg_icons` JS variable
+- Remove `vue/name-property-casing`
+- Disable `no-case-declarations`
+- Clear orphaned term meta with `?clear-orphans=1`
+- `func-style` enable `allowArrowFunctions`
+
 ## 20220504
 - Replace `rfs` with a custom implementation
 - Load SVGs from external spritesheet

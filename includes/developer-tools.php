@@ -24,6 +24,7 @@ function bfg_clear_transients_node($wp_admin_bar) {
 	if( isset($_GET['clear-orphans']) && (int) $_GET['clear-orphans'] === 1 ) {
 		$wpdb->query( "DELETE pm FROM `{$wpdb->postmeta}` pm LEFT JOIN `{$wpdb->posts}` wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;" );
 		$wpdb->query( "DELETE um FROM `{$wpdb->usermeta}` um LEFT JOIN `{$wpdb->users}` wp ON wp.ID = um.user_id WHERE wp.ID IS NULL;" );
+		$wpdb->query( "DELETE tm FROM `{$wpdb->termmeta}` tm LEFT JOIN `{$wpdb->terms}` wp ON wp.term_id = tm.term_id WHERE wp.term_id IS NULL;" );
 		add_action( 'admin_notices', 'bfg_orphans_cleared_notice' );
 	}
 

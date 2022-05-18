@@ -215,6 +215,24 @@ function bfg_load_assets() {
 	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
 	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, true );
 
+	$src     = '/build/svgs/icons.svg';
+	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+
+	$icon_src = add_query_arg(
+		array(
+			'v' => $version,
+		),
+		$stylesheet_dir . $src
+	);
+
+	wp_localize_script(
+		'bfg',
+		'bfg_icons',
+		array(
+			'src' => $icon_src,
+		)
+	);
+
 }
 
 add_filter( 'script_loader_tag', 'bfg_script_loader_tags', 10, 3);
