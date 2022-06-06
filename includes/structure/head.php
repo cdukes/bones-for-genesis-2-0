@@ -38,10 +38,6 @@ function bfg_security_headers() {
 	header( 'X-Content-Type-Options: nosniff' );
 	header( 'X-XSS-Protection: 1; mode=block' );
 
-	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
-	// May break services that use a referrer check, such as typography.com and Google's APIs
-	// header( 'Referrer-Policy: origin-when-cross-origin' );
-
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
 	// header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
 
@@ -64,6 +60,18 @@ function bfg_resource_hints($hints, $relation_type) {
 	}
 
 	return $hints;
+
+}
+
+/**
+ * Use development mode for Yoast SEO when not in production
+ *
+ * @since 20220606
+ */
+add_filter( 'yoast_seo_development_mode', 'bfg_yoast_seo_development_mode' );
+function bfg_yoast_seo_development_mode() {
+
+	return !BFG_PRODUCTION;
 
 }
 
@@ -106,8 +114,7 @@ function bfg_inject_fonts() {
 			?>
 			@font-face {
 				font-family: '<?php echo $font['family']; ?>';
-				src: local('<?php echo $font['family']; ?>'),
-					 url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2') format('woff2'),
+				src: url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2') format('woff2'),
 					 url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff') format('woff');
 				font-weight: <?php echo $font['weight']; ?>;
 				font-style: <?php echo $font['style']; ?>;

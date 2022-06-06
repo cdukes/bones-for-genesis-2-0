@@ -5,12 +5,6 @@ html {
 	scroll-padding-top: var(--wp-admin--admin-bar--height, 0px);
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
-}
-
 body {
 	color: $text;
 	font-family: $sans;

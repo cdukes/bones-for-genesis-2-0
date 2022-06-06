@@ -1,3 +1,11 @@
+## 20220606
+- Remove `rel="noopener"`
+- Remove `Referrer-Policy`
+- Use `yoast_seo_development_mode` outside of production
+- Don't use `local` `@font-face`
+- Remove `prefers-reduced-motion` `scroll-behavior`
+- Update default font stacks
+
 ## 20220518
 - Add `bfg_icons` JS variable
 - Remove `vue/name-property-casing`

@@ -29,7 +29,6 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 		 */
 		// add_filter( 'wp_omit_loading_attr_threshold', '__return_false' );
 
-		// remove_action( 'genesis_before_header', 'genesis_skip_links', 5 );
 		add_action( 'genesis_entry_content', array($this, 'display_content') );
 
 	}
