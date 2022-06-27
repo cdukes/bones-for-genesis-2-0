@@ -1,3 +1,7 @@
+## 20220627
+- Add filter to disable `gform_enable_legacy_markup`
+- Remove `.woff` support
+
 ## 20220606
 - Remove `rel="noopener"`
 - Remove `Referrer-Policy`

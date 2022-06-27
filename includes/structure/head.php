@@ -83,7 +83,7 @@ function bfg_yoast_seo_development_mode() {
 function bfg_get_fonts() {
 
 	// Array key is the name of the file in /fonts/, without an extension
-	// .woff and .woff2 variations should be included in /fonts/
+	// .woff2's should be included in /fonts/
 	// Only enable preload for high priority font variations, such as body text
 
 	return array(
@@ -114,8 +114,7 @@ function bfg_inject_fonts() {
 			?>
 			@font-face {
 				font-family: '<?php echo $font['family']; ?>';
-				src: url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2') format('woff2'),
-					 url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff') format('woff');
+				src: url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2') format('woff2');
 				font-weight: <?php echo $font['weight']; ?>;
 				font-style: <?php echo $font['style']; ?>;
 				font-display: swap;

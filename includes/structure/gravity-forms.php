@@ -10,6 +10,13 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // add_filter( 'gform_disable_view_counter', '__return_true' );
 
 /**
+ * Disable legacy markup.
+ *
+ * @since 20220627
+ */
+// add_filter( 'gform_enable_legacy_markup', '__return_false' );
+
+/**
  * Remove all 'tabindex' attributes from Gravity Forms.
  *
  * @since 20180726
