@@ -79,6 +79,7 @@ final class BFG {
 		require_once CHILD_DIR . '/includes/structure/head.php';
 		require_once CHILD_DIR . '/includes/structure/header.php';
 		require_once CHILD_DIR . '/includes/structure/icons.php';
+		require_once CHILD_DIR . '/includes/structure/images.php';
 		require_once CHILD_DIR . '/includes/structure/layout.php';
 		require_once CHILD_DIR . '/includes/structure/loops.php';
 		require_once CHILD_DIR . '/includes/structure/menu.php';

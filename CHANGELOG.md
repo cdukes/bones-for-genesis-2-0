@@ -1,3 +1,7 @@
+## 20220829
+- Replace `Image Processing Queue` with `bfg_get_image()` and `bfg_get_image_url()`
+- Attempt to determine SVG width + height in `BFG_Abstract_Page_Template->display_image()`
+
 ## 20220627
 - Add filter to disable `gform_enable_legacy_markup`
 - Remove `.woff` support

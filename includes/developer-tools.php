@@ -28,22 +28,6 @@ function bfg_clear_transients_node($wp_admin_bar) {
 		add_action( 'admin_notices', 'bfg_orphans_cleared_notice' );
 	}
 
-	if( isset($_GET['clear-ipq']) && (int) $_GET['clear-ipq'] === 1 ) {
-		$wpdb->query("TRUNCATE TABLE {$wpdb->prefix}queue_failures;");
-		$wpdb->query("TRUNCATE TABLE {$wpdb->prefix}queue_jobs;");
-
-		$wpdb->query(
-			'
-			UPDATE ' . $wpdb->postmeta . '
-			SET meta_value = REPLACE(meta_value, \'"ipq_locked";b:1;\', \'"ipq_locked";b:0;\')
-			WHERE meta_key = \'_wp_attachment_metadata\'
-			AND meta_value LIKE (\'%"ipq_locked";b:1;%\');
-			'
-		);
-
-		add_action( 'admin_notices', 'bfg_ipq_cleared_notice' );
-	}
-
 	$args = array(
 		'id'     => 'clear-transients',
 		'title'  => __( 'Clear Transients', CHILD_THEME_TEXT_DOMAIN ),
@@ -61,18 +45,6 @@ function bfg_clear_transients_node($wp_admin_bar) {
 	);
 
 	$wp_admin_bar->add_node( $args );
-
-	include_once ABSPATH . 'wp-admin/includes/plugin.php';
-	if ( is_plugin_active( 'image-processing-queue/image-processing-queue.php' ) ) {
-		$args = array(
-			'id'     => 'clear-ipq',
-			'title'  => __( 'Clear IPQ Queue', CHILD_THEME_TEXT_DOMAIN ),
-			'parent' => 'site-name',
-			'href'   => get_admin_url() . '?clear-ipq=1',
-		);
-
-		$wp_admin_bar->add_node( $args );
-	}
 
 }
 
@@ -101,21 +73,6 @@ function bfg_orphans_cleared_notice() {
 	?>
 	<div class="updated">
 		<p>Orphaned metadata has been deleted.</p>
-	</div>
-	<?php
-
-}
-
-/**
- * Show an admin notice when the IPQ queue is cleared.
- *
- * @since 20180816
- */
-function bfg_ipq_cleared_notice() {
-
-	?>
-	<div class="updated">
-		<p>IPQ queue has been cleared.</p>
 	</div>
 	<?php
 

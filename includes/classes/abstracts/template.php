@@ -85,7 +85,7 @@ abstract class BFG_Abstract_Page_Template {
 
 	}
 
-	protected function display_image($key, $width, $height, $parent = false) {
+	protected function display_image($key, $width, $height, $crop = true, $parent = false) {
 
 		$image_id = $this->get_value($key, $parent);
 		if( empty($image_id) )
@@ -96,31 +96,46 @@ abstract class BFG_Abstract_Page_Template {
 			case 'image/svg+xml':
 				$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
+				if( empty($width) && empty($height) ) {
+					$path = get_attached_file($image_id);
+					if( file_exists($path) ) {
+						$data = file_get_contents($path);
+
+						preg_match('/<svg (.+?)>/', $data, $matches);
+						if( !empty($matches[1]) ) {
+							preg_match('/width="(\d+)"/', $matches[1], $w);
+							if( !empty($w[1]) )
+								$width = absint($w[1]);
+
+							preg_match('/height="(\d+)"/', $matches[1], $h);
+							if( !empty($h[1]) )
+								$height = absint($h[1]);
+						}
+
+						if( empty($width) || empty($height) ) {
+							preg_match('/viewBox="([\d\.]+) ([\d\.]+) ([\d\.]+) ([\d\.]+)"/', $data, $box);
+							if( !empty($box) ) {
+								$width  = round((float) $box[3] - (float) $box[1]);
+								$height = round((float) $box[4] - (float) $box[2]);
+							}
+						}
+					}
+				}
+
 				?>
 				<img src="<?php echo wp_get_attachment_url( $image_id ); ?>" alt="<?php echo esc_attr($alt); ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" loading="<?php echo $this->get_lazy_loading_attr(); ?>">
 				<?php
 				break;
 			default:
-				if( function_exists('ipq_get_theme_image') ) {
-					echo ipq_get_theme_image(
-						$image_id,
-						array(
-							array($width, $height, true),
-						),
-						array(
-							'loading' => $this->get_lazy_loading_attr(),
-						)
-					);
-				} else {
-					echo wp_get_attachment_image(
-						$image_id,
-						array($width, $height),
-						false,
-						array(
-							'loading' => $this->get_lazy_loading_attr(),
-						)
-					);
-				}
+				echo bfg_get_image(
+					$image_id,
+					$width,
+					$height,
+					$crop,
+					array(
+						'loading' => $this->get_lazy_loading_attr(),
+					)
+				);
 
 				break;
 		}
