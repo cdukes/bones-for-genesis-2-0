@@ -26,7 +26,7 @@ $site-width: 60em; // Useful for fixed width sites, as well as for limiting the 
 BREAKPOINTS
 *********************/
 // Use pixels for include-media-export compatibility. 'zero' breakpoint ensures the breakpoints are printed on all screen widths.
-$breakpoints: ( zero: (1 * 16px), phone: (35 * 16px), portrait: (48 * 16px), landscape: (64 * 16px), desktop: (80 * 16px) );
+$breakpoints: ( zero: (1 * 16px), phone: (35 * 16px), portrait: (50.625 * 16px), landscape: (67.5 * 16px), desktop: (80 * 16px) );
 
 /*********************
 COLORS

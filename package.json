@@ -1,6 +1,5 @@
 {
 	"dependencies": {
-		"fitvids": "*",
 		"include-media": "*",
 		"include-media-export": "*",
 		"instant.page": "*",

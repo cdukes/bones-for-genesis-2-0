@@ -76,3 +76,13 @@ img.alignright,
 .wp-video {
 	margin: 0 0 $spacer;
 }
+
+iframe {
+	&[src^="https://www.youtube.com/embed/"],
+	&[src^="https://player.vimeo.com/video/"] {
+		display: block;
+		aspect-ratio: 16 / 9;
+		width: 100%;
+		height: auto;
+	}
+}

@@ -71,6 +71,59 @@ function bfg_process_image($image_id, $width, $height, $crop = false) {
  */
 function bfg_get_image($image_id, $width, $height, $crop = false, $atts = array()) {
 
+	$mime_type = get_post_mime_type($image_id);
+	if( in_array($mime_type, array('application/pdf'), true) )
+		return;
+
+	if( $mime_type === 'image/svg+xml' ) {
+		$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+
+		if( empty($width) && empty($height) ) {
+			$path = get_attached_file($image_id);
+			if( file_exists($path) ) {
+				$data = file_get_contents($path);
+
+				preg_match('/<svg (.+?)>/', $data, $matches);
+				if( !empty($matches[1]) ) {
+					preg_match('/width="(\d+)"/', $matches[1], $w);
+					if( !empty($w[1]) )
+						$width = absint($w[1]);
+
+					preg_match('/height="(\d+)"/', $matches[1], $h);
+					if( !empty($h[1]) )
+						$height = absint($h[1]);
+				}
+
+				if( empty($width) || empty($height) ) {
+					preg_match('/viewBox="([\d\.]+) ([\d\.]+) ([\d\.]+) ([\d\.]+)"/', $data, $box);
+					if( !empty($box) ) {
+						$width  = round((float) $box[3] - (float) $box[1]);
+						$height = round((float) $box[4] - (float) $box[2]);
+					}
+				}
+			}
+		}
+
+		ob_start();
+		?>
+		<img
+			src="<?php echo wp_get_attachment_url( $image_id ); ?>"
+			alt="<?php echo esc_attr($alt); ?>"
+			width="<?php echo $width; ?>"
+			height="<?php echo $height; ?>"
+
+			<?php
+			if( wp_lazy_loading_enabled( 'img', 'wp_get_attachment_image' ) ) {
+				?>
+				loading="<?php echo wp_get_loading_attr_default( 'wp_get_attachment_image' ); ?>"
+				<?php
+			}
+			?>
+		>
+		<?php
+		return ob_get_clean();
+	}
+
 	$response = bfg_process_image($image_id, $width, $height, $crop);
 	if( is_wp_error($response) )
 		return '';

@@ -1,3 +1,11 @@
+## 20221027
+- Add 6.1 `Update URI` theme header
+- Add 6.1 `feed_links_extra_*` filters (disabled by default)
+- Add SVG support to `bfg_get_image()`
+- Remove `theme.json` and dequeue `global-styles` + `classic-theme-styles`
+- Use modern iPad sizes for `@media`
+- Replace `fitvids` with `aspect-ratio` CSS
+
 ## 20220829
 - Replace `Image Processing Queue` with `bfg_get_image()` and `bfg_get_image_url()`
 - Attempt to determine SVG width + height in `BFG_Abstract_Page_Template->display_image()`

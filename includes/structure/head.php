@@ -15,7 +15,15 @@ remove_action( 'wp_head', 'wp_generator' );								// WP Version
 add_filter( 'the_generator', '__return_false' ); 						// WP Version (other locations)
 remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
 // remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
-remove_action( 'wp_head', 'feed_links_extra', 3 );						// Remove comment feed links
+
+// add_filter( 'feed_links_extra_show_post_comments_feed', '__return_false' );		// Remove comment feed links
+// add_filter( 'feed_links_extra_show_post_type_archive_feed', '__return_false' );	// Remove post type archive feed links
+// add_filter( 'feed_links_extra_show_category_feed', '__return_false' );			// Remove category feed links
+// add_filter( 'feed_links_extra_show_tag_feed', '__return_false' );				// Remove tag feed links
+// add_filter( 'feed_links_extra_show_tax_feed', '__return_false' );				// Remove taxonomy feed links
+// add_filter( 'feed_links_extra_show_author_feed', '__return_false' );				// Remove author feed links
+// add_filter( 'feed_links_extra_show_search_feed', '__return_false' );				// Remove search feed links
+
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlink
 
 // Remove WP-API <head> material
@@ -198,7 +206,8 @@ function bfg_load_assets() {
 	// Remove Gutenberg styles
 	wp_dequeue_style( 'wp-block-library' );
 	// wp_dequeue_style( 'wp-block-library-theme' );
-	// wp_dequeue_style( 'global-styles' );
+	wp_dequeue_style( 'global-styles' );
+	wp_dequeue_style( 'classic-theme-styles' );
 
 	// Main theme stylesheet
 	$src     = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
