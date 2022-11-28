@@ -41,6 +41,18 @@ function bfg_customizer_theme_settings_config($config) {
 
 }
 
+// add_filter( 'acf/settings/show_admin', 'bfg_show_acf_settings' );
+/*
+ * Hide ACF config on production
+ *
+ * @since 20221128
+ */
+function bfg_show_acf_settings($show) {
+
+	return BFG_PRODUCTION ? false : $show;
+
+}
+
 /*
  * Add ACF site options admin menu
  *

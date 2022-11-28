@@ -78,8 +78,9 @@ img.alignright,
 }
 
 iframe {
-	&[src^="https://www.youtube.com/embed/"],
-	&[src^="https://player.vimeo.com/video/"] {
+	&[src*="player.vimeo.com"],
+	&[src*="youtube.com"],
+	&[src*="youtube-nocookie.com"] {
 		display: block;
 		aspect-ratio: 16 / 9;
 		width: 100%;

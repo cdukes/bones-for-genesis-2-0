@@ -1,3 +1,7 @@
+## 20221128
+- Add `bfg_show_acf_settings()` to disable ACF admin in production (disabled by default)
+- Update `aspect-ratio` CSS
+
 ## 20221027
 - Add 6.1 `Update URI` theme header
 - Add 6.1 `feed_links_extra_*` filters (disabled by default)
