@@ -49,7 +49,17 @@ function bfg_customizer_theme_settings_config($config) {
  */
 function bfg_show_acf_settings($show) {
 
-	return BFG_PRODUCTION ? false : $show;
+	if( !BFG_PRODUCTION )
+		return $show;
+
+	if( !function_exists('acf_pro_get_license') )
+		return $show;
+
+	$license = acf_pro_get_license();
+	if( empty($license) )
+		return $show;
+
+	return false;
 
 }
 

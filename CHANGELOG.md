@@ -1,3 +1,7 @@
+## 20230123
+- Only disable ACF admin in production if an API key is set
+- Set default SVG `width` and `height` attributes
+
 ## 20221128
 - Add `bfg_show_acf_settings()` to disable ACF admin in production (disabled by default)
 - Update `aspect-ratio` CSS

@@ -65,7 +65,7 @@ function bfg_get_inline_icon($slug) {
 		$stylesheet_dir . $src
 	);
 
-	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" focusable="false">';
+	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" focusable="false" width="24" height="24">';
 		$svg .= '<use href="' . $src . '#icon-' . esc_html( $slug ) . '"></use>';
 	$svg  .= '</svg>';
 
