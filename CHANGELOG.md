@@ -1,3 +1,10 @@
+## 20230315
+- Use Vue 3
+- Improve `bfg_process_image()` error handling
+- Replace `watch` with `nodemon`
+- Replace `npm-run-all` with `concurrently`
+- Remove `normalize.css`
+
 ## 20230123
 - Only disable ACF admin in production if an API key is set
 - Set default SVG `width` and `height` attributes

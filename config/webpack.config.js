@@ -1,6 +1,7 @@
 /* globals module, require, __dirname */
 
-const path = require( `path` ),
+const webpack = require( `webpack` ),
+	path = require( `path` ),
 	{ VueLoaderPlugin } = require( `vue-loader` ),
 	MiniCssExtractPlugin = require( `mini-css-extract-plugin` );
 
@@ -27,6 +28,10 @@ module.exports = ( env, argv ) => {
 			minimize: argv.mode === `production`
 		},
 		plugins: [
+			new webpack.DefinePlugin( {
+				__VUE_OPTIONS_API__: JSON.stringify( false ),
+				__VUE_PROD_DEVTOOLS__: JSON.stringify( argv.mode !== `production` )
+			} ),
 			new VueLoaderPlugin(),
 			new MiniCssExtractPlugin( {
 				filename: pathData => {

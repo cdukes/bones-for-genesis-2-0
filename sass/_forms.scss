@@ -8,7 +8,11 @@ textarea {
 	appearance: none;
 	width: 100%;
 	max-width: 100%;
+	margin: 0;
 	color: $text;
+	font-size: 1em;
+	line-height: 1.15;
+	font-family: inherit;
 }
 
 textarea {
@@ -31,10 +35,6 @@ select {
 
 ::placeholder {
 	text-overflow: ellipsis;
-}
-
-input[type='search'] {
-	box-sizing: border-box; // Overrides normalize.css
 }
 
 .search-form,

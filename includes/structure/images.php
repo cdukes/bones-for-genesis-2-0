@@ -34,6 +34,8 @@ function bfg_process_image($image_id, $width, $height, $crop = false) {
 		return new WP_Error( 'not_found', __('Image not found', CHILD_THEME_TEXT_DOMAIN) );
 
 	$editor = wp_get_image_editor( $path );
+	if( is_wp_error( $editor ) )
+		return $editor;
 
 	$size = $editor->get_size();
 	if( $size['width'] < $width )

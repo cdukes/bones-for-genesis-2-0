@@ -1,5 +1,4 @@
-.breadcrumbs {
-}
+.breadcrumbs {}
 
 .entry-title {
 	word-wrap: break-word;
@@ -7,8 +6,7 @@
 	a {
 		color: inherit;
 
-		&:hover {
-		}
+		&:hover {}
 	}
 }
 
@@ -16,21 +14,17 @@
 	@include entry-content;
 }
 
-.more-link {
-}
+.more-link {}
 
 .entry-pagination {
 	@include type;
 }
 
 .entry-meta {
-	.entry-header & {
-	}
+	.entry-header & {}
 
-	.entry-footer & {
-	}
+	.entry-footer & {}
 
 	.entry-categories,
-	.entry-tags {
-	}
+	.entry-tags {}
 }

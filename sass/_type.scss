@@ -1,14 +1,14 @@
 html {
 	margin-top: var(--wp-admin--admin-bar--height, 0px);
-
+	line-height: 1.15;
 	scroll-behavior: smooth;
 	scroll-padding-top: var(--wp-admin--admin-bar--height, 0px);
 }
 
 body {
+	margin: 0;
 	color: $text;
 	font-family: $sans;
-
 	scroll-behavior: smooth;
 	// overscroll-behavior: contain;
 
@@ -25,8 +25,7 @@ a {
 	text-decoration: underline;
 	transition: all .15s ease-in-out;
 
-	&:visited {
-	}
+	&:visited {}
 
 	&:hover {
 		text-decoration: none;
@@ -52,9 +51,11 @@ iframe {
 }
 
 hr {
+	height: 0;
 	margin: $spacer 0;
 	clear: both;
 	border: none;
 	border-top: 1px solid palette(grey, 'light');
 	border-collapse: collapse;
+	color: inherit;
 }

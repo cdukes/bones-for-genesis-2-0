@@ -41,19 +41,22 @@
 @mixin btn {
 	display: inline-block;
 	appearance: none;
+	margin: 0;
 	padding: 0;
 	border: none;
 	border-radius: 0;
 	background-color: transparent;
 	color: inherit;
+	font-size: 1em;
 	line-height: 1.15;
+	font-family: inherit;
 	text-align: center;
 	text-decoration: none;
+	text-transform: none;
 	cursor: pointer;
 	transition: all .15s ease-in-out;
 
-	&:hover {
-	}
+	&:hover {}
 
 	&:disabled {
 		cursor: not-allowed;
@@ -70,6 +73,7 @@
 }
 
 @mixin entry-content {
+
 	ol,
 	ul {
 		@include type;
@@ -99,7 +103,6 @@
 	blockquote {
 		margin: 0;
 
-		p {
-		}
+		p {}
 	}
 }

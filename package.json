@@ -2,17 +2,17 @@
 	"dependencies": {
 		"include-media": "*",
 		"include-media-export": "*",
-		"instant.page": "*",
-		"normalize.css": "*"
+		"instant.page": "*"
 	},
 	"devDependencies": {
 		"autoprefixer": "*",
+		"concurrently": "*",
 		"css-declaration-sorter": "*",
 		"css-loader": "*",
 		"eslint": "*",
 		"eslint-plugin-vue": "*",
 		"mini-css-extract-plugin": "*",
-		"npm-run-all": "*",
+		"nodemon": "*",
 		"postcss": "*",
 		"postcss-cli": "*",
 		"postcss-loader": "*",
@@ -21,10 +21,9 @@
 		"sass": "*",
 		"sass-loader": "*",
 		"svg-sprite": "*",
-		"vue": "^2",
-		"vue-loader": "^15",
+		"vue": "*",
+		"vue-loader": "*",
 		"vue-template-compiler": "*",
-		"watch": "*",
 		"webpack": "*",
 		"webpack-cli": "*"
 	},
@@ -37,13 +36,13 @@
 		"prebuild": "npm run clean -s",
 		"postcss-scss": "postcss 'sass/**/*.scss' --replace --config=config",
 		"build:webpack": "npm run postcss-scss && npm run eslint && npm run webpack-production",
-		"build:images": "run-p svg_sprite",
+		"build:images": "npm run svg_sprite",
 		"build:php": "php-cs-fixer fix --config=config/php_cs.php .",
-		"build": "run-p build:* -s",
+		"build": "concurrently 'npm:build:*'",
 		"prewatch": "npm run clean -s",
 		"watch:webpack": "npm run webpack-development",
-		"watch:svgs": "watch 'npm run svg_sprite' svgs",
-		"watch": "run-p watch:* -s"
+		"watch:svgs": "nodemon --watch svgs --exec 'npm run svg_sprite' --ext svg -q",
+		"watch": "concurrently 'npm:watch:*'"
 	},
 	"browserslist": [
 		">1%",
