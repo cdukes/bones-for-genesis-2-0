@@ -51,6 +51,13 @@ function bfg_enable_svg_uploads($mimes) {
 
 }
 
+/**
+ * Disable the WP image size limitation. Better handled by Imsanity.
+ *
+ * @since 20230803
+ */
+add_filter( 'big_image_size_threshold', '__return_false' );
+
 /*
  * Disable XML-RPC
  *

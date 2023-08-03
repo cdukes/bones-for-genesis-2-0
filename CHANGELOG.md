@@ -1,3 +1,7 @@
+## 20230803
+- Disable `big_image_size_threshold` by default
+- Use WP 6.3's `strategy` for deferring script load
+
 ## 20230315
 - Use Vue 3
 - Improve `bfg_process_image()` error handling

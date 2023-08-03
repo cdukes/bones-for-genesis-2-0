@@ -143,38 +143,7 @@ add_action( 'wp_head', 'bfg_inject_preload', 2 );
  */
 function bfg_inject_preload() {
 
-	global $wp_scripts, $wp_version;
-
-	$site_url       = get_bloginfo( 'url' );
 	$stylesheet_dir = get_stylesheet_directory_uri();
-
-	$wp_scripts->all_deps( $wp_scripts->queue );
-	foreach( $wp_scripts->to_do as $handle ) {
-		$script = $wp_scripts->registered[$handle];
-
-		if( empty($script->src) )
-			continue;
-
-		$ver = null;
-		if( $script->ver !== null ) {
-			if( mb_strlen($script->ver) > 0 ) {
-				$ver = $script->ver;
-			} else {
-				$ver = $wp_version;
-			}
-		}
-
-		$href = add_query_arg(
-			array(
-				'ver' => $ver,
-			),
-			$script->src
-		);
-
-		?>
-		<link rel="preload" href="<?php echo $href; ?>" as="script">
-		<?php
-	}
 
 	// Fonts
 	foreach( bfg_get_fonts() as $slug => $font ) {
@@ -228,7 +197,7 @@ function bfg_load_assets() {
 	// Main script file (in footer)
 	$src     = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, true );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, array('strategy' => 'defer') );
 
 	$src     = '/build/svgs/icons.svg';
 	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
@@ -247,27 +216,6 @@ function bfg_load_assets() {
 			'src' => $icon_src,
 		)
 	);
-
-}
-
-add_filter( 'script_loader_tag', 'bfg_script_loader_tags', 10, 3);
-/**
- * Overwrite the <script> tag on selected assets to use the JS loader.
- *
- * See: https://www.html5rocks.com/en/tutorials/speed/script-loading/
- *
- * @since 20170815
- */
-function bfg_script_loader_tags($tag, $handle, $src) {
-
-	switch( $handle ) {
-		case 'bfg':
-			$tag = str_replace('<script ', '<script defer ', $tag);
-
-			return $tag;
-	}
-
-	return $tag;
 
 }
 
