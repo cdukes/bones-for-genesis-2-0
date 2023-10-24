@@ -106,20 +106,19 @@ function bfg_get_image($image_id, $width, $height, $crop = false, $atts = array(
 			}
 		}
 
+		$atts['src']    = wp_get_attachment_url( $image_id );
+		$atts['alt']    = esc_attr($alt);
+		$atts['width']  = $width;
+		$atts['height'] = $height;
+
+		$atts = array_merge( $atts, wp_get_loading_optimization_attributes( 'img', $atts, 'wp_get_attachment_image' ) );
+
 		ob_start();
 		?>
 		<img
-			src="<?php echo wp_get_attachment_url( $image_id ); ?>"
-			alt="<?php echo esc_attr($alt); ?>"
-			width="<?php echo $width; ?>"
-			height="<?php echo $height; ?>"
-
 			<?php
-			if( wp_lazy_loading_enabled( 'img', 'wp_get_attachment_image' ) ) {
-				?>
-				loading="<?php echo wp_get_loading_attr_default( 'wp_get_attachment_image' ); ?>"
-				<?php
-			}
+			foreach( $atts as $key => $value )
+				echo $key . '="' . $value . '"';
 			?>
 		>
 		<?php

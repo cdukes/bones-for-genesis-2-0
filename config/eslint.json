@@ -6,6 +6,7 @@
 		"eslint:recommended",
 		"plugin:vue/vue3-recommended"
 	],
+	"plugins": ["simple-import-sort"],
 	"rules": {
 		"accessor-pairs": "error",
 		"array-bracket-newline": ["error", "consistent"],
@@ -111,7 +112,7 @@
 		"no-restricted-imports": "error",
 		"no-restricted-modules": "error",
 		"no-restricted-properties": "error",
-		"no-restricted-syntax": ["error", "ForOfStatement"],
+		"no-restricted-syntax": ["error"],
 		"no-return-assign": "error",
 		"no-return-await": "error",
 		"no-script-url": "error",
@@ -174,6 +175,8 @@
 		"semi-style": "error",
 		"semi-style": "error",
 		"semi": "error",
+		"simple-import-sort/imports": "error",
+		"simple-import-sort/exports": "error",
 		"space-before-blocks": "error",
 		"space-before-function-paren": ["error", "never"],
 		"space-in-parens": ["error", "always"],

@@ -1,3 +1,10 @@
+## 20231024
+- Allow `ForOfStatement`
+- Use `eslint-plugin-simple-import-sort`
+- Use `contenthash` in webpack `chunkFilename`
+- Use WP 6.3 `wp_get_loading_optimization_attributes`
+- Vue 3 compat fixes
+
 ## 20230803
 - Disable `big_image_size_threshold` by default
 - Use WP 6.3's `strategy` for deferring script load

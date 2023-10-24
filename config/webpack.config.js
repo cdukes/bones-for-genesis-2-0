@@ -17,7 +17,7 @@ module.exports = ( env, argv ) => {
 		output: {
 			path: path.resolve( __dirname, `../build` ),
 			filename: argv.mode === `production` ? `js/[name].min.js` : `js/[name].js`,
-			chunkFilename: argv.mode === `production` ? `js/[id].min.js` : `js/[id].js`
+			chunkFilename: argv.mode === `production` ? `js/[id].[contenthash].min.js` : `js/[id].js`
 		},
 		resolve: {
 			alias: {
@@ -51,11 +51,24 @@ module.exports = ( env, argv ) => {
 					}
 				},
 				{
-					test: /\.(sa|sc|c)ss$/,
+					test: /(?<!\.vue)\.(s?[ac]ss)$/,
 					use: [
 						{
 							loader: MiniCssExtractPlugin.loader
-						},
+						}
+					]
+				},
+				{
+					test: /\.vue\.(s?[ac]ss)$/,
+					use: [
+						{
+							loader: `vue-style-loader`
+						}
+					]
+				},
+				{
+					test: /\.(sa|sc|c)ss$/,
+					use: [
 						{
 							loader: `css-loader`,
 							options: {
