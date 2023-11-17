@@ -118,7 +118,7 @@ function bfg_get_image($image_id, $width, $height, $crop = false, $atts = array(
 		<img
 			<?php
 			foreach( $atts as $key => $value )
-				echo $key . '="' . $value . '"';
+				echo $key . '="' . $value . '" ';
 			?>
 		>
 		<?php

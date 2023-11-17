@@ -62,11 +62,3 @@ function bfg_show_acf_settings($show) {
 	return false;
 
 }
-
-/*
- * Add ACF site options admin menu
- *
- * @since 20181201
- */
-if( function_exists('acf_add_options_page') )
-	acf_add_options_page('Site Options');

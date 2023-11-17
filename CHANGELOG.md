@@ -1,3 +1,7 @@
+## 20231117
+- Fix HTML error in `bfg_get_image()`
+- Remove `acf_add_options_page()` for default Site Options
+
 ## 20231024
 - Allow `ForOfStatement`
 - Use `eslint-plugin-simple-import-sort`
