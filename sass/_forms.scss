@@ -15,6 +15,12 @@ textarea {
 	font-family: inherit;
 }
 
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 textarea {
 	display: block;
 	resize: vertical; // Allow only vertical resizing of textareas.

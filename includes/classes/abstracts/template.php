@@ -54,7 +54,7 @@ abstract class BFG_Abstract_Page_Template {
 		if( empty($value) )
 			return;
 
-		echo bfg_get_inline_icon($value);
+		echo bfg_get_icon($value);
 
 	}
 

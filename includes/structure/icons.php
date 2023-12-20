@@ -51,7 +51,7 @@ function bfg_populate_acf_icon_options($field) {
  *
  * @since 20170815
  */
-function bfg_get_inline_icon($slug) {
+function bfg_get_icon($slug) {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
@@ -75,7 +75,7 @@ function bfg_get_inline_icon($slug) {
 
 add_shortcode( 'bfg_icon', 'bfg_icon' );
 /**
- * Shortcode version of bfg_get_inline_icon().
+ * Shortcode version of bfg_get_icon().
  *
  * @since 20181201
  */
@@ -84,6 +84,6 @@ function bfg_icon($atts, $content = '') {
 	if( empty($atts['slug']) )
 		return;
 
-	return bfg_get_inline_icon($atts['slug']);
+	return bfg_get_icon($atts['slug']);
 
 }

@@ -51,7 +51,7 @@ function bfg_gform_filter_select_field_html($html, $field) {
 
 	$html = str_replace( '<select', '<div class="styled-select"><select', $html );
 
-	return str_replace( '</select>', '</select>' . bfg_get_inline_icon('angle-down') . '</div>', $html );
+	return str_replace( '</select>', '</select>' . bfg_get_icon('angle-down') . '</div>', $html );
 
 }
 

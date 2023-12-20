@@ -17,7 +17,7 @@ SIZES
 	@return $v;
 }
 
-$spacer: 1.5em;
+$spacer: 1.5rem;
 $spacer-block: rfs(2, 2.5);
 $spacer-section: rfs(3, 5);
 $site-width: 60em; // Useful for fixed width sites, as well as for limiting the max-width of fluid sites

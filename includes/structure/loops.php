@@ -10,6 +10,6 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function bfg_wpseo_breadcrumb_separator($sep) {
 
-	return bfg_get_inline_icon('angle-right');
+	return bfg_get_icon('angle-right');
 
 }

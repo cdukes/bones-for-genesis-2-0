@@ -2,35 +2,6 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
- * Cleanup <head>.
- *
- * @since 2.0.0
- */
-remove_action( 'wp_head', 'rsd_link' );									// RSD link
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );				// Parent rel link
-remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );				// Start post rel link
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );	// Adjacent post rel link
-remove_action( 'wp_head', 'wp_generator' );								// WP Version
-add_filter( 'the_generator', '__return_false' ); 						// WP Version (other locations)
-remove_action( 'wp_head', 'wlwmanifest_link');							// WLW Manifest
-// remove_action( 'wp_head', 'feed_links', 2 ); 						// Remove feed links
-
-// add_filter( 'feed_links_extra_show_post_comments_feed', '__return_false' );		// Remove comment feed links
-// add_filter( 'feed_links_extra_show_post_type_archive_feed', '__return_false' );	// Remove post type archive feed links
-// add_filter( 'feed_links_extra_show_category_feed', '__return_false' );			// Remove category feed links
-// add_filter( 'feed_links_extra_show_tag_feed', '__return_false' );				// Remove tag feed links
-// add_filter( 'feed_links_extra_show_tax_feed', '__return_false' );				// Remove taxonomy feed links
-// add_filter( 'feed_links_extra_show_author_feed', '__return_false' );				// Remove author feed links
-// add_filter( 'feed_links_extra_show_search_feed', '__return_false' );				// Remove search feed links
-
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );				// Remove shortlink
-
-// Remove WP-API <head> material
-// See: https://wordpress.stackexchange.com/questions/211467/remove-json-api-links-in-header-html
-remove_action( 'wp_head', 'rest_output_link_wp_head' );
-remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
-
 add_action( 'wp', 'bfg_security_headers' );
 /**
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
@@ -48,26 +19,6 @@ function bfg_security_headers() {
 
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
 	// header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
-
-}
-
-add_filter( 'wp_resource_hints', 'bfg_resource_hints', 10, 2 );
-/**
- * Prefetch the DNS for external resource domains. Better browser support than preconnect.
- *
- * See: https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/
- *
- * @since 2.3.19
- */
-function bfg_resource_hints($hints, $relation_type) {
-
-	if( in_array($relation_type, array('dns-prefetch', 'preconnect'), true) ) {
-		// $hints[] = 'https://cdnjs.cloudflare.com';
-		// $hints[] = 'https://fonts.googleapis.com';
-		// $hints[] = 'https://fonts.gstatic.com';
-	}
-
-	return $hints;
 
 }
 
@@ -279,12 +230,9 @@ function bfg_load_favicons() {
 	$favicon_path   = $stylesheet_dir . '/images/favicons';
 
 	// Use an SVG if supported
-	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg" sizes="512x512">';
+	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg">';
 
-	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
-	echo '<link rel="icon" type="image/png" href="' . $favicon_path . '/favicon-192.png" sizes="192x192">';
-
-	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
-	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_path . '/favicon-180.png">';
+	// Use a 192px X 192px PNG fallback for Safari
+	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-192.png">';
 
 }

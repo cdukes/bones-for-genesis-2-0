@@ -1,3 +1,11 @@
+## 20231220
+- Minor CSS tweaks
+- Remove `Cleanup <head>` (handled by Yoast SEO)
+- Remove `bfg_resource_hints()`
+- Rename `bfg_get_inline_icon()` to `bfg_get_icon()`
+- Add `spellcheck="false"` to `input[type="password"]`
+- Update `bfg_load_favicons()`
+
 ## 20231117
 - Fix HTML error in `bfg_get_image()`
 - Remove `acf_add_options_page()` for default Site Options
