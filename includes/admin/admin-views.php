@@ -98,6 +98,18 @@ function bfg_remove_dashboard_widgets() {
 
 }
 
+add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
+/**
+ * Hide the Limit Login Attempts Reloaded dashboard meta box
+ *
+ * @since 20240201
+ */
+function bfg_wp_dashboard_setup() {
+
+	remove_meta_box( 'wps_limit_logindashboard_widget', 'dashboard', 'normal' );
+
+}
+
 add_action('widgets_init', 'bfg_unregister_widgets');
 /**
  * Disable some or all widgets.

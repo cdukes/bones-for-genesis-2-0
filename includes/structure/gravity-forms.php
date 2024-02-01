@@ -23,6 +23,13 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 // add_filter( 'gform_tabindex', '__return_false' );
 
+/*
+ * Disable Gravity Forms CSS
+ *
+ * @since 20240201
+ */
+// add_filter( 'gform_disable_css', '__return_true' );
+
 // add_filter( 'gform_field_content', 'bfg_gform_filter_textarea_rows', 10, 5 );
 /**
  * Change the 'rows' attribute for Gravity Forms <textarea>s.

@@ -57,7 +57,11 @@ $palettes: (
 
 /*********************
 TYPOGRAPHY - https://systemfontstack.com/
+Firefox finterprinting protection allow lists:
+- https://searchfox.org/mozilla-central/source/gfx/thebes/StandardFonts-linux.inc
+- https://searchfox.org/mozilla-central/source/gfx/thebes/StandardFonts-macos.inc
+- https://searchfox.org/mozilla-central/source/gfx/thebes/StandardFonts-win10.inc
 *********************/
-$sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-$serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, arial, sans-serif;
+$serif: Baskerville, Times New Roman, Times, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;

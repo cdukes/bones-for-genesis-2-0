@@ -1,3 +1,9 @@
+## 20240201
+- Include `symfony/polyfill-php83`
+- Hide the Limit Login Attempts Reloaded dashboard meta box
+- Disable Gravity Forms CSS (disabled by default)
+- Remove fonts not allowed by Firefox finterprinting protection
+
 ## 20231220
 - Minor CSS tweaks
 - Remove `Cleanup <head>` (handled by Yoast SEO)
