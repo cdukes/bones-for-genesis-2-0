@@ -8,8 +8,8 @@ const webpack = require( `webpack` ),
 module.exports = ( env, argv ) => {
 	const config = {
 		entry: {
-			scripts: `./js/scripts.js`,
-			admin: `./js/admin.js`,
+			scripts: `./js/scripts.ts`,
+			admin: `./js/admin.ts`,
 
 			'style-css': `./sass/style.scss`,
 			'admin-css': `./sass/admin.scss`
@@ -21,7 +21,7 @@ module.exports = ( env, argv ) => {
 		},
 		resolve: {
 			alias: {
-				ajax$: path.resolve( __dirname, `../js/_partials/_ajax.js` )
+				ajax$: path.resolve( __dirname, `../js/_partials/_ajax.ts` )
 			}
 		},
 		optimization: {

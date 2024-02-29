@@ -4,6 +4,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if( !class_exists( 'BFG' ) ) {
 
+#[AllowDynamicProperties]
 final class BFG {
 	private static $instance;
 

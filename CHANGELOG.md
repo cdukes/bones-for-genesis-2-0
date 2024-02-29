@@ -1,3 +1,8 @@
+## 20240229
+- Start using `Typescript`
+- Set `AllowDynamicProperties` for PHP 8.2
+- Set `text-wrap: balance;` for headings
+
 ## 20240201
 - Include `symfony/polyfill-php83`
 - Hide the Limit Login Attempts Reloaded dashboard meta box
