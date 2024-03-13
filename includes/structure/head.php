@@ -230,9 +230,12 @@ function bfg_load_favicons() {
 	$favicon_path   = $stylesheet_dir . '/images/favicons';
 
 	// Use an SVG if supported
-	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg">';
+	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg" sizes="512x512">';
 
-	// Use a 192px X 192px PNG fallback for Safari
-	echo '<link rel="apple-touch-icon" href="' . $favicon_path . '/favicon-192.png">';
+	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
+	echo '<link rel="icon" type="image/png" href="' . $favicon_path . '/favicon-192.png" sizes="192x192">';
+
+	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
+	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_path . '/favicon-180.png">';
 
 }

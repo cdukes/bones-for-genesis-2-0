@@ -21,14 +21,6 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 		// Save the post_id as a class property, for easy access
 		$this->post_id = $this->post->ID;
 
-		/**
-		 * WP 5.9's wp_omit_loading_attr_threshold() only applies to images in post_content
-		 * For a custom page, it may make sense to disable wp_omit_loading_attr_threshold()
-		 *
-		 * @since 20220126
-		 */
-		// add_filter( 'wp_omit_loading_attr_threshold', '__return_false' );
-
 		add_action( 'genesis_entry_content', array($this, 'display_content') );
 
 	}

@@ -1,3 +1,9 @@
+## 20240313
+- Revert favicon changes for Safari compatibility
+- Add `bfg_gform_entry_is_spam()` to flag Cyrillic submissions as spam (disabled by default)
+- Remove `instant.page`
+- Update `<img>` lazy load handling
+
 ## 20240229
 - Start using `Typescript`
 - Set `AllowDynamicProperties` for PHP 8.2

@@ -77,6 +77,10 @@ function bfg_get_image($image_id, $width, $height, $crop = false, $atts = array(
 	if( in_array($mime_type, array('application/pdf'), true) )
 		return;
 
+	// Default to lazy loading
+	if( !isset($atts['loading']) )
+		$atts['loading'] = 'lazy';
+
 	if( $mime_type === 'image/svg+xml' ) {
 		$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
@@ -110,8 +114,6 @@ function bfg_get_image($image_id, $width, $height, $crop = false, $atts = array(
 		$atts['alt']    = esc_attr($alt);
 		$atts['width']  = $width;
 		$atts['height'] = $height;
-
-		$atts = array_merge( $atts, wp_get_loading_optimization_attributes( 'img', $atts, 'wp_get_attachment_image' ) );
 
 		ob_start();
 		?>

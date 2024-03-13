@@ -1,8 +1,7 @@
 {
 	"dependencies": {
 		"include-media": "*",
-		"include-media-export": "*",
-		"instant.page": "*"
+		"include-media-export": "*"
 	},
 	"devDependencies": {
 		"autoprefixer": "*",

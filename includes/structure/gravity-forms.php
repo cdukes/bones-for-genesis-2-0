@@ -111,3 +111,25 @@ function bfg_gform_form_validation_errors_markup($html, $form) {
  */
 // add_filter( 'gform_init_scripts_footer', '__return_true' );
 // add_filter( 'gform_footer_init_scripts_filter', '__return_false' );
+
+// add_filter( 'gform_entry_is_spam', 'bfg_gform_entry_is_spam', 10, 3 );
+/**
+ * Flag Cyrillic submissions as spam.
+ *
+ * @since 20240313
+ */
+function bfg_gform_entry_is_spam($is_spam, $form, $entry) {
+
+	foreach( $entry as $value ) {
+		if( empty($value) )
+			continue;
+
+		if( !preg_match( '/[\p{Cyrillic}]/u', $value) )
+			continue;
+
+		return true;
+	}
+
+	return $is_spam;
+
+}
