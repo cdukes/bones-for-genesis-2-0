@@ -1,3 +1,6 @@
+## 202404043
+- AVIF support
+
 ## 20240313
 - Revert favicon changes for Safari compatibility
 - Add `bfg_gform_entry_is_spam()` to flag Cyrillic submissions as spam (disabled by default)

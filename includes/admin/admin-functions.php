@@ -30,7 +30,7 @@ add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
  */
 function bfg_image_editor_output_format($formats) {
 
-	$formats['image/jpg'] = 'image/webp';
+	$formats['image/jpeg'] = 'image/avif';
 
 	return $formats;
 
