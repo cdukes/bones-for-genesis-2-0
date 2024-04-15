@@ -1,3 +1,6 @@
+## 20240415
+- eslint 9 support
+
 ## 202404043
 - AVIF support
 

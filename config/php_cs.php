@@ -49,7 +49,6 @@ return $config
 			'lowercase_static_reference'              => true,
 			'magic_constant_casing'                   => true,
 			'magic_method_casing'                     => true,
-			'magic_method_casing'                     => true,
 			'native_function_type_declaration_casing' => true,
 
 			// Cast Notation
