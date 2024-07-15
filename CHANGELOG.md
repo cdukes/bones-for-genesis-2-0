@@ -1,3 +1,6 @@
+## 20240715
+- Silence `sass` `mixed-decls` deprecation
+
 ## 20240415
 - eslint 9 support
 
