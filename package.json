@@ -21,7 +21,6 @@
 		"sass": "*",
 		"sass-loader": "*",
 		"svg-sprite": "*",
-		"typescript": "*",
 		"vue": "^3",
 		"vue-loader": "^17",
 		"vue-style-loader": "*",

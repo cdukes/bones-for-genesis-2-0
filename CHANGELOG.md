@@ -1,3 +1,6 @@
+## 20241007
+- Remove `typescript`
+
 ## 20240715
 - Silence `sass` `mixed-decls` deprecation
 
