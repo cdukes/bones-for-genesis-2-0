@@ -1,41 +1,23 @@
-// Variables & Mixins - variables must be imported after include-media, so that breakpoints aren't overwritten
-@import 'include-media/dist/_include-media';
-@import 'variables';
-@import 'include-media-export/dist/_include-media-export';
-
 // Clearfix & Toolkit
-@import 'clearfix';
-@import 'toolkit';
-@import 'accessibility';
-
-// Universal Box-Sizing (http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
-html {
-	box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-}
+@use 'accessibility';
 
 // Sitewide Styles
-@import 'layout';
-@import 'type';
-@import 'headings';
-@import 'objects-and-images';
-@import 'buttons';
-@import 'forms';
+@use 'layout';
+@use 'type';
+@use 'headings';
+@use 'objects-and-images';
+@use 'buttons';
+@use 'forms';
 
 // Module Styles
-@import 'header';
-@import 'navigation';
-@import 'content';
-@import 'sidebars';
-@import 'footer';
+@use 'header';
+@use 'navigation';
+@use 'content';
+@use 'sidebars';
+@use 'footer';
 
 // Templates
-@import 'archives';
+@use 'archives';
 
 // Shame - For new style snippets that haven't been sorted and commented yet
-@import 'shame';
+@use 'shame';

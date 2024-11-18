@@ -1,3 +1,5 @@
+@use "toolkit";
+
 .breadcrumbs {}
 
 .entry-title {
@@ -11,13 +13,13 @@
 }
 
 .entry-content {
-	@include entry-content;
+	@include toolkit.entry-content;
 }
 
 .more-link {}
 
 .entry-pagination {
-	@include type;
+	@include toolkit.type;
 }
 
 .entry-meta {

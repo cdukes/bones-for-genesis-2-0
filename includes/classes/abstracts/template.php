@@ -22,6 +22,12 @@ abstract class BFG_Abstract_Page_Template {
 		if( empty($value) )
 			return;
 
+		if( str_starts_with($tag, '.') ) {
+			echo '<p class="' . str_replace('.', '', $tag) . '">' . trim($value) . '</p>';
+
+			return;
+		}
+
 		echo '<' . $tag . '>' . trim($value) . '</' . $tag . '>';
 
 	}

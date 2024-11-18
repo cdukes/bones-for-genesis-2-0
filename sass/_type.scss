@@ -1,3 +1,6 @@
+@use "toolkit";
+@use 'variables';
+
 :root {
 	// accent-color: $text;
 }
@@ -11,8 +14,8 @@ html {
 
 body {
 	margin: 0;
-	color: $text;
-	font-family: $sans;
+	color: variables.$text;
+	font-family: variables.$sans;
 	scroll-behavior: smooth;
 	// overscroll-behavior: contain;
 
@@ -38,11 +41,11 @@ a {
 
 ol,
 ul {
-	@include unstyled-list;
+	@include toolkit.unstyled-list;
 }
 
 p {
-	@include type;
+	@include toolkit.type;
 }
 
 b,
@@ -56,10 +59,10 @@ iframe {
 
 hr {
 	height: 0;
-	margin: $spacer 0;
+	margin: variables.$spacer 0;
 	clear: both;
 	border: none;
-	border-top: 1px solid palette(grey, 'light');
+	border-top: 1px solid variables.palette(grey, 'light');
 	border-collapse: collapse;
 	color: inherit;
 }

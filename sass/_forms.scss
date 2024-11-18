@@ -1,3 +1,5 @@
+@use "variables";
+
 input[type='text'],
 input[type='password'],
 input[type='search'],
@@ -9,7 +11,7 @@ textarea {
 	width: 100%;
 	max-width: 100%;
 	margin: 0;
-	color: $text;
+	color: variables.$text;
 	font-size: 1em;
 	line-height: 1.15;
 	font-family: inherit;
@@ -28,13 +30,13 @@ textarea {
 
 select {
 	width: 100%;
-	color: $text;
+	color: variables.$text;
 
 	option {
-		color: $black;
+		color: variables.$black;
 
 		&:disabled {
-			color: rgba($black, .5);
+			color: rgba(variables.$black, .5);
 		}
 	}
 }

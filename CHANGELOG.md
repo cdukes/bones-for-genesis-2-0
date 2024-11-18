@@ -1,3 +1,8 @@
+## 20241118
+- Use `@use` SCSS
+- Support for `<p class="${class}">` in `display_node()`
+- Update `smlp_replace_login_logo()` admin CSS
+
 ## 20241007
 - Remove `typescript`
 

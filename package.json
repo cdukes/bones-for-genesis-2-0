@@ -1,7 +1,6 @@
 {
 	"dependencies": {
-		"include-media": "*",
-		"include-media-export": "*"
+		"include-media": "*"
 	},
 	"devDependencies": {
 		"autoprefixer": "*",

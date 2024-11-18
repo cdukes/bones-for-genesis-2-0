@@ -1,3 +1,5 @@
+@use "toolkit";
+
 .btn {
-	@include btn;
+	@include toolkit.btn;
 }
