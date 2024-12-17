@@ -1,3 +1,6 @@
+## 20241217
+- Use `@use` SCSS
+
 ## 20241118
 - Use `@use` SCSS
 - Support for `<p class="${class}">` in `display_node()`

@@ -1,4 +1,8 @@
-@use "toolkit";
+@use "sass:math";
+
+@use "variables" as *;
+@use "toolkit" as *;
+@use 'include-media' as *;
 
 .breadcrumbs {}
 
@@ -13,13 +17,13 @@
 }
 
 .entry-content {
-	@include toolkit.entry-content;
+	@include entry-content;
 }
 
 .more-link {}
 
 .entry-pagination {
-	@include toolkit.type;
+	@include type;
 }
 
 .entry-meta {

@@ -1,9 +1,13 @@
-@use "toolkit";
+@use "sass:math";
+
+@use "variables" as *;
+@use "toolkit" as *;
+@use 'include-media' as *;
 
 .screen-reader-text,
 .screen-reader-text span,
 .screen-reader-shortcut {
-	@include toolkit.visuallyhidden;
+	@include visuallyhidden;
 }
 
 // https://raw.githubusercontent.com/copyblogger/genesis-sample/5afef88688b0f187733cea089fbb5bfc5ce2c351/style.css

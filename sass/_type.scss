@@ -1,5 +1,8 @@
-@use "toolkit";
-@use 'variables';
+@use "sass:math";
+
+@use "variables" as *;
+@use "toolkit" as *;
+@use 'include-media' as *;
 
 :root {
 	// accent-color: $text;
@@ -14,8 +17,8 @@ html {
 
 body {
 	margin: 0;
-	color: variables.$text;
-	font-family: variables.$sans;
+	color: $text;
+	font-family: $sans;
 	scroll-behavior: smooth;
 	// overscroll-behavior: contain;
 
@@ -41,11 +44,11 @@ a {
 
 ol,
 ul {
-	@include toolkit.unstyled-list;
+	@include unstyled-list;
 }
 
 p {
-	@include toolkit.type;
+	@include type;
 }
 
 b,
@@ -59,10 +62,10 @@ iframe {
 
 hr {
 	height: 0;
-	margin: variables.$spacer 0;
+	margin: $spacer 0;
 	clear: both;
 	border: none;
-	border-top: 1px solid variables.palette(grey, 'light');
+	border-top: 1px solid palette(grey, 'light');
 	border-collapse: collapse;
 	color: inherit;
 }

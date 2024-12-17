@@ -1,5 +1,9 @@
-@use "toolkit";
+@use "sass:math";
+
+@use "variables" as *;
+@use "toolkit" as *;
+@use 'include-media' as *;
 
 .btn {
-	@include toolkit.btn;
+	@include btn;
 }

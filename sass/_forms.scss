@@ -1,4 +1,8 @@
-@use "variables";
+@use "sass:math";
+
+@use "variables" as *;
+@use "toolkit" as *;
+@use 'include-media' as *;
 
 input[type='text'],
 input[type='password'],
@@ -11,7 +15,7 @@ textarea {
 	width: 100%;
 	max-width: 100%;
 	margin: 0;
-	color: variables.$text;
+	color: $text;
 	font-size: 1em;
 	line-height: 1.15;
 	font-family: inherit;
@@ -30,13 +34,13 @@ textarea {
 
 select {
 	width: 100%;
-	color: variables.$text;
+	color: $text;
 
 	option {
-		color: variables.$black;
+		color: $black;
 
 		&:disabled {
-			color: rgba(variables.$black, .5);
+			color: rgba($black, .5);
 		}
 	}
 }

@@ -1,3 +1,9 @@
+@use "sass:math";
+
+@use "variables" as *;
+@use "toolkit" as *;
+@use 'include-media' as *;
+
 .genesis-nav-menu {
 
 	// Applied to all menu <li>s

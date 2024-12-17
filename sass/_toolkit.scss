@@ -1,9 +1,12 @@
-@use "variables";
+@use "sass:math";
+
+@use "variables" as *;
+@use 'include-media' as *;
 
 // Use with @include to make reponsive modules
 @mixin wrap {
 	width: 100%;
-	max-width: variables.$site-width + 1.5em;
+	max-width: $site-width + 1.5em;
 	margin: 0 auto;
 	padding-right: .75em;
 	padding-left: .75em;
@@ -66,7 +69,7 @@
 }
 
 @mixin type {
-	margin: 0 0 variables.$spacer;
+	margin: 0 0 $spacer;
 	line-height: 1.5;
 
 	&:last-child {
