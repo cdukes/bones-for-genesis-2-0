@@ -2,11 +2,17 @@
 
 const simpleImportSort = require( `eslint-plugin-simple-import-sort` ),
 	pluginVue = require( `eslint-plugin-vue` ),
-	js = require( `@eslint/js` );
+	js = require( `@eslint/js` ),
+	globals = require( `globals` );
 
 module.exports = [
 	...pluginVue.configs[`flat/recommended`],
 	{
+		languageOptions: {
+			globals: {
+				...globals.browser
+			}
+		},
 		files: [`{js,config}/**/*.{js,vue}`],
 		plugins: {
 			"simple-import-sort": simpleImportSort,
@@ -205,14 +211,14 @@ module.exports = [
 			"vars-on-top": `error`,
 			"vue/array-bracket-spacing": `error`,
 			"vue/arrow-spacing": `error`,
+			"vue/block-order": [`error`, {
+				order: [`template`, `style`, `script`]
+			}],
 			"vue/block-spacing": `error`,
 			"vue/brace-style": `error`,
 			"vue/comma-dangle": `error`,
 			"vue/component-definition-name-casing": [`error`, `kebab-case`],
 			"vue/component-name-in-template-casing": [`error`, `kebab-case`],
-			"vue/component-tags-order": [`error`, {
-				order: [`template`, `style`, `script`]
-			}],
 			"vue/dot-location": `error`,
 			"vue/eqeqeq": `error`,
 			"vue/html-indent": [`error`, `tab`],
@@ -239,7 +245,6 @@ module.exports = [
 			"vue/space-infix-ops": `error`,
 			"vue/space-unary-ops": `error`,
 			"vue/static-class-names-order": `error`,
-			"vue/v-on-function-call": `error`,
 			"vue/v-slot-style": `error`,
 			"vue/valid-v-bind-sync": `error`,
 			"vue/valid-v-slot": `error`,

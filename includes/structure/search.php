@@ -76,6 +76,7 @@ add_action( 'do_robots', 'bfg_block_bots_from_search' );
 function bfg_block_bots_from_search() {
 
 	?>
+
 User-agent: *
 Disallow: /search/
 Disallow: /?s=

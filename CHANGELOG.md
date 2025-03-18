@@ -1,3 +1,8 @@
+## 20250318
+- Adjust `bfg_process_image()` cropping logic to handle edge case
+- Better `robots.txt` formatting
+- Update `eslint.config.js`
+
 ## 20241217
 - Use `@use` SCSS
 
