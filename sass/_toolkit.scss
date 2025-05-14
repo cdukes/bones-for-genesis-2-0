@@ -1,6 +1,6 @@
-@use "sass:math";
+@use 'sass:math';
 
-@use "variables" as *;
+@use 'variables' as *;
 @use 'include-media' as *;
 
 // Use with @include to make reponsive modules
@@ -21,7 +21,6 @@
 
 // https://make.wordpress.org/core/2017/10/22/changes-to-the-screen-reader-text-css-class-in-wordpress-4-9/
 @mixin visuallyhidden {
-	clip: rect(1px, 1px, 1px, 1px);
 	word-wrap: normal !important;
 	position: absolute;
 	width: 1px;

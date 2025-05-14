@@ -1,3 +1,6 @@
+# 20250514
+- Minor CSS changes for consistency
+
 ## 20250318
 - Adjust `bfg_process_image()` cropping logic to handle edge case
 - Better `robots.txt` formatting

@@ -1,7 +1,7 @@
-@use "sass:math";
+@use 'sass:math';
 
-@use "variables" as *;
-@use "toolkit" as *;
+@use 'variables' as *;
+@use 'toolkit' as *;
 @use 'include-media' as *;
 
 embed,
@@ -83,9 +83,9 @@ img.alignright,
 
 iframe {
 
-	&[src*="player.vimeo.com"],
-	&[src*="youtube.com"],
-	&[src*="youtube-nocookie.com"] {
+	&[src*='player.vimeo.com'],
+	&[src*='youtube.com'],
+	&[src*='youtube-nocookie.com'] {
 		display: block;
 		aspect-ratio: 16 / 9;
 		width: 100%;

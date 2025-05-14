@@ -1,7 +1,7 @@
-@use "sass:math";
+@use 'sass:math';
 
-@use "variables" as *;
-@use "toolkit" as *;
+@use 'variables' as *;
+@use 'toolkit' as *;
 @use 'include-media' as *;
 
 :root {
@@ -19,6 +19,7 @@ body {
 	margin: 0;
 	color: $text;
 	font-family: $sans;
+	// text-wrap: pretty;
 	scroll-behavior: smooth;
 	// overscroll-behavior: contain;
 
