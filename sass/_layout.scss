@@ -4,14 +4,6 @@
 @use 'toolkit' as *;
 @use 'include-media' as *;
 
-// Genesis layout <body> classes:
-// .content-sidebar-sidebar
-// .sidebar-content-sidebar
-// .sidebar-sidebar-content
-// .content-sidebar
-// .sidebar-content
-// .full-width-content
-
 // Universal Box-Sizing (http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
 html {
 	box-sizing: border-box;
@@ -22,6 +14,14 @@ html {
 *::after {
 	box-sizing: inherit;
 }
+
+// Genesis layout <body> classes:
+// .content-sidebar-sidebar
+// .sidebar-content-sidebar
+// .sidebar-sidebar-content
+// .content-sidebar
+// .sidebar-content
+// .full-width-content
 
 .site-container {}
 

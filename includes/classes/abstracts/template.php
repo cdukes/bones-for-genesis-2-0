@@ -23,12 +23,12 @@ abstract class BFG_Abstract_Page_Template {
 			return;
 
 		if( str_starts_with($tag, '.') ) {
-			echo '<p class="' . str_replace('.', '', $tag) . '">' . trim($value) . '</p>';
+			echo '<p class="' . str_replace('.', '', $tag) . '">' . mb_trim($value) . '</p>';
 
 			return;
 		}
 
-		echo '<' . $tag . '>' . trim($value) . '</' . $tag . '>';
+		echo '<' . $tag . '>' . mb_trim($value) . '</' . $tag . '>';
 
 	}
 
@@ -62,7 +62,7 @@ abstract class BFG_Abstract_Page_Template {
 		if( empty($button_text) || empty($button_url) )
 			return;
 
-		echo '<a href="' . esc_url( $button_url ) . '" class="btn">' . trim( $button_text ) . '</a>';
+		echo '<a href="' . esc_url( $button_url ) . '" class="btn">' . mb_trim( $button_text ) . '</a>';
 
 	}
 

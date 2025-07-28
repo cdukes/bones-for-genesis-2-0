@@ -1,3 +1,7 @@
+# 20250728
+- Use PHP 8.4 functions
+- Output PNG and WEBP images as AVIF
+
 # 20250514
 - Minor CSS changes for consistency
 
