@@ -1,3 +1,6 @@
+## 20250821
+- Disabled "output PNG and WEBP images as AVIF" - transparency issues
+
 # 20250728
 - Use PHP 8.4 functions
 - Output PNG and WEBP images as AVIF

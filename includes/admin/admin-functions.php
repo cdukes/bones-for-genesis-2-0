@@ -32,8 +32,8 @@ function bfg_image_editor_output_format($formats) {
 
 	// Convert JPEG, PNG, and WebP to AVIF for better compression
 	$formats['image/jpeg'] = 'image/avif';
-	$formats['image/png']  = 'image/avif';
-	$formats['image/webp'] = 'image/avif';
+	// $formats['image/png']  = 'image/avif';
+	// $formats['image/webp'] = 'image/avif';
 
 	return $formats;
 
