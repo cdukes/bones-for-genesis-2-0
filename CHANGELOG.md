@@ -1,3 +1,7 @@
+## 20260102
+- Set `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__`
+- Silence SASS `if-function` deprecation
+
 ## 20250821
 - Disabled "output PNG and WEBP images as AVIF" - transparency issues
 

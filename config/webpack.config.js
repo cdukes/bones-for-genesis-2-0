@@ -30,7 +30,8 @@ module.exports = ( env, argv ) => {
 		plugins: [
 			new webpack.DefinePlugin( {
 				__VUE_OPTIONS_API__: JSON.stringify( false ),
-				__VUE_PROD_DEVTOOLS__: JSON.stringify( argv.mode !== `production` )
+				__VUE_PROD_DEVTOOLS__: JSON.stringify( argv.mode !== `production` ),
+				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify( argv.mode !== `production` )
 			} ),
 			new VueLoaderPlugin(),
 			new MiniCssExtractPlugin( {
@@ -91,7 +92,10 @@ module.exports = ( env, argv ) => {
 						{
 							loader: `sass-loader`,
 							options: {
-								api: `modern`
+								api: `modern`,
+								sassOptions: {
+									silenceDeprecations: [`if-function`]
+								}
 							}
 						}
 					]
