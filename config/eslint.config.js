@@ -146,6 +146,7 @@ module.exports = [
 			"no-unneeded-ternary": `error`,
 			"no-unused-expressions": `error`,
 			"no-use-before-define": [`error`, `nofunc`],
+			"no-useless-assignment": `off`,
 			"no-useless-call": `error`,
 			"no-useless-computed-key": `error`,
 			"no-useless-concat": `error`,

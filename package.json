@@ -3,6 +3,7 @@
 		"include-media": "*"
 	},
 	"devDependencies": {
+		"@eslint/js": "*",
 		"autoprefixer": "*",
 		"concurrently": "*",
 		"css-declaration-sorter": "*",
@@ -10,6 +11,7 @@
 		"eslint": "*",
 		"eslint-plugin-simple-import-sort": "*",
 		"eslint-plugin-vue": "*",
+		"globals": "*",
 		"mini-css-extract-plugin": "*",
 		"nodemon": "*",
 		"postcss": "*",
@@ -20,8 +22,8 @@
 		"sass": "*",
 		"sass-loader": "*",
 		"svg-sprite": "*",
-		"vue": "^3",
-		"vue-loader": "^17",
+		"vue": "*",
+		"vue-loader": "*",
 		"vue-style-loader": "*",
 		"webpack": "*",
 		"webpack-cli": "*"

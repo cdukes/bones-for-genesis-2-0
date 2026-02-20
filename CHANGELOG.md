@@ -1,3 +1,7 @@
+# 20260220
+- Update `devDependencies` for eslint v10
+- Unpin `vue` version
+
 ## 20260102
 - Set `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__`
 - Silence SASS `if-function` deprecation
