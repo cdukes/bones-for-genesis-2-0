@@ -5,19 +5,24 @@
 @use 'include-media' as *;
 
 .site-header {
-	> .wrap {}
-}
-
-.title-area {}
-
-.site-title {
-	a {
-		&:hover {}
+	> .wrap {
 	}
 }
 
-.site-description {}
+.title-area {
+}
+
+.site-title {
+	a {
+		&:hover {
+		}
+	}
+}
+
+.site-description {
+}
 
 .header-widget-area {
-	.widget {}
+	.widget {
+	}
 }

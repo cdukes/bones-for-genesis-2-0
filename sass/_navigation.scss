@@ -5,7 +5,6 @@
 @use 'include-media' as *;
 
 .genesis-nav-menu {
-
 	// Applied to all menu <li>s
 	.menu-item {
 		a {
@@ -17,10 +16,12 @@
 	> .menu-item {
 		position: relative;
 
-		&:hover {}
+		&:hover {
+		}
 
 		&.current-menu-item {
-			> a {}
+			> a {
+			}
 		}
 
 		&.menu-item-has-children {
@@ -32,7 +33,8 @@
 			}
 		}
 
-		> a {}
+		> a {
+		}
 	}
 
 	// Sublevels
@@ -42,12 +44,14 @@
 		top: 100%;
 		left: -9999px;
 		opacity: 0;
-		transition: opacity .4s ease-in-out;
+		transition: opacity 0.4s ease-in-out;
 
 		> .menu-item {
-			> a {}
+			> a {
+			}
 		}
 
-		.sub-menu {}
+		.sub-menu {
+		}
 	}
 }

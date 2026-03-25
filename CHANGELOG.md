@@ -1,3 +1,7 @@
+# 20260325
+- Add `prettier` for SCSS
+- Remove `palette()` SCSS
+
 # 20260220
 - Update `devDependencies` for eslint v10
 - Unpin `vue` version

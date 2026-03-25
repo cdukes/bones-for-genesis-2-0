@@ -30,11 +30,11 @@ BREAKPOINTS
 *********************/
 // Use pixels for include-media-export compatibility. 'zero' breakpoint ensures the breakpoints are printed on all screen widths.
 $breakpoints: (
-	zero: (1 * 16px),
-	phone: (35 * 16px),
-	portrait: (50.625 * 16px),
-	landscape: (67.5 * 16px),
-	desktop: (80 * 16px)
+	zero: 16px,
+	phone: 560px,
+	portrait: 810px,
+	landscape: 1080px,
+	desktop: 1280px,
 );
 
 /*********************
@@ -44,20 +44,6 @@ $black: #000;
 $white: #fff;
 $text: $black;
 
-// https://news.ycombinator.com/item?id=18422086
-$palettes: (
-	grey: (light: #eee,
-		base: #ccc,
-		dark: #aaa,
-	)
-);
-
-@function palette($palette, $tone: 'base') {
-	@return map.get(map.get($palettes, $palette), $tone);
-}
-
-// Usage: palette(grey, 'light');
-
 /*********************
 TYPOGRAPHY - https://systemfontstack.com/
 Firefox finterprinting protection allow lists:
@@ -65,6 +51,31 @@ Firefox finterprinting protection allow lists:
 - https://searchfox.org/mozilla-central/source/gfx/thebes/StandardFonts-macos.inc
 - https://searchfox.org/mozilla-central/source/gfx/thebes/StandardFonts-win10.inc
 *********************/
-$sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, arial, sans-serif;
-$serif: Baskerville, Times New Roman, Times, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-$mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+$sans:
+	-apple-system,
+	BlinkMacSystemFont,
+	avenir next,
+	avenir,
+	segoe ui,
+	helvetica neue,
+	helvetica,
+	Cantarell,
+	Ubuntu,
+	arial,
+	sans-serif;
+
+$serif:
+	Baskerville,
+	Times New Roman,
+	Times,
+	Apple Color Emoji,
+	Segoe UI Emoji,
+	Segoe UI Symbol;
+
+$mono:
+	Menlo,
+	Consolas,
+	Monaco,
+	Liberation Mono,
+	Lucida Console,
+	monospace;

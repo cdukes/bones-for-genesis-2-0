@@ -34,9 +34,10 @@ body {
 
 a {
 	text-decoration: underline;
-	transition: all .15s ease-in-out;
+	transition: all 0.15s ease-in-out;
 
-	&:visited {}
+	&:visited {
+	}
 
 	&:hover {
 		text-decoration: none;
@@ -66,7 +67,7 @@ hr {
 	margin: $spacer 0;
 	clear: both;
 	border: none;
-	border-top: 1px solid palette(grey, 'light');
+	border-top: 1px solid $text;
 	border-collapse: collapse;
 	color: inherit;
 }

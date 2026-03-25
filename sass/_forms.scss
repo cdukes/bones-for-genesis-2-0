@@ -40,7 +40,7 @@ select {
 		color: $black;
 
 		&:disabled {
-			color: rgba($black, .5);
+			color: rgba($black, 0.5);
 		}
 	}
 }
@@ -56,7 +56,7 @@ select {
 
 	input[type='submit'] {
 		flex: 0 0 auto;
-		margin-left: .25em;
+		margin-left: 0.25em;
 	}
 }
 
