@@ -1,3 +1,6 @@
+# 20260326
+- Adjust the file structure to place the theme in the WP themes folder
+
 # 20260325
 - Add `prettier` for SCSS
 - Remove `palette()` SCSS
