@@ -6,6 +6,9 @@ const simpleImportSort = require( `eslint-plugin-simple-import-sort` ),
 	globals = require( `globals` );
 
 module.exports = [
+	{
+		ignores: [`build/**`]
+	},
 	...pluginVue.configs[`flat/recommended`],
 	{
 		languageOptions: {
@@ -13,7 +16,6 @@ module.exports = [
 				...globals.browser
 			}
 		},
-		files: [`{js,config}/**/*.{js,vue}`],
 		plugins: {
 			"simple-import-sort": simpleImportSort,
 			vue: pluginVue

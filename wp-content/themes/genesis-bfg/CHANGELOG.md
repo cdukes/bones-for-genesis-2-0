@@ -1,3 +1,8 @@
+## 20260422
+- Update `webpack` config
+- Always set `fallback_cb=false` for WP menus
+- Adjust `bfg_process_image()` resizing logic
+
 # 20260326
 - Adjust the file structure to place the theme in the WP themes folder
 

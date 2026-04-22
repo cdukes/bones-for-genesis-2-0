@@ -38,14 +38,11 @@ function bfg_process_image($image_id, $width, $height, $crop = false) {
 		return $editor;
 
 	$size = $editor->get_size();
-	if( $size['width'] <= $width )
+	if( (int) $size['width'] < $width || (int) $size['height'] < $height )
 		return;
 
-	if( $size['height'] <= $height )
+	if( (int) $size['width'] === $width && (int) $size['height'] === $height )
 		return;
-
-	if( is_wp_error($editor) )
-		return $editor;
 
 	$resize = $editor->resize( $width, $height, $crop );
 	if( is_wp_error($resize) )

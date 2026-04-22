@@ -27,6 +27,7 @@ function bfg_limit_menu_depth($args) {
 
 	$args['item_spacing'] = 'discard';
 	$args['container']    = false;
+	$args['fallback_cb']  = false;
 
 	if( !in_array($args['theme_location'], array('primary', 'secondary'), true) )
 		return $args;

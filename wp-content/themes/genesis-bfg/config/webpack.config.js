@@ -1,4 +1,4 @@
-/* globals module, require, __dirname */
+/* globals module, require, __dirname, __filename */
 
 const webpack = require( `webpack` ),
 	path = require( `path` ),
@@ -6,6 +6,8 @@ const webpack = require( `webpack` ),
 	MiniCssExtractPlugin = require( `mini-css-extract-plugin` );
 
 module.exports = ( env, argv ) => {
+	const isProduction = argv.mode === `production`;
+
 	const config = {
 		entry: {
 			scripts: `./js/scripts.js`,
@@ -16,8 +18,17 @@ module.exports = ( env, argv ) => {
 		},
 		output: {
 			path: path.resolve( __dirname, `../build` ),
-			filename: argv.mode === `production` ? `js/[name].min.js` : `js/[name].js`,
-			chunkFilename: argv.mode === `production` ? `js/[id].[contenthash].min.js` : `js/[id].js`
+			filename: `js/[name].js`,
+			chunkFilename: isProduction ? `js/[id].[contenthash].js` : `js/[id].js`,
+			clean: {
+				keep: /svgs\//
+			}
+		},
+		cache: {
+			type: `filesystem`,
+			buildDependencies: {
+				config: [__filename]
+			}
 		},
 		resolve: {
 			alias: {
@@ -25,20 +36,24 @@ module.exports = ( env, argv ) => {
 			}
 		},
 		optimization: {
-			minimize: argv.mode === `production`
+			minimize: isProduction
 		},
+		performance: {
+			maxAssetSize: 300000
+		},
+		devtool: isProduction ? `source-map` : `eval-cheap-module-source-map`,
 		plugins: [
 			new webpack.DefinePlugin( {
 				__VUE_OPTIONS_API__: JSON.stringify( false ),
-				__VUE_PROD_DEVTOOLS__: JSON.stringify( argv.mode !== `production` ),
-				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify( argv.mode !== `production` )
+				__VUE_PROD_DEVTOOLS__: JSON.stringify( !isProduction ),
+				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify( !isProduction )
 			} ),
 			new VueLoaderPlugin(),
 			new MiniCssExtractPlugin( {
 				filename: pathData => {
 					const slug = pathData.chunk.name.replace( `-css`, `` );
 
-					return argv.mode === `production` ? `css/${slug}.min.css` : `css/${slug}.css`;
+					return isProduction ? `css/${slug}.min.css` : `css/${slug}.css`;
 				}
 			} )
 		],
@@ -46,30 +61,16 @@ module.exports = ( env, argv ) => {
 			rules: [
 				{
 					test: /\.vue$/,
-					exclude: /(node_modules)/,
 					use: {
 						loader: `vue-loader`
 					}
 				},
 				{
-					test: /(?<!\.vue)\.(s?[ac]ss)$/,
+					test: /\.(sa|sc|c)ss$/,
 					use: [
 						{
 							loader: MiniCssExtractPlugin.loader
-						}
-					]
-				},
-				{
-					test: /\.vue\.(s?[ac]ss)$/,
-					use: [
-						{
-							loader: `vue-style-loader`
-						}
-					]
-				},
-				{
-					test: /\.(sa|sc|c)ss$/,
-					use: [
+						},
 						{
 							loader: `css-loader`,
 							options: {
@@ -102,8 +103,7 @@ module.exports = ( env, argv ) => {
 				}
 			]
 		},
-		node: false,
-		watch: argv.mode !== `production`,
+		watch: !isProduction,
 		stats: `errors-warnings`
 	};
 
