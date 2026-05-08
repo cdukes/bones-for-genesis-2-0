@@ -1,3 +1,11 @@
+## 20260508
+- Update site wrapper padding
+- Fix script file name
+- Remove custom_css panel
+- Remove REST user endpoints by default
+- Various code style improvements
+- More consistent `.htaccess`
+
 ## 20260422
 - Update `webpack` config
 - Always set `fallback_cb=false` for WP menus

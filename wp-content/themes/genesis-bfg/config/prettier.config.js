@@ -1,6 +1,6 @@
-/* globals module */
-
 module.exports = {
 	useTabs: true,
-	singleQuote: true
+	singleQuote: true,
+	tabWidth: 1,
+	endOfLine: `lf`
 };

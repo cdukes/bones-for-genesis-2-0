@@ -6,10 +6,10 @@
 // Use with @include to make reponsive modules
 @mixin wrap {
 	width: 100%;
-	max-width: $site-width + 1.5em;
+	max-width: $site-width + 3em;
 	margin: 0 auto;
-	padding-right: 0.75em;
-	padding-left: 0.75em;
+	padding-right: 1.5em;
+	padding-left: 1.5em;
 }
 
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/

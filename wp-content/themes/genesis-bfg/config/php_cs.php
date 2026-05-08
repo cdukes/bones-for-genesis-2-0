@@ -6,7 +6,7 @@ $finder = PhpCsFixer\Finder::create()
 	->exclude('bower_components')
 	->exclude('node_modules')
 	->exclude('vendor')
-	->in(__DIR__);
+	->in(dirname(__DIR__));
 
 $config = new PhpCsFixer\Config();
 
@@ -31,25 +31,24 @@ return $config
 			// Array Notation
 			'array_syntax'                                => array('syntax' => 'long'),
 			'no_multiline_whitespace_around_double_arrow' => true,
-			'no_trailing_comma_in_singleline_array'       => true,
+			'no_trailing_comma_in_singleline'             => true,
 			'no_whitespace_before_comma_in_array'         => true,
 			'normalize_index_brace'                       => true,
 			'trim_array_spaces'                           => true,
 			'whitespace_after_comma_in_array'             => true,
 
 			// Basic
-			'braces'                  => false,
 			'encoding'                => true,
 			'non_printable_character' => true,
 			'psr_autoloading'         => false,
 
 			// Casing
-			'constant_case'                           => true,
-			'lowercase_keywords'                      => true,
-			'lowercase_static_reference'              => true,
-			'magic_constant_casing'                   => true,
-			'magic_method_casing'                     => true,
-			'native_function_type_declaration_casing' => true,
+			'constant_case'                  => true,
+			'lowercase_keywords'             => true,
+			'lowercase_static_reference'     => true,
+			'magic_constant_casing'          => true,
+			'magic_method_casing'            => true,
+			'native_type_declaration_casing' => true,
 
 			// Cast Notation
 			'cast_spaces'             => true,
@@ -77,7 +76,7 @@ return $config
 			'self_static_accessor'                   => true,
 			'single_class_element_per_statement'     => true,
 			'single_trait_insert_per_statement'      => true,
-			'visibility_required'                    => true,
+			'modifier_keywords'                      => true,
 
 			// Class Usage
 			'date_time_immutable' => true,
@@ -98,9 +97,8 @@ return $config
 			'no_alternative_syntax'           => true,
 			'no_break_comment'                => true,
 			'no_superfluous_elseif'           => true,
-			'no_trailing_comma_in_list_call'  => true,
 			'no_unneeded_control_parentheses' => true,
-			'no_unneeded_curly_braces'        => true,
+			'no_unneeded_braces'              => true,
 			'no_useless_else'                 => true,
 			'simplified_if_return'            => true,
 			'switch_case_semicolon_to_colon'  => true,
@@ -110,11 +108,14 @@ return $config
 			'yoda_style'                      => array('equal' => false, 'identical' => false),
 
 			// Function Notation
-			'combine_nested_dirname'                           => true,
-			'fopen_flag_order'                                 => true,
-			'fopen_flags'                                      => true,
-			'function_declaration'                             => true,
-			'function_typehint_space'                          => true,
+			'combine_nested_dirname' => true,
+			'fopen_flag_order'       => true,
+			'fopen_flags'            => true,
+			'function_declaration'   => array(
+				'closure_fn_spacing'       => 'none',
+				'closure_function_spacing' => 'none',
+			),
+			'type_declaration_spaces'                          => true,
 			'implode_call'                                     => true,
 			'lambda_not_used_import'                           => true,
 			'method_argument_space'                            => array('on_multiline' => 'ignore'),
@@ -141,27 +142,30 @@ return $config
 			'single_line_after_imports'    => true,
 
 			// Language Construct
-			'class_keyword_remove'         => true,
-			'combine_consecutive_issets'   => true,
-			'combine_consecutive_unsets'   => false,
-			'declare_equal_normalize'      => true,
-			'dir_constant'                 => true,
-			'error_suppression'            => false,
-			'explicit_indirect_variable'   => true,
-			'function_to_constant'         => true,
-			'is_null'                      => true,
-			'no_unset_on_property'         => true,
-			'single_space_after_construct' => array('constructs' => array('abstract', 'as', 'attribute', 'break', 'case', 'catch', 'class', 'clone', 'comment', 'const', 'const_import', 'continue', 'do', 'echo', 'else', 'extends', 'final', 'finally', 'for', 'function', 'function_import', 'global', 'goto', 'implements', 'include', 'include_once', 'instanceof', 'insteadof', 'interface', 'match', 'named_argument', 'new', 'open_tag_with_echo', 'php_doc', 'php_open', 'print', 'private', 'protected', 'public', 'require', 'require_once', 'return', 'static', 'throw', 'trait', 'try', 'use', 'use_lambda', 'use_trait', 'var', 'yield', 'yield_from')),
+			'class_keyword_remove'          => true,
+			'combine_consecutive_issets'    => true,
+			'combine_consecutive_unsets'    => false,
+			'declare_equal_normalize'       => true,
+			'dir_constant'                  => true,
+			'error_suppression'             => false,
+			'explicit_indirect_variable'    => true,
+			'function_to_constant'          => true,
+			'is_null'                       => true,
+			'no_unset_on_property'          => true,
+			'single_space_around_construct' => array(
+				'constructs_followed_by_a_single_space' => array(
+					'abstract', 'as', 'attribute', 'break', 'case', 'catch', 'class', 'clone', 'comment', 'const', 'const_import', 'continue', 'do', 'echo', 'else', 'extends', 'final', 'finally', 'for', 'function', 'function_import', 'global', 'goto', 'implements', 'include', 'include_once', 'instanceof', 'insteadof', 'interface', 'match', 'named_argument', 'new', 'open_tag_with_echo', 'php_doc', 'php_open', 'print', 'private', 'protected', 'public', 'require', 'require_once', 'return', 'static', 'throw', 'trait', 'try', 'use', 'use_lambda', 'use_trait', 'var', 'yield', 'yield_from',
+				),
+			),
 
 			// List Notation
 			'list_syntax' => array('syntax' => 'long'),
 
 			// Namespace Notation
-			'blank_line_after_namespace'         => true,
-			'clean_namespace'                    => true,
-			'no_blank_lines_before_namespace'    => false,
-			'no_leading_namespace_whitespace'    => true,
-			'single_blank_line_before_namespace' => true,
+			'blank_line_after_namespace'      => true,
+			'blank_lines_before_namespace'    => true,
+			'clean_namespace'                 => true,
+			'no_leading_namespace_whitespace' => true,
 
 			// Naming
 			'no_homoglyph_names' => true,
@@ -171,7 +175,7 @@ return $config
 			'concat_space'                       => array('spacing' => 'one'),
 			'increment_style'                    => true,
 			'logical_operators'                  => true,
-			'new_with_braces'                    => true,
+			'new_with_parentheses'               => true,
 			'not_operator_with_space'            => false,
 			'not_operator_with_successor_space'  => false,
 			'object_operator_without_whitespace' => true,
@@ -208,7 +212,7 @@ return $config
 			'strict_param'         => true,
 
 			// String Notation
-			'escape_implicit_backslashes'       => true,
+			'string_implicit_backslashes'       => true,
 			'explicit_string_variable'          => true,
 			'no_binary_string'                  => true,
 			'no_trailing_whitespace_in_string'  => true,
@@ -217,18 +221,17 @@ return $config
 			'string_line_ending'                => true,
 
 			// Whitespace
-			'array_indentation'            => true,
-			'blank_line_before_statement'  => true,
-			'compact_nullable_typehint'    => true,
-			'indentation_type'             => true,
-			'line_ending'                  => true,
-			'method_chaining_indentation'  => true,
-			'no_extra_blank_lines'         => true,
-			'no_spaces_around_offset'      => true,
-			'no_spaces_inside_parenthesis' => false,
-			'no_trailing_whitespace'       => true,
-			'no_whitespace_in_blank_line'  => true,
-			'single_blank_line_at_eof'     => true,
+			'array_indentation'                 => true,
+			'blank_line_before_statement'       => true,
+			'compact_nullable_type_declaration' => true,
+			'indentation_type'                  => true,
+			'line_ending'                       => true,
+			'method_chaining_indentation'       => true,
+			'no_extra_blank_lines'              => true,
+			'no_spaces_around_offset'           => true,
+			'no_trailing_whitespace'            => true,
+			'no_whitespace_in_blank_line'       => true,
+			'single_blank_line_at_eof'          => true,
 		)
 	)
 	->setFinder($finder);

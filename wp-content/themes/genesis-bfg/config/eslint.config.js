@@ -1,5 +1,3 @@
-/* globals module, require */
-
 const simpleImportSort = require( `eslint-plugin-simple-import-sort` ),
 	pluginVue = require( `eslint-plugin-vue` ),
 	js = require( `@eslint/js` ),
@@ -45,7 +43,7 @@ module.exports = [
 			"dot-notation": `error`,
 			"eol-last": `error`,
 			eqeqeq: `error`,
-			"func-call-spacing": `error`,
+			"func-call-spacing": [`error`, `never`],
 			"func-name-matching": `error`,
 			"func-style": [`error`, `declaration`, {
 				allowArrowFunctions: true
@@ -131,7 +129,6 @@ module.exports = [
 			"no-restricted-imports": `error`,
 			"no-restricted-modules": `error`,
 			"no-restricted-properties": `error`,
-			"no-restricted-syntax": [`error`],
 			"no-return-assign": `error`,
 			"no-return-await": `error`,
 			"no-script-url": `error`,
@@ -254,6 +251,14 @@ module.exports = [
 			"wrap-iife": [`error`, `inside`],
 			"yield-star-spacing": `error`,
 			yoda: `error`
+		}
+	},
+	{
+		files: [`config/**/*.js`],
+		languageOptions: {
+			globals: {
+				...globals.node
+			}
 		}
 	}
 ];

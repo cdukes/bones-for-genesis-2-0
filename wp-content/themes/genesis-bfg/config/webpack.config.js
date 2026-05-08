@@ -1,5 +1,3 @@
-/* globals module, require, __dirname, __filename */
-
 const webpack = require( `webpack` ),
 	path = require( `path` ),
 	{ VueLoaderPlugin } = require( `vue-loader` ),
@@ -18,7 +16,7 @@ module.exports = ( env, argv ) => {
 		},
 		output: {
 			path: path.resolve( __dirname, `../build` ),
-			filename: `js/[name].js`,
+			filename: isProduction ? `js/[name].min.js` : `js/[name].js`,
 			chunkFilename: isProduction ? `js/[id].[contenthash].js` : `js/[id].js`,
 			clean: {
 				keep: /svgs\//

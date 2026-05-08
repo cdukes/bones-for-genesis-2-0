@@ -1,0 +1,21 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{php,js,scss,vue}]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+max_line_length = 120
+
+[*.{json,jsonc}]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+
+[*.md]
+trim_trailing_whitespace = false

@@ -1,0 +1,17 @@
+Options -Indexes
+
+<Files ".*">
+	Require all denied
+</Files>
+
+<Files "*.json">
+	Require all denied
+</Files>
+
+<Files "*.lock">
+	Require all denied
+</Files>
+
+<Files "*.md">
+	Require all denied
+</Files>

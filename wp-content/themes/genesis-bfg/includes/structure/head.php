@@ -193,6 +193,7 @@ add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
 function bfg_remove_site_icon_customizer($wp_customize) {
 
 	$wp_customize->remove_control('site_icon');
+	$wp_customize->remove_setting('custom_css');
 
 }
 

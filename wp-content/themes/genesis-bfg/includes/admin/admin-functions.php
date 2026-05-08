@@ -22,6 +22,24 @@ function bfg_load_admin_assets() {
 
 }
 
+add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
+/**
+ * Remove the REST API user endpoints.
+ *
+ * @since 20260508
+ */
+function bfg_remove_rest_user_endpoints($endpoints) {
+
+	if( isset( $endpoints['/wp/v2/users'] ) )
+		unset( $endpoints['/wp/v2/users'] );
+
+	if( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) )
+		unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+
+	return $endpoints;
+
+}
+
 add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
 /*
  * Use modern image formats for better compression

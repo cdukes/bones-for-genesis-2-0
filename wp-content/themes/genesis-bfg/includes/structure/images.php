@@ -21,7 +21,7 @@ function bfg_get_image_size_name($width, $height, $crop = false) {
 function bfg_process_image($image_id, $width, $height, $crop = false) {
 
 	if( empty($width) || empty($height) )
-	   return new WP_Error( 'invalid_size', sprintf( __('Invalid dimensions: %dx%d', CHILD_THEME_TEXT_DOMAIN), $width, $height ) );
+		return new WP_Error( 'invalid_size', sprintf( __('Invalid dimensions: %dx%d', CHILD_THEME_TEXT_DOMAIN), $width, $height ) );
 
 	$size_name = bfg_get_image_size_name($width, $height, $crop);
 
