@@ -1,3 +1,10 @@
+## 20260521
+- Include alternative `jquery` register option
+- Minified JS filename fix
+- Skip `vendor` files for `eslint`
+- Set `scrollbar-gutter`
+- Re-add `vue-style-loader`
+
 ## 20260508
 - Update site wrapper padding
 - Fix script file name

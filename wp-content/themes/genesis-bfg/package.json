@@ -24,6 +24,7 @@
 		"svg-sprite": "*",
 		"vue": "*",
 		"vue-loader": "*",
+		"vue-style-loader": "*",
 		"webpack": "*",
 		"webpack-cli": "*"
 	},

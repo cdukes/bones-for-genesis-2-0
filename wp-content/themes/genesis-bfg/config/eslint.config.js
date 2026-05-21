@@ -5,7 +5,7 @@ const simpleImportSort = require( `eslint-plugin-simple-import-sort` ),
 
 module.exports = [
 	{
-		ignores: [`build/**`]
+		ignores: [`build/**`, `vendor/**`]
 	},
 	...pluginVue.configs[`flat/recommended`],
 	{

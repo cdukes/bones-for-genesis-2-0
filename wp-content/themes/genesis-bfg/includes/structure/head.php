@@ -134,8 +134,9 @@ function bfg_load_assets() {
 	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $version );
 
-	// Deregister jQuery
+	// Remove jQuery Migrate while keeping jQuery available
 	wp_deregister_script( 'jquery' );
+	// wp_register_script( 'jquery', false, array('jquery-core'), null, true );
 
 	// Deregister wp-a11y (loaded by Gravity Forms)
 	// wp_deregister_script( 'wp-a11y' );
