@@ -2,8 +2,8 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
- * Force HTML5
+/**
+ * Force HTML5.
  *
  * See: http://www.briangardner.com/code/add-html5-markup/
  *
@@ -11,8 +11,8 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'gallery', 'navigation-widgets', 'search-form', 'script', 'style') );
 
-/*
- * Genesis 2.2 accessibility features
+/**
+ * Genesis 2.2 accessibility features.
  *
  * See: https://github.com/copyblogger/genesis-sample/commit/7613301f5e89b6fad15bb3165f607406db7c7c91
  *
@@ -20,8 +20,8 @@ add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'ga
  */
 add_theme_support( 'genesis-accessibility', array('404-page', 'headings', 'screen-reader-text', 'skip-links', 'search-form') );
 
-/*
- * Remove Genesis Import/Export support
+/**
+ * Remove Genesis Import/Export support.
  *
  * @since 20190503
  */
@@ -90,6 +90,8 @@ remove_theme_support( 'genesis-import-export-menu' );
  * Remove the Genesis 'Layout Settings' meta box for posts and/or pages.
  *
  * @since 2.0.0
+ *
+ * @return void
  */
 function bfg_remove_layout_meta_boxes() {
 
@@ -98,8 +100,8 @@ function bfg_remove_layout_meta_boxes() {
 
 }
 
-/*
- * Remove the Genesis 'Layout Settings' meta box for terms
+/**
+ * Remove the Genesis 'Layout Settings' meta box for terms.
  *
  * @since 2.3.23
  */
@@ -117,6 +119,8 @@ remove_theme_support( 'genesis-archive-layouts' );
  * Remove the Genesis 'Scripts' meta box for posts and/or pages.
  *
  * @since 2.0.12
+ *
+ * @return void
  */
 function bfg_remove_scripts_meta_boxes() {
 
@@ -155,6 +159,8 @@ function bfg_remove_scripts_meta_boxes() {
  * Set child theme text domain.
  *
  * @since 2.3.33
+ *
+ * @return void
  */
 // add_action( 'after_setup_theme', 'bfg_load_child_theme_textdomain' );
 function bfg_load_child_theme_textdomain() {

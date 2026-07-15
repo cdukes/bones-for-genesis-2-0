@@ -119,7 +119,6 @@ return $config
 			'implode_call'                                     => true,
 			'lambda_not_used_import'                           => true,
 			'method_argument_space'                            => array('on_multiline' => 'ignore'),
-			'native_function_invocation'                       => array('scope' => 'namespaced'),
 			'no_spaces_after_function_name'                    => true,
 			'no_unreachable_default_argument_value'            => true,
 			'no_useless_sprintf'                               => true,
@@ -133,7 +132,6 @@ return $config
 
 			// Import
 			'fully_qualified_strict_types' => true,
-			'global_namespace_import'      => true,
 			'group_import'                 => true,
 			'no_leading_import_slash'      => true,
 			'no_unused_imports'            => true,
@@ -194,6 +192,26 @@ return $config
 			'linebreak_after_opening_tag'  => true,
 			'no_closing_tag'               => true,
 
+			// PHPDoc
+			'no_empty_phpdoc'                               => true,
+			'no_superfluous_phpdoc_tags'                    => true,
+			'phpdoc_align'                                  => true,
+			'phpdoc_indent'                                 => true,
+			'phpdoc_no_access'                              => true,
+			'phpdoc_no_package'                             => true,
+			'phpdoc_no_useless_inheritdoc'                  => true,
+			'phpdoc_order'                                  => true,
+			'phpdoc_return_self_reference'                  => true,
+			'phpdoc_scalar'                                 => true,
+			'phpdoc_separation'                             => true,
+			'phpdoc_single_line_var_spacing'                => true,
+			'phpdoc_summary'                                => true,
+			'phpdoc_to_comment'                             => false,
+			'phpdoc_trim'                                   => true,
+			'phpdoc_trim_consecutive_blank_line_separation' => true,
+			'phpdoc_types'                                  => true,
+			'phpdoc_var_without_name'                       => true,
+
 			// Return Notation
 			'no_useless_return'      => true,
 			'return_assignment'      => true,
@@ -221,8 +239,17 @@ return $config
 			'string_line_ending'                => true,
 
 			// Whitespace
-			'array_indentation'                 => true,
-			'blank_line_before_statement'       => true,
+			'array_indentation'           => true,
+			'blank_line_before_statement' => true,
+			'braces_position'             => array(
+				'control_structures_opening_brace'          => 'same_line',
+				'functions_opening_brace'                   => 'same_line',
+				'anonymous_functions_opening_brace'         => 'same_line',
+				'classes_opening_brace'                     => 'same_line',
+				'anonymous_classes_opening_brace'           => 'same_line',
+				'allow_single_line_anonymous_functions'     => true,
+				'allow_single_line_empty_anonymous_classes' => true,
+			),
 			'compact_nullable_type_declaration' => true,
 			'indentation_type'                  => true,
 			'line_ending'                       => true,

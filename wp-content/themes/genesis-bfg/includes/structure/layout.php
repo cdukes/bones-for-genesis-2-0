@@ -2,8 +2,8 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
- * Force a layout setting for the site
+/**
+ * Force a layout setting for the site.
  *
  * See: http://www.briangardner.com/code/force-layout-setting/
  *

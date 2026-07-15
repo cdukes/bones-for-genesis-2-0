@@ -7,6 +7,10 @@ add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
  * Add the AJAX URL as a `data-*` attribute on `<body>`, instead of an inline script, for better CSP compatibility.
  *
  * @since 2.3.46
+ *
+ * @param array $atts HTML attributes for the <body> tag.
+ *
+ * @return array Filtered attributes.
  */
 function bfg_ajax_url_attribute($atts) {
 
@@ -21,6 +25,10 @@ add_filter( 'body_class', 'bfg_no_js_body_class' );
  * Add a no-js class to the <body> tag.
  *
  * @since 2.3.51
+ *
+ * @param array $classes Body CSS classes.
+ *
+ * @return array Filtered classes.
  */
 function bfg_no_js_body_class($classes) {
 
@@ -30,8 +38,8 @@ function bfg_no_js_body_class($classes) {
 
 }
 
-/*
- * Remove the header
+/**
+ * Remove the header.
  *
  * @since 2.0.9
  */
@@ -39,8 +47,8 @@ function bfg_no_js_body_class($classes) {
 // remove_action( 'genesis_header', 'genesis_do_header' );
 // remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 
-/*
- * Remove the site title and/or description
+/**
+ * Remove the site title and/or description.
  *
  * @since 2.0.9
  */

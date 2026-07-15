@@ -4,11 +4,11 @@
  * Sends an AJAX request to WP's admin-ajax.php endpoint
  * @param {Object} config - The configuration details for this request.
  * @param {string} config.action - The WP action hook that will be used on the server, wp_ajax_{action} or wp_ajax_nopriv_{action}.
- * @param {string} config.include_credentials - Whether to include the user's session in the request. If false, WP will hadle the request as if the user wasn't logged in.
- * @return {Object} config.data - Data to include in the request. You'll need to use json_decode(file_get_contents('php://input'), true) to retreive this data (https://stackoverflow.com/questions/18866571/receive-json-post-with-php)
- * @return {Function} config.on_success - Function to call if request is successful, as determined by the server's response code. Passes the JSON-decoded response.
- * @return {Function} config.on_error - Function to call if request is unsuccessful, as determined by the server's response code (or a failed request). Passes the error string.
- * @return {Function} config.on_complete - Function to call when request is completed, regardless of success or failure. Passes the JSON-decoded response or error string.
+ * @param {string} config.include_credentials - Whether to include the user's session in the request. If false, WP will handle the request as if the user wasn't logged in.
+ * @param {Object} config.data - Data to include in the request. You'll need to use json_decode(file_get_contents('php://input'), true) to retrieve this data (https://stackoverflow.com/questions/18866571/receive-json-post-with-php)
+ * @param {Function} config.on_success - Function to call if request is successful, as determined by the server's response code. Passes the JSON-decoded response.
+ * @param {Function} config.on_error - Function to call if request is unsuccessful, as determined by the server's response code (or a failed request). Passes the error string.
+ * @param {Function} config.on_complete - Function to call when request is completed, regardless of success or failure. Passes the JSON-decoded response or error string.
  */
 export function ajax( config ) {
 	const {

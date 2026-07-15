@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use 'sass:math';
-
-@use 'include-media' as *;
+@use 'sass:string';
 
 /*********************
 SIZES
@@ -9,11 +8,22 @@ SIZES
 
 // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 @function rfs($min, $max) {
-	$min_width: math.div(375, 16);
-	$max_width: math.div(1280, 16);
+	@if not math.is-unitless($min) or not math.is-unitless($max) {
+		@error "rfs() expects unitless rem values, got #{$min} and #{$max}";
+	}
 
-	$slope: math.div($max - $min, $max_width - $min_width);
-	$y: -$min_width * $slope + $min;
+	@if $min > $max {
+		@error "rfs() expects $min <= $max, got #{$min} and #{$max}";
+	}
+
+	$viewport-min: 375;
+	$viewport-max: 1280;
+
+	$viewport-min-rem: math.div($viewport-min, 16);
+	$viewport-max-rem: math.div($viewport-max, 16);
+
+	$slope: math.div($max - $min, $viewport-max-rem - $viewport-min-rem);
+	$y: -$viewport-min-rem * $slope + $min;
 
 	$v: clamp(#{$min}rem, #{$y}rem + #{$slope * 100}vw, #{$max}rem);
 
@@ -28,14 +38,49 @@ $site-width: 60em; // Useful for fixed width sites, as well as for limiting the 
 /*********************
 BREAKPOINTS
 *********************/
-// Use pixels for include-media-export compatibility. 'zero' breakpoint ensures the breakpoints are printed on all screen widths.
 $breakpoints: (
-	zero: 16px,
 	phone: 560px,
 	portrait: 810px,
 	landscape: 1080px,
 	desktop: 1280px,
 );
+
+// Replaces the include-media package. Supports expressions like '<portrait', '<=landscape', '>phone' and '>=desktop' against the $breakpoints map above.
+@mixin media($expression) {
+	$operator: string.slice($expression, 1, 2);
+
+	@if $operator != '<=' and $operator != '>=' {
+		$operator: string.slice($expression, 1, 1);
+	}
+
+	$name: string.slice($expression, string.length($operator) + 1);
+
+	@if not map.has-key($breakpoints, $name) {
+		@error "Unknown breakpoint '#{$name}' in media expression '#{$expression}'";
+	}
+
+	$value: map.get($breakpoints, $name);
+
+	@if $operator == '<' {
+		@media (max-width: $value - 1px) {
+			@content;
+		}
+	} @else if $operator == '<=' {
+		@media (max-width: $value) {
+			@content;
+		}
+	} @else if $operator == '>' {
+		@media (min-width: $value + 1px) {
+			@content;
+		}
+	} @else if $operator == '>=' {
+		@media (min-width: $value) {
+			@content;
+		}
+	} @else {
+		@error "Unknown media operator '#{$operator}' in media expression '#{$expression}'";
+	}
+}
 
 /*********************
 COLORS

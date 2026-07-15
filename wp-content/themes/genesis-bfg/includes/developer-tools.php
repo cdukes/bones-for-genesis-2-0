@@ -4,9 +4,14 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 add_action( 'admin_bar_menu', 'bfg_clear_transients_node', 99 );
 /**
- * Clear all transients with one click.
+ * Add admin bar nodes to clear all transients and to clear orphaned meta rows
+ * (postmeta, usermeta, termmeta) with one click.
  *
  * @since 2.2.9
+ *
+ * @param WP_Admin_Bar $wp_admin_bar The admin bar object, passed by reference.
+ *
+ * @return void
  */
 function bfg_clear_transients_node($wp_admin_bar) {
 
@@ -15,13 +20,13 @@ function bfg_clear_transients_node($wp_admin_bar) {
 
 	global $wpdb;
 
-	if( isset($_GET['clear-transients']) && (int) $_GET['clear-transients'] === 1 ) {
+	if( isset($_GET['clear-transients']) && (int) $_GET['clear-transients'] === 1 && check_admin_referer('bfg_clear_transients') ) {
 		$wpdb->query( "DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE ('_transient_%') OR `option_name` LIKE ('_site_transient_%')" );
 		wp_cache_flush();
 		add_action( 'admin_notices', 'bfg_transients_cleared_notice' );
 	}
 
-	if( isset($_GET['clear-orphans']) && (int) $_GET['clear-orphans'] === 1 ) {
+	if( isset($_GET['clear-orphans']) && (int) $_GET['clear-orphans'] === 1 && check_admin_referer('bfg_clear_orphans') ) {
 		$wpdb->query( "DELETE pm FROM `{$wpdb->postmeta}` pm LEFT JOIN `{$wpdb->posts}` wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;" );
 		$wpdb->query( "DELETE um FROM `{$wpdb->usermeta}` um LEFT JOIN `{$wpdb->users}` wp ON wp.ID = um.user_id WHERE wp.ID IS NULL;" );
 		$wpdb->query( "DELETE tm FROM `{$wpdb->termmeta}` tm LEFT JOIN `{$wpdb->terms}` wp ON wp.term_id = tm.term_id WHERE wp.term_id IS NULL;" );
@@ -32,7 +37,7 @@ function bfg_clear_transients_node($wp_admin_bar) {
 		'id'     => 'clear-transients',
 		'title'  => __( 'Clear Transients', CHILD_THEME_TEXT_DOMAIN ),
 		'parent' => 'site-name',
-		'href'   => get_admin_url() . '?clear-transients=1',
+		'href'   => wp_nonce_url( add_query_arg( 'clear-transients', 1, get_admin_url() ), 'bfg_clear_transients' ),
 	);
 
 	$wp_admin_bar->add_node( $args );
@@ -41,7 +46,7 @@ function bfg_clear_transients_node($wp_admin_bar) {
 		'id'     => 'clear-orphans',
 		'title'  => __( 'Clear Orphaned Metadata', CHILD_THEME_TEXT_DOMAIN ),
 		'parent' => 'site-name',
-		'href'   => get_admin_url() . '?clear-orphans=1',
+		'href'   => wp_nonce_url( add_query_arg( 'clear-orphans', 1, get_admin_url() ), 'bfg_clear_orphans' ),
 	);
 
 	$wp_admin_bar->add_node( $args );
@@ -52,6 +57,8 @@ function bfg_clear_transients_node($wp_admin_bar) {
  * Show an admin notice when transients are cleared.
  *
  * @since 20170625
+ *
+ * @return void
  */
 function bfg_transients_cleared_notice() {
 
@@ -67,6 +74,8 @@ function bfg_transients_cleared_notice() {
  * Show an admin notice when orphans are cleared.
  *
  * @since 20180604
+ *
+ * @return void
  */
 function bfg_orphans_cleared_notice() {
 

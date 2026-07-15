@@ -1,3 +1,16 @@
+## 20260723
+- Reject passwords found in the Have I Been Pwned breach database
+- Add nonces for `developer-tools.php`
+- Improve escaping
+- Disable `X-XSS-Protection`
+- Improve image cropping
+- Replace `include-media` with a SASS function
+- Add guards to `rfs()` SASS function
+- Use CSS `@view-transition`
+- Improve code comments
+- Update PHP coding style
+- Remove `vue-style-loader`
+
 ## 20260521
 - Include alternative `jquery` register option
 - Minified JS filename fix

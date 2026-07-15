@@ -23,8 +23,8 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 // add_filter( 'gform_tabindex', '__return_false' );
 
-/*
- * Disable Gravity Forms CSS
+/**
+ * Disable Gravity Forms CSS.
  *
  * @since 20240201
  */
@@ -35,6 +35,14 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Change the 'rows' attribute for Gravity Forms <textarea>s.
  *
  * @since 20180726
+ *
+ * @param string $content The field's rendered HTML.
+ * @param object $field   The current field object.
+ * @param string $value   The field value.
+ * @param int    $lead_id The entry ID.
+ * @param int    $form_id The form ID.
+ *
+ * @return string Filtered HTML.
  */
 function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $form_id) {
 
@@ -50,6 +58,11 @@ function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $for
  * Wrap Gravity Forms <select>s with a <div> and SVG icon.
  *
  * @since 20180726
+ *
+ * @param string $html  The field's rendered HTML.
+ * @param object $field The current field object.
+ *
+ * @return string Filtered HTML.
  */
 function bfg_gform_filter_select_field_html($html, $field) {
 
@@ -67,6 +80,11 @@ function bfg_gform_filter_select_field_html($html, $field) {
  * Switch the Gravity Forms <input type="submit"> button to a <button type="submit">, for easier styling.
  *
  * @since 20180726
+ *
+ * @param string $button_input The submit button's rendered HTML.
+ * @param array  $form         The current form object.
+ *
+ * @return string Filtered HTML.
  */
 function bfg_gform_filter_submit_button_tag($button_input, $form) {
 
@@ -93,10 +111,15 @@ function bfg_gform_filter_submit_button_tag($button_input, $form) {
 }
 
 // add_filter( 'gform_form_validation_errors_markup', 'bfg_gform_form_validation_errors_markup', 10, 2 );
-/*
- * Replace validation errors <h2> with <p>
+/**
+ * Replace validation errors <h2> with <p>.
  *
  * @since 20210728
+ *
+ * @param string $html The validation errors summary HTML.
+ * @param array  $form The current form object.
+ *
+ * @return string Filtered HTML.
  */
 function bfg_gform_form_validation_errors_markup($html, $form) {
 
@@ -104,8 +127,8 @@ function bfg_gform_form_validation_errors_markup($html, $form) {
 
 }
 
-/*
- * Remove Gravity Forms inline <script> tags. To remove all GF JS, remove the submit JS in 'bfg_gform_filter_submit_button_tag' and consider deregistering jQuery
+/**
+ * Remove Gravity Forms inline <script> tags. To remove all GF JS, remove the submit JS in 'bfg_gform_filter_submit_button_tag' and consider deregistering jQuery.
  *
  * @since 20180726
  */
@@ -117,6 +140,12 @@ function bfg_gform_form_validation_errors_markup($html, $form) {
  * Flag Cyrillic submissions as spam.
  *
  * @since 20240313
+ *
+ * @param bool  $is_spam Whether the entry is currently flagged as spam.
+ * @param array $form    The current form object.
+ * @param array $entry   The submitted entry values.
+ *
+ * @return bool Filtered value.
  */
 function bfg_gform_entry_is_spam($is_spam, $form, $entry) {
 

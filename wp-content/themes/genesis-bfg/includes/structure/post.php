@@ -7,6 +7,10 @@ add_filter( 'gallery_style', 'bfg_gallery_style' );
  * Remove the injected styles for the [gallery] shortcode.
  *
  * @since 1.x
+ *
+ * @param string $css The gallery shortcode's inline CSS.
+ *
+ * @return string Empty string, removing the injected CSS.
  */
 function bfg_gallery_style($css) {
 
@@ -14,14 +18,14 @@ function bfg_gallery_style($css) {
 
 }
 
-/*
+/**
  * Allow pages to have excerpts.
  *
  * @since 2.2.5
  */
 add_post_type_support( 'page', 'excerpt' );
 
-/*
+/**
  * Allow pages to have <footer>s.
  *
  * @since 20180210
@@ -35,6 +39,8 @@ add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
  * See: http://my.studiopress.com/snippets/post-excerpts/
  *
  * @since 2.0.16
+ *
+ * @return string The "read more" link HTML.
  */
 function bfg_more_tag_excerpt_link() {
 
@@ -50,6 +56,8 @@ add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
  * See: http://my.studiopress.com/snippets/post-excerpts/
  *
  * @since 2.0.16
+ *
+ * @return string The "read more" link HTML.
  */
 function bfg_truncated_excerpt_link() {
 
@@ -65,6 +73,8 @@ function bfg_truncated_excerpt_link() {
  * See:http://www.briangardner.com/code/customize-post-info/
  *
  * @since 2.0.0
+ *
+ * @return string The post info shortcode string.
  */
 function bfg_post_info() {
 
@@ -81,6 +91,8 @@ function bfg_post_info() {
  * See:http://www.briangardner.com/code/customize-post-meta/
  *
  * @since 2.0.0
+ *
+ * @return string The post meta shortcode string.
  */
 function bfg_post_meta() {
 
@@ -94,6 +106,10 @@ add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
  *
  * @since 2.0.0
+ *
+ * @param string $text The default prev link text.
+ *
+ * @return string The replacement text.
  */
 function bfg_prev_link_text($text) {
 
@@ -107,6 +123,10 @@ add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
  *
  * @since 2.0.0
+ *
+ * @param string $text The default next link text.
+ *
+ * @return string The replacement text.
  */
 function bfg_next_link_text($text) {
 
@@ -114,25 +134,29 @@ function bfg_next_link_text($text) {
 
 }
 
-/*
- * Remove the post edit links (maybe you just want to use the admin bar)
+/**
+ * Remove the post edit links (maybe you just want to use the admin bar).
  *
  * @since 2.0.9
  */
 add_filter( 'edit_post_link', '__return_false' );
 
-/*
- * Hide the author box
+/**
+ * Hide the author box.
  *
  * @since 2.0.18
  */
 // add_filter( 'get_the_author_genesis_author_box_single', '__return_false' );
 // add_filter( 'get_the_author_genesis_author_box_archive', '__return_false' );
 
-/*
- * Adjust the default WP password protected form to support keeping the input and submit on the same line
+/**
+ * Adjust the default WP password protected form to support keeping the input and submit on the same line.
  *
  * @since 2.2.18
+ *
+ * @param int|WP_Post $post The post ID or object.
+ *
+ * @return string The password form HTML.
  */
 add_filter( 'the_password_form', 'bfg_password_form' );
 function bfg_password_form($post = 0) {

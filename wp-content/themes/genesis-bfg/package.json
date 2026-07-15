@@ -1,7 +1,4 @@
 {
-	"dependencies": {
-		"include-media": "*"
-	},
 	"devDependencies": {
 		"@eslint/js": "*",
 		"autoprefixer": "*",
@@ -24,7 +21,6 @@
 		"svg-sprite": "*",
 		"vue": "*",
 		"vue-loader": "*",
-		"vue-style-loader": "*",
 		"webpack": "*",
 		"webpack-cli": "*"
 	},

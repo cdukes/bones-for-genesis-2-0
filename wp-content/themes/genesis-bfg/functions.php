@@ -72,6 +72,7 @@ final class BFG {
 		require_once CHILD_DIR . '/includes/admin/admin-views.php';		// Customizations to the admin area display
 		require_once CHILD_DIR . '/includes/admin/admin-branding.php';	// Admin view customizations that specifically involve branding
 		require_once CHILD_DIR . '/includes/admin/admin-options.php';	// For adding/editing theme options to Genesis
+		require_once CHILD_DIR . '/includes/admin/admin-security.php';	// Password/account hardening (e.g. pwned password checks)
 
 		// Structure (corresponds to Genesis's lib/structure)
 		require_once CHILD_DIR . '/includes/structure/comments.php';

@@ -3,7 +3,7 @@
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Starter class for a custom template template.
+ * Starter class for a custom page template.
  * Include template code here so that it can be routed using the 'wp' action, which isn't available in the page template file.
  *
  * @since 20180728
@@ -38,6 +38,8 @@ add_action( 'wp', 'bfg_init_custom_page' );
  * Delay template routing until the 'wp' action, so that the WP conditional functions are accessible.
  *
  * @since 20180728
+ *
+ * @return void
  */
 function bfg_init_custom_page() {
 

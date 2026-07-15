@@ -7,6 +7,8 @@ add_action( 'wp', 'bfg_security_headers' );
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
  *
  * @since 2.3.56
+ *
+ * @return void
  */
 function bfg_security_headers() {
 
@@ -15,7 +17,9 @@ function bfg_security_headers() {
 
 	header( 'X-Frame-Options: DENY' );
 	header( 'X-Content-Type-Options: nosniff' );
-	header( 'X-XSS-Protection: 1; mode=block' );
+	// Explicitly disable the legacy XSS auditor: it's deprecated and can introduce
+	// vulnerabilities in older browsers. A Content-Security-Policy is the modern replacement.
+	header( 'X-XSS-Protection: 0' );
 
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
 	// header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
@@ -23,9 +27,11 @@ function bfg_security_headers() {
 }
 
 /**
- * Use development mode for Yoast SEO when not in production
+ * Use development mode for Yoast SEO when not in production.
  *
  * @since 20220606
+ *
+ * @return bool Whether to enable development mode.
  */
 add_filter( 'yoast_seo_development_mode', 'bfg_yoast_seo_development_mode' );
 function bfg_yoast_seo_development_mode() {
@@ -38,6 +44,8 @@ function bfg_yoast_seo_development_mode() {
  * Build a list of self-hosted fonts, used to resource hints and inline @font-face style.
  *
  * @since 20200716
+ *
+ * @return array Font definitions, keyed by font file slug.
  */
 function bfg_get_fonts() {
 
@@ -60,6 +68,8 @@ function bfg_get_fonts() {
  * Inject inline @font-face CSS at the top of <head>.
  *
  * @since 20200716
+ *
+ * @return void
  */
 // add_action( 'wp_head', 'bfg_inject_fonts', 1 );
 function bfg_inject_fonts() {
@@ -72,10 +82,10 @@ function bfg_inject_fonts() {
 		foreach( bfg_get_fonts() as $slug => $font ) {
 			?>
 			@font-face {
-				font-family: '<?php echo $font['family']; ?>';
-				src: url('<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2') format('woff2');
-				font-weight: <?php echo $font['weight']; ?>;
-				font-style: <?php echo $font['style']; ?>;
+				font-family: '<?php echo esc_html( $font['family'] ); ?>';
+				src: url('<?php echo esc_url( $stylesheet_dir . '/fonts/' . $slug . '.woff2' ); ?>') format('woff2');
+				font-weight: <?php echo (int) $font['weight']; ?>;
+				font-style: <?php echo esc_html( $font['style'] ); ?>;
 				font-display: swap;
 			}
 			<?php
@@ -91,6 +101,8 @@ add_action( 'wp_head', 'bfg_inject_preload', 2 );
  * Add <link rel="preload">s for queued scripts.
  *
  * @since 20190301
+ *
+ * @return void
  */
 function bfg_inject_preload() {
 
@@ -118,6 +130,8 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
  * Only load these styles on the front-end.
  *
  * @since 2.0.0
+ *
+ * @return void
  */
 function bfg_load_assets() {
 
@@ -178,6 +192,8 @@ remove_action( 'wp_head', 'genesis_load_favicon' );
  * Simple favicon override to specify your favicon's location.
  *
  * @since 2.0.0
+ *
+ * @return string The favicon URL.
  */
 function bfg_pre_load_favicon() {
 
@@ -187,9 +203,13 @@ function bfg_pre_load_favicon() {
 
 add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
 /**
- * Remove the site icon customizer field.
+ * Remove the site icon customizer field, and the Additional CSS customizer field.
  *
  * @since 20200420
+ *
+ * @param WP_Customize_Manager $wp_customize Customizer manager instance.
+ *
+ * @return void
  */
 function bfg_remove_site_icon_customizer($wp_customize) {
 
@@ -198,17 +218,19 @@ function bfg_remove_site_icon_customizer($wp_customize) {
 
 }
 
-/*
- * Remove the site icon <head> display
+/**
+ * Remove the site icon <head> display.
  *
  * @since 20200420
  */
 remove_action( 'wp_head', 'wp_site_icon', 99 );
 
-/*
- * Remove the site icon admin <head> display
+/**
+ * Remove the site icon admin <head> display.
  *
  * @since 20200420
+ *
+ * @return void
  */
 add_action( 'admin_head', 'bfg_remove_admin_site_icon', 8 );
 function bfg_remove_admin_site_icon() {
@@ -225,6 +247,8 @@ function bfg_remove_admin_site_icon() {
  * See: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
  *
  * @since 2.0.4
+ *
+ * @return void
  */
 function bfg_load_favicons() {
 

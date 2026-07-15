@@ -1,7 +1,6 @@
 @use 'sass:math';
 
 @use 'variables' as *;
-@use 'include-media' as *;
 
 // Use with @include to make reponsive modules
 @mixin wrap {

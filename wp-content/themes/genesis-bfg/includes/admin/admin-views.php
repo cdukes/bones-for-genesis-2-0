@@ -2,22 +2,29 @@
 
 if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
- * Remove admin bar inline CSS
+/**
+ * Remove admin bar inline CSS.
  *
  * @since 2.3.43
  */
 add_theme_support( 'admin-bar', array('callback' => '__return_false') );
 
 add_action(  'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
+/**
+ * @since 2.3.43
+ *
+ * @return void
+ */
 function bfg_remove_admin_bar_inline_css() {
 
 	remove_action( 'wp_head', 'wp_admin_bar_header' );
 
 }
 
-/*
- * Remove admin bar avatar
+/**
+ * Hide the admin bar avatar by temporarily disabling avatars while other
+ * priority-0 to priority-10 'admin_bar_menu' callbacks run (e.g. the account
+ * menu built by wp_admin_bar_my_account_item()), then restoring them.
  *
  * See: https://gist.github.com/ocean90/1723233
  *
@@ -25,6 +32,11 @@ function bfg_remove_admin_bar_inline_css() {
  */
 
 add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
+/**
+ * @since 2.3.43
+ *
+ * @return void
+ */
 function bfg_hide_admin_bar_avatar() {
 
 	add_filter( 'pre_option_show_avatars', '__return_zero' );
@@ -32,16 +44,25 @@ function bfg_hide_admin_bar_avatar() {
 }
 
 add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
+/**
+ * @since 2.3.43
+ *
+ * @return void
+ */
 function bfg_restore_avatars() {
 
 	remove_filter( 'pre_option_show_avatars', '__return_zero' );
 
 }
 
-/*
- * Only show the admin bar to users who can at least use Posts
+/**
+ * Only show the admin bar to users who can at least use Posts.
  *
  * @since 2.0.0
+ *
+ * @param bool $default Whether to show the admin bar.
+ *
+ * @return bool Filtered value.
  */
 add_filter( 'show_admin_bar', 'bfg_maybe_hide_admin_bar', 99 );
 function bfg_maybe_hide_admin_bar($default) {
@@ -50,15 +71,15 @@ function bfg_maybe_hide_admin_bar($default) {
 
 }
 
-/*
- * Hide the WP welcome panel
+/**
+ * Hide the WP welcome panel.
  *
  * @since 20170614
  */
 // remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
-/*
- * Remove the profile color scheme picker
+/**
+ * Remove the profile color scheme picker.
  *
  * @since 20190301
  */
@@ -69,6 +90,8 @@ add_action( 'admin_init', 'bfg_hide_update_nags' );
  * Remove update nags for non-admins.
  *
  * @since 20190301
+ *
+ * @return void
  */
 function bfg_hide_update_nags() {
 
@@ -87,6 +110,8 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
  * See: http://digwp.com/2010/10/customize-wordpress-dashboard/
  *
  * @since 1.x
+ *
+ * @return void
  */
 function bfg_remove_dashboard_widgets() {
 
@@ -100,9 +125,11 @@ function bfg_remove_dashboard_widgets() {
 
 add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
 /**
- * Hide the Limit Login Attempts Reloaded dashboard meta box
+ * Hide the Limit Login Attempts Reloaded dashboard meta box.
  *
  * @since 20240201
+ *
+ * @return void
  */
 function bfg_wp_dashboard_setup() {
 
@@ -115,6 +142,8 @@ add_action('widgets_init', 'bfg_unregister_widgets');
  * Disable some or all widgets.
  *
  * @since 2.0.0
+ *
+ * @return void
  */
 function bfg_unregister_widgets() {
 
@@ -165,6 +194,8 @@ function bfg_unregister_widgets() {
  * Add a stylesheet for TinyMCE.
  *
  * @since 2.0.0
+ *
+ * @return void
  */
 function bfg_add_editor_style() {
 
@@ -178,6 +209,10 @@ function bfg_add_editor_style() {
  * Add a plugin script for TinyMCE.
  *
  * @since 2.3.35
+ *
+ * @param array $plugin_array TinyMCE plugin name to script URL mapping.
+ *
+ * @return array Filtered plugin array.
  */
 function bfg_add_tinymce_plugins($plugin_array) {
 
@@ -204,6 +239,10 @@ add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
  * See: https://core.trac.wordpress.org/ticket/29360
  *
  * @since 2.0.0
+ *
+ * @param array $options TinyMCE init settings.
+ *
+ * @return array Filtered settings.
  */
 function bfg_tiny_mce_before_init($options) {
 
@@ -222,6 +261,10 @@ add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
  * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/.
  *
  * @since 2.0.15
+ *
+ * @param array $buttons TinyMCE toolbar button names.
+ *
+ * @return array Filtered buttons.
  */
 function bfg_tinymce_buttons($buttons) {
 
@@ -238,6 +281,10 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  * See: http://wpmu.org/shun-the-plugin-100-wordpress-code-snippets-from-across-the-net/
  *
  * @since 2.0.0
+ *
+ * @param array $fields Contact method labels, keyed by user meta field name.
+ *
+ * @return array Filtered fields.
  */
 function bfg_user_contactmethods($fields) {
 
@@ -255,6 +302,8 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
  * Remove default admin dashboard menus.
  *
  * @since 2.0.0
+ *
+ * @return void
  */
 function bfg_remove_dashboard_menus() {
 
@@ -280,6 +329,10 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  * See: http://wpdaily.co/top-10-snippets/
  *
  * @since 2.0.0
+ *
+ * @param string $text The default login error message.
+ *
+ * @return string Filtered message.
  */
 function bfg_login_errors($text) {
 
@@ -306,6 +359,8 @@ add_action( 'admin_head', 'bfg_hide_admin_help_button' );
  * See: http://speckyboy.com/2011/04/27/20-snippets-and-hacks-to-make-wordpress-user-friendly-for-your-clients/
  *
  * @since 2.0.0
+ *
+ * @return void
  */
 function bfg_hide_admin_help_button() {
 
@@ -323,6 +378,10 @@ add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
  * Add a plugins link to the appearance admin bar menu.
  *
  * @since 2.2.9
+ *
+ * @param WP_Admin_Bar $wp_admin_bar The admin bar object, passed by reference.
+ *
+ * @return void
  */
 function bfg_admin_menu_plugins_node($wp_admin_bar) {
 
@@ -345,6 +404,8 @@ add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
  * Remove WP default meta boxes. You should always unhook 'Custom Fields', since it can be a large query.
  *
  * @since 2.3.30
+ *
+ * @return void
  */
 function bfg_remove_meta_boxes() {
 
@@ -378,6 +439,10 @@ function bfg_remove_meta_boxes() {
  * Too many items will cause timeouts on most servers.
  *
  * @since 2.3.50
+ *
+ * @param int $per_page The default items-per-page value.
+ *
+ * @return int Filtered value, capped at 100.
  */
 function bfg_limit_items_per_page($per_page) {
 
@@ -386,6 +451,14 @@ function bfg_limit_items_per_page($per_page) {
 }
 
 add_action( 'admin_init', 'bfg_setup_per_page_limits' );
+/**
+ * Apply bfg_limit_items_per_page() to the built-in and custom post type
+ * "items per page" screen options.
+ *
+ * @since 2.3.50
+ *
+ * @return void
+ */
 function bfg_setup_per_page_limits() {
 
 	$options = array(

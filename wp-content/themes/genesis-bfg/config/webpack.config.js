@@ -64,18 +64,10 @@ module.exports = ( env, argv ) => {
 					}
 				},
 				{
-					test: /(?<!\.vue)\.(s?[ac]ss)$/,
+					test: /\.(s?[ac]ss)$/,
 					use: [
 						{
 							loader: MiniCssExtractPlugin.loader
-						}
-					]
-				},
-				{
-					test: /\.vue\.(s?[ac]ss)$/,
-					use: [
-						{
-							loader: `vue-style-loader`
 						}
 					]
 				},

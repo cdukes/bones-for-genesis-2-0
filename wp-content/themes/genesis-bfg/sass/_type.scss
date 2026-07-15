@@ -2,10 +2,24 @@
 
 @use 'variables' as *;
 @use 'toolkit' as *;
-@use 'include-media' as *;
 
 :root {
 	// accent-color: $text;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	@view-transition {
+		navigation: none;
+	}
 }
 
 html {

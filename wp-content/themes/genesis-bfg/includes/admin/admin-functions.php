@@ -7,6 +7,8 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Enqueue admin CSS and JS files.
  *
  * @since 2.3.2
+ *
+ * @return void
  */
 function bfg_load_admin_assets() {
 
@@ -27,6 +29,10 @@ add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
  * Remove the REST API user endpoints.
  *
  * @since 20260508
+ *
+ * @param array $endpoints Registered REST API endpoints, keyed by route.
+ *
+ * @return array Filtered endpoints, with the user routes removed.
  */
 function bfg_remove_rest_user_endpoints($endpoints) {
 
@@ -41,14 +47,18 @@ function bfg_remove_rest_user_endpoints($endpoints) {
 }
 
 add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
-/*
- * Use modern image formats for better compression
+/**
+ * Convert JPEG images to AVIF for better compression. PNG and WebP conversion
+ * is available below but disabled by default.
  *
  * @since 20210728
+ *
+ * @param array $formats Mime type to mime type mapping for image conversion.
+ *
+ * @return array Filtered formats.
  */
 function bfg_image_editor_output_format($formats) {
 
-	// Convert JPEG, PNG, and WebP to AVIF for better compression
 	$formats['image/jpeg'] = 'image/avif';
 	// $formats['image/png']  = 'image/avif';
 	// $formats['image/webp'] = 'image/avif';
@@ -62,6 +72,10 @@ function bfg_image_editor_output_format($formats) {
  * Enabled SVG uploads. Note that this could be a security issue, see: https://bjornjohansen.no/svg-in-wordpress.
  *
  * @since 2.3.38
+ *
+ * @param array $mimes Mime types keyed by file extension.
+ *
+ * @return array Filtered mime types.
  */
 function bfg_enable_svg_uploads($mimes) {
 
@@ -79,8 +93,8 @@ function bfg_enable_svg_uploads($mimes) {
  */
 add_filter( 'big_image_size_threshold', '__return_false' );
 
-/*
- * Disable XML-RPC
+/**
+ * Disable XML-RPC.
  *
  * See: https://wordpress.stackexchange.com/questions/78780/xmlrpc-enabled-filter-not-called
  *
@@ -88,17 +102,21 @@ add_filter( 'big_image_size_threshold', '__return_false' );
  */
 if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;
 
-/*
- * Force secure cookie
+/**
+ * Force secure cookie.
  *
  * @since 20170608
  */
 add_filter( 'secure_signon_cookie', '__return_true' );
 
-/*
+/**
  * Prevent non-SSL HTTP origins.
  *
  * @since 20180604
+ *
+ * @param array $allowed_origins Array of allowed CORS origins.
+ *
+ * @return array Filtered origins, with non-HTTPS origins removed.
  */
 add_filter( 'allowed_http_origins', 'bfg_allowed_http_origins' );
 function bfg_allowed_http_origins($allowed_origins) {
@@ -106,7 +124,7 @@ function bfg_allowed_http_origins($allowed_origins) {
 	$whitelisted_origins = array();
 	foreach( $allowed_origins as $origin ) {
 		$url = parse_url($origin);
-		if( $url['scheme'] !== 'https' )
+		if( ($url['scheme'] ?? '') !== 'https' )
 			continue;
 
 		$whitelisted_origins[] = $origin;
@@ -116,10 +134,15 @@ function bfg_allowed_http_origins($allowed_origins) {
 
 }
 
-/*
+/**
  * Disable recovery mode emails.
  *
  * @since 20200420
+ *
+ * @param array  $email Used to build wp_mail().
+ * @param string $url   Recovery mode URL.
+ *
+ * @return array Filtered email args, with the recipient cleared.
  */
 add_filter( 'recovery_mode_email', 'bfg_disable_recovery_mode_emails', 10, 2 );
 function bfg_disable_recovery_mode_emails($email, $url) {
@@ -130,21 +153,21 @@ function bfg_disable_recovery_mode_emails($email, $url) {
 
 }
 
-/*
- * Disable admin email verification
+/**
+ * Disable admin email verification.
  *
  * @since 20200601
  */
 add_filter( 'admin_email_check_interval', '__return_false' );
 
-/*
+/**
  * Disable auto-update email notifications for plugins.
  *
  * @since 20200811
  */
 add_filter( 'auto_plugin_update_send_email', '__return_false' );
 
-/*
+/**
  * Disable auto-update email notifications for themes.
  *
  * @since 20200811
