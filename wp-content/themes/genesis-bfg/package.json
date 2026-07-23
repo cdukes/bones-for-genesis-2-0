@@ -1,11 +1,13 @@
 {
 	"devDependencies": {
 		"@eslint/js": "*",
+		"@wordpress/eslint-plugin": "*",
 		"autoprefixer": "*",
 		"concurrently": "*",
 		"css-declaration-sorter": "*",
 		"css-loader": "*",
 		"eslint": "*",
+		"eslint-config-prettier": "*",
 		"eslint-plugin-simple-import-sort": "*",
 		"eslint-plugin-vue": "*",
 		"globals": "*",
@@ -29,7 +31,7 @@
 		"webpack-development": "webpack --config=config/webpack.config.js --mode=development",
 		"webpack-production": "webpack --config=config/webpack.config.js --mode=production",
 		"svg_sprite": "svg-sprite --symbol --symbol-dest= --shape-id-generator=icon-%s --symbol-inline --symbol-sprite=icons.svg --shape-dim-width=100 --shape-dim-height=100 --shape-dim-precision=3 --svg-xmldecl=false --svg-doctype=false --svg-dimattrs=false --dest=build/svgs 'svgs/**/*.svg'",
-		"prettier": "prettier --config config/prettier.config.js --log-level silent --write 'sass/**/*.scss'",
+		"prettier": "prettier --config config/prettier.config.js --log-level silent --write 'sass/**/*.scss' 'js/**/*.js' 'config/**/*.js'",
 		"postcss-scss": "postcss 'sass/**/*.scss' --replace --config=config",
 		"build:webpack": "npm run prettier && npm run postcss-scss && npm run eslint && webpack --config=config/webpack.config.js --mode=production --",
 		"build:images": "npm run svg_sprite",

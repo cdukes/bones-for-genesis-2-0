@@ -1,10 +1,10 @@
-const webpack = require( `webpack` ),
-	path = require( `path` ),
-	{ VueLoaderPlugin } = require( `vue-loader` ),
-	MiniCssExtractPlugin = require( `mini-css-extract-plugin` );
+const webpack = require(`webpack`),
+	path = require(`path`),
+	{ VueLoaderPlugin } = require(`vue-loader`),
+	MiniCssExtractPlugin = require(`mini-css-extract-plugin`);
 
-module.exports = ( env, argv ) => {
-	const isProduction = argv.mode === `production`;
+module.exports = (env, argv) => {
+	const isProduction = `production` === argv.mode;
 
 	const config = {
 		entry: {
@@ -12,64 +12,64 @@ module.exports = ( env, argv ) => {
 			admin: `./js/admin.js`,
 
 			'style-css': `./sass/style.scss`,
-			'admin-css': `./sass/admin.scss`
+			'admin-css': `./sass/admin.scss`,
 		},
 		output: {
-			path: path.resolve( __dirname, `../build` ),
+			path: path.resolve(__dirname, `../build`),
 			filename: isProduction ? `js/[name].min.js` : `js/[name].js`,
 			chunkFilename: isProduction ? `js/[id].[contenthash].min.js` : `js/[id].js`,
 			clean: {
-				keep: /svgs\//
-			}
+				keep: /svgs\//,
+			},
 		},
 		cache: {
 			type: `filesystem`,
 			buildDependencies: {
-				config: [__filename]
-			}
+				config: [__filename],
+			},
 		},
 		resolve: {
 			alias: {
-				ajax$: path.resolve( __dirname, `../js/_partials/_ajax.js` )
-			}
+				ajax$: path.resolve(__dirname, `../js/_partials/_ajax.js`),
+			},
 		},
 		optimization: {
-			minimize: isProduction
+			minimize: isProduction,
 		},
 		performance: {
-			maxAssetSize: 300000
+			maxAssetSize: 300000,
 		},
 		devtool: isProduction ? `source-map` : `eval-cheap-module-source-map`,
 		plugins: [
-			new webpack.DefinePlugin( {
-				__VUE_OPTIONS_API__: JSON.stringify( false ),
-				__VUE_PROD_DEVTOOLS__: JSON.stringify( !isProduction ),
-				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify( !isProduction )
-			} ),
+			new webpack.DefinePlugin({
+				__VUE_OPTIONS_API__: JSON.stringify(false),
+				__VUE_PROD_DEVTOOLS__: JSON.stringify(!isProduction),
+				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(!isProduction),
+			}),
 			new VueLoaderPlugin(),
-			new MiniCssExtractPlugin( {
-				filename: pathData => {
-					const slug = pathData.chunk.name.replace( `-css`, `` );
+			new MiniCssExtractPlugin({
+				filename: (pathData) => {
+					const slug = pathData.chunk.name.replace(`-css`, ``);
 
 					return isProduction ? `css/${slug}.min.css` : `css/${slug}.css`;
-				}
-			} )
+				},
+			}),
 		],
 		module: {
 			rules: [
 				{
 					test: /\.vue$/,
 					use: {
-						loader: `vue-loader`
-					}
+						loader: `vue-loader`,
+					},
 				},
 				{
 					test: /\.(s?[ac]ss)$/,
 					use: [
 						{
-							loader: MiniCssExtractPlugin.loader
-						}
-					]
+							loader: MiniCssExtractPlugin.loader,
+						},
+					],
 				},
 				{
 					test: /\.(sa|sc|c)ss$/,
@@ -77,8 +77,8 @@ module.exports = ( env, argv ) => {
 						{
 							loader: `css-loader`,
 							options: {
-								url: false
-							}
+								url: false,
+							},
 						},
 						{
 							loader: `postcss-loader`,
@@ -87,27 +87,27 @@ module.exports = ( env, argv ) => {
 									plugins: {
 										autoprefixer: {
 											cascade: true,
-											flexbox: false
-										}
-									}
-								}
-							}
+											flexbox: false,
+										},
+									},
+								},
+							},
 						},
 						{
 							loader: `sass-loader`,
 							options: {
 								api: `modern`,
 								sassOptions: {
-									silenceDeprecations: [`if-function`]
-								}
-							}
-						}
-					]
-				}
-			]
+									silenceDeprecations: [`if-function`],
+								},
+							},
+						},
+					],
+				},
+			],
 		},
 		watch: !isProduction,
-		stats: `errors-warnings`
+		stats: `errors-warnings`,
 	};
 
 	return config;
