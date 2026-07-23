@@ -1,6 +1,13 @@
 <?php
+/**
+ * Gravity Forms markup and behavior customizations.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Disable view counting.
@@ -44,13 +51,13 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @return string Filtered HTML.
  */
-function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $form_id) {
+function bfg_gform_filter_textarea_rows( $content, $field, $value, $lead_id, $form_id ) {
 
-	if( is_admin() )
+	if ( is_admin() ) {
 		return $content;
+	}
 
 	return str_replace( "rows='10'", "rows='8'", $content );
-
 }
 
 // add_filter( 'gform_field_content', 'bfg_gform_filter_select_field_html', 10, 2 );
@@ -64,15 +71,15 @@ function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $for
  *
  * @return string Filtered HTML.
  */
-function bfg_gform_filter_select_field_html($html, $field) {
+function bfg_gform_filter_select_field_html( $html, $field ) {
 
-	if( is_admin() )
+	if ( is_admin() ) {
 		return $html;
+	}
 
 	$html = str_replace( '<select', '<div class="styled-select"><select', $html );
 
-	return str_replace( '</select>', '</select>' . bfg_get_icon('angle-down') . '</div>', $html );
-
+	return str_replace( '</select>', '</select>' . bfg_get_icon( 'angle-down' ) . '</div>', $html );
 }
 
 // add_filter( 'gform_submit_button', 'bfg_gform_filter_submit_button_tag', 10, 2 );
@@ -86,14 +93,16 @@ function bfg_gform_filter_select_field_html($html, $field) {
  *
  * @return string Filtered HTML.
  */
-function bfg_gform_filter_submit_button_tag($button_input, $form) {
+function bfg_gform_filter_submit_button_tag( $button_input, $form ) {
 
-	if( is_admin() )
+	if ( is_admin() ) {
 		return $button_input;
+	}
 
 	$count = preg_match( '/value=\'(.+?)\'/', $button_input, $matches );
-	if( $count !== 1 )
+	if ( 1 !== $count ) {
 		return $button_input;
+	}
 
 	$button_input = str_replace( '<input', '<button', $button_input );
 	$button_input = str_replace( ' />', '>', $button_input );
@@ -107,7 +116,6 @@ function bfg_gform_filter_submit_button_tag($button_input, $form) {
 	$button_input .= '</button>';
 
 	return $button_input;
-
 }
 
 // add_filter( 'gform_form_validation_errors_markup', 'bfg_gform_form_validation_errors_markup', 10, 2 );
@@ -121,10 +129,9 @@ function bfg_gform_filter_submit_button_tag($button_input, $form) {
  *
  * @return string Filtered HTML.
  */
-function bfg_gform_form_validation_errors_markup($html, $form) {
+function bfg_gform_form_validation_errors_markup( $html, $form ) {
 
-	return str_replace('h2', 'p', $html);
-
+	return str_replace( 'h2', 'p', $html );
 }
 
 /**
@@ -147,18 +154,19 @@ function bfg_gform_form_validation_errors_markup($html, $form) {
  *
  * @return bool Filtered value.
  */
-function bfg_gform_entry_is_spam($is_spam, $form, $entry) {
+function bfg_gform_entry_is_spam( $is_spam, $form, $entry ) {
 
-	foreach( $entry as $value ) {
-		if( empty($value) )
+	foreach ( $entry as $value ) {
+		if ( empty( $value ) ) {
 			continue;
+		}
 
-		if( !preg_match( '/[\p{Cyrillic}]/u', $value) )
+		if ( ! preg_match( '/[\p{Cyrillic}]/u', $value ) ) {
 			continue;
+		}
 
 		return true;
 	}
 
 	return $is_spam;
-
 }

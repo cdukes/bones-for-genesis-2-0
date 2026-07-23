@@ -1,6 +1,13 @@
 <?php
+/**
+ * Genesis framework customizations: theme support, layouts, meta boxes.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Force HTML5.
@@ -9,7 +16,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 2.0.0
  */
-add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'gallery', 'navigation-widgets', 'search-form', 'script', 'style') );
+add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'navigation-widgets', 'search-form', 'script', 'style' ) );
 
 /**
  * Genesis 2.2 accessibility features.
@@ -18,7 +25,7 @@ add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'ga
  *
  * @since 2.3.17
  */
-add_theme_support( 'genesis-accessibility', array('404-page', 'headings', 'screen-reader-text', 'skip-links', 'search-form') );
+add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', 'screen-reader-text', 'skip-links', 'search-form' ) );
 
 /**
  * Remove Genesis Import/Export support.
@@ -78,11 +85,11 @@ remove_theme_support( 'genesis-import-export-menu' );
  */
 // remove_theme_support( 'genesis-menus' );
 // add_theme_support(
-// 	'genesis-menus',
-// 	array(
-// 		'primary' => 'Primary Menu',
-// 		'secondary' => 'Secondary Menu',
-// 	)
+// 'genesis-menus',
+// array(
+// 'primary' => 'Primary Menu',
+// 'secondary' => 'Secondary Menu',
+// )
 // );
 
 // add_action( 'init', 'bfg_remove_layout_meta_boxes' );
@@ -95,9 +102,8 @@ remove_theme_support( 'genesis-import-export-menu' );
  */
 function bfg_remove_layout_meta_boxes() {
 
-	remove_post_type_support( 'post', 'genesis-layouts' );							// Posts
-	remove_post_type_support( 'page', 'genesis-layouts' );							// Pages
-
+	remove_post_type_support( 'post', 'genesis-layouts' );                          // Posts
+	remove_post_type_support( 'page', 'genesis-layouts' );                          // Pages
 }
 
 /**
@@ -124,9 +130,8 @@ remove_theme_support( 'genesis-archive-layouts' );
  */
 function bfg_remove_scripts_meta_boxes() {
 
-	remove_post_type_support( 'post', 'genesis-scripts' );							// Posts
-	remove_post_type_support( 'page', 'genesis-scripts' );							// Pages
-
+	remove_post_type_support( 'post', 'genesis-scripts' );                          // Posts
+	remove_post_type_support( 'page', 'genesis-scripts' );                          // Pages
 }
 
 /**
@@ -169,5 +174,4 @@ function bfg_load_child_theme_textdomain() {
 		CHILD_THEME_TEXT_DOMAIN,
 		get_stylesheet_directory() . '/languages'
 	);
-
 }

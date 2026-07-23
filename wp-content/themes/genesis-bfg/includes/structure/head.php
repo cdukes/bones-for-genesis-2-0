@@ -1,6 +1,13 @@
 <?php
+/**
+ * <head> output: security headers, fonts, asset enqueuing, favicons.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 add_action( 'wp', 'bfg_security_headers' );
 /**
@@ -12,18 +19,18 @@ add_action( 'wp', 'bfg_security_headers' );
  */
 function bfg_security_headers() {
 
-	if( is_admin() )
+	if ( is_admin() ) {
 		return;
+	}
 
 	header( 'X-Frame-Options: DENY' );
 	header( 'X-Content-Type-Options: nosniff' );
 	// Explicitly disable the legacy XSS auditor: it's deprecated and can introduce
-	// vulnerabilities in older browsers. A Content-Security-Policy is the modern replacement.
+	// vulnerabilities in older browsers. A Content-Security-Policy is the modern replacement
 	header( 'X-XSS-Protection: 0' );
 
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
 	// header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
-
 }
 
 /**
@@ -36,8 +43,7 @@ function bfg_security_headers() {
 add_filter( 'yoast_seo_development_mode', 'bfg_yoast_seo_development_mode' );
 function bfg_yoast_seo_development_mode() {
 
-	return !BFG_PRODUCTION;
-
+	return ! BFG_PRODUCTION;
 }
 
 /**
@@ -61,7 +67,6 @@ function bfg_get_fonts() {
 			'weight'  => 400,
 		),
 	);
-
 }
 
 /**
@@ -79,7 +84,7 @@ function bfg_inject_fonts() {
 	?>
 	<style>
 		<?php
-		foreach( bfg_get_fonts() as $slug => $font ) {
+		foreach ( bfg_get_fonts() as $slug => $font ) {
 			?>
 			@font-face {
 				font-family: '<?php echo esc_html( $font['family'] ); ?>';
@@ -93,7 +98,6 @@ function bfg_inject_fonts() {
 		?>
 	</style>
 	<?php
-
 }
 
 add_action( 'wp_head', 'bfg_inject_preload', 2 );
@@ -109,15 +113,15 @@ function bfg_inject_preload() {
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
 	// Fonts
-	foreach( bfg_get_fonts() as $slug => $font ) {
-		if( !$font['preload'] )
+	foreach ( bfg_get_fonts() as $slug => $font ) {
+		if ( ! $font['preload'] ) {
 			continue;
+		}
 
 		?>
-		<link rel="preload" href="<?php echo $stylesheet_dir; ?>/fonts/<?php echo $slug; ?>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="<?php echo esc_url( $stylesheet_dir ); ?>/fonts/<?php echo esc_attr( $slug ); ?>.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<?php
 	}
-
 }
 
 // Scripts + Styles
@@ -145,7 +149,7 @@ function bfg_load_assets() {
 
 	// Main theme stylesheet
 	$src     = BFG_PRODUCTION ? '/build/css/style.min.css' : '/build/css/style.css';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
 	wp_enqueue_style( 'bfg', $stylesheet_dir . $src, array(), $version );
 
 	// Remove jQuery Migrate while keeping jQuery available
@@ -162,11 +166,11 @@ function bfg_load_assets() {
 
 	// Main script file (in footer)
 	$src     = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, array('strategy' => 'defer') );
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, array( 'strategy' => 'defer' ) );
 
 	$src     = '/build/svgs/icons.svg';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
 
 	$icon_src = add_query_arg(
 		array(
@@ -182,7 +186,6 @@ function bfg_load_assets() {
 			'src' => $icon_src,
 		)
 	);
-
 }
 
 // Favicons
@@ -198,7 +201,6 @@ remove_action( 'wp_head', 'genesis_load_favicon' );
 function bfg_pre_load_favicon() {
 
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
-
 }
 
 add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
@@ -211,11 +213,10 @@ add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
  *
  * @return void
  */
-function bfg_remove_site_icon_customizer($wp_customize) {
+function bfg_remove_site_icon_customizer( $wp_customize ) {
 
-	$wp_customize->remove_control('site_icon');
-	$wp_customize->remove_setting('custom_css');
-
+	$wp_customize->remove_control( 'site_icon' );
+	$wp_customize->remove_setting( 'custom_css' );
 }
 
 /**
@@ -236,7 +237,6 @@ add_action( 'admin_head', 'bfg_remove_admin_site_icon', 8 );
 function bfg_remove_admin_site_icon() {
 
 	remove_action( 'admin_head', 'wp_site_icon' );
-
 }
 
 // add_action( 'wp_head', 'bfg_load_favicons' );
@@ -256,12 +256,11 @@ function bfg_load_favicons() {
 	$favicon_path   = $stylesheet_dir . '/images/favicons';
 
 	// Use an SVG if supported
-	echo '<link rel="icon" type="image/svg+xml" href="' . $favicon_path . '/favicon.svg" sizes="512x512">';
+	echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( $favicon_path ) . '/favicon.svg" sizes="512x512">';
 
 	// Use a 192px X 192px PNG for the homescreen for Chrome on Android
-	echo '<link rel="icon" type="image/png" href="' . $favicon_path . '/favicon-192.png" sizes="192x192">';
+	echo '<link rel="icon" type="image/png" href="' . esc_url( $favicon_path ) . '/favicon-192.png" sizes="192x192">';
 
 	// Use a 180px X 180px PNG for the latest iOS devices, also setup app styles
-	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . $favicon_path . '/favicon-180.png">';
-
+	echo '<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( $favicon_path ) . '/favicon-180.png">';
 }

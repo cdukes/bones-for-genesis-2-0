@@ -34,7 +34,7 @@ return $config
 			'no_trailing_comma_in_singleline'             => true,
 			'no_whitespace_before_comma_in_array'         => true,
 			'normalize_index_brace'                       => true,
-			'trim_array_spaces'                           => true,
+			'trim_array_spaces'                           => false,
 			'whitespace_after_comma_in_array'             => true,
 
 			// Basic
@@ -105,16 +105,13 @@ return $config
 			'switch_case_space'               => true,
 			'switch_continue_to_break'        => true,
 			'trailing_comma_in_multiline'     => true,
-			'yoda_style'                      => array('equal' => false, 'identical' => false),
+			'yoda_style'                      => true,
 
 			// Function Notation
-			'combine_nested_dirname' => true,
-			'fopen_flag_order'       => true,
-			'fopen_flags'            => true,
-			'function_declaration'   => array(
-				'closure_fn_spacing'       => 'none',
-				'closure_function_spacing' => 'none',
-			),
+			'combine_nested_dirname'                           => true,
+			'fopen_flag_order'                                 => true,
+			'fopen_flags'                                      => true,
+			'function_declaration'                             => false,
 			'type_declaration_spaces'                          => true,
 			'implode_call'                                     => true,
 			'lambda_not_used_import'                           => true,
@@ -169,7 +166,6 @@ return $config
 			'no_homoglyph_names' => true,
 
 			// Operator
-			'binary_operator_spaces'             => array('default' => 'align_single_space_minimal'),
 			'concat_space'                       => array('spacing' => 'one'),
 			'increment_style'                    => true,
 			'logical_operators'                  => true,
@@ -183,10 +179,10 @@ return $config
 			'ternary_operator_spaces'            => true,
 			'ternary_to_elvis_operator'          => true,
 			'ternary_to_null_coalescing'         => true,
-			'unary_operator_spaces'              => true,
+			'unary_operator_spaces'              => array('only_dec_inc' => true),
 
 			// PHP Tag
-			'blank_line_after_opening_tag' => true,
+			'blank_line_after_opening_tag' => false,
 			'echo_tag_syntax'              => true,
 			'full_opening_tag'             => true,
 			'linebreak_after_opening_tag'  => true,
@@ -198,7 +194,7 @@ return $config
 			'phpdoc_align'                                  => true,
 			'phpdoc_indent'                                 => true,
 			'phpdoc_no_access'                              => true,
-			'phpdoc_no_package'                             => true,
+			'phpdoc_no_package'                             => false,
 			'phpdoc_no_useless_inheritdoc'                  => true,
 			'phpdoc_order'                                  => true,
 			'phpdoc_return_self_reference'                  => true,
@@ -241,24 +237,19 @@ return $config
 			// Whitespace
 			'array_indentation'           => true,
 			'blank_line_before_statement' => true,
-			'braces_position'             => array(
-				'control_structures_opening_brace'          => 'same_line',
-				'functions_opening_brace'                   => 'same_line',
-				'anonymous_functions_opening_brace'         => 'same_line',
-				'classes_opening_brace'                     => 'same_line',
-				'anonymous_classes_opening_brace'           => 'same_line',
-				'allow_single_line_anonymous_functions'     => true,
-				'allow_single_line_empty_anonymous_classes' => true,
+			'braces_position' => array(
+				'classes_opening_brace'   => 'same_line',
+				'functions_opening_brace' => 'same_line',
 			),
 			'compact_nullable_type_declaration' => true,
 			'indentation_type'                  => true,
 			'line_ending'                       => true,
 			'method_chaining_indentation'       => true,
 			'no_extra_blank_lines'              => true,
-			'no_spaces_around_offset'           => true,
-			'no_trailing_whitespace'            => true,
-			'no_whitespace_in_blank_line'       => true,
-			'single_blank_line_at_eof'          => true,
+			'no_spaces_around_offset'     => array('positions' => array('outside')),
+			'no_trailing_whitespace'      => true,
+			'no_whitespace_in_blank_line' => true,
+			'single_blank_line_at_eof'    => true,
 		)
 	)
 	->setFinder($finder);

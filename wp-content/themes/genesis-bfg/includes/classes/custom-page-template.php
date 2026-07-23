@@ -1,6 +1,13 @@
 <?php
+/**
+ * Starter class and loader for the Custom Template Starter page template.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Starter class for a custom page template.
@@ -9,11 +16,21 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 20180728
  */
 class BFG_Custom_Page extends BFG_Abstract_Page_Template {
+	/**
+	 * The current page's post object.
+	 *
+	 * @var WP_Post
+	 */
 	protected $post;
 
+	/**
+	 * The current page's post ID.
+	 *
+	 * @var int
+	 */
 	protected $post_id;
 
-	public function __construct($post) {
+	public function __construct( $post ) {
 
 		// Save global $post as a class property, to avoid calling the global later, and for use in the template abstract
 		$this->post = $post;
@@ -21,15 +38,13 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 		// Save the post_id as a class property, for easy access
 		$this->post_id = $this->post->ID;
 
-		add_action( 'genesis_entry_content', array($this, 'display_content') );
-
+		add_action( 'genesis_entry_content', array( $this, 'display_content' ) );
 	}
 
 	public function display_content() {
 
 		// Custom template content
 		// See Abstract_Page_Template for helper methods
-
 	}
 }
 
@@ -46,13 +61,14 @@ function bfg_init_custom_page() {
 	global $post;
 
 	// Stop if not a single page
-	if( !is_singular( 'page' ) )
+	if ( ! is_singular( 'page' ) ) {
 		return;
+	}
 
 	// Stop if not the target page template
-	if( get_page_template_slug() !== 'page_templates/page_custom.php' )
+	if ( 'page_templates/page_custom.php' !== get_page_template_slug() ) {
 		return;
+	}
 
-	new BFG_Custom_Page($post);
-
+	new BFG_Custom_Page( $post );
 }

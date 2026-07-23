@@ -1,6 +1,13 @@
 <?php
+/**
+ * Admin & login screen branding: login logo, header link/text, email sender, admin footer credit.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 add_filter( 'login_headerurl', 'bfg_login_headerurl' );
 /**
@@ -13,7 +20,6 @@ add_filter( 'login_headerurl', 'bfg_login_headerurl' );
 function bfg_login_headerurl() {
 
 	return home_url();
-
 }
 
 add_filter( 'login_headertext', 'bfg_login_headertext' );
@@ -27,7 +33,6 @@ add_filter( 'login_headertext', 'bfg_login_headertext' );
 function bfg_login_headertext() {
 
 	return get_bloginfo( 'name' );
-
 }
 
 // add_action( 'login_enqueue_scripts', 'bfg_replace_login_logo' );
@@ -47,7 +52,7 @@ function bfg_replace_login_logo() {
 
 	?><style type="text/css">
 		body.login .wp-login-logo a {
-			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/login-logo.svg);
+			background-image: url(<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/images/login-logo.svg);
 
 			/* Adjust to the dimensions of your logo. WP Default: 84px 84px */
 			background-size: 84px 84px;
@@ -56,7 +61,6 @@ function bfg_replace_login_logo() {
 		}
 	</style>
 	<?php
-
 }
 
 add_filter( 'wp_mail_from_name', 'bfg_mail_from_name' );
@@ -74,7 +78,6 @@ function bfg_mail_from_name() {
 	$from = str_replace( '&amp;', 'and', $from );
 
 	return preg_replace( '/[^a-zA-Z0-9 ]/', '', $from );
-
 }
 
 // add_filter( 'wp_mail_from', 'bfg_wp_mail_from' );
@@ -90,7 +93,6 @@ function bfg_mail_from_name() {
 function bfg_wp_mail_from() {
 
 	return get_option( 'admin_email' );
-
 }
 
 add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message' );
@@ -103,10 +105,9 @@ add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message'
  *
  * @return string Filtered message, with angle brackets stripped.
  */
-function bfg_cleanup_retrieve_password_message($message) {
+function bfg_cleanup_retrieve_password_message( $message ) {
 
 	return preg_replace( '/<(.+?)>/', '$1', $message );
-
 }
 
 add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
@@ -122,8 +123,7 @@ add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
 function bfg_remove_wp_icon_from_admin_bar() {
 
 	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('wp-logo');
-
+	$wp_admin_bar->remove_menu( 'wp-logo' );
 }
 
 // add_filter( 'admin_footer_text', 'bfg_admin_footer_text' );
@@ -138,11 +138,11 @@ function bfg_remove_wp_icon_from_admin_bar() {
  */
 function bfg_admin_footer_text() {
 
-	$text = __( 'Built by <a href="%s" target="_blank">Cooper Dukes @CDBTech, LLC</a>', CHILD_THEME_TEXT_DOMAIN );
+	/* translators: %s: agency URL. */
+	$text = __( 'Built by <a href="%s" target="_blank">Cooper Dukes @CDBTech, LLC</a>', 'bfg' );
 
 	return sprintf(
 		$text,
 		'https://cdbtech.com/'
 	);
-
 }

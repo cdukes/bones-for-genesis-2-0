@@ -1,6 +1,13 @@
 <?php
+/**
+ * Comments and pings frontend display customizations.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Remove comments frontend. Useful if replacing WP commenting with Disqus.

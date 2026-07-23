@@ -1,62 +1,81 @@
 <?php
+/**
+ * Inline SVG icon helpers and ACF icon field integration.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
 /**
  * Populates icon options for ACF field 'icon'.
  *
  * @since 20170926
+ *
+ * @param array $field The ACF field array.
+ *
+ * @return array Filtered field array, with 'choices' populated from svgs/.
  */
-function bfg_populate_acf_icon_options($field) {
+function bfg_populate_acf_icon_options( $field ) {
 
 	$field['choices'] = array();
 
-	if( !function_exists('get_current_screen') )
+	if ( ! function_exists( 'get_current_screen' ) ) {
 		return $field;
+	}
 
 	// Skip if ACF edit screen
 	$screen = get_current_screen();
-	if( !empty($screen->id) && $screen->id === 'acf-field-group' )
+	if ( ! empty( $screen->id ) && 'acf-field-group' === $screen->id ) {
 		return $field;
+	}
 
 	$path = CHILD_DIR . '/svgs/';
-	if( !file_exists($path) )
+	if ( ! file_exists( $path ) ) {
 		return $field;
+	}
 
-	$files = scandir($path);
-	foreach( $files as $file ) {
-		$parts = pathinfo($file);
-		if( empty($parts['extension']) )
+	$files = scandir( $path );
+	foreach ( $files as $file ) {
+		$parts = pathinfo( $file );
+		if ( empty( $parts['extension'] ) ) {
 			continue;
+		}
 
-		if( $parts['extension'] !== 'svg' )
+		if ( 'svg' !== $parts['extension'] ) {
 			continue;
+		}
 
 		$slug = $parts['filename'];
 
-		$label                   = str_replace('-', ' ', $slug);
-		$label                   = ucwords($label);
-		$field['choices'][$slug] = $label;
+		$label                     = str_replace( '-', ' ', $slug );
+		$label                     = ucwords( $label );
+		$field['choices'][ $slug ] = $label;
 	}
 
-	natcasesort($field['choices']);
+	natcasesort( $field['choices'] );
 
 	return $field;
-
 }
 
 /**
  * Helper function for inserting inline SVGs.
  *
  * @since 20170815
+ *
+ * @param string $slug The icon's filename (without extension) in svgs/.
+ *
+ * @return string An inline <svg> referencing the built icon sprite.
  */
-function bfg_get_icon($slug) {
+function bfg_get_icon( $slug ) {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
 	$src     = '/build/svgs/icons.svg';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
 
 	$src = add_query_arg(
 		array(
@@ -65,12 +84,11 @@ function bfg_get_icon($slug) {
 		$stylesheet_dir . $src
 	);
 
-	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" focusable="false" width="24" height="24">';
+	$svg      = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" focusable="false" width="24" height="24">';
 		$svg .= '<use href="' . $src . '#icon-' . esc_attr( $slug ) . '"></use>';
-	$svg  .= '</svg>';
+	$svg     .= '</svg>';
 
 	return $svg;
-
 }
 
 add_shortcode( 'bfg_icon', 'bfg_icon' );
@@ -78,12 +96,17 @@ add_shortcode( 'bfg_icon', 'bfg_icon' );
  * Shortcode version of bfg_get_icon().
  *
  * @since 20181201
+ *
+ * @param array  $atts    Shortcode attributes; expects 'slug'.
+ * @param string $content Shortcode content (unused).
+ *
+ * @return string|void An inline <svg>, or nothing if 'slug' is empty.
  */
-function bfg_icon($atts, $content = '') {
+function bfg_icon( $atts, $content = '' ) {
 
-	if( empty($atts['slug']) )
+	if ( empty( $atts['slug'] ) ) {
 		return;
+	}
 
-	return bfg_get_icon($atts['slug']);
-
+	return bfg_get_icon( $atts['slug'] );
 }

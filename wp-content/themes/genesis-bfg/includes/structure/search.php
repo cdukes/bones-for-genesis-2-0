@@ -1,6 +1,13 @@
 <?php
+/**
+ * Search form customizations.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 // add_filter( 'genesis_search_text', 'bfg_search_text' );
 /**
@@ -14,8 +21,7 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function bfg_search_text() {
 
-	return esc_attr( __( 'Search Text Goes Here...', CHILD_THEME_TEXT_DOMAIN ) );
-
+	return esc_attr( __( 'Search Text Goes Here...', 'bfg' ) );
 }
 
 // add_filter( 'genesis_search_button_text', 'bfg_search_button_text' );
@@ -30,10 +36,9 @@ function bfg_search_text() {
  *
  * @return string The replacement text.
  */
-function bfg_search_button_text($text) {
+function bfg_search_button_text( $text ) {
 
-	return esc_attr( __( 'Click Here...', CHILD_THEME_TEXT_DOMAIN ) );
-
+	return esc_attr( __( 'Click Here...', 'bfg' ) );
 }
 
 add_filter( 'genesis_attr_search-form-input', 'bfg_search_form_input', 10, 3 );
@@ -48,12 +53,11 @@ add_filter( 'genesis_attr_search-form-input', 'bfg_search_form_input', 10, 3 );
  *
  * @return array Filtered attributes.
  */
-function bfg_search_form_input($attributes, $context, $args) {
+function bfg_search_form_input( $attributes, $context, $args ) {
 
 	$attributes['required'] = true;
 
 	return $attributes;
-
 }
 
 add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2 );
@@ -62,12 +66,12 @@ add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2
  *
  * @since 20200826
  *
- * @param bool  $false Whether to short-circuit the markup output (default false).
- * @param array $args  Genesis markup args.
+ * @param bool  $short_circuit Whether to short-circuit the markup output (default false).
+ * @param array $args          Genesis markup args.
  *
  * @return string The submit button HTML.
  */
-function bfg_search_form_submit($false, $args) {
+function bfg_search_form_submit( $short_circuit, $args ) {
 
 	ob_start();
 	?>
@@ -79,7 +83,6 @@ function bfg_search_form_submit($false, $args) {
 	</button>
 	<?php
 	return ob_get_clean();
-
 }
 
 add_action( 'do_robots', 'bfg_block_bots_from_search' );
@@ -100,5 +103,4 @@ User-agent: *
 Disallow: /search/
 Disallow: /?s=
 	<?php
-
 }

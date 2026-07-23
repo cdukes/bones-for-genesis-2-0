@@ -1,6 +1,13 @@
 <?php
+/**
+ * Genesis Customizer sections and ACF admin-menu visibility.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 // add_filter( 'genesis_customizer_theme_settings_config', 'bfg_customizer_theme_settings_config' );
 /**
@@ -12,37 +19,36 @@ if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @return array Filtered config, with the listed sections removed.
  */
-function bfg_customizer_theme_settings_config($config) {
+function bfg_customizer_theme_settings_config( $config ) {
 
 	// Updates
-	unset($config['genesis']['sections']['genesis_updates']);
+	unset( $config['genesis']['sections']['genesis_updates'] );
 
 	// Headers
-	unset($config['genesis']['sections']['genesis_header']);
+	unset( $config['genesis']['sections']['genesis_header'] );
 
 	// Site Layout
-	unset($config['genesis']['sections']['genesis_layout']);
+	unset( $config['genesis']['sections']['genesis_layout'] );
 
 	// Breadcrumbs
-	unset($config['genesis']['sections']['genesis_breadcrumbs']);
+	unset( $config['genesis']['sections']['genesis_breadcrumbs'] );
 
 	// Comments and Trackbacks
-	unset($config['genesis']['sections']['genesis_comments']);
+	unset( $config['genesis']['sections']['genesis_comments'] );
 
 	// Singular Content
-	unset($config['genesis']['sections']['genesis_single']);
+	unset( $config['genesis']['sections']['genesis_single'] );
 
 	// Content Archives
-	unset($config['genesis']['sections']['genesis_archives']);
+	unset( $config['genesis']['sections']['genesis_archives'] );
 
 	// Footer
-	unset($config['genesis']['sections']['genesis_footer']);
+	unset( $config['genesis']['sections']['genesis_footer'] );
 
 	// Header/Footer Scripts
-	unset($config['genesis']['sections']['genesis_scripts']);
+	unset( $config['genesis']['sections']['genesis_scripts'] );
 
 	return $config;
-
 }
 
 // add_filter( 'acf/settings/show_admin', 'bfg_show_acf_settings' );
@@ -55,18 +61,20 @@ function bfg_customizer_theme_settings_config($config) {
  *
  * @return bool Filtered value.
  */
-function bfg_show_acf_settings($show) {
+function bfg_show_acf_settings( $show ) {
 
-	if( !BFG_PRODUCTION )
+	if ( ! BFG_PRODUCTION ) {
 		return $show;
+	}
 
-	if( !function_exists('acf_pro_get_license') )
+	if ( ! function_exists( 'acf_pro_get_license' ) ) {
 		return $show;
+	}
 
 	$license = acf_pro_get_license();
-	if( empty($license) )
+	if ( empty( $license ) ) {
 		return $show;
+	}
 
 	return false;
-
 }

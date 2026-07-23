@@ -1,6 +1,13 @@
 <?php
+/**
+ * Navigation menu customizations.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Remove the primary and secondary menus.
@@ -27,17 +34,17 @@ add_filter( 'nav_menu_item_id', '__return_false' );
  * @return array Filtered arguments.
  */
 add_filter( 'wp_nav_menu_args', 'bfg_limit_menu_depth' );
-function bfg_limit_menu_depth($args) {
+function bfg_limit_menu_depth( $args ) {
 
 	$args['item_spacing'] = 'discard';
 	$args['container']    = false;
 	$args['fallback_cb']  = false;
 
-	if( !in_array($args['theme_location'] ?? '', array('primary', 'secondary'), true) )
+	if ( ! in_array( $args['theme_location'] ?? '', array( 'primary', 'secondary' ), true ) ) {
 		return $args;
+	}
 
 	$args['depth'] = 2;
 
 	return $args;
-
 }

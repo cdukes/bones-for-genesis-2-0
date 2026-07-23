@@ -10,6 +10,8 @@
 - Improve code comments
 - Update PHP coding style
 - Remove `vue-style-loader`
+- Update code for WPCS compliance
+- Remove `BFG()` singleton pattern
 
 ## 20260521
 - Include alternative `jquery` register option

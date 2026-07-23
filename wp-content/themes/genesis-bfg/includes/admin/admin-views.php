@@ -1,16 +1,25 @@
 <?php
+/**
+ * Admin area display customizations: admin bar, dashboard widgets, TinyMCE, screen options.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Remove admin bar inline CSS.
  *
  * @since 2.3.43
  */
-add_theme_support( 'admin-bar', array('callback' => '__return_false') );
+add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 
-add_action(  'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
+add_action( 'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
 /**
+ * Remove the admin bar's inline CSS, printed separately via wp_admin_bar_header().
+ *
  * @since 2.3.43
  *
  * @return void
@@ -18,7 +27,6 @@ add_action(  'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
 function bfg_remove_admin_bar_inline_css() {
 
 	remove_action( 'wp_head', 'wp_admin_bar_header' );
-
 }
 
 /**
@@ -33,6 +41,8 @@ function bfg_remove_admin_bar_inline_css() {
 
 add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
 /**
+ * Temporarily disable avatars, ahead of bfg_restore_avatars() re-enabling them.
+ *
  * @since 2.3.43
  *
  * @return void
@@ -40,11 +50,12 @@ add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
 function bfg_hide_admin_bar_avatar() {
 
 	add_filter( 'pre_option_show_avatars', '__return_zero' );
-
 }
 
 add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
 /**
+ * Re-enable avatars after bfg_hide_admin_bar_avatar() temporarily disabled them.
+ *
  * @since 2.3.43
  *
  * @return void
@@ -52,7 +63,6 @@ add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
 function bfg_restore_avatars() {
 
 	remove_filter( 'pre_option_show_avatars', '__return_zero' );
-
 }
 
 /**
@@ -60,15 +70,14 @@ function bfg_restore_avatars() {
  *
  * @since 2.0.0
  *
- * @param bool $default Whether to show the admin bar.
+ * @param bool $show_admin_bar Whether to show the admin bar.
  *
  * @return bool Filtered value.
  */
 add_filter( 'show_admin_bar', 'bfg_maybe_hide_admin_bar', 99 );
-function bfg_maybe_hide_admin_bar($default) {
+function bfg_maybe_hide_admin_bar( $show_admin_bar ) {
 
-	return current_user_can( 'edit_posts' ) ? $default : false;
-
+	return current_user_can( 'edit_posts' ) ? $show_admin_bar : false;
 }
 
 /**
@@ -95,12 +104,12 @@ add_action( 'admin_init', 'bfg_hide_update_nags' );
  */
 function bfg_hide_update_nags() {
 
-	if( current_user_can('update_core') )
+	if ( current_user_can( 'update_core' ) ) {
 		return;
+	}
 
-	remove_action( 'admin_notices', 'update_nag', 3  );
+	remove_action( 'admin_notices', 'update_nag', 3 );
 	remove_action( 'admin_notices', 'maintenance_nag', 10 );
-
 }
 
 add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
@@ -115,12 +124,11 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
  */
 function bfg_remove_dashboard_widgets() {
 
-	remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );			// At a Glance
-	remove_meta_box( 'dashboard_activity', 'dashboard', 'core' );			// Activity
-	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );		// Quick Draft
-	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );			// WordPress Events and News
-	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );	// Yoast SEO Posts Overview
-
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );          // At a Glance
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'core' );           // Activity
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );        // Quick Draft
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );            // WordPress Events and News
+	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );   // Yoast SEO Posts Overview
 }
 
 add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
@@ -134,10 +142,9 @@ add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
 function bfg_wp_dashboard_setup() {
 
 	remove_meta_box( 'wps_limit_logindashboard_widget', 'dashboard', 'normal' );
-
 }
 
-add_action('widgets_init', 'bfg_unregister_widgets');
+add_action( 'widgets_init', 'bfg_unregister_widgets' );
 /**
  * Disable some or all widgets.
  *
@@ -155,10 +162,10 @@ function bfg_unregister_widgets() {
 
 	// $widgets = array_keys( $wp_widget_factory->widgets );
 	// foreach( $widgets as $widget ) {
-	// 	if( in_array($widget, $whitelisted_widgets, true) )
-	// 		continue;
+	// if( in_array($widget, $whitelisted_widgets, true) )
+	// continue;
 	//
-	// 	unregister_widget( $widget );
+	// unregister_widget( $widget );
 	// }
 
 	// ...or unregister individual widgets
@@ -186,7 +193,6 @@ function bfg_unregister_widgets() {
 	// unregister_widget( 'Genesis_Featured_Page' );
 	// unregister_widget( 'Genesis_User_Profile_Widget' );
 	// unregister_widget( 'Genesis_Featured_Post' );
-
 }
 
 // add_action( 'admin_init', 'bfg_add_editor_style' );
@@ -201,7 +207,6 @@ function bfg_add_editor_style() {
 
 	$src = BFG_PRODUCTION ? '/build/css/editor-style.min.css' : '/build/css/editor-style.css';
 	add_editor_style( get_stylesheet_directory_uri() . $src );
-
 }
 
 // add_filter( 'mce_external_plugins', 'bfg_add_tinymce_plugins' );
@@ -214,10 +219,10 @@ function bfg_add_editor_style() {
  *
  * @return array Filtered plugin array.
  */
-function bfg_add_tinymce_plugins($plugin_array) {
+function bfg_add_tinymce_plugins( $plugin_array ) {
 
 	$src     = BFG_PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
 
 	$src = add_query_arg(
 		array(
@@ -229,7 +234,6 @@ function bfg_add_tinymce_plugins($plugin_array) {
 	$plugin_array['bfg_admin'] = get_stylesheet_directory_uri() . $src;
 
 	return $plugin_array;
-
 }
 
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
@@ -244,7 +248,7 @@ add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
  *
  * @return array Filtered settings.
  */
-function bfg_tiny_mce_before_init($options) {
+function bfg_tiny_mce_before_init( $options ) {
 
 	$options['element_format']       = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
 	$options['schema']               = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
@@ -253,7 +257,6 @@ function bfg_tiny_mce_before_init($options) {
 	$options['wordpress_adv_hidden'] = false;
 
 	return $options;
-
 }
 
 add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
@@ -266,12 +269,11 @@ add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
  *
  * @return array Filtered buttons.
  */
-function bfg_tinymce_buttons($buttons) {
+function bfg_tinymce_buttons( $buttons ) {
 
-	$buttons[] = 'wp_page';															// Post pagination
+	$buttons[] = 'wp_page';                                                         // Post pagination
 
 	return $buttons;
-
 }
 
 add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
@@ -286,15 +288,14 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  *
  * @return array Filtered fields.
  */
-function bfg_user_contactmethods($fields) {
+function bfg_user_contactmethods( $fields ) {
 
-	// $fields['facebook'] = 'Facebook';											// Add Facebook
-	// $fields['twitter'] = 'Twitter';												// Add Twitter
-	// $fields['linkedin'] = 'LinkedIn';											// Add LinkedIn
-	unset( $fields['aim'], $fields['yim'], $fields['jabber'] );						// Remove AIM, Yahoo IM, and Jabber / Google Talk
+	// $fields['facebook'] = 'Facebook';                                            // Add Facebook
+	// $fields['twitter'] = 'Twitter';                                              // Add Twitter
+	// $fields['linkedin'] = 'LinkedIn';                                            // Add LinkedIn
+	unset( $fields['aim'], $fields['yim'], $fields['jabber'] );                     // Remove AIM, Yahoo IM, and Jabber / Google Talk
 
 	return $fields;
-
 }
 
 add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
@@ -319,7 +320,6 @@ function bfg_remove_dashboard_menus() {
 	// remove_menu_page('users.php'); // Users
 	// remove_menu_page('tools.php'); // Tools
 	// remove_menu_page('options-general.php'); // Settings
-
 }
 
 add_filter( 'login_errors', 'bfg_login_errors' );
@@ -334,22 +334,22 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  *
  * @return string Filtered message.
  */
-function bfg_login_errors($text) {
+function bfg_login_errors( $text ) {
 
 	global $errors;
 
-	if( empty($errors) )
+	if ( empty( $errors ) ) {
 		return $text;
+	}
 
 	$codes = $errors->get_error_codes();
-	if(
-		in_array('invalid_username', $codes, true) || in_array('incorrect_password', $codes, true)
+	if (
+		in_array( 'invalid_username', $codes, true ) || in_array( 'incorrect_password', $codes, true )
 	) {
-		return __( 'Invalid username or password.', CHILD_THEME_TEXT_DOMAIN );
+		return __( 'Invalid username or password.', 'bfg' );
 	}
 
 	return $text;
-
 }
 
 add_action( 'admin_head', 'bfg_hide_admin_help_button' );
@@ -370,7 +370,6 @@ function bfg_hide_admin_help_button() {
 		}
 	</style>
 	<?php
-
 }
 
 add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
@@ -383,20 +382,20 @@ add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
  *
  * @return void
  */
-function bfg_admin_menu_plugins_node($wp_admin_bar) {
+function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
 
-	if( !current_user_can('install_plugins') )
+	if ( ! current_user_can( 'install_plugins' ) ) {
 		return;
+	}
 
 	$node = array(
 		'parent' => 'appearance',
 		'id'     => 'plugins',
-		'title'  => __( 'Plugins', CHILD_THEME_TEXT_DOMAIN ),
-		'href'   => admin_url('plugins.php'),
+		'title'  => __( 'Plugins', 'bfg' ),
+		'href'   => admin_url( 'plugins.php' ),
 	);
 
 	$wp_admin_bar->add_node( $node );
-
 }
 
 add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
@@ -431,7 +430,6 @@ function bfg_remove_meta_boxes() {
 	// remove_meta_box( 'postimagediv', 'page', 'side' );
 	// remove_meta_box( 'slugdiv', 'page', 'normal' );
 	// remove_meta_box( 'submitdiv', 'page', 'side' );
-
 }
 
 /**
@@ -444,10 +442,9 @@ function bfg_remove_meta_boxes() {
  *
  * @return int Filtered value, capped at 100.
  */
-function bfg_limit_items_per_page($per_page) {
+function bfg_limit_items_per_page( $per_page ) {
 
 	return min( $per_page, 100 );
-
 }
 
 add_action( 'admin_init', 'bfg_setup_per_page_limits' );
@@ -474,11 +471,12 @@ function bfg_setup_per_page_limits() {
 	);
 
 	// 'edit_{$post_type}_per_page'
-	$post_types = get_post_types( array('_builtin' => false) );
-	foreach( $post_types as $post_type )
+	$post_types = get_post_types( array( '_builtin' => false ) );
+	foreach ( $post_types as $post_type ) {
 		$options[] = 'edit_' . $post_type . '_per_page';
+	}
 
-	foreach( $options as $option )
+	foreach ( $options as $option ) {
 		add_filter( $option, 'bfg_limit_items_per_page' );
-
+	}
 }

@@ -1,6 +1,13 @@
 <?php
+/**
+ * Miscellaneous admin & security hardening: asset loading, REST/XML-RPC/image-format restrictions.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 // add_action( 'admin_enqueue_scripts', 'bfg_load_admin_assets' );
 /**
@@ -15,13 +22,12 @@ function bfg_load_admin_assets() {
 	$stylesheet_dir = get_stylesheet_directory_uri();
 
 	$src     = BFG_PRODUCTION ? '/build/css/admin.min.css' : '/build/css/admin.css';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
 	wp_enqueue_style( 'bfg-admin', $stylesheet_dir . $src, array(), $version );
 
 	$src     = BFG_PRODUCTION ? '/build/js/admin.min.js' : '/build/js/admin.js';
-	$version = file_exists(CHILD_DIR . $src) ? filemtime(CHILD_DIR . $src) : null;
-	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array('jquery'), $version, true );
-
+	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
+	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array( 'jquery' ), $version, true );
 }
 
 add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
@@ -34,16 +40,17 @@ add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
  *
  * @return array Filtered endpoints, with the user routes removed.
  */
-function bfg_remove_rest_user_endpoints($endpoints) {
+function bfg_remove_rest_user_endpoints( $endpoints ) {
 
-	if( isset( $endpoints['/wp/v2/users'] ) )
+	if ( isset( $endpoints['/wp/v2/users'] ) ) {
 		unset( $endpoints['/wp/v2/users'] );
+	}
 
-	if( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) )
+	if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
 		unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+	}
 
 	return $endpoints;
-
 }
 
 add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
@@ -57,14 +64,13 @@ add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
  *
  * @return array Filtered formats.
  */
-function bfg_image_editor_output_format($formats) {
+function bfg_image_editor_output_format( $formats ) {
 
 	$formats['image/jpeg'] = 'image/avif';
 	// $formats['image/png']  = 'image/avif';
 	// $formats['image/webp'] = 'image/avif';
 
 	return $formats;
-
 }
 
 // add_filter( 'upload_mimes', 'bfg_enable_svg_uploads', 10, 1 );
@@ -77,13 +83,12 @@ function bfg_image_editor_output_format($formats) {
  *
  * @return array Filtered mime types.
  */
-function bfg_enable_svg_uploads($mimes) {
+function bfg_enable_svg_uploads( $mimes ) {
 
 	$mimes['svg']  = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
 
 	return $mimes;
-
 }
 
 /**
@@ -100,7 +105,9 @@ add_filter( 'big_image_size_threshold', '__return_false' );
  *
  * @since 2.2.12
  */
-if( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) exit;
+if ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) {
+	exit;
+}
 
 /**
  * Force secure cookie.
@@ -119,19 +126,19 @@ add_filter( 'secure_signon_cookie', '__return_true' );
  * @return array Filtered origins, with non-HTTPS origins removed.
  */
 add_filter( 'allowed_http_origins', 'bfg_allowed_http_origins' );
-function bfg_allowed_http_origins($allowed_origins) {
+function bfg_allowed_http_origins( $allowed_origins ) {
 
 	$whitelisted_origins = array();
-	foreach( $allowed_origins as $origin ) {
-		$url = parse_url($origin);
-		if( ($url['scheme'] ?? '') !== 'https' )
+	foreach ( $allowed_origins as $origin ) {
+		$url = wp_parse_url( $origin );
+		if ( ( $url['scheme'] ?? '' ) !== 'https' ) {
 			continue;
+		}
 
 		$whitelisted_origins[] = $origin;
 	}
 
 	return $whitelisted_origins;
-
 }
 
 /**
@@ -145,12 +152,11 @@ function bfg_allowed_http_origins($allowed_origins) {
  * @return array Filtered email args, with the recipient cleared.
  */
 add_filter( 'recovery_mode_email', 'bfg_disable_recovery_mode_emails', 10, 2 );
-function bfg_disable_recovery_mode_emails($email, $url) {
+function bfg_disable_recovery_mode_emails( $email, $url ) {
 
 	$email['to'] = '';
 
 	return $email;
-
 }
 
 /**

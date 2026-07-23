@@ -1,6 +1,13 @@
 <?php
+/**
+ * Post/page content and excerpt customizations.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 add_filter( 'gallery_style', 'bfg_gallery_style' );
 /**
@@ -12,10 +19,9 @@ add_filter( 'gallery_style', 'bfg_gallery_style' );
  *
  * @return string Empty string, removing the injected CSS.
  */
-function bfg_gallery_style($css) {
+function bfg_gallery_style( $css ) {
 
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
-
 }
 
 /**
@@ -44,8 +50,7 @@ add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
  */
 function bfg_more_tag_excerpt_link() {
 
-	return ' <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', CHILD_THEME_TEXT_DOMAIN ) . '</a>';
-
+	return ' <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', 'bfg' ) . '</a>';
 }
 
 add_filter( 'excerpt_more', 'bfg_truncated_excerpt_link' );
@@ -61,8 +66,7 @@ add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
  */
 function bfg_truncated_excerpt_link() {
 
-	return '... <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', CHILD_THEME_TEXT_DOMAIN ) . '</a>';
-
+	return '... <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', 'bfg' ) . '</a>';
 }
 
 // remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
@@ -78,9 +82,8 @@ function bfg_truncated_excerpt_link() {
  */
 function bfg_post_info() {
 
-	return '[post_date] ' . __( 'by', CHILD_THEME_TEXT_DOMAIN ) . ' [post_author_posts_link] [post_comments] [post_edit]';
+	return '[post_date] ' . __( 'by', 'bfg' ) . ' [post_author_posts_link] [post_comments] [post_edit]';
 	// Friendly note: use [post_author] to return the author's name, without an archive link
-
 }
 
 // remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
@@ -96,8 +99,7 @@ function bfg_post_info() {
  */
 function bfg_post_meta() {
 
-	return '[post_categories before="' . __( 'Filed Under: ', CHILD_THEME_TEXT_DOMAIN ) . '"] [post_tags before="' . __( 'Tagged: ', CHILD_THEME_TEXT_DOMAIN ) . '"]';
-
+	return '[post_categories before="' . __( 'Filed Under: ', 'bfg' ) . '"] [post_tags before="' . __( 'Tagged: ', 'bfg' ) . '"]';
 }
 
 add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
@@ -111,10 +113,9 @@ add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
  *
  * @return string The replacement text.
  */
-function bfg_prev_link_text($text) {
+function bfg_prev_link_text( $text ) {
 
-	return html_entity_decode('&#10216;') . ' ';
-
+	return html_entity_decode( '&#10216;' ) . ' ';
 }
 
 add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
@@ -128,10 +129,9 @@ add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
  *
  * @return string The replacement text.
  */
-function bfg_next_link_text($text) {
+function bfg_next_link_text( $text ) {
 
-	return ' ' . html_entity_decode('&#10217;');
-
+	return ' ' . html_entity_decode( '&#10217;' );
 }
 
 /**
@@ -159,16 +159,15 @@ add_filter( 'edit_post_link', '__return_false' );
  * @return string The password form HTML.
  */
 add_filter( 'the_password_form', 'bfg_password_form' );
-function bfg_password_form($post = 0) {
+function bfg_password_form( $post = 0 ) {
 
-	$post       = get_post( $post );
-	$label      = 'pwbox-' . ( empty($post->ID) ? mt_rand() : $post->ID );
-	$output     = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
+	$post          = get_post( $post );
+	$label         = 'pwbox-' . ( empty( $post->ID ) ? wp_rand() : $post->ID );
+	$output        = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">';
 		$autofocus = is_singular() ? 'autofocus' : '';
-		$output .= '<input name="post_password" id="' . $label . '" type="password" spellcheck="false" size="20" placeholder="' . __( 'Password', CHILD_THEME_TEXT_DOMAIN ) . '" ' . $autofocus . '>';
-		$output .= '<input type="submit" name="' . __( 'Submit', CHILD_THEME_TEXT_DOMAIN ) . '" value="' . esc_attr__( 'Submit' ) . '">';
-	$output  .= '</form>';
+		$output   .= '<input name="post_password" id="' . $label . '" type="password" spellcheck="false" size="20" placeholder="' . __( 'Password', 'bfg' ) . '" ' . $autofocus . '>';
+		$output   .= '<input type="submit" name="' . __( 'Submit', 'bfg' ) . '" value="' . esc_attr__( 'Submit', 'bfg' ) . '">';
+	$output       .= '</form>';
 
 	return $output;
-
 }

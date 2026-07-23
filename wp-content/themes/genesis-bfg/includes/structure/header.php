@@ -1,6 +1,13 @@
 <?php
+/**
+ * Site header customizations.
+ *
+ * @package BFG
+ */
 
-if( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
 /**
@@ -12,12 +19,11 @@ add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
  *
  * @return array Filtered attributes.
  */
-function bfg_ajax_url_attribute($atts) {
+function bfg_ajax_url_attribute( $atts ) {
 
 	$atts['data-ajax_url'] = admin_url( 'admin-ajax.php' );
 
 	return $atts;
-
 }
 
 add_filter( 'body_class', 'bfg_no_js_body_class' );
@@ -30,12 +36,11 @@ add_filter( 'body_class', 'bfg_no_js_body_class' );
  *
  * @return array Filtered classes.
  */
-function bfg_no_js_body_class($classes) {
+function bfg_no_js_body_class( $classes ) {
 
 	$classes[] = 'no-js';
 
 	return $classes;
-
 }
 
 /**

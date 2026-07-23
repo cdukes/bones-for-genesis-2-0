@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<ruleset name="BFG">
+	<description>WordPress Coding Standards for the Bones for Genesis 2.0 child theme.</description>
+
+	<arg name="basepath" value="./"/>
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/config/*</exclude-pattern>
+	<exclude-pattern>*/acf-json/*</exclude-pattern>
+
+	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+		<exclude name="Squiz.Commenting.FunctionComment.WrongStyle"/>
+		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+		<exclude name="Squiz.PHP.CommentedOutCode"/>
+		<exclude name="WordPress.Files.FileName"/>
+		<exclude name="Universal.Files.SeparateFunctionsFromOO"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="bfg"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" type="array">
+				<element value="bfg_get_icon"/>
+				<element value="bfg_get_image"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>
