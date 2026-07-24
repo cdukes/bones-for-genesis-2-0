@@ -38,8 +38,9 @@ module.exports = (env, argv) => {
 		},
 		performance: {
 			maxAssetSize: 300000,
+			maxEntrypointSize: 300000,
 		},
-		devtool: isProduction ? `source-map` : `eval-cheap-module-source-map`,
+		devtool: isProduction ? `hidden-source-map` : `eval-cheap-module-source-map`,
 		plugins: [
 			new webpack.DefinePlugin({
 				__VUE_OPTIONS_API__: JSON.stringify(false),
@@ -64,10 +65,18 @@ module.exports = (env, argv) => {
 					},
 				},
 				{
-					test: /\.(s?[ac]ss)$/,
+					test: /(?<!\.vue)\.(s?[ac]ss)$/,
 					use: [
 						{
 							loader: MiniCssExtractPlugin.loader,
+						},
+					],
+				},
+				{
+					test: /\.vue\.(s?[ac]ss)$/,
+					use: [
+						{
+							loader: `vue-style-loader`,
 						},
 					],
 				},
@@ -98,7 +107,7 @@ module.exports = (env, argv) => {
 							options: {
 								api: `modern`,
 								sassOptions: {
-									silenceDeprecations: [`if-function`],
+									style: isProduction ? `compressed` : `expanded`,
 								},
 							},
 						},

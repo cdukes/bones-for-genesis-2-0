@@ -85,7 +85,7 @@ return $config
 			'header_comment'                    => false,
 			'multiline_comment_opening_closing' => true,
 			'no_empty_comment'                  => true,
-			'no_trailing_whitespace_in_comment' => true,
+			'no_trailing_whitespace_in_comment' => false,
 			'single_line_comment_style'         => false,
 
 			// Constant Notation

@@ -2,7 +2,6 @@
 <ruleset name="BFG">
 	<description>WordPress Coding Standards for the Bones for Genesis 2.0 child theme.</description>
 
-	<arg name="basepath" value="./"/>
 	<arg name="extensions" value="php"/>
 	<arg name="colors"/>
 	<arg value="sp"/>

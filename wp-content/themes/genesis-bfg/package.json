@@ -23,6 +23,7 @@
 		"svg-sprite": "*",
 		"vue": "*",
 		"vue-loader": "*",
+		"vue-style-loader": "*",
 		"webpack": "*",
 		"webpack-cli": "*"
 	},
@@ -35,8 +36,9 @@
 		"postcss-scss": "postcss 'sass/**/*.scss' --replace --config=config",
 		"build:webpack": "npm run prettier && npm run postcss-scss && npm run eslint && webpack --config=config/webpack.config.js --mode=production --",
 		"build:images": "npm run svg_sprite",
-		"build:php": "php-cs-fixer fix --config=config/php_cs.php && vendor/bin/phpcs --standard=config/phpcs.xml .",
+		"build:php": "php-cs-fixer fix --config=config/php_cs.php && vendor/bin/phpcbf --standard=config/phpcs.xml . ; vendor/bin/phpcs --standard=config/phpcs.xml .",
 		"phpcs": "vendor/bin/phpcs --standard=config/phpcs.xml .",
+		"phpcbf": "vendor/bin/phpcbf --standard=config/phpcs.xml .",
 		"build": "concurrently 'npm run build:webpack --' 'npm run build:images' 'npm run build:php'",
 		"watch:webpack": "npm run webpack-development",
 		"watch:svgs": "nodemon --watch svgs --exec 'npm run svg_sprite' --ext svg -q",

@@ -37,7 +37,7 @@ NEW_PREFIX="acme"
 NEW_PREFIX_CLASS=$(echo "$NEW_PREFIX" | tr '[:lower:]' '[:upper:]')
 
 find . \( -path ./vendor -o -path ./node_modules -o -path ./build \) -prune -o \
-  -type f \( -name "*.php" -o -name "*.css" \) -print |
+  -type f \( -name "*.php" -o -name "*.css" -o -name "phpcs.xml" \) -print |
   while read -r f; do
     perl -pi -e "
       s/\bBFG_/${NEW_PREFIX_CLASS}_/g;
