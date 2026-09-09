@@ -1,3 +1,7 @@
+## 20260909
+- Adjust `bfg_gform_filter_submit_button_tag()` for Gravity Forms 3.0
+- Adjust GF default retention policy with `bfg_gform_after_save_form()`
+
 ## 20260723
 - Reject passwords found in the Have I Been Pwned breach database
 - Add nonces for `developer-tools.php`

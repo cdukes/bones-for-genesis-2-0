@@ -99,23 +99,17 @@ function bfg_gform_filter_submit_button_tag( $button_input, $form ) {
 		return $button_input;
 	}
 
-	$count = preg_match( '/value=\'(.+?)\'/', $button_input, $matches );
-	if ( 1 !== $count ) {
-		return $button_input;
+	preg_match( '/(<button[^>]*>)(.*?)(<\/button>)/is', $button_input, $matches );
+
+	if ( $matches ) {
+		$button_input = str_replace( $matches[0], $matches[1] . '<span>' . $matches[2] . '</span>' . $matches[3], $button_input );
 	}
 
-	$button_input = str_replace( '<input', '<button', $button_input );
-	$button_input = str_replace( ' />', '>', $button_input );
-	$button_input = str_replace( 'gform_button', 'gform_button btn', $button_input );
+	return str_replace( 'gform_button', 'gform_button btn', $button_input );
 
 	// Also remove inline JS
 	// $button_input = preg_replace( '/onclick=\'(.+?)\'/', '', $button_input );
 	// $button_input = preg_replace( '/onkeypress=\'(.+?)\'/', '', $button_input );
-
-	$button_input .= $matches[1];
-	$button_input .= '</button>';
-
-	return $button_input;
 }
 
 // add_filter( 'gform_form_validation_errors_markup', 'bfg_gform_form_validation_errors_markup', 10, 2 );
@@ -141,6 +135,30 @@ function bfg_gform_form_validation_errors_markup( $html, $form ) {
  */
 // add_filter( 'gform_init_scripts_footer', '__return_true' );
 // add_filter( 'gform_footer_init_scripts_filter', '__return_false' );
+
+// add_action( 'gform_after_save_form', 'bfg_gform_after_save_form', 10, 3 );
+/**
+ * Apply data management defaults when a form is first created.
+ *
+ * @since 20260909
+ *
+ * @param array $form_meta      The saved form meta.
+ * @param bool  $is_new         True if this save created the form.
+ * @param array $deleted_fields The IDs of any fields which have been deleted.
+ */
+function bfg_gform_after_save_form( $form_meta, $is_new, $deleted_fields ) {
+
+	if ( ! $is_new ) {
+		return;
+	}
+
+	$form_meta['personalData']['retention'] = array(
+		'policy'              => 'delete',
+		'retain_entries_days' => '90',
+	);
+
+	GFAPI::update_form( $form_meta );
+}
 
 // add_filter( 'gform_entry_is_spam', 'bfg_gform_entry_is_spam', 10, 3 );
 /**
