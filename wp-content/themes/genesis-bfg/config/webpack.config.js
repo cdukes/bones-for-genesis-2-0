@@ -1,10 +1,42 @@
 const webpack = require(`webpack`),
 	path = require(`path`),
 	{ VueLoaderPlugin } = require(`vue-loader`),
-	MiniCssExtractPlugin = require(`mini-css-extract-plugin`);
+	MiniCssExtractPlugin = require(`mini-css-extract-plugin`),
+	RemoveEmptyScriptsPlugin = require(`webpack-remove-empty-scripts`);
 
 module.exports = (env, argv) => {
 	const isProduction = `production` === argv.mode;
+
+	const styleLoaders = [
+		{
+			loader: `css-loader`,
+			options: {
+				url: false,
+			},
+		},
+		{
+			loader: `postcss-loader`,
+			options: {
+				postcssOptions: {
+					plugins: {
+						autoprefixer: {
+							cascade: true,
+							flexbox: false,
+						},
+					},
+				},
+			},
+		},
+		{
+			loader: `sass-loader`,
+			options: {
+				api: `modern`,
+				sassOptions: {
+					style: isProduction ? `compressed` : `expanded`,
+				},
+			},
+		},
+	];
 
 	const config = {
 		entry: {
@@ -28,11 +60,6 @@ module.exports = (env, argv) => {
 				config: [__filename],
 			},
 		},
-		resolve: {
-			alias: {
-				ajax$: path.resolve(__dirname, `../js/_partials/_ajax.js`),
-			},
-		},
 		optimization: {
 			minimize: isProduction,
 		},
@@ -48,6 +75,7 @@ module.exports = (env, argv) => {
 				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(!isProduction),
 			}),
 			new VueLoaderPlugin(),
+			new RemoveEmptyScriptsPlugin(),
 			new MiniCssExtractPlugin({
 				filename: (pathData) => {
 					const slug = pathData.chunk.name.replace(`-css`, ``);
@@ -65,51 +93,14 @@ module.exports = (env, argv) => {
 					},
 				},
 				{
-					test: /(?<!\.vue)\.(s?[ac]ss)$/,
-					use: [
+					test: /\.(s?[ac]ss)$/,
+					oneOf: [
 						{
-							loader: MiniCssExtractPlugin.loader,
-						},
-					],
-				},
-				{
-					test: /\.vue\.(s?[ac]ss)$/,
-					use: [
-						{
-							loader: `vue-style-loader`,
-						},
-					],
-				},
-				{
-					test: /\.(sa|sc|c)ss$/,
-					use: [
-						{
-							loader: `css-loader`,
-							options: {
-								url: false,
-							},
+							test: /\.vue\.(s?[ac]ss)$/,
+							use: [`vue-style-loader`, ...styleLoaders],
 						},
 						{
-							loader: `postcss-loader`,
-							options: {
-								postcssOptions: {
-									plugins: {
-										autoprefixer: {
-											cascade: true,
-											flexbox: false,
-										},
-									},
-								},
-							},
-						},
-						{
-							loader: `sass-loader`,
-							options: {
-								api: `modern`,
-								sassOptions: {
-									style: isProduction ? `compressed` : `expanded`,
-								},
-							},
+							use: [MiniCssExtractPlugin.loader, ...styleLoaders],
 						},
 					],
 				},

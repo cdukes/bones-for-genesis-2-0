@@ -9,24 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-add_filter( 'genesis_attr_body', 'bfg_ajax_url_attribute' );
-/**
- * Add the AJAX URL as a `data-*` attribute on `<body>`, instead of an inline script, for better CSP compatibility.
- *
- * @since 2.3.46
- *
- * @param array $atts HTML attributes for the <body> tag.
- *
- * @return array Filtered attributes.
- */
-function bfg_ajax_url_attribute( $atts ) {
-
-	$atts['data-ajax_url'] = admin_url( 'admin-ajax.php' );
-
-	return $atts;
-}
-
-add_filter( 'body_class', 'bfg_no_js_body_class' );
 /**
  * Add a no-js class to the <body> tag.
  *
@@ -36,6 +18,7 @@ add_filter( 'body_class', 'bfg_no_js_body_class' );
  *
  * @return array Filtered classes.
  */
+add_filter( 'body_class', 'bfg_no_js_body_class' );
 function bfg_no_js_body_class( $classes ) {
 
 	$classes[] = 'no-js';

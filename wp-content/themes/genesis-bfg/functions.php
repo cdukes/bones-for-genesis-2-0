@@ -9,10 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-define( 'CHILD_THEME_TEXT_DOMAIN', 'bfg' );
-
-$use_production_assets = 'production' === wp_get_environment_type();
-define( 'BFG_PRODUCTION', $use_production_assets );
+define( 'BFG_PRODUCTION', 'production' === wp_get_environment_type() );
 
 // Initialize Genesis
 require_once get_template_directory() . '/lib/init.php';

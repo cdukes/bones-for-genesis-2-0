@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 
-add_action( 'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
 /**
  * Remove the admin bar's inline CSS, printed separately via wp_admin_bar_header().
  *
@@ -24,6 +23,7 @@ add_action( 'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
  *
  * @return void
  */
+add_action( 'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
 function bfg_remove_admin_bar_inline_css() {
 
 	remove_action( 'wp_head', 'wp_admin_bar_header' );
@@ -39,7 +39,6 @@ function bfg_remove_admin_bar_inline_css() {
  * @since 2.3.43
  */
 
-add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
 /**
  * Temporarily disable avatars, ahead of bfg_restore_avatars() re-enabling them.
  *
@@ -47,12 +46,12 @@ add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
  *
  * @return void
  */
+add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
 function bfg_hide_admin_bar_avatar() {
 
 	add_filter( 'pre_option_show_avatars', '__return_zero' );
 }
 
-add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
 /**
  * Re-enable avatars after bfg_hide_admin_bar_avatar() temporarily disabled them.
  *
@@ -60,6 +59,7 @@ add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
  *
  * @return void
  */
+add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
 function bfg_restore_avatars() {
 
 	remove_filter( 'pre_option_show_avatars', '__return_zero' );
@@ -94,7 +94,6 @@ function bfg_maybe_hide_admin_bar( $show_admin_bar ) {
  */
 // remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
-add_action( 'admin_init', 'bfg_hide_update_nags' );
 /**
  * Remove update nags for non-admins.
  *
@@ -102,6 +101,7 @@ add_action( 'admin_init', 'bfg_hide_update_nags' );
  *
  * @return void
  */
+add_action( 'admin_init', 'bfg_hide_update_nags' );
 function bfg_hide_update_nags() {
 
 	if ( current_user_can( 'update_core' ) ) {
@@ -112,7 +112,6 @@ function bfg_hide_update_nags() {
 	remove_action( 'admin_notices', 'maintenance_nag', 10 );
 }
 
-add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
 /**
  * Disable some or all of the default admin dashboard widgets.
  *
@@ -122,6 +121,7 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
  *
  * @return void
  */
+add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
 function bfg_remove_dashboard_widgets() {
 
 	remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );          // At a Glance
@@ -131,7 +131,6 @@ function bfg_remove_dashboard_widgets() {
 	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );   // Yoast SEO Posts Overview
 }
 
-add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
 /**
  * Hide the Limit Login Attempts Reloaded dashboard meta box.
  *
@@ -139,12 +138,12 @@ add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
  *
  * @return void
  */
+add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
 function bfg_wp_dashboard_setup() {
 
 	remove_meta_box( 'wps_limit_logindashboard_widget', 'dashboard', 'normal' );
 }
 
-add_action( 'widgets_init', 'bfg_unregister_widgets' );
 /**
  * Disable some or all widgets.
  *
@@ -152,6 +151,7 @@ add_action( 'widgets_init', 'bfg_unregister_widgets' );
  *
  * @return void
  */
+add_action( 'widgets_init', 'bfg_unregister_widgets' );
 function bfg_unregister_widgets() {
 
 	global $wp_widget_factory;
@@ -236,7 +236,6 @@ function bfg_add_tinymce_plugins( $plugin_array ) {
 	return $plugin_array;
 }
 
-add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 /**
  * Modifies the TinyMCE settings array.
  *
@@ -248,6 +247,7 @@ add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
  *
  * @return array Filtered settings.
  */
+add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
 function bfg_tiny_mce_before_init( $options ) {
 
 	$options['element_format']       = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
@@ -259,7 +259,6 @@ function bfg_tiny_mce_before_init( $options ) {
 	return $options;
 }
 
-add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
 /**
  * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/.
  *
@@ -269,6 +268,7 @@ add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
  *
  * @return array Filtered buttons.
  */
+add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
 function bfg_tinymce_buttons( $buttons ) {
 
 	$buttons[] = 'wp_page';                                                         // Post pagination
@@ -276,7 +276,6 @@ function bfg_tinymce_buttons( $buttons ) {
 	return $buttons;
 }
 
-add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
 /**
  * Updates the user profile contact method fields for today's popular sites.
  *
@@ -288,6 +287,7 @@ add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
  *
  * @return array Filtered fields.
  */
+add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
 function bfg_user_contactmethods( $fields ) {
 
 	// $fields['facebook'] = 'Facebook';                                            // Add Facebook
@@ -298,7 +298,6 @@ function bfg_user_contactmethods( $fields ) {
 	return $fields;
 }
 
-add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
 /**
  * Remove default admin dashboard menus.
  *
@@ -306,6 +305,7 @@ add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
  *
  * @return void
  */
+add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
 function bfg_remove_dashboard_menus() {
 
 	// remove_menu_page('index.php'); // Dashboard tab
@@ -322,7 +322,6 @@ function bfg_remove_dashboard_menus() {
 	// remove_menu_page('options-general.php'); // Settings
 }
 
-add_filter( 'login_errors', 'bfg_login_errors' );
 /**
  * Prevent the failed login notice from specifying whether the username or the password is incorrect.
  *
@@ -334,6 +333,7 @@ add_filter( 'login_errors', 'bfg_login_errors' );
  *
  * @return string Filtered message.
  */
+add_filter( 'login_errors', 'bfg_login_errors' );
 function bfg_login_errors( $text ) {
 
 	global $errors;
@@ -352,7 +352,6 @@ function bfg_login_errors( $text ) {
 	return $text;
 }
 
-add_action( 'admin_head', 'bfg_hide_admin_help_button' );
 /**
  * Hide the top-right help pull-down button by adding some CSS to the admin <head>.
  *
@@ -362,6 +361,7 @@ add_action( 'admin_head', 'bfg_hide_admin_help_button' );
  *
  * @return void
  */
+add_action( 'admin_head', 'bfg_hide_admin_help_button' );
 function bfg_hide_admin_help_button() {
 
 	?><style type="text/css">
@@ -372,7 +372,6 @@ function bfg_hide_admin_help_button() {
 	<?php
 }
 
-add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
 /**
  * Add a plugins link to the appearance admin bar menu.
  *
@@ -382,6 +381,7 @@ add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
  *
  * @return void
  */
+add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
 function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
 
 	if ( ! current_user_can( 'install_plugins' ) ) {
@@ -398,7 +398,6 @@ function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $node );
 }
 
-add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
 /**
  * Remove WP default meta boxes. You should always unhook 'Custom Fields', since it can be a large query.
  *
@@ -406,6 +405,7 @@ add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
  *
  * @return void
  */
+add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
 function bfg_remove_meta_boxes() {
 
 	// Post
@@ -447,7 +447,6 @@ function bfg_limit_items_per_page( $per_page ) {
 	return min( $per_page, 100 );
 }
 
-add_action( 'admin_init', 'bfg_setup_per_page_limits' );
 /**
  * Apply bfg_limit_items_per_page() to the built-in and custom post type
  * "items per page" screen options.
@@ -456,6 +455,7 @@ add_action( 'admin_init', 'bfg_setup_per_page_limits' );
  *
  * @return void
  */
+add_action( 'admin_init', 'bfg_setup_per_page_limits' );
 function bfg_setup_per_page_limits() {
 
 	$options = array(

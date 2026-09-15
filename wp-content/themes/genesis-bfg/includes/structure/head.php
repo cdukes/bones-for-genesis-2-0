@@ -9,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-add_action( 'wp', 'bfg_security_headers' );
 /**
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
  *
@@ -17,6 +16,7 @@ add_action( 'wp', 'bfg_security_headers' );
  *
  * @return void
  */
+add_action( 'wp', 'bfg_security_headers' );
 function bfg_security_headers() {
 
 	if ( is_admin() ) {
@@ -100,7 +100,6 @@ function bfg_inject_fonts() {
 	<?php
 }
 
-add_action( 'wp_head', 'bfg_inject_preload', 2 );
 /**
  * Add <link rel="preload">s for queued scripts.
  *
@@ -108,6 +107,7 @@ add_action( 'wp_head', 'bfg_inject_preload', 2 );
  *
  * @return void
  */
+add_action( 'wp_head', 'bfg_inject_preload', 2 );
 function bfg_inject_preload() {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
@@ -125,9 +125,6 @@ function bfg_inject_preload() {
 }
 
 // Scripts + Styles
-remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
-remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
 /**
  * Overrides the default Genesis stylesheet with child theme specific CSS and JS.
  *
@@ -137,6 +134,9 @@ add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
  *
  * @return void
  */
+remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
+remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+add_action( 'wp_enqueue_scripts', 'bfg_load_assets' );
 function bfg_load_assets() {
 
 	$stylesheet_dir = get_stylesheet_directory_uri();
@@ -203,7 +203,6 @@ function bfg_pre_load_favicon() {
 	return get_stylesheet_directory_uri() . '/images/favicon.ico';
 }
 
-add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
 /**
  * Remove the site icon customizer field, and the Additional CSS customizer field.
  *
@@ -213,6 +212,7 @@ add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
  *
  * @return void
  */
+add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
 function bfg_remove_site_icon_customizer( $wp_customize ) {
 
 	$wp_customize->remove_control( 'site_icon' );

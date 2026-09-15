@@ -1,3 +1,11 @@
+## 20260915
+- Add `Requires PHP` header to `style.css`
+- Add `webpack-remove-empty-scripts` 
+- Remove `_ajax.js` partial
+- Standardize PHP comment layout
+- Fix `bfg_get_image()` return
+- Redirect after developer tools run
+
 ## 20260909
 - Adjust `bfg_gform_filter_submit_button_tag()` for Gravity Forms 3.0
 - Adjust GF default retention policy with `bfg_gform_after_save_form()`

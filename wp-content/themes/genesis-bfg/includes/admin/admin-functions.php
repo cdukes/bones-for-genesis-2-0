@@ -30,7 +30,6 @@ function bfg_load_admin_assets() {
 	wp_enqueue_script( 'bfg-admin', $stylesheet_dir . $src, array( 'jquery' ), $version, true );
 }
 
-add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
 /**
  * Remove the REST API user endpoints.
  *
@@ -40,6 +39,7 @@ add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
  *
  * @return array Filtered endpoints, with the user routes removed.
  */
+add_filter( 'rest_endpoints', 'bfg_remove_rest_user_endpoints' );
 function bfg_remove_rest_user_endpoints( $endpoints ) {
 
 	if ( isset( $endpoints['/wp/v2/users'] ) ) {
@@ -53,7 +53,6 @@ function bfg_remove_rest_user_endpoints( $endpoints ) {
 	return $endpoints;
 }
 
-add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
 /**
  * Convert JPEG images to AVIF for better compression. PNG and WebP conversion
  * is available below but disabled by default.
@@ -64,6 +63,7 @@ add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
  *
  * @return array Filtered formats.
  */
+add_filter( 'image_editor_output_format', 'bfg_image_editor_output_format' );
 function bfg_image_editor_output_format( $formats ) {
 
 	$formats['image/jpeg'] = 'image/avif';

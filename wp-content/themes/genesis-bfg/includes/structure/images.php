@@ -118,7 +118,7 @@ function bfg_get_image( $image_id, $width, $height, $crop = false, $atts = array
 
 	$mime_type = get_post_mime_type( $image_id );
 	if ( in_array( $mime_type, array( 'application/pdf' ), true ) ) {
-		return;
+		return '';
 	}
 
 	// Default to lazy loading

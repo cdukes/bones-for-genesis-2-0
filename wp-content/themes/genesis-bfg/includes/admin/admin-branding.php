@@ -9,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-add_filter( 'login_headerurl', 'bfg_login_headerurl' );
 /**
  * Makes the login screen's logo link to your homepage, instead of to WordPress.org.
  *
@@ -17,12 +16,12 @@ add_filter( 'login_headerurl', 'bfg_login_headerurl' );
  *
  * @return string The home URL.
  */
+add_filter( 'login_headerurl', 'bfg_login_headerurl' );
 function bfg_login_headerurl() {
 
 	return home_url();
 }
 
-add_filter( 'login_headertext', 'bfg_login_headertext' );
 /**
  * Makes the login screen's logo title attribute your site title, instead of 'WordPress'.
  *
@@ -30,6 +29,7 @@ add_filter( 'login_headertext', 'bfg_login_headertext' );
  *
  * @return string The site title.
  */
+add_filter( 'login_headertext', 'bfg_login_headertext' );
 function bfg_login_headertext() {
 
 	return get_bloginfo( 'name' );
@@ -63,7 +63,6 @@ function bfg_replace_login_logo() {
 	<?php
 }
 
-add_filter( 'wp_mail_from_name', 'bfg_mail_from_name' );
 /**
  * Makes WordPress-generated emails appear 'from' your WordPress site name, instead of from 'WordPress'.
  *
@@ -71,6 +70,7 @@ add_filter( 'wp_mail_from_name', 'bfg_mail_from_name' );
  *
  * @return string The sanitized site title.
  */
+add_filter( 'wp_mail_from_name', 'bfg_mail_from_name' );
 function bfg_mail_from_name() {
 
 	$from = get_bloginfo( 'name' );
@@ -95,7 +95,6 @@ function bfg_wp_mail_from() {
 	return get_option( 'admin_email' );
 }
 
-add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message' );
 /**
  * Remove the brackets from the retreive PW link, since they get hidden on HTML.
  *
@@ -105,12 +104,12 @@ add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message'
  *
  * @return string Filtered message, with angle brackets stripped.
  */
+add_filter( 'retrieve_password_message', 'bfg_cleanup_retrieve_password_message' );
 function bfg_cleanup_retrieve_password_message( $message ) {
 
 	return preg_replace( '/<(.+?)>/', '$1', $message );
 }
 
-add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
 /**
  * Removes the WP icon from the admin bar.
  *
@@ -120,6 +119,7 @@ add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
  *
  * @return void
  */
+add_action( 'wp_before_admin_bar_render', 'bfg_remove_wp_icon_from_admin_bar' );
 function bfg_remove_wp_icon_from_admin_bar() {
 
 	global $wp_admin_bar;

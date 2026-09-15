@@ -9,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
 /**
  * Populates icon options for ACF field 'icon'.
  *
@@ -19,6 +18,7 @@ add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
  *
  * @return array Filtered field array, with 'choices' populated from svgs/.
  */
+add_filter( 'acf/load_field/name=icon', 'bfg_populate_acf_icon_options' );
 function bfg_populate_acf_icon_options( $field ) {
 
 	$field['choices'] = array();
@@ -91,7 +91,6 @@ function bfg_get_icon( $slug ) {
 	return $svg;
 }
 
-add_shortcode( 'bfg_icon', 'bfg_icon' );
 /**
  * Shortcode version of bfg_get_icon().
  *
@@ -102,6 +101,7 @@ add_shortcode( 'bfg_icon', 'bfg_icon' );
  *
  * @return string|void An inline <svg>, or nothing if 'slug' is empty.
  */
+add_shortcode( 'bfg_icon', 'bfg_icon' );
 function bfg_icon( $atts, $content = '' ) {
 
 	if ( empty( $atts['slug'] ) ) {

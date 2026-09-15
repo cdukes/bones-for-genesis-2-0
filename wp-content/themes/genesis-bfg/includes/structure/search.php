@@ -41,7 +41,6 @@ function bfg_search_button_text( $text ) {
 	return esc_attr( __( 'Click Here...', 'bfg' ) );
 }
 
-add_filter( 'genesis_attr_search-form-input', 'bfg_search_form_input', 10, 3 );
 /**
  * Make the search form input required, to prevent accidental empty search submits.
  *
@@ -53,6 +52,7 @@ add_filter( 'genesis_attr_search-form-input', 'bfg_search_form_input', 10, 3 );
  *
  * @return array Filtered attributes.
  */
+add_filter( 'genesis_attr_search-form-input', 'bfg_search_form_input', 10, 3 );
 function bfg_search_form_input( $attributes, $context, $args ) {
 
 	$attributes['required'] = true;
@@ -60,7 +60,6 @@ function bfg_search_form_input( $attributes, $context, $args ) {
 	return $attributes;
 }
 
-add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2 );
 /**
  * Make the search form submit a <button>.
  *
@@ -71,6 +70,7 @@ add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2
  *
  * @return string The submit button HTML.
  */
+add_filter( 'genesis_markup_search-form-submit', 'bfg_search_form_submit', 10, 2 );
 function bfg_search_form_submit( $short_circuit, $args ) {
 
 	ob_start();
@@ -85,7 +85,6 @@ function bfg_search_form_submit( $short_circuit, $args ) {
 	return ob_get_clean();
 }
 
-add_action( 'do_robots', 'bfg_block_bots_from_search' );
 /**
  * Add Disallow rules to robots.txt to block bots from crawling internal search result pages.
  *
@@ -95,6 +94,7 @@ add_action( 'do_robots', 'bfg_block_bots_from_search' );
  *
  * @return void
  */
+add_action( 'do_robots', 'bfg_block_bots_from_search' );
 function bfg_block_bots_from_search() {
 
 	?>

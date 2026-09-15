@@ -1,7 +1,5 @@
 .DS_Store
 .eslintcache
 .php-cs-fixer.cache
-*-css.js
-*-css.min.js
 ~*
 node_modules

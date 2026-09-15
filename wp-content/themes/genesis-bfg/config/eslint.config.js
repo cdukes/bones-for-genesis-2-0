@@ -144,7 +144,6 @@ module.exports = [
 			'prefer-rest-params': `error`,
 			'prefer-spread': `error`,
 			'prefer-template': `error`,
-			quotes: [`error`, `backtick`],
 			radix: `error`,
 			'require-atomic-updates': `error`,
 			'require-await': `error`,

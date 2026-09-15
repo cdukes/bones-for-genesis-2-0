@@ -171,7 +171,7 @@ function bfg_remove_scripts_meta_boxes() {
 function bfg_load_child_theme_textdomain() {
 
 	load_child_theme_textdomain(
-		CHILD_THEME_TEXT_DOMAIN,
+		'bfg',
 		get_stylesheet_directory() . '/languages'
 	);
 }

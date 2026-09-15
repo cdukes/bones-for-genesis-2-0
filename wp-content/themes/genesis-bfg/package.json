@@ -1,4 +1,5 @@
 {
+	"private": true,
 	"devDependencies": {
 		"@eslint/js": "*",
 		"@wordpress/eslint-plugin": "*",
@@ -25,23 +26,24 @@
 		"vue-loader": "*",
 		"vue-style-loader": "*",
 		"webpack": "*",
-		"webpack-cli": "*"
+		"webpack-cli": "*",
+		"webpack-remove-empty-scripts": "*"
 	},
 	"scripts": {
 		"eslint": "eslint --cache -c config/eslint.config.js --fix",
 		"webpack-development": "webpack --config=config/webpack.config.js --mode=development",
 		"webpack-production": "webpack --config=config/webpack.config.js --mode=production",
-		"svg_sprite": "svg-sprite --symbol --symbol-dest= --shape-id-generator=icon-%s --symbol-inline --symbol-sprite=icons.svg --shape-dim-width=100 --shape-dim-height=100 --shape-dim-precision=3 --svg-xmldecl=false --svg-doctype=false --svg-dimattrs=false --dest=build/svgs 'svgs/**/*.svg'",
+		"svg-sprite": "svg-sprite --symbol --symbol-dest= --shape-id-generator=icon-%s --symbol-inline --symbol-sprite=icons.svg --shape-dim-width=100 --shape-dim-height=100 --shape-dim-precision=3 --svg-xmldecl=false --svg-doctype=false --svg-dimattrs=false --dest=build/svgs 'svgs/**/*.svg'",
 		"prettier": "prettier --config config/prettier.config.js --log-level silent --write 'sass/**/*.scss' 'js/**/*.js' 'config/**/*.js'",
 		"postcss-scss": "postcss 'sass/**/*.scss' --replace --config=config",
 		"build:webpack": "npm run prettier && npm run postcss-scss && npm run eslint && webpack --config=config/webpack.config.js --mode=production --",
-		"build:images": "npm run svg_sprite",
+		"build:images": "npm run svg-sprite",
 		"build:php": "php-cs-fixer fix --config=config/php_cs.php && vendor/bin/phpcbf --standard=config/phpcs.xml . ; vendor/bin/phpcs --standard=config/phpcs.xml .",
 		"phpcs": "vendor/bin/phpcs --standard=config/phpcs.xml .",
 		"phpcbf": "vendor/bin/phpcbf --standard=config/phpcs.xml .",
 		"build": "concurrently 'npm run build:webpack --' 'npm run build:images' 'npm run build:php'",
 		"watch:webpack": "npm run webpack-development",
-		"watch:svgs": "nodemon --watch svgs --exec 'npm run svg_sprite' --ext svg -q",
+		"watch:svgs": "nodemon --watch svgs --exec 'npm run svg-sprite' --ext svg -q",
 		"watch": "concurrently 'npm:watch:*'"
 	}
 }

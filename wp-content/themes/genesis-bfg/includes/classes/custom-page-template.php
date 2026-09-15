@@ -48,7 +48,6 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 	}
 }
 
-add_action( 'wp', 'bfg_init_custom_page' );
 /**
  * Delay template routing until the 'wp' action, so that the WP conditional functions are accessible.
  *
@@ -56,6 +55,7 @@ add_action( 'wp', 'bfg_init_custom_page' );
  *
  * @return void
  */
+add_action( 'wp', 'bfg_init_custom_page' );
 function bfg_init_custom_page() {
 
 	global $post;

@@ -9,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-add_filter( 'gallery_style', 'bfg_gallery_style' );
 /**
  * Remove the injected styles for the [gallery] shortcode.
  *
@@ -19,6 +18,7 @@ add_filter( 'gallery_style', 'bfg_gallery_style' );
  *
  * @return string Empty string, removing the injected CSS.
  */
+add_filter( 'gallery_style', 'bfg_gallery_style' );
 function bfg_gallery_style( $css ) {
 
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
@@ -38,7 +38,6 @@ add_post_type_support( 'page', 'excerpt' );
  */
 // add_post_type_support( 'page', 'genesis-entry-meta-after-content' );
 
-add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
 /**
  * Customize the excerpt text, when using the <!--more--> tag.
  *
@@ -48,13 +47,12 @@ add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
  *
  * @return string The "read more" link HTML.
  */
+add_filter( 'the_content_more_link', 'bfg_more_tag_excerpt_link' );
 function bfg_more_tag_excerpt_link() {
 
 	return ' <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', 'bfg' ) . '</a>';
 }
 
-add_filter( 'excerpt_more', 'bfg_truncated_excerpt_link' );
-add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
 /**
  * Customize the excerpt text, when using automatic truncation.
  *
@@ -64,6 +62,8 @@ add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
  *
  * @return string The "read more" link HTML.
  */
+add_filter( 'excerpt_more', 'bfg_truncated_excerpt_link' );
+add_filter( 'get_the_content_more_link', 'bfg_truncated_excerpt_link' );
 function bfg_truncated_excerpt_link() {
 
 	return '... <a class="more-link" href="' . get_permalink() . '">' . __( 'Read more &rarr;', 'bfg' ) . '</a>';
@@ -102,7 +102,6 @@ function bfg_post_meta() {
 	return '[post_categories before="' . __( 'Filed Under: ', 'bfg' ) . '"] [post_tags before="' . __( 'Tagged: ', 'bfg' ) . '"]';
 }
 
-add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
 /**
  * Customize the post navigation prev text
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
@@ -113,12 +112,12 @@ add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
  *
  * @return string The replacement text.
  */
+add_filter( 'genesis_prev_link_text', 'bfg_prev_link_text' );
 function bfg_prev_link_text( $text ) {
 
 	return html_entity_decode( '&#10216;' ) . ' ';
 }
 
-add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
 /**
  * Customize the post navigation next text
  * (Only applies to the 'Previous/Next' Post Navigation Technique, set in Genesis > Theme Options).
@@ -129,6 +128,7 @@ add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
  *
  * @return string The replacement text.
  */
+add_filter( 'genesis_next_link_text', 'bfg_next_link_text' );
 function bfg_next_link_text( $text ) {
 
 	return ' ' . html_entity_decode( '&#10217;' );
