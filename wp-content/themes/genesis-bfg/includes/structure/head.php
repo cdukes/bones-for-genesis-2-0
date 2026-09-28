@@ -17,8 +17,7 @@ function bfg_security_headers() {
 
 	header( 'X-Frame-Options: DENY' );
 	header( 'X-Content-Type-Options: nosniff' );
-	// Explicitly disable the legacy XSS auditor: it's deprecated and can introduce
-	// vulnerabilities in older browsers. A Content-Security-Policy is the modern replacement
+	// Disabling the legacy XSS auditor avoids introducing vulnerabilities in older browsers
 	header( 'X-XSS-Protection: 0' );
 
 	// Strict-Transport-Security: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet

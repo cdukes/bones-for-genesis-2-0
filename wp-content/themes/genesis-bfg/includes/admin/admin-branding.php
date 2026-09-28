@@ -31,9 +31,6 @@ function bfg_login_headertext() {
  *
  * Disabled by default. Make sure you have a login logo before using this function!
  *
- * Updated 2.0.1: Assumes SVG logo by default
- * Updated 2.0.20: WP 3.8 logo
- *
  * @since 2.0.0
  */
 function bfg_replace_login_logo() {

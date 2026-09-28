@@ -32,6 +32,7 @@ module.exports = (env, argv) => {
 			options: {
 				api: `modern`,
 				sassOptions: {
+					loadPaths: [`node_modules`],
 					style: isProduction ? `compressed` : `expanded`,
 				},
 			},

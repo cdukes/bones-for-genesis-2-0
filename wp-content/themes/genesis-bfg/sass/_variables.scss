@@ -45,7 +45,7 @@ $breakpoints: (
 	desktop: 1280px,
 );
 
-// Replaces the include-media package. Supports expressions like '<portrait', '<=landscape', '>phone' and '>=desktop' against the $breakpoints map above.
+// Supports expressions like '<portrait', '<=landscape', '>phone' and '>=desktop' against the $breakpoints map above.
 @mixin media($expression) {
 	$operator: string.slice($expression, 1, 2);
 

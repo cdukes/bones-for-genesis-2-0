@@ -1,3 +1,6 @@
+## 20260928.2 
+- Documentation cleanup
+
 ## 20260928
 - Remove PHPCS/WPCS tooling and restore php-cs-fixer-only linting
 - Trim docblock bloat (`@package`, `@param`, `@return`)
