@@ -1,6 +1,5 @@
 const simpleImportSort = require(`eslint-plugin-simple-import-sort`),
 	pluginVue = require(`eslint-plugin-vue`),
-	wordpress = require(`@wordpress/eslint-plugin`),
 	eslintConfigPrettier = require(`eslint-config-prettier/flat`),
 	js = require(`@eslint/js`),
 	globals = require(`globals`);
@@ -10,8 +9,6 @@ module.exports = [
 		ignores: [`build/**`, `vendor/**`],
 	},
 	...pluginVue.configs[`flat/recommended`],
-	...wordpress.configs.esnext,
-	...wordpress.configs.custom,
 	{
 		languageOptions: {
 			globals: {
@@ -183,7 +180,7 @@ module.exports = [
 			'vue/v-slot-style': `error`,
 			'vue/valid-v-bind-sync': `error`,
 			'vue/valid-v-slot': `error`,
-			yoda: [`error`, `always`],
+			yoda: [`error`, `never`],
 		},
 	},
 	// Disables every rule above that fights config/prettier.config.js (indent, semi, spacing,

@@ -1,11 +1,6 @@
 <?php
-/**
- * Site header customizations.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -13,13 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add a no-js class to the <body> tag.
  *
  * @since 2.3.51
- *
- * @param array $classes Body CSS classes.
- *
- * @return array Filtered classes.
  */
 add_filter( 'body_class', 'bfg_no_js_body_class' );
-function bfg_no_js_body_class( $classes ) {
+function bfg_no_js_body_class($classes) {
 
 	$classes[] = 'no-js';
 

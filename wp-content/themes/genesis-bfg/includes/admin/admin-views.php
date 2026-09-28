@@ -1,11 +1,5 @@
 <?php
-/**
- * Admin area display customizations: admin bar, dashboard widgets, TinyMCE, screen options.
- *
- * @package BFG
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -14,14 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 2.3.43
  */
-add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
+add_theme_support( 'admin-bar', array('callback' => '__return_false') );
 
 /**
  * Remove the admin bar's inline CSS, printed separately via wp_admin_bar_header().
  *
  * @since 2.3.43
- *
- * @return void
  */
 add_action( 'admin_bar_init', 'bfg_remove_admin_bar_inline_css' );
 function bfg_remove_admin_bar_inline_css() {
@@ -43,8 +35,6 @@ function bfg_remove_admin_bar_inline_css() {
  * Temporarily disable avatars, ahead of bfg_restore_avatars() re-enabling them.
  *
  * @since 2.3.43
- *
- * @return void
  */
 add_action( 'admin_bar_menu', 'bfg_hide_admin_bar_avatar', 0 );
 function bfg_hide_admin_bar_avatar() {
@@ -56,8 +46,6 @@ function bfg_hide_admin_bar_avatar() {
  * Re-enable avatars after bfg_hide_admin_bar_avatar() temporarily disabled them.
  *
  * @since 2.3.43
- *
- * @return void
  */
 add_action( 'admin_bar_menu', 'bfg_restore_avatars', 10 );
 function bfg_restore_avatars() {
@@ -69,13 +57,9 @@ function bfg_restore_avatars() {
  * Only show the admin bar to users who can at least use Posts.
  *
  * @since 2.0.0
- *
- * @param bool $show_admin_bar Whether to show the admin bar.
- *
- * @return bool Filtered value.
  */
 add_filter( 'show_admin_bar', 'bfg_maybe_hide_admin_bar', 99 );
-function bfg_maybe_hide_admin_bar( $show_admin_bar ) {
+function bfg_maybe_hide_admin_bar($show_admin_bar) {
 
 	return current_user_can( 'edit_posts' ) ? $show_admin_bar : false;
 }
@@ -98,8 +82,6 @@ function bfg_maybe_hide_admin_bar( $show_admin_bar ) {
  * Remove update nags for non-admins.
  *
  * @since 20190301
- *
- * @return void
  */
 add_action( 'admin_init', 'bfg_hide_update_nags' );
 function bfg_hide_update_nags() {
@@ -118,8 +100,6 @@ function bfg_hide_update_nags() {
  * See: http://digwp.com/2010/10/customize-wordpress-dashboard/
  *
  * @since 1.x
- *
- * @return void
  */
 add_action( 'admin_menu', 'bfg_remove_dashboard_widgets' );
 function bfg_remove_dashboard_widgets() {
@@ -135,8 +115,6 @@ function bfg_remove_dashboard_widgets() {
  * Hide the Limit Login Attempts Reloaded dashboard meta box.
  *
  * @since 20240201
- *
- * @return void
  */
 add_action( 'wp_dashboard_setup', 'bfg_wp_dashboard_setup' );
 function bfg_wp_dashboard_setup() {
@@ -148,8 +126,6 @@ function bfg_wp_dashboard_setup() {
  * Disable some or all widgets.
  *
  * @since 2.0.0
- *
- * @return void
  */
 add_action( 'widgets_init', 'bfg_unregister_widgets' );
 function bfg_unregister_widgets() {
@@ -200,8 +176,6 @@ function bfg_unregister_widgets() {
  * Add a stylesheet for TinyMCE.
  *
  * @since 2.0.0
- *
- * @return void
  */
 function bfg_add_editor_style() {
 
@@ -214,12 +188,8 @@ function bfg_add_editor_style() {
  * Add a plugin script for TinyMCE.
  *
  * @since 2.3.35
- *
- * @param array $plugin_array TinyMCE plugin name to script URL mapping.
- *
- * @return array Filtered plugin array.
  */
-function bfg_add_tinymce_plugins( $plugin_array ) {
+function bfg_add_tinymce_plugins($plugin_array) {
 
 	$src     = BFG_PRODUCTION ? '/build/js/tinymce.min.js' : '/build/js/tinymce.js';
 	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
@@ -242,13 +212,9 @@ function bfg_add_tinymce_plugins( $plugin_array ) {
  * See: https://core.trac.wordpress.org/ticket/29360
  *
  * @since 2.0.0
- *
- * @param array $options TinyMCE init settings.
- *
- * @return array Filtered settings.
  */
 add_filter( 'tiny_mce_before_init', 'bfg_tiny_mce_before_init' );
-function bfg_tiny_mce_before_init( $options ) {
+function bfg_tiny_mce_before_init($options) {
 
 	$options['element_format']       = 'html'; // See: http://www.tinymce.com/wiki.php/Configuration:element_format
 	$options['schema']               = 'html5-strict'; // Only allow the elements that are in the current HTML5 specification. See: http://www.tinymce.com/wiki.php/Configuration:schema
@@ -263,13 +229,9 @@ function bfg_tiny_mce_before_init( $options ) {
  * Enables some commonly used formatting buttons in TinyMCE. A good resource on customizing TinyMCE: http://www.wpexplorer.com/wordpress-tinymce-tweaks/.
  *
  * @since 2.0.15
- *
- * @param array $buttons TinyMCE toolbar button names.
- *
- * @return array Filtered buttons.
  */
 add_filter( 'mce_buttons', 'bfg_tinymce_buttons' );
-function bfg_tinymce_buttons( $buttons ) {
+function bfg_tinymce_buttons($buttons) {
 
 	$buttons[] = 'wp_page';                                                         // Post pagination
 
@@ -282,13 +244,9 @@ function bfg_tinymce_buttons( $buttons ) {
  * See: http://wpmu.org/shun-the-plugin-100-wordpress-code-snippets-from-across-the-net/
  *
  * @since 2.0.0
- *
- * @param array $fields Contact method labels, keyed by user meta field name.
- *
- * @return array Filtered fields.
  */
 add_filter( 'user_contactmethods', 'bfg_user_contactmethods' );
-function bfg_user_contactmethods( $fields ) {
+function bfg_user_contactmethods($fields) {
 
 	// $fields['facebook'] = 'Facebook';                                            // Add Facebook
 	// $fields['twitter'] = 'Twitter';                                              // Add Twitter
@@ -302,8 +260,6 @@ function bfg_user_contactmethods( $fields ) {
  * Remove default admin dashboard menus.
  *
  * @since 2.0.0
- *
- * @return void
  */
 add_action( 'admin_menu', 'bfg_remove_dashboard_menus', 12 );
 function bfg_remove_dashboard_menus() {
@@ -328,13 +284,9 @@ function bfg_remove_dashboard_menus() {
  * See: http://wpdaily.co/top-10-snippets/
  *
  * @since 2.0.0
- *
- * @param string $text The default login error message.
- *
- * @return string Filtered message.
  */
 add_filter( 'login_errors', 'bfg_login_errors' );
-function bfg_login_errors( $text ) {
+function bfg_login_errors($text) {
 
 	global $errors;
 
@@ -358,8 +310,6 @@ function bfg_login_errors( $text ) {
  * See: http://speckyboy.com/2011/04/27/20-snippets-and-hacks-to-make-wordpress-user-friendly-for-your-clients/
  *
  * @since 2.0.0
- *
- * @return void
  */
 add_action( 'admin_head', 'bfg_hide_admin_help_button' );
 function bfg_hide_admin_help_button() {
@@ -376,15 +326,11 @@ function bfg_hide_admin_help_button() {
  * Add a plugins link to the appearance admin bar menu.
  *
  * @since 2.2.9
- *
- * @param WP_Admin_Bar $wp_admin_bar The admin bar object, passed by reference.
- *
- * @return void
  */
 add_action( 'admin_bar_menu', 'bfg_admin_menu_plugins_node' );
-function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
+function bfg_admin_menu_plugins_node($wp_admin_bar) {
 
-	if ( ! current_user_can( 'install_plugins' ) ) {
+	if ( !current_user_can( 'install_plugins' ) ) {
 		return;
 	}
 
@@ -402,8 +348,6 @@ function bfg_admin_menu_plugins_node( $wp_admin_bar ) {
  * Remove WP default meta boxes. You should always unhook 'Custom Fields', since it can be a large query.
  *
  * @since 2.3.30
- *
- * @return void
  */
 add_action( 'do_meta_boxes', 'bfg_remove_meta_boxes' );
 function bfg_remove_meta_boxes() {
@@ -437,12 +381,8 @@ function bfg_remove_meta_boxes() {
  * Too many items will cause timeouts on most servers.
  *
  * @since 2.3.50
- *
- * @param int $per_page The default items-per-page value.
- *
- * @return int Filtered value, capped at 100.
  */
-function bfg_limit_items_per_page( $per_page ) {
+function bfg_limit_items_per_page($per_page) {
 
 	return min( $per_page, 100 );
 }
@@ -452,8 +392,6 @@ function bfg_limit_items_per_page( $per_page ) {
  * "items per page" screen options.
  *
  * @since 2.3.50
- *
- * @return void
  */
 add_action( 'admin_init', 'bfg_setup_per_page_limits' );
 function bfg_setup_per_page_limits() {
@@ -471,7 +409,7 @@ function bfg_setup_per_page_limits() {
 	);
 
 	// 'edit_{$post_type}_per_page'
-	$post_types = get_post_types( array( '_builtin' => false ) );
+	$post_types = get_post_types( array('_builtin' => false) );
 	foreach ( $post_types as $post_type ) {
 		$options[] = 'edit_' . $post_type . '_per_page';
 	}

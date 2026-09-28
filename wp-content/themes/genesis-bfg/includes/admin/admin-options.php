@@ -1,11 +1,6 @@
 <?php
-/**
- * Genesis Customizer sections and ACF admin-menu visibility.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -14,12 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Remove some or all of the options metaboxes in Dashboard > Genesis > Theme Settings.
  *
  * @since 2.0.0
- *
- * @param array $config Genesis Customizer settings config.
- *
- * @return array Filtered config, with the listed sections removed.
  */
-function bfg_customizer_theme_settings_config( $config ) {
+function bfg_customizer_theme_settings_config($config) {
 
 	// Updates
 	unset( $config['genesis']['sections']['genesis_updates'] );
@@ -56,18 +47,14 @@ function bfg_customizer_theme_settings_config( $config ) {
  * Hide ACF config on production.
  *
  * @since 20221128
- *
- * @param bool $show Whether to show the ACF admin menu.
- *
- * @return bool Filtered value.
  */
-function bfg_show_acf_settings( $show ) {
+function bfg_show_acf_settings($show) {
 
-	if ( ! BFG_PRODUCTION ) {
+	if ( !BFG_PRODUCTION ) {
 		return $show;
 	}
 
-	if ( ! function_exists( 'acf_pro_get_license' ) ) {
+	if ( !function_exists( 'acf_pro_get_license' ) ) {
 		return $show;
 	}
 

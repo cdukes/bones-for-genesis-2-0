@@ -34,7 +34,7 @@ return $config
 			'no_trailing_comma_in_singleline'             => true,
 			'no_whitespace_before_comma_in_array'         => true,
 			'normalize_index_brace'                       => true,
-			'trim_array_spaces'                           => false,
+			'trim_array_spaces'                           => true,
 			'whitespace_after_comma_in_array'             => true,
 
 			// Basic
@@ -85,7 +85,7 @@ return $config
 			'header_comment'                    => false,
 			'multiline_comment_opening_closing' => true,
 			'no_empty_comment'                  => true,
-			'no_trailing_whitespace_in_comment' => false,
+			'no_trailing_whitespace_in_comment' => true,
 			'single_line_comment_style'         => false,
 
 			// Constant Notation
@@ -105,17 +105,21 @@ return $config
 			'switch_case_space'               => true,
 			'switch_continue_to_break'        => true,
 			'trailing_comma_in_multiline'     => true,
-			'yoda_style'                      => true,
+			'yoda_style'                      => array('equal' => false, 'identical' => false),
 
 			// Function Notation
-			'combine_nested_dirname'                           => true,
-			'fopen_flag_order'                                 => true,
-			'fopen_flags'                                      => true,
-			'function_declaration'                             => false,
+			'combine_nested_dirname' => true,
+			'fopen_flag_order'       => true,
+			'fopen_flags'            => true,
+			'function_declaration'   => array(
+				'closure_fn_spacing'       => 'none',
+				'closure_function_spacing' => 'none',
+			),
 			'type_declaration_spaces'                          => true,
 			'implode_call'                                     => true,
 			'lambda_not_used_import'                           => true,
 			'method_argument_space'                            => array('on_multiline' => 'ignore'),
+			'native_function_invocation'                       => array('scope' => 'namespaced'),
 			'no_spaces_after_function_name'                    => true,
 			'no_unreachable_default_argument_value'            => true,
 			'no_useless_sprintf'                               => true,
@@ -129,6 +133,7 @@ return $config
 
 			// Import
 			'fully_qualified_strict_types' => true,
+			'global_namespace_import'      => true,
 			'group_import'                 => true,
 			'no_leading_import_slash'      => true,
 			'no_unused_imports'            => true,
@@ -166,6 +171,7 @@ return $config
 			'no_homoglyph_names' => true,
 
 			// Operator
+			'binary_operator_spaces'             => array('default' => 'align_single_space_minimal'),
 			'concat_space'                       => array('spacing' => 'one'),
 			'increment_style'                    => true,
 			'logical_operators'                  => true,
@@ -179,34 +185,14 @@ return $config
 			'ternary_operator_spaces'            => true,
 			'ternary_to_elvis_operator'          => true,
 			'ternary_to_null_coalescing'         => true,
-			'unary_operator_spaces'              => array('only_dec_inc' => true),
+			'unary_operator_spaces'              => true,
 
 			// PHP Tag
-			'blank_line_after_opening_tag' => false,
+			'blank_line_after_opening_tag' => true,
 			'echo_tag_syntax'              => true,
 			'full_opening_tag'             => true,
 			'linebreak_after_opening_tag'  => true,
 			'no_closing_tag'               => true,
-
-			// PHPDoc
-			'no_empty_phpdoc'                               => true,
-			'no_superfluous_phpdoc_tags'                    => true,
-			'phpdoc_align'                                  => true,
-			'phpdoc_indent'                                 => true,
-			'phpdoc_no_access'                              => true,
-			'phpdoc_no_package'                             => false,
-			'phpdoc_no_useless_inheritdoc'                  => true,
-			'phpdoc_order'                                  => true,
-			'phpdoc_return_self_reference'                  => true,
-			'phpdoc_scalar'                                 => true,
-			'phpdoc_separation'                             => true,
-			'phpdoc_single_line_var_spacing'                => true,
-			'phpdoc_summary'                                => true,
-			'phpdoc_to_comment'                             => false,
-			'phpdoc_trim'                                   => true,
-			'phpdoc_trim_consecutive_blank_line_separation' => true,
-			'phpdoc_types'                                  => true,
-			'phpdoc_var_without_name'                       => true,
 
 			// Return Notation
 			'no_useless_return'      => true,
@@ -235,21 +221,17 @@ return $config
 			'string_line_ending'                => true,
 
 			// Whitespace
-			'array_indentation'           => true,
-			'blank_line_before_statement' => true,
-			'braces_position' => array(
-				'classes_opening_brace'   => 'same_line',
-				'functions_opening_brace' => 'same_line',
-			),
+			'array_indentation'                 => true,
+			'blank_line_before_statement'       => true,
 			'compact_nullable_type_declaration' => true,
 			'indentation_type'                  => true,
 			'line_ending'                       => true,
 			'method_chaining_indentation'       => true,
 			'no_extra_blank_lines'              => true,
-			'no_spaces_around_offset'     => array('positions' => array('outside')),
-			'no_trailing_whitespace'      => true,
-			'no_whitespace_in_blank_line' => true,
-			'single_blank_line_at_eof'    => true,
+			'no_spaces_around_offset'           => true,
+			'no_trailing_whitespace'            => true,
+			'no_whitespace_in_blank_line'       => true,
+			'single_blank_line_at_eof'          => true,
 		)
 	)
 	->setFinder($finder);

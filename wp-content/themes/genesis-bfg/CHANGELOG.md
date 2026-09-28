@@ -1,3 +1,9 @@
+## 20260928
+- Remove PHPCS/WPCS tooling and restore php-cs-fixer-only linting
+- Trim docblock bloat (`@package`, `@param`, `@return`)
+- Drop `@wordpress/eslint-plugin`; restore `yoda: never`
+- Standardize Prettier config (`tabWidth: 4`, `printWidth: 120`) and format `.vue` files
+
 ## 20260915
 - Add `Requires PHP` header to `style.css`
 - Add `webpack-remove-empty-scripts` 

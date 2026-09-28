@@ -1,11 +1,6 @@
 <?php
-/**
- * Gravity Forms markup and behavior customizations.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -42,16 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Change the 'rows' attribute for Gravity Forms <textarea>s.
  *
  * @since 20180726
- *
- * @param string $content The field's rendered HTML.
- * @param object $field   The current field object.
- * @param string $value   The field value.
- * @param int    $lead_id The entry ID.
- * @param int    $form_id The form ID.
- *
- * @return string Filtered HTML.
  */
-function bfg_gform_filter_textarea_rows( $content, $field, $value, $lead_id, $form_id ) {
+function bfg_gform_filter_textarea_rows($content, $field, $value, $lead_id, $form_id) {
 
 	if ( is_admin() ) {
 		return $content;
@@ -65,13 +52,8 @@ function bfg_gform_filter_textarea_rows( $content, $field, $value, $lead_id, $fo
  * Wrap Gravity Forms <select>s with a <div> and SVG icon.
  *
  * @since 20180726
- *
- * @param string $html  The field's rendered HTML.
- * @param object $field The current field object.
- *
- * @return string Filtered HTML.
  */
-function bfg_gform_filter_select_field_html( $html, $field ) {
+function bfg_gform_filter_select_field_html($html, $field) {
 
 	if ( is_admin() ) {
 		return $html;
@@ -87,13 +69,8 @@ function bfg_gform_filter_select_field_html( $html, $field ) {
  * Switch the Gravity Forms <input type="submit"> button to a <button type="submit">, for easier styling.
  *
  * @since 20180726
- *
- * @param string $button_input The submit button's rendered HTML.
- * @param array  $form         The current form object.
- *
- * @return string Filtered HTML.
  */
-function bfg_gform_filter_submit_button_tag( $button_input, $form ) {
+function bfg_gform_filter_submit_button_tag($button_input, $form) {
 
 	if ( is_admin() ) {
 		return $button_input;
@@ -117,13 +94,8 @@ function bfg_gform_filter_submit_button_tag( $button_input, $form ) {
  * Replace validation errors <h2> with <p>.
  *
  * @since 20210728
- *
- * @param string $html The validation errors summary HTML.
- * @param array  $form The current form object.
- *
- * @return string Filtered HTML.
  */
-function bfg_gform_form_validation_errors_markup( $html, $form ) {
+function bfg_gform_form_validation_errors_markup($html, $form) {
 
 	return str_replace( 'h2', 'p', $html );
 }
@@ -141,14 +113,10 @@ function bfg_gform_form_validation_errors_markup( $html, $form ) {
  * Apply data management defaults when a form is first created.
  *
  * @since 20260909
- *
- * @param array $form_meta      The saved form meta.
- * @param bool  $is_new         True if this save created the form.
- * @param array $deleted_fields The IDs of any fields which have been deleted.
  */
-function bfg_gform_after_save_form( $form_meta, $is_new, $deleted_fields ) {
+function bfg_gform_after_save_form($form_meta, $is_new, $deleted_fields) {
 
-	if ( ! $is_new ) {
+	if ( !$is_new ) {
 		return;
 	}
 
@@ -165,21 +133,15 @@ function bfg_gform_after_save_form( $form_meta, $is_new, $deleted_fields ) {
  * Flag Cyrillic submissions as spam.
  *
  * @since 20240313
- *
- * @param bool  $is_spam Whether the entry is currently flagged as spam.
- * @param array $form    The current form object.
- * @param array $entry   The submitted entry values.
- *
- * @return bool Filtered value.
  */
-function bfg_gform_entry_is_spam( $is_spam, $form, $entry ) {
+function bfg_gform_entry_is_spam($is_spam, $form, $entry) {
 
 	foreach ( $entry as $value ) {
 		if ( empty( $value ) ) {
 			continue;
 		}
 
-		if ( ! preg_match( '/[\p{Cyrillic}]/u', $value ) ) {
+		if ( !preg_match( '/[\p{Cyrillic}]/u', $value ) ) {
 			continue;
 		}
 

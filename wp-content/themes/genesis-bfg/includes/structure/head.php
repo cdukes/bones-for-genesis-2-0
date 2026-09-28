@@ -1,11 +1,5 @@
 <?php
-/**
- * <head> output: security headers, fonts, asset enqueuing, favicons.
- *
- * @package BFG
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -13,8 +7,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Prevent other sites from embedding this one in an iFrame, and prevents MIME type spoofing.
  *
  * @since 2.3.56
- *
- * @return void
  */
 add_action( 'wp', 'bfg_security_headers' );
 function bfg_security_headers() {
@@ -37,21 +29,17 @@ function bfg_security_headers() {
  * Use development mode for Yoast SEO when not in production.
  *
  * @since 20220606
- *
- * @return bool Whether to enable development mode.
  */
 add_filter( 'yoast_seo_development_mode', 'bfg_yoast_seo_development_mode' );
 function bfg_yoast_seo_development_mode() {
 
-	return ! BFG_PRODUCTION;
+	return !BFG_PRODUCTION;
 }
 
 /**
  * Build a list of self-hosted fonts, used to resource hints and inline @font-face style.
  *
  * @since 20200716
- *
- * @return array Font definitions, keyed by font file slug.
  */
 function bfg_get_fonts() {
 
@@ -73,8 +61,6 @@ function bfg_get_fonts() {
  * Inject inline @font-face CSS at the top of <head>.
  *
  * @since 20200716
- *
- * @return void
  */
 // add_action( 'wp_head', 'bfg_inject_fonts', 1 );
 function bfg_inject_fonts() {
@@ -104,8 +90,6 @@ function bfg_inject_fonts() {
  * Add <link rel="preload">s for queued scripts.
  *
  * @since 20190301
- *
- * @return void
  */
 add_action( 'wp_head', 'bfg_inject_preload', 2 );
 function bfg_inject_preload() {
@@ -114,7 +98,7 @@ function bfg_inject_preload() {
 
 	// Fonts
 	foreach ( bfg_get_fonts() as $slug => $font ) {
-		if ( ! $font['preload'] ) {
+		if ( !$font['preload'] ) {
 			continue;
 		}
 
@@ -131,8 +115,6 @@ function bfg_inject_preload() {
  * Only load these styles on the front-end.
  *
  * @since 2.0.0
- *
- * @return void
  */
 remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
@@ -167,7 +149,7 @@ function bfg_load_assets() {
 	// Main script file (in footer)
 	$src     = BFG_PRODUCTION ? '/build/js/scripts.min.js' : '/build/js/scripts.js';
 	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
-	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, array( 'strategy' => 'defer' ) );
+	wp_enqueue_script( 'bfg', $stylesheet_dir . $src, array(), $version, array('strategy' => 'defer') );
 
 	$src     = '/build/svgs/icons.svg';
 	$version = file_exists( CHILD_DIR . $src ) ? filemtime( CHILD_DIR . $src ) : null;
@@ -195,8 +177,6 @@ remove_action( 'wp_head', 'genesis_load_favicon' );
  * Simple favicon override to specify your favicon's location.
  *
  * @since 2.0.0
- *
- * @return string The favicon URL.
  */
 function bfg_pre_load_favicon() {
 
@@ -207,13 +187,9 @@ function bfg_pre_load_favicon() {
  * Remove the site icon customizer field, and the Additional CSS customizer field.
  *
  * @since 20200420
- *
- * @param WP_Customize_Manager $wp_customize Customizer manager instance.
- *
- * @return void
  */
 add_action( 'customize_register', 'bfg_remove_site_icon_customizer', 20, 1 );
-function bfg_remove_site_icon_customizer( $wp_customize ) {
+function bfg_remove_site_icon_customizer($wp_customize) {
 
 	$wp_customize->remove_control( 'site_icon' );
 	$wp_customize->remove_setting( 'custom_css' );
@@ -230,8 +206,6 @@ remove_action( 'wp_head', 'wp_site_icon', 99 );
  * Remove the site icon admin <head> display.
  *
  * @since 20200420
- *
- * @return void
  */
 add_action( 'admin_head', 'bfg_remove_admin_site_icon', 8 );
 function bfg_remove_admin_site_icon() {
@@ -247,8 +221,6 @@ function bfg_remove_admin_site_icon() {
  * See: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
  *
  * @since 2.0.4
- *
- * @return void
  */
 function bfg_load_favicons() {
 

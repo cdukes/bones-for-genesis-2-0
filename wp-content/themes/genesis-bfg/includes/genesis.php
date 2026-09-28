@@ -1,11 +1,6 @@
 <?php
-/**
- * Genesis framework customizations: theme support, layouts, meta boxes.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -16,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 2.0.0
  */
-add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'navigation-widgets', 'search-form', 'script', 'style' ) );
+add_theme_support( 'html5', array('caption', 'comment-form', 'comment-list', 'gallery', 'navigation-widgets', 'search-form', 'script', 'style') );
 
 /**
  * Genesis 2.2 accessibility features.
@@ -25,7 +20,7 @@ add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'g
  *
  * @since 2.3.17
  */
-add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', 'screen-reader-text', 'skip-links', 'search-form' ) );
+add_theme_support( 'genesis-accessibility', array('404-page', 'headings', 'screen-reader-text', 'skip-links', 'search-form') );
 
 /**
  * Remove Genesis Import/Export support.
@@ -97,8 +92,6 @@ remove_theme_support( 'genesis-import-export-menu' );
  * Remove the Genesis 'Layout Settings' meta box for posts and/or pages.
  *
  * @since 2.0.0
- *
- * @return void
  */
 function bfg_remove_layout_meta_boxes() {
 
@@ -125,8 +118,6 @@ remove_theme_support( 'genesis-archive-layouts' );
  * Remove the Genesis 'Scripts' meta box for posts and/or pages.
  *
  * @since 2.0.12
- *
- * @return void
  */
 function bfg_remove_scripts_meta_boxes() {
 
@@ -164,8 +155,6 @@ function bfg_remove_scripts_meta_boxes() {
  * Set child theme text domain.
  *
  * @since 2.3.33
- *
- * @return void
  */
 // add_action( 'after_setup_theme', 'bfg_load_child_theme_textdomain' );
 function bfg_load_child_theme_textdomain() {

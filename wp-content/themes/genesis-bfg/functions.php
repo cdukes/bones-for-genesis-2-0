@@ -1,15 +1,10 @@
 <?php
-/**
- * Theme bootstrap: defines constants and requires every include file.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-define( 'BFG_PRODUCTION', 'production' === wp_get_environment_type() );
+define( 'BFG_PRODUCTION', wp_get_environment_type() === 'production' );
 
 // Initialize Genesis
 require_once get_template_directory() . '/lib/init.php';

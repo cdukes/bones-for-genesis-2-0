@@ -5,7 +5,7 @@ const webpack = require(`webpack`),
 	RemoveEmptyScriptsPlugin = require(`webpack-remove-empty-scripts`);
 
 module.exports = (env, argv) => {
-	const isProduction = `production` === argv.mode;
+	const isProduction = argv.mode === `production`;
 
 	const styleLoaders = [
 		{

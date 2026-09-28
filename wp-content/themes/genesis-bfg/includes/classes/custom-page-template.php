@@ -1,11 +1,6 @@
 <?php
-/**
- * Starter class and loader for the Custom Template Starter page template.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
@@ -30,7 +25,7 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 	 */
 	protected $post_id;
 
-	public function __construct( $post ) {
+	public function __construct($post) {
 
 		// Save global $post as a class property, to avoid calling the global later, and for use in the template abstract
 		$this->post = $post;
@@ -38,7 +33,7 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 		// Save the post_id as a class property, for easy access
 		$this->post_id = $this->post->ID;
 
-		add_action( 'genesis_entry_content', array( $this, 'display_content' ) );
+		add_action( 'genesis_entry_content', array($this, 'display_content') );
 	}
 
 	public function display_content() {
@@ -52,8 +47,6 @@ class BFG_Custom_Page extends BFG_Abstract_Page_Template {
  * Delay template routing until the 'wp' action, so that the WP conditional functions are accessible.
  *
  * @since 20180728
- *
- * @return void
  */
 add_action( 'wp', 'bfg_init_custom_page' );
 function bfg_init_custom_page() {
@@ -61,12 +54,12 @@ function bfg_init_custom_page() {
 	global $post;
 
 	// Stop if not a single page
-	if ( ! is_singular( 'page' ) ) {
+	if ( !is_singular( 'page' ) ) {
 		return;
 	}
 
 	// Stop if not the target page template
-	if ( 'page_templates/page_custom.php' !== get_page_template_slug() ) {
+	if ( get_page_template_slug() !== 'page_templates/page_custom.php' ) {
 		return;
 	}
 

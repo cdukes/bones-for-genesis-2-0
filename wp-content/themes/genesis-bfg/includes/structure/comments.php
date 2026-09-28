@@ -1,11 +1,6 @@
 <?php
-/**
- * Comments and pings frontend display customizations.
- *
- * @package BFG
- */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
