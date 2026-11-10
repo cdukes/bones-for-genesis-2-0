@@ -12,23 +12,13 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 class BFG_Custom_Page extends BFG_Abstract_Page_Template {
 	/**
-	 * The current page's post object.
-	 *
-	 * @var WP_Post
-	 */
-	protected $post;
-
-	/**
 	 * The current page's post ID.
 	 *
 	 * @var int
 	 */
-	protected $post_id;
+	protected int $post_id;
 
-	public function __construct($post) {
-
-		// Save global $post as a class property, to avoid calling the global later, and for use in the template abstract
-		$this->post = $post;
+	public function __construct(protected WP_Post $post) {
 
 		// Save the post_id as a class property, for easy access
 		$this->post_id = $this->post->ID;

@@ -137,15 +137,15 @@ function bfg_gform_after_save_form($form_meta, $is_new, $deleted_fields) {
 function bfg_gform_entry_is_spam($is_spam, $form, $entry) {
 
 	foreach ( $entry as $value ) {
-		if ( empty( $value ) ) {
-			continue;
-		}
+		foreach ( (array) $value as $field_value ) {
+			if ( !is_string( $field_value ) || $field_value === '' ) {
+				continue;
+			}
 
-		if ( !preg_match( '/[\p{Cyrillic}]/u', $value ) ) {
-			continue;
+			if ( preg_match( '/[\p{Cyrillic}]/u', $field_value ) ) {
+				return true;
+			}
 		}
-
-		return true;
 	}
 
 	return $is_spam;

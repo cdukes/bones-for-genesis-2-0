@@ -1,5 +1,6 @@
 {
     "require": {
+        "php": ">=8.5",
         "roave/security-advisories": "dev-master"
     }
 }

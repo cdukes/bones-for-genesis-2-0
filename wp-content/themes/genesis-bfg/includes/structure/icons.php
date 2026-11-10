@@ -20,7 +20,7 @@ function bfg_populate_acf_icon_options($field) {
 
 	// Skip if ACF edit screen
 	$screen = get_current_screen();
-	if ( !empty( $screen->id ) && $screen->id === 'acf-field-group' ) {
+	if ( $screen?->id === 'acf-field-group' ) {
 		return $field;
 	}
 
@@ -30,6 +30,10 @@ function bfg_populate_acf_icon_options($field) {
 	}
 
 	$files = scandir( $path );
+	if ( !is_array( $files ) ) {
+		return $field;
+	}
+
 	foreach ( $files as $file ) {
 		$parts = pathinfo( $file );
 		if ( empty( $parts['extension'] ) ) {
@@ -72,7 +76,7 @@ function bfg_get_icon($slug) {
 	);
 
 	$svg = '<svg class="icon icon-' . esc_attr( $slug ) . '" aria-hidden="true" focusable="false" width="24" height="24">';
-		$svg .= '<use href="' . $src . '#icon-' . esc_attr( $slug ) . '"></use>';
+		$svg .= '<use href="' . esc_url( $src ) . '#icon-' . esc_attr( $slug ) . '"></use>';
 	$svg  .= '</svg>';
 
 	return $svg;

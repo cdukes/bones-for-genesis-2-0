@@ -1,3 +1,12 @@
+## 20261110
+- Require PHP 8.5 and WordPress 6.9 in `style.css`
+- Add PHP 8.5 requirement to `composer.json`
+- Fix `bfg_gform_entry_is_spam()` handling of array field values
+- Improve escaping for icons and post links
+- Guard `scandir()` in `bfg_populate_acf_icon_options()`
+- Use nullsafe access for the ACF screen check
+- Use typed properties and constructor promotion in `BFG_Custom_Page`
+
 ## 20260928.2 
 - Documentation cleanup
 
